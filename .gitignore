@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+.vs/Project8/v14/.suo
+*.db
+Project8.VC.VC.opendb
+Project8/x64/Debug/Project8.vcxprojResolveAssemblyReference.cache
