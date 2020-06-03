@@ -13,7 +13,7 @@ namespace Project8 {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace System::Drawing::Drawing2D;
-
+	using namespace System::Media;
 	/// <summary>
 	/// Resumen de MyForm
 	/// </summary>
@@ -30,10 +30,13 @@ namespace Project8 {
 			poli = gcnew CPolicia();
 			ambulancia = gcnew CAmbulancia();
 			mapa = gcnew CMapas();
+			st=gcnew SoundPlayer("soundtrackTono.wav");
 			//g->DrawImage(personaje->getImagen(), 0, 0, personaje->getRectangle(), GraphicsUnit::Pixel);
 
 
 		};
+	private: System::Windows::Forms::Timer^  timer1;
+	public:
 
 	protected:
 		Graphics^g;
@@ -62,11 +65,14 @@ namespace Project8 {
 		CPolicia^poli;
 		CAmbulancia ^ambulancia;
 		CMapas^ mapa;
-	
+		bool activo;
+		SoundPlayer^ st;
+	private: System::ComponentModel::IContainer^  components;
+
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -75,7 +81,9 @@ namespace Project8 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
 			this->panelito = (gcnew System::Windows::Forms::Panel());
+			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->SuspendLayout();
 			// 
 			// panelito
@@ -85,6 +93,11 @@ namespace Project8 {
 			this->panelito->Size = System::Drawing::Size(768, 631);
 			this->panelito->TabIndex = 0;
 			this->panelito->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::panelito_Paint);
+			// 
+			// timer1
+			// 
+			this->timer1->Enabled = true;
+			this->timer1->Tick += gcnew System::EventHandler(this, &MyForm::timer1_Tick);
 			// 
 			// MyForm
 			// 
@@ -97,6 +110,8 @@ namespace Project8 {
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
+			this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &MyForm::MyForm_KeyDown);
+			this->KeyUp += gcnew System::Windows::Forms::KeyEventHandler(this, &MyForm::MyForm_KeyUp);
 			this->ResumeLayout(false);
 
 		}
@@ -106,11 +121,47 @@ namespace Project8 {
 		//g->DrawImage(personaje->getImagen(), 0, 0, personaje->getRectangle(),GraphicsUnit::Pixel);
 	}
 	private: System::Void panelito_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
-		g->DrawImage(mapa->getImagen(), 0, 0, mapa->getRectangle(), GraphicsUnit::Pixel);
-		g->DrawImage(jugador->getImagen(), 0, 0, jugador->getRectangle(), GraphicsUnit::Pixel);
+		
+		
 		g->DrawImage(poli->getImagen(), 30, 30, poli->getRectangle(), GraphicsUnit::Pixel);
 		g->DrawImage(ambulancia->getImagen(), 360, 30, ambulancia->getRectangle(), GraphicsUnit::Pixel);
+		st->PlayLooping();
 		
 	}
-	};
+	private: System::Void MyForm_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
+		activo = true;
+		if (e->KeyCode == Keys::Up) {
+			jugador->Mover(Direccion::Arriba);
+		}else if(e->KeyCode == Keys::Down){
+			jugador->Mover(Direccion::Abajo);
+		}
+		else if (e->KeyCode == Keys::Left) {
+			jugador->Mover(Direccion::Izquierda);
+
+		}else if(e->KeyCode == Keys::Right){
+			jugador->Mover(Direccion::Derecha);
+		}
+		//activo = false;
+	}
+	private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {
+		g->DrawImage(mapa->getImagen(), 0, 0, mapa->getRectangle(), GraphicsUnit::Pixel);
+		//g->DrawImage(jugador->getImagen(), jugador->getPosX(), jugador->getPosY(), jugador->getRectangle(), GraphicsUnit::Pixel);
+		jugador->Mostrar(g,activo);
+	}
+private: System::Void MyForm_KeyUp(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
+	if (e->KeyCode == Keys::Up) {
+		activo = false;
+	}
+	else if (e->KeyCode == Keys::Down) {
+		activo = false;
+	}
+	else if (e->KeyCode == Keys::Left) {
+		activo = false;
+
+	}
+	else if (e->KeyCode == Keys::Right) {
+		activo = false;
+	}
+}
+};
 }

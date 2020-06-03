@@ -13,6 +13,8 @@ protected:
 	Int16 y;
 	Int16 dx;
 	Int16 dy;
+	Int16 posx;
+	Int16 posy;
 	Rectangle areaVisible;
 public:
 	CEntidad() {
@@ -30,6 +32,8 @@ public:
 
 	Int16 getX() { return x; }
 	Int16 getY() { return y; }
+	Int16 getPosX() { return posx; }
+	Int16 getPosY() { return posy; }
 	Int16 getDX() { return dx; }
 	Int16 getDY() { return dy; }
 	Rectangle getRectangle() { return areaVisible;}
