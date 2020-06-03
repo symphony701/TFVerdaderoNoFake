@@ -34,3 +34,11 @@
 *.db
 Project8.VC.VC.opendb
 Project8/x64/Debug/Project8.vcxprojResolveAssemblyReference.cache
+*.asm
+*.tlog
+x64/Debug/FirstForm.pdb
+x64/Debug/FirstForm.exe.metagen
+Project8/x64/Debug/vc140.pdb
+Project8/x64/Debug/Project8.log
+Project8/x64/Debug/Project8.PaginaInicio.resources
+Project8/x64/Debug/Project8.vcxproj.GenerateResource.Cache
