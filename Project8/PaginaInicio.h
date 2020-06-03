@@ -3,6 +3,7 @@
 #include "Jugador.h"
 #include "Policia.h"
 #include "Ambulancia.h"
+#include "mapas.h"
 namespace Project8 {
 
 	using namespace System;
@@ -28,6 +29,7 @@ namespace Project8 {
 			jugador = gcnew CJugador();
 			poli = gcnew CPolicia();
 			ambulancia = gcnew CAmbulancia();
+			mapa = gcnew CMapas();
 			//g->DrawImage(personaje->getImagen(), 0, 0, personaje->getRectangle(), GraphicsUnit::Pixel);
 
 
@@ -59,6 +61,7 @@ namespace Project8 {
 		CJugador^ jugador;
 		CPolicia^poli;
 		CAmbulancia ^ambulancia;
+		CMapas^ mapa;
 	
 		/// <summary>
 		/// Variable del diseñador necesaria.
@@ -103,9 +106,10 @@ namespace Project8 {
 		//g->DrawImage(personaje->getImagen(), 0, 0, personaje->getRectangle(),GraphicsUnit::Pixel);
 	}
 	private: System::Void panelito_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
+		g->DrawImage(mapa->getImagen(), 0, 0, mapa->getRectangle(), GraphicsUnit::Pixel);
 		g->DrawImage(jugador->getImagen(), 0, 0, jugador->getRectangle(), GraphicsUnit::Pixel);
 		g->DrawImage(poli->getImagen(), 30, 30, poli->getRectangle(), GraphicsUnit::Pixel);
-		g->DrawImage(ambulancia->getImagen(), 60, 30, ambulancia->getRectangle(), GraphicsUnit::Pixel);
+		g->DrawImage(ambulancia->getImagen(), 360, 30, ambulancia->getRectangle(), GraphicsUnit::Pixel);
 		
 	}
 	};
