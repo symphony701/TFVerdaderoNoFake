@@ -27,8 +27,7 @@ namespace Project8 {
 		
 		};
 
-	protected:
-		CEntidad^ personaje;
+	protected:	
 		Graphics^g;
 		/// <summary>
 		/// Limpiar los recursos que se estén usando.
@@ -50,7 +49,7 @@ namespace Project8 {
 	protected:
 
 	private:
-		
+		CEntidad^ personaje;
 	
 		/// <summary>
 		/// Variable del diseñador necesaria.
