@@ -1,5 +1,8 @@
 #pragma once
 #include "Entidad.h"
+#include "Jugador.h"
+#include "Policia.h"
+#include "Ambulancia.h"
 namespace Project8 {
 
 	using namespace System;
@@ -20,14 +23,17 @@ namespace Project8 {
 		{
 			InitializeComponent();
 
-			g=panelito->CreateGraphics();
-			personaje = gcnew CEntidad();
+			g = panelito->CreateGraphics();
+
+			jugador = gcnew CJugador();
+			poli = gcnew CPolicia();
+			ambulancia = gcnew CAmbulancia();
 			//g->DrawImage(personaje->getImagen(), 0, 0, personaje->getRectangle(), GraphicsUnit::Pixel);
-			
-		
+
+
 		};
 
-	protected:	
+	protected:
 		Graphics^g;
 		/// <summary>
 		/// Limpiar los recursos que se estén usando.
@@ -49,7 +55,10 @@ namespace Project8 {
 	protected:
 
 	private:
-		CEntidad^ personaje;
+
+		CJugador^ jugador;
+		CPolicia^poli;
+		CAmbulancia ^ambulancia;
 	
 		/// <summary>
 		/// Variable del diseñador necesaria.
@@ -94,7 +103,10 @@ namespace Project8 {
 		//g->DrawImage(personaje->getImagen(), 0, 0, personaje->getRectangle(),GraphicsUnit::Pixel);
 	}
 	private: System::Void panelito_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
-		g->DrawImage(personaje->getImagen(), 0, 0, personaje->getRectangle(), GraphicsUnit::Pixel);
+		g->DrawImage(jugador->getImagen(), 0, 0, jugador->getRectangle(), GraphicsUnit::Pixel);
+		g->DrawImage(poli->getImagen(), 30, 30, poli->getRectangle(), GraphicsUnit::Pixel);
+		g->DrawImage(ambulancia->getImagen(), 60, 30, ambulancia->getRectangle(), GraphicsUnit::Pixel);
+		
 	}
 	};
 }
