@@ -11,7 +11,7 @@ enum  Direccion
 ref class CJugador : public CEntidad{
 private:
 	Int16 vidas;
-	Direccion ultimaTecla;
+	//Direccion ultimaTecla;
 public:
 	CJugador() {
 	//	x = 0;
@@ -23,7 +23,7 @@ public:
 		altoSprite = imagen->Height;
 		anchoImagen = anchoSprite / 12;
 		altoImagen = altoSprite / 8;
-		Direccion direccion;
+//		Direccion direccion;
 		
 	}
 	~CJugador(){}
@@ -32,7 +32,7 @@ public:
 	Void Mostrar(Graphics^g,bool act) {
 		
 		areaVisible = Rectangle(anchoImagen*x, altoImagen*y, anchoImagen, altoImagen);
-	//	g->Clear(Color::White);
+		
 		g->DrawImage(imagen,posx,posy,areaVisible,GraphicsUnit::Pixel);
 		if(act==true){ x++; }
 		

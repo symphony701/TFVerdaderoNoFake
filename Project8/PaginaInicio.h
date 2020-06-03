@@ -123,8 +123,8 @@ namespace Project8 {
 	private: System::Void panelito_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
 		
 		
-		g->DrawImage(poli->getImagen(), 30, 30, poli->getRectangle(), GraphicsUnit::Pixel);
-		g->DrawImage(ambulancia->getImagen(), 360, 30, ambulancia->getRectangle(), GraphicsUnit::Pixel);
+	//	g->DrawImage(poli->getImagen(), 30, 30, poli->getRectangle(), GraphicsUnit::Pixel);
+	//	g->DrawImage(ambulancia->getImagen(), 360, 30, ambulancia->getRectangle(), GraphicsUnit::Pixel);
 		st->PlayLooping();
 		
 	}
@@ -144,9 +144,20 @@ namespace Project8 {
 		//activo = false;
 	}
 	private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {
-		g->DrawImage(mapa->getImagen(), 0, 0, mapa->getRectangle(), GraphicsUnit::Pixel);
-		//g->DrawImage(jugador->getImagen(), jugador->getPosX(), jugador->getPosY(), jugador->getRectangle(), GraphicsUnit::Pixel);
-		jugador->Mostrar(g,activo);
+		
+		BufferedGraphicsContext ^bfc = BufferedGraphicsManager::Current;
+		BufferedGraphics ^bf = bfc->Allocate(g,this->ClientRectangle);
+		/////INICIO DE CODIGO
+		bf->Graphics->DrawImage(mapa->getImagen(), 0, 0, mapa->getRectangle(), GraphicsUnit::Pixel);
+		
+		jugador->Mostrar(bf->Graphics,activo);
+		poli->Mostrar(bf->Graphics);
+		poli->Mover();
+
+		///////FIN DE CODIGO
+		bf->Render(g);
+		delete bf, bfc;
+
 	}
 private: System::Void MyForm_KeyUp(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
 	if (e->KeyCode == Keys::Up) {

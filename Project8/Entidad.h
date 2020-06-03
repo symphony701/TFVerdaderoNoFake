@@ -18,13 +18,7 @@ protected:
 	Rectangle areaVisible;
 public:
 	CEntidad() {
-		//imagen = gcnew Bitmap("ambulancia.png");
-		//anchoSprite = imagen->Width;
-		//altoSprite = imagen->Height;
-		/*anchoImagen = anchoSprite / 12;
-		altoImagen = altoSprite / 8;*/
-		//anchoImagen = anchoSprite / 3;
-		//altoImagen = altoSprite / 4;
+	
 		areaVisible = Rectangle(anchoImagen*x, altoImagen*y, anchoImagen, altoImagen);
 
 	};
