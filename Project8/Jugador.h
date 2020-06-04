@@ -84,18 +84,36 @@ public:
 			movArriba = false;
 		}
 		else { movArriba = true; }*/
-		if (posy  >= 440 && posx >= 179 && posx  <= 250 && posy  <= 445) {
+		if (posy  >= 440 && posy <= 445 && posx  <= 250 && posx >= 179  ) {
 			
 			movArriba = false;
 		}
 		else { movArriba = true; }
 
-		if (113 >= posx) {
+
+		if (posy >= 374 && posy <= 437 && posx <= 260 && posx >= 257) {
+
+			movIzquierda = false;
+		}
+		else { movIzquierda = true; }
+		if (posy >= 365 && posy <= 368 && posx <= 250 && posx >= 179) {
+
+			movAbajo = false;
+		}
+		else { movAbajo = true; }
+
+
+		if (posy >= 380 && posy <= 431 && posx <= 161 && posx >= 158) {
+
+			movDerecha = false;
+		}
+		else { movDerecha = true; }
+		/*if (113 >= posx) {
 			posx = 113;
 		}
 		if (0 >= posy) {
 			posy = 0;
-		}
+		}*/
 		//if ((670 - anchoImagen) <= posx&& posx==649 && posy==178) {
 
 		//}
