@@ -58,6 +58,18 @@ public:
 		default:
 			break;
 		}
+		if ((768-anchoImagen) <= posx) {
+			posx = 768 - anchoImagen;
+		}
+		if ((631 -altoImagen) <= posy) {
+			posy = (631 -altoImagen);
+		}
+		if (0 >= posx) {
+			posx = 0;
+		}
+		if (0 >= posy) {
+			posy = 0;
+		}
 	}
 
 };
