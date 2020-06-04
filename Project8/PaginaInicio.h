@@ -5,6 +5,8 @@
 #include "Ambulancia.h"
 #include "mapas.h"
 #include "Map2.h"
+#include <iostream>
+using namespace std;
 namespace Project8 {
 
 	using namespace System;
@@ -93,8 +95,10 @@ namespace Project8 {
 			this->panelito->Name = L"panelito";
 			this->panelito->Size = System::Drawing::Size(768, 631);
 			this->panelito->TabIndex = 0;
+			this->panelito->Click += gcnew System::EventHandler(this, &MyForm::panelito_Click);
 			this->panelito->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::panelito_Paint);
 			this->panelito->DoubleClick += gcnew System::EventHandler(this, &MyForm::panelito_DoubleClick);
+			this->panelito->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MyForm::panelito_MouseClick);
 			// 
 			// timer1
 			// 
@@ -181,7 +185,14 @@ private: System::Void panelito_DoubleClick(System::Object^  sender, System::Even
 	WindowState = FormWindowState::Minimized;
 	map2->ShowDialog();
 	WindowState = FormWindowState::Normal;
+	
 	delete map2;
+}
+private: System::Void panelito_Click(System::Object^  sender, System::EventArgs^  e) {
+	
+}
+private: System::Void panelito_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+	cout << e->X << "---" << e->Y << endl;
 }
 };
 }

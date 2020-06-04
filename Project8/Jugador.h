@@ -1,8 +1,10 @@
 #pragma once
 #include "Entidad.h"
+#include <iostream>
 using namespace System;
 using namespace System::Windows::Forms;
 using namespace System::Drawing;
+using namespace std;
 enum  Direccion
 {
 	Ninguna,Abajo,Arriba,Izquierda,Derecha
@@ -11,18 +13,20 @@ enum  Direccion
 ref class CJugador : public CEntidad{
 private:
 	Int16 vidas;
+	bool movArriba, movAbajo, movDerecha, movIzquierda;
 	//Direccion ultimaTecla;
 public:
 	CJugador() {
 	//	x = 0;
 		//y = 0;
-		posx = posy = 0;
+		posx = posy = 200;
 		dx=dy = 3;
 		imagen = gcnew Bitmap("jugador.png");
 		anchoSprite = imagen->Width;
 		altoSprite = imagen->Height;
 		anchoImagen = anchoSprite / 12;
 		altoImagen = altoSprite / 8;
+		movArriba = movAbajo = movDerecha = movIzquierda = true;
 //		Direccion direccion;
 		
 	}
@@ -39,37 +43,63 @@ public:
 		if (x == 3) { x = 0; }
 	}
 	Void Mover(Direccion direccion) {
+		 
 		switch (direccion)
 		{
 		case Direccion::Ninguna: 
 			break;
-		case Direccion::Abajo: posy += dy;
+		case Direccion::Abajo: 
+			if(movAbajo){ posy += dy; }
 			y = 0;
 			break;
-		case Direccion::Arriba:posy -= dy;
+		case Direccion::Arriba:
+			if (movArriba) { posy -= dy; }
+			
 			y = 3;
 			break;
-		case Direccion::Izquierda:posx -= dx;
+		case Direccion::Izquierda:
+			if (movIzquierda) { posx -= dx; }
+			
 			y = 1;
 			break;
-		case Direccion::Derecha:posx += dx;
+		case Direccion::Derecha:
+			if (movDerecha) { posx += dx; }
+		
 			y = 2;
 			break;
 		default:
 			break;
 		}
-		if ((768-anchoImagen) <= posx) {
-			posx = 768 - anchoImagen;
+		if ((670-anchoImagen) <= posx) {
+			posx = 670 - anchoImagen;
 		}
-		if ((631 -altoImagen) <= posy) {
-			posy = (631 -altoImagen);
+
+		if (posy>=573-altoImagen) {
+			movAbajo = false;
 		}
-		if (0 >= posx) {
-			posx = 0;
+		else { movAbajo = true; }
+
+		/*if (posy+30>=463&&posx+20>=189&&posx+20<=268&&posy+30<=470) {
+			cout << posy<<"----"<<posx<<endl;
+			movArriba = false;
+		}
+		else { movArriba = true; }*/
+		if (posy  >= 440 && posx >= 179 && posx  <= 250 && posy  <= 445) {
+			
+			movArriba = false;
+		}
+		else { movArriba = true; }
+
+		if (113 >= posx) {
+			posx = 113;
 		}
 		if (0 >= posy) {
 			posy = 0;
 		}
+		//if ((670 - anchoImagen) <= posx&& posx==649 && posy==178) {
+
+		//}
+		cout << posx << "----" << posy << endl;
 	}
 
 };
