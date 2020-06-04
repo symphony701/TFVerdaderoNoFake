@@ -4,6 +4,7 @@
 #include "Policia.h"
 #include "Ambulancia.h"
 #include "mapas.h"
+#include "Map2.h"
 namespace Project8 {
 
 	using namespace System;
@@ -29,7 +30,7 @@ namespace Project8 {
 			jugador = gcnew CJugador();
 			poli = gcnew CPolicia();
 			ambulancia = gcnew CAmbulancia();
-			mapa = gcnew CMapas();
+			mapa = gcnew CMapas(1);
 			st=gcnew SoundPlayer("soundtrackTono.wav");
 			//g->DrawImage(personaje->getImagen(), 0, 0, personaje->getRectangle(), GraphicsUnit::Pixel);
 
@@ -93,6 +94,7 @@ namespace Project8 {
 			this->panelito->Size = System::Drawing::Size(768, 631);
 			this->panelito->TabIndex = 0;
 			this->panelito->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::panelito_Paint);
+			this->panelito->DoubleClick += gcnew System::EventHandler(this, &MyForm::panelito_DoubleClick);
 			// 
 			// timer1
 			// 
@@ -125,7 +127,7 @@ namespace Project8 {
 		
 	//	g->DrawImage(poli->getImagen(), 30, 30, poli->getRectangle(), GraphicsUnit::Pixel);
 	//	g->DrawImage(ambulancia->getImagen(), 360, 30, ambulancia->getRectangle(), GraphicsUnit::Pixel);
-		st->PlayLooping();
+	//	st->PlayLooping();
 		
 	}
 	private: System::Void MyForm_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
@@ -173,6 +175,13 @@ private: System::Void MyForm_KeyUp(System::Object^  sender, System::Windows::For
 	else if (e->KeyCode == Keys::Right) {
 		activo = false;
 	}
+}
+private: System::Void panelito_DoubleClick(System::Object^  sender, System::EventArgs^  e) {
+	Map2^map2 = gcnew Map2();
+	WindowState = FormWindowState::Minimized;
+	map2->ShowDialog();
+	WindowState = FormWindowState::Normal;
+	delete map2;
 }
 };
 }

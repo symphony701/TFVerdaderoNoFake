@@ -131,6 +131,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Map2.cpp" />
+    <ClCompile Include="Menuxd.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
@@ -139,7 +141,13 @@
     <ClInclude Include="Entidad.h" />
     <ClInclude Include="Infectado.h" />
     <ClInclude Include="Jugador.h" />
+    <ClInclude Include="Map2.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Mensaje.h" />
+    <ClInclude Include="Menuxd.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="PaginaInicio.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -148,6 +156,12 @@
     <ClInclude Include="Sano.h" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Map2.resx">
+      <DependentUpon>Map2.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menuxd.resx">
+      <DependentUpon>Menuxd.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PaginaInicio.resx">
       <DependentUpon>PaginaInicio.h</DependentUpon>
     </EmbeddedResource>

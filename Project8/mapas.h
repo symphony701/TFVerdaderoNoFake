@@ -10,10 +10,17 @@ ref class CMapas : public CEntidad {
 private:
 	Int16 vidas;
 public:
-	CMapas() {
+	CMapas(int nroMap) {
 		x = 0;
 		y = 0;
-		imagen = gcnew Bitmap("paisaje1.jpg");
+		switch (nroMap)
+		{
+		case 1:imagen = gcnew Bitmap("paisaje1.jpg"); break;
+		case 2:imagen = gcnew Bitmap("paisajeSM4.jpg"); break;
+		default:
+			break;
+		}
+	//	imagen = gcnew Bitmap("paisaje1.jpg");
 		anchoSprite = imagen->Width;
 		altoSprite = imagen->Height;
 		anchoImagen = anchoSprite;
