@@ -79,86 +79,60 @@ public:
 		}
 		else { movAbajo = true; }
 
-		//Codigo solo para valientes xd
-		while(true){
-			////Casa aislada
-
-			if (posy  >= 440 && posy <= 445 && posx  <= 250 && posx >= 179  ) {
-
-				movArriba = false; break;
-			}
-			else { movArriba = true; }
-
-
-			if (posy >= 374 && posy <= 437 && posx <= 260 && posx >= 257) {
-
-				movIzquierda = false; break;
-			}
-			else { movIzquierda = true; }
-			if (posy >= 365 && posy <= 368 && posx <= 250 && posx >= 179) {
-
-				movAbajo = false; break;
-			}
-			else { movAbajo = true; }
-
-
-			if (posy >= 380 && posy <= 431 && posx <= 161 && posx >= 158) {
-
-				movDerecha = false; break;
-			}
-			else { movDerecha = true; }
-
-
-
-		//Valla baja
-		if (posy >= 517 && 521 >= posy  &&  posx >= 104 && 632 >= posx) {
-
-			movAbajo = false; break;
+		/*if (posy+30>=463&&posx+20>=189&&posx+20<=268&&posy+30<=470) {
+			cout << posy<<"----"<<posx<<endl;
+			movArriba = false;
 		}
-		else { movAbajo = true; }
-		if (posy >= 329 && 521 >= posy  &&  posx >= 101 && 104 >= posx) {
+		else { movArriba = true; }*/
+		////Casa aislada
 
-			movIzquierda = false; break;
-		}
-		else { movIzquierda = true; }
-		if (posy >= 327 && 329 >= posy  &&  posx >= -4 && 103 >= posx) {
-
-			movAbajo = false; break;
-		}
-		else { movAbajo = true; }
-
-		//Valla derecha
-		if (posy >= 143 && 146 >= posy  &&  posx >= 590 && 632 >= posx) {
-
-			movArriba = false; break;
+		if (posy  >= 440 && posy <= 445 && posx  <= 250 && posx >= 179  ) {
+			
+			movArriba = false;
 		}
 		else { movArriba = true; }
-		if (posy >= 47 && 146 >= posy  &&  posx >= 587 && 593 >= posx) {
 
-			movDerecha = false; break;
+
+		if (posy >= 374 && posy <= 437 && posx <= 260 && posx >= 257) {
+
+			movIzquierda = false;
+		}
+		else { movIzquierda = true; }
+		if (posy >= 365 && posy <= 368 && posx <= 250 && posx >= 179) {
+
+			movAbajo = false;
+		}
+		else { movAbajo = true; }
+
+
+		if (posy >= 380 && posy <= 431 && posx <= 161 && posx >= 158) {
+
+			movDerecha = false;
 		}
 		else { movDerecha = true; }
-		if (posy >= 47 && 49 >= posy  &&  posx >= 420 && 590 >= posx) {
-			
-			movArriba = false; break;
+		//////
+		/*if (113 >= posx) {
+			posx = 113;
 		}
-		else { movArriba = true; }
-		//salta las leyes de la programacion
-		if (posy >= 47 && 83 >= posy  &&  posx >= 467 && 470 >= posx) {
+		if (0 >= posy) {
+			posy = 0;
+		}*/
+		//if ((670 - anchoImagen) <= posx&& posx==649 && posy==178) {
 
-			movIzquierda = false; break;
+		//}
+		//Valla baja
+		/*if (posy >= 517 && 521 >= posy  &&  posx >= 104 && 632 >= posx) {
+
+			movAbajo = false;
 		}
-		else { movIzquierda = true; }
-		//
-		if (posy >= 80 && 83 >= posy  &&  posx >= 470 && 563 >= posx) {
+		else { movAbajo = true; }*/
+	/*	if (posy >= 329 && 521 >= posy  &&  posx >= 101 && 104 >= posx) {
 
-			movAbajo = false; break;
+			movAbajo = false;
 		}
-		else { movAbajo = true; }
+		else { movAbajo = true; }*/
 
 
-		break;
-		}
 
 		cout << posx << "----" << posy << endl;
 	}
