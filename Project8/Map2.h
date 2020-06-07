@@ -1,5 +1,6 @@
 #pragma once
 #include "mapas.h"
+#include "Jugador.h"
 namespace Project8 {
 
 	using namespace System;
@@ -20,6 +21,7 @@ namespace Project8 {
 			InitializeComponent();
 			g = panel1->CreateGraphics();
 			mapa = gcnew CMapas(2);
+			jugador = gcnew CJugador();
 			//
 			//TODO: agregar código de constructor aquí
 			//
@@ -28,7 +30,7 @@ namespace Project8 {
 	public:
 
 	protected:
-		Graphics^g;
+		
 		/// <summary>
 		/// Limpiar los recursos que se estén usando.
 		/// </summary>
@@ -44,7 +46,10 @@ namespace Project8 {
 	private: System::Windows::Forms::FlowLayoutPanel^  flowLayoutPanel1;
 
 	private:
+		Graphics^g;
 		CMapas^ mapa;
+		CJugador^jugador;
+		bool activo;
 	private: System::ComponentModel::IContainer^  components;
 			 /// <summary>
 		/// Variable del diseñador necesaria.
@@ -95,6 +100,8 @@ namespace Project8 {
 			this->Controls->Add(this->panel1);
 			this->Name = L"Map2";
 			this->Text = L"Map2";
+			this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &Map2::Map2_KeyDown);
+			this->KeyUp += gcnew System::Windows::Forms::KeyEventHandler(this, &Map2::Map2_KeyUp);
 			this->ResumeLayout(false);
 
 		}
@@ -104,6 +111,7 @@ namespace Project8 {
 		BufferedGraphics ^bf = bfc->Allocate(g, this->ClientRectangle);
 		/////INICIO DE CODIGO
 		bf->Graphics->DrawImage(mapa->getImagen(), 0, 0, mapa->getRectangle(), GraphicsUnit::Pixel);
+		jugador->Mostrar(bf->Graphics, activo);
 
 		///////FIN DE CODIGO
 		bf->Render(g);
@@ -116,5 +124,36 @@ namespace Project8 {
 	private: System::Void panel1_DoubleClick(System::Object^  sender, System::EventArgs^  e) {
 
 	}
+private: System::Void Map2_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
+	activo = true;
+	if (e->KeyCode == Keys::Up) {
+		jugador->Mover2(Direccion::Arriba);
+	}
+	else if (e->KeyCode == Keys::Down) {
+		jugador->Mover2(Direccion::Abajo);
+	}
+	else if (e->KeyCode == Keys::Left) {
+		jugador->Mover2(Direccion::Izquierda);
+
+	}
+	else if (e->KeyCode == Keys::Right) {
+		jugador->Mover2(Direccion::Derecha);
+	}
+}
+private: System::Void Map2_KeyUp(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
+	if (e->KeyCode == Keys::Up) {
+		activo = false;
+	}
+	else if (e->KeyCode == Keys::Down) {
+		activo = false;
+	}
+	else if (e->KeyCode == Keys::Left) {
+		activo = false;
+
+	}
+	else if (e->KeyCode == Keys::Right) {
+		activo = false;
+	}
+}
 };
 }

@@ -14,7 +14,7 @@ ref class CJugador : public CEntidad{
 private:
 	Int16 vidas;
 	bool movArriba, movAbajo, movDerecha, movIzquierda;
-	//Direccion ultimaTecla;
+
 public:
 	CJugador() {
 	
@@ -289,5 +289,52 @@ public:
 
 		cout << posx << "----" << posy << endl;
 	}
+
+	//MAPA 2 LURIGANCHO COLISIONES
+
+	Void Mover2(Direccion direccion) {
+		switch (direccion)
+		{
+		case Direccion::Ninguna:
+			break;
+		case Direccion::Abajo:
+			if (movAbajo) { posy += dy; }
+			y = 0;
+			break;
+		case Direccion::Arriba:
+			if (movArriba) { posy -= dy; }
+
+			y = 3;
+			break;
+		case Direccion::Izquierda:
+			if (movIzquierda) { posx -= dx; }
+
+			y = 1;
+			break;
+		case Direccion::Derecha:
+			if (movDerecha) { posx += dx; }
+
+			y = 2;
+			break;
+		default:
+			break;
+		}
+
+		while (true) {
+
+			if (posy >= 362 && 365 >= posy  &&  posx >= 290 && 584 >= posx) {
+
+				movAbajo = false; break;
+			}
+
+			else { movAbajo = true; }
+
+			break;
+		}
+
+		cout << posx << "----" << posy << endl;
+
+	}
+
 
 };
