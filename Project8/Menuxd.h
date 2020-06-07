@@ -78,7 +78,6 @@ namespace Project8 {
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(390, 215);
 			this->panel1->TabIndex = 1;
-		
 			this->panel1->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &Menuxd::panel1_MouseMove);
 			// 
 			// label1
@@ -102,7 +101,7 @@ namespace Project8 {
 			this->btnstart->Location = System::Drawing::Point(123, 112);
 			this->btnstart->Name = L"btnstart";
 			this->btnstart->Size = System::Drawing::Size(141, 40);
-			this->btnstart->TabIndex = 2;
+			this->btnstart->TabIndex = 0;
 			this->btnstart->Text = L"Get Start :v";
 			this->btnstart->UseVisualStyleBackColor = false;
 			this->btnstart->Click += gcnew System::EventHandler(this, &Menuxd::btnStart_Click);
