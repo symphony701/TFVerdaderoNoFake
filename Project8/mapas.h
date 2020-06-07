@@ -54,8 +54,12 @@ public:
 		if (tiem >= 2 && tiem << 4) { imagen = gcnew Bitmap("paisajeSJL1(noche).jpg"); }
 		if (tiem >= 4 && tiem << 6) { imagen = gcnew Bitmap("paisajeSJL1(-noche).jpg"); }
 
+<<<<<<< HEAD
 	}
 	
 	Void Disparar() {}
+=======
+
+>>>>>>> 3157877fc19b573c1e7da6666dc4e661e19db900
 
 };

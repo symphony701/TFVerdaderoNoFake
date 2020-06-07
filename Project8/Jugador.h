@@ -14,12 +14,12 @@ ref class CJugador : public CEntidad{
 private:
 	Int16 vidas;
 	bool movArriba, movAbajo, movDerecha, movIzquierda;
-	//Direccion ultimaTecla;
+
 public:
 	CJugador() {
-	//	x = 0;
-		//y = 0;
-		posx = posy = 200;
+	
+		posx = 191;
+		posy = 446;
 		dx=dy = 3;
 		imagen = gcnew Bitmap("jugador.png");
 		anchoSprite = imagen->Width;
@@ -157,10 +157,184 @@ public:
 		else { movAbajo = true; }
 
 
+		if (posy >= 83 && 320 >= posy  &&  posx >= 560 && 563 >= posx) {
+
+			movIzquierda = false; break;
+		}
+		else { movIzquierda = true; }
+		//
+		if (posy >= 317 && 320 >= posy  &&  posx >= 299 && 563 >= posx) {
+
+			movArriba = false; break;
+		}
+		else { movArriba = true; }
+		
+		if (posy >= 260 && 320 >= posy  &&  posx >= 296 && 299>= posx) {
+
+			movDerecha = false; break;
+		}
+
+		if (posy >= 260 && 320 >= posy  &&  posx >= 296 && 299 >= posx) {
+
+			movDerecha = false; break;
+		}
+
+		else { movDerecha = true; }
+		
+		if (posy >= 257 && 260 >= posy  &&  posx >= 149 && 299 >= posx) {
+
+			movArriba = false; break;
+		}
+
+		else { movArriba = true; }
+		
+		if (posy >= 188 && 260 >= posy  &&  posx >= 146 && 149 >= posx) {
+
+			movDerecha = false; break;
+		}
+
+		else { movDerecha = true; }
+
+		if (posy >= 185 && 188 >= posy  &&  posx >= 149 && 524 >= posx) {
+
+			movAbajo = false; break;
+		}
+
+		else { movAbajo = true; }
+
+		if (posy >= 158 && 194 >= posy  &&  posx >= 521 && 524 >= posx) {
+
+			movDerecha = false; break;
+		}
+
+		else { movDerecha = true; }
+
+		if (posy >= 155 && 158 >= posy  &&  posx >= 389 && 524 >= posx) {
+
+			movArriba = false; break;
+		}
+
+		else { movArriba = true; }
+
+		if (posy >= 155 && 158 >= posy  &&  posx >= 125 && 356 >= posx) {
+
+			movArriba = false; break;
+		}
+
+		else { movArriba = true; }
+
+		if (posy >= 158 && 293 >= posy  &&  posx >= 125 && 127 >= posx) {
+
+			movIzquierda = false; break;
+		}
+
+		else { movIzquierda = true; }
+
+		if (posy >= 10 && 158 >= posy  &&  posx >= 386 && 389 >= posx) {
+
+			movDerecha = false; break;
+		}
+
+		else { movDerecha = true; }
+
+		if (posy >= 10 && 158 >= posy  &&  posx >= 356 && 359 >= posx) {
+
+			movIzquierda = false; break;
+		}
+
+		else { movIzquierda = true; }
+
+		if (posy >= 290 && 293 >= posy  &&  posx >= -13 && 125 >= posx) {
+
+			movArriba = false; break;
+		}
+
+		else { movArriba = true; }
+
+		if (posy >= 365 && 443 >= posy  &&  posx >= 287 && 290 >= posx) {
+
+			movDerecha = false; break;
+		}
+
+		else { movDerecha = true; }
+
+		if (posy >= 440 && 443 >= posy  &&  posx >= 290 && 584 >= posx) {
+
+			movArriba = false; break;
+		}
+
+		else { movArriba = true; }
+
+		if (posy >= 365 && 443 >= posy  &&  posx >= 584 && 587 >= posx) {
+
+			movIzquierda = false; break;
+		}
+
+		else { movIzquierda = true; }
+
+		if (posy >= 362 && 365 >= posy  &&  posx >= 290 && 584 >= posx) {
+
+			movAbajo = false; break;
+		}
+
+		else { movAbajo = true; }
+
+
+
+
+
+
 		break;
 		}
 
 		cout << posx << "----" << posy << endl;
 	}
+
+	//MAPA 2 LURIGANCHO COLISIONES
+
+	Void Mover2(Direccion direccion) {
+		switch (direccion)
+		{
+		case Direccion::Ninguna:
+			break;
+		case Direccion::Abajo:
+			if (movAbajo) { posy += dy; }
+			y = 0;
+			break;
+		case Direccion::Arriba:
+			if (movArriba) { posy -= dy; }
+
+			y = 3;
+			break;
+		case Direccion::Izquierda:
+			if (movIzquierda) { posx -= dx; }
+
+			y = 1;
+			break;
+		case Direccion::Derecha:
+			if (movDerecha) { posx += dx; }
+
+			y = 2;
+			break;
+		default:
+			break;
+		}
+
+		while (true) {
+
+			if (posy >= 362 && 365 >= posy  &&  posx >= 290 && 584 >= posx) {
+
+				movAbajo = false; break;
+			}
+
+			else { movAbajo = true; }
+
+			break;
+		}
+
+		cout << posx << "----" << posy << endl;
+
+	}
+
 
 };

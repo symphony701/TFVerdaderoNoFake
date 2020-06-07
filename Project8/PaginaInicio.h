@@ -144,14 +144,12 @@ namespace Project8 {
 		}
 #pragma endregion
 	private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
-		//g->DrawRectangle(gcnew Pen(Color::Blue, 4), 0, 0, 20, 20);
-		//g->DrawImage(personaje->getImagen(), 0, 0, personaje->getRectangle(),GraphicsUnit::Pixel);
+		
 	}
 	private: System::Void panelito_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
 		
 		
-	//	g->DrawImage(poli->getImagen(), 30, 30, poli->getRectangle(), GraphicsUnit::Pixel);
-	//	g->DrawImage(ambulancia->getImagen(), 360, 30, ambulancia->getRectangle(), GraphicsUnit::Pixel);
+	
 	//	st->PlayLooping();
 		
 	}
@@ -168,7 +166,7 @@ namespace Project8 {
 		}else if(e->KeyCode == Keys::Right){
 			jugador->Mover(Direccion::Derecha);
 		}
-		//activo = false;
+		
 	}
 	private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {
 		
@@ -207,6 +205,7 @@ private: System::Void panelito_DoubleClick(System::Object^  sender, System::Even
 	Map2^map2 = gcnew Map2();
 	WindowState = FormWindowState::Minimized;
 	map2->ShowDialog();
+	
 	WindowState = FormWindowState::Normal;
 	
 	delete map2;
