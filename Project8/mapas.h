@@ -30,6 +30,6 @@ public:
 	}
 	~CMapas() {}
 
-	Void Disparar() {}
+
 
 };
