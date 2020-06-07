@@ -186,7 +186,7 @@ namespace Project8 {
 		delete bf, bfc;
 		tiem->cambio(1);
 		lbl_hora->Text = tiem->mostrarT();
-
+		mapa->cambio(tiem->gethora());
 	}
 private: System::Void MyForm_KeyUp(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
 	if (e->KeyCode == Keys::Up) {

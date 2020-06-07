@@ -4,7 +4,7 @@ using namespace System;
 ref class tiempo
 {
 public:
-	tiempo() { hora = 6; min = 0; tiem = "6:00" + ""; };
+	tiempo() { hora = 17; min = 45; tiem = "6:00" + ""; };
 	~tiempo() {};
 	void cambio(Int16 cambio) {
 		min += cambio;
@@ -23,6 +23,7 @@ public:
 		if(min >=10 ) {tiem = hora + ":" + min;}
 		return tiem;
 	}
+	Int16 gethora() { return hora; }
 private:
 	Int16 hora;
 	Int16 min;
