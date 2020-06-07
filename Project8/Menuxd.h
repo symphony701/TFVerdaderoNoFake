@@ -161,7 +161,7 @@ private: System::Void btnstart_MouseMove(System::Object^  sender, System::Window
 }
 
 private: System::Void panel1_MouseMove(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
-	cout << e->X << "---" << e->Y << endl;
+
 	if (e->X >= 122 && e->X <= 265) {
 		if (e->Y >= 111 && e->Y <= 153) {
 			btnstart->ForeColor = System::Drawing:: Color::Lime;
