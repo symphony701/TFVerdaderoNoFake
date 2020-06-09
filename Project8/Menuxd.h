@@ -42,7 +42,7 @@ namespace Project8 {
 		}
 	private: System::Windows::Forms::Panel^  panel1;
 	protected:
-	private: System::Windows::Forms::Label^  label1;
+
 	private: System::Windows::Forms::Button^  btnstart;
 	private: System::Windows::Forms::Button^  btnexit;
 
@@ -55,7 +55,9 @@ namespace Project8 {
 	private:
 		Bitmap ^ fondo;
 		Graphics^gr;
-		/// <summary>
+
+
+			 /// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
 		System::ComponentModel::Container ^components;
@@ -68,7 +70,6 @@ namespace Project8 {
 		void InitializeComponent(void)
 		{
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->btnstart = (gcnew System::Windows::Forms::Button());
 			this->btnexit = (gcnew System::Windows::Forms::Button());
 			this->panel1->SuspendLayout();
@@ -77,68 +78,57 @@ namespace Project8 {
 			// panel1
 			// 
 			this->panel1->BackColor = System::Drawing::Color::Transparent;
-			this->panel1->Controls->Add(this->label1);
 			this->panel1->Controls->Add(this->btnstart);
 			this->panel1->Controls->Add(this->btnexit);
 			this->panel1->Location = System::Drawing::Point(12, 12);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(752, 293);
+			this->panel1->Size = System::Drawing::Size(757, 404);
 			this->panel1->TabIndex = 1;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Menuxd::panel1_Paint);
 			this->panel1->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &Menuxd::panel1_MouseMove);
 			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 36, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label1->ForeColor = System::Drawing::Color::Lime;
-			this->label1->Location = System::Drawing::Point(268, 25);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(406, 55);
-			this->label1->TabIndex = 3;
-			this->label1->Text = L"Quarantine Game";
-			// 
 			// btnstart
 			// 
 			this->btnstart->BackColor = System::Drawing::Color::Black;
-			this->btnstart->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->btnstart->Font = (gcnew System::Drawing::Font(L"Exergamer Viet", 48, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->btnstart->ForeColor = System::Drawing::Color::White;
-			this->btnstart->Location = System::Drawing::Point(560, 113);
+			this->btnstart->Location = System::Drawing::Point(524, 167);
 			this->btnstart->Name = L"btnstart";
-			this->btnstart->Size = System::Drawing::Size(141, 40);
+			this->btnstart->Size = System::Drawing::Size(141, 83);
 			this->btnstart->TabIndex = 0;
-			this->btnstart->Text = L"Get Start :v";
+			this->btnstart->Text = L"Start";
+			this->btnstart->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->btnstart->UseVisualStyleBackColor = false;
 			this->btnstart->Click += gcnew System::EventHandler(this, &Menuxd::btnStart_Click);
-			this->btnstart->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &Menuxd::btnstart_MouseMove);
+			this->btnstart->MouseHover += gcnew System::EventHandler(this, &Menuxd::btnstart_MouseHover);
 			// 
 			// btnexit
 			// 
 			this->btnexit->BackColor = System::Drawing::Color::Black;
-			this->btnexit->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
+			this->btnexit->Font = (gcnew System::Drawing::Font(L"Exergamer Viet", 48, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->btnexit->ForeColor = System::Drawing::Color::White;
-			this->btnexit->Location = System::Drawing::Point(560, 181);
+			this->btnexit->Location = System::Drawing::Point(524, 290);
 			this->btnexit->Name = L"btnexit";
-			this->btnexit->Size = System::Drawing::Size(141, 40);
+			this->btnexit->Size = System::Drawing::Size(141, 83);
 			this->btnexit->TabIndex = 1;
-			this->btnexit->Text = L"Exit";
+			this->btnexit->Text = L" Exit";
+			this->btnexit->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->btnexit->UseVisualStyleBackColor = false;
 			this->btnexit->Click += gcnew System::EventHandler(this, &Menuxd::button1_Click);
+			this->btnexit->MouseHover += gcnew System::EventHandler(this, &Menuxd::btnexit_MouseHover);
 			// 
 			// Menuxd
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(776, 306);
+			this->ClientSize = System::Drawing::Size(769, 430);
 			this->Controls->Add(this->panel1);
 			this->Name = L"Menuxd";
 			this->Text = L"Menuxd";
 			this->Load += gcnew System::EventHandler(this, &Menuxd::Menuxd_Load);
 			this->panel1->ResumeLayout(false);
-			this->panel1->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
@@ -156,27 +146,18 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	Close();
 }
 
-private: System::Void btnstart_MouseMove(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
-	if (e->X <= 123 && e->X >= 264) {
-		if (e->Y== 112 && e->Y >= 152){
-			btnstart->ForeColor = Color::Lime;
-		}
-		if (e->Y == 158 && e->Y == 198){
-			btnexit->ForeColor = Color::Lime;
-		}
-}
-}
+
 
 private: System::Void panel1_MouseMove(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
 
-	if (e->X >= 122 && e->X <= 265) {
-		if (e->Y >= 111 && e->Y <= 153) {
+	if (e->X >= 522 && e->X <= 667) {
+		if (e->Y >= 165 && e->Y <= 251) {
 			btnstart->ForeColor = System::Drawing:: Color::Lime;
 		}
 		else {
 			btnstart->ForeColor = System::Drawing::Color::White;
 		}
-		if (e->Y >= 157 && e->Y <= 199) {
+		if (e->Y >= 288 && e->Y <= 374) {
 			btnexit->ForeColor = System::Drawing::Color::Lime;
 		}
 		else {
@@ -189,15 +170,22 @@ private: System::Void panel1_MouseMove(System::Object^  sender, System::Windows:
 	}
 }
 private: System::Void Menuxd_Load(System::Object^  sender, System::EventArgs^  e) {
-//<<<<<<< HEAD
-//=======
+
 
 	
 	
 }
 private: System::Void panel1_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
 	gr->DrawImage(fondo, 0, 0);
-//>>>>>>> a3eac13f89f3d32f83b4a6b7e49736eb00f37d4a
+
+
+}
+private: System::Void btnexit_MouseHover(System::Object^  sender, System::EventArgs^  e) {
+	btnexit->ForeColor = System::Drawing::Color::Lime;
+}
+private: System::Void btnstart_MouseHover(System::Object^  sender, System::EventArgs^  e) {
+	btnstart->ForeColor = System::Drawing::Color::Lime;
+
 }
 };
 }
