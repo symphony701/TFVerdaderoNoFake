@@ -209,6 +209,7 @@ private: System::Void panelito_DoubleClick(System::Object^  sender, System::Even
 	WindowState = FormWindowState::Normal;
 	
 	delete map2;
+	Close();
 }
 private: System::Void panelito_Click(System::Object^  sender, System::EventArgs^  e) {
 	
