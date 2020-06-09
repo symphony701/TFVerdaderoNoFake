@@ -57,11 +57,7 @@ public:
 		for (int i = 0; i < 5; i++){
 			if (cantbal[i]->getactivador() == false) {
 				cantbal[i]->setactivador(true);
-				/*cantbal[i]->CORDENADA(x, y);*/
-				Int16 a = x;
-				Int16 b = y;
-				cantbal[i]->sethor(a);
-				cantbal[i]->setver(b);
+				cantbal[i]->CORDENADA(x, y);
 					break;
 			}
 		}
