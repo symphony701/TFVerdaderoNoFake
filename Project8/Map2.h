@@ -100,6 +100,7 @@ namespace Project8 {
 			this->Controls->Add(this->panel1);
 			this->Name = L"Map2";
 			this->Text = L"Map2";
+			this->Load += gcnew System::EventHandler(this, &Map2::Map2_Load);
 			this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &Map2::Map2_KeyDown);
 			this->KeyUp += gcnew System::Windows::Forms::KeyEventHandler(this, &Map2::Map2_KeyUp);
 			this->ResumeLayout(false);
@@ -154,6 +155,8 @@ private: System::Void Map2_KeyUp(System::Object^  sender, System::Windows::Forms
 	else if (e->KeyCode == Keys::Right) {
 		activo = false;
 	}
+}
+private: System::Void Map2_Load(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }

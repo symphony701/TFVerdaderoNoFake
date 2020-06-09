@@ -166,6 +166,9 @@ namespace Project8 {
 		}else if(e->KeyCode == Keys::Right){
 			jugador->Mover(Direccion::Derecha);
 		}
+		else if (e->KeyCode == Keys::W) {
+			jugador->MostrarDisparo(jugador->getPosX(), jugador->getPosY());
+		}
 		
 	}
 	private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {
@@ -174,8 +177,9 @@ namespace Project8 {
 		BufferedGraphics ^bf = bfc->Allocate(g,this->ClientRectangle);
 		/////INICIO DE CODIGO
 		bf->Graphics->DrawImage(mapa->getImagen(), 0, 0, mapa->getRectangle(), GraphicsUnit::Pixel);
-		
+		jugador->Disparar(bf->Graphics);
 		jugador->Mostrar(bf->Graphics,activo);
+		
 		poli->Mostrar(bf->Graphics);
 		poli->Mover();
 
@@ -187,6 +191,9 @@ namespace Project8 {
 		mapa->cambio(tiem->gethora());
 	}
 private: System::Void MyForm_KeyUp(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
+	if (e->KeyCode == Keys::W) {
+		activo = false;
+	}
 	if (e->KeyCode == Keys::Up) {
 		activo = false;
 	}

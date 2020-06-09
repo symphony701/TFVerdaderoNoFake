@@ -129,6 +129,7 @@ namespace Project8 {
 			this->Controls->Add(this->panel1);
 			this->Name = L"Menuxd";
 			this->Text = L"Menuxd";
+			this->Load += gcnew System::EventHandler(this, &Menuxd::Menuxd_Load);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
 			this->ResumeLayout(false);
@@ -179,6 +180,8 @@ private: System::Void panel1_MouseMove(System::Object^  sender, System::Windows:
 		btnstart->ForeColor = System::Drawing::Color::White;
 		btnexit->ForeColor = System::Drawing::Color::White;
 	}
+}
+private: System::Void Menuxd_Load(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }

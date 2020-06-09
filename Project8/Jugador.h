@@ -1,5 +1,6 @@
 #pragma once
 #include "Entidad.h"
+#include "Mensaje.h"
 #include <iostream>
 using namespace System;
 using namespace System::Windows::Forms;
@@ -7,21 +8,29 @@ using namespace System::Drawing;
 using namespace std;
 enum  Direccion
 {
-	Ninguna,Abajo,Arriba,Izquierda,Derecha
+	Ninguna,Abajo,Arriba,Izquierda,Derecha, Espacio
 };
+
+
 
 ref class CJugador : public CEntidad{
 private:
 	Int16 vidas;
 	bool movArriba, movAbajo, movDerecha, movIzquierda;
-
+	Bitmap^ mensaje;
+	cli::array<CMensaje^>^ cantbal;
 public:
 	CJugador() {
 	
 		posx = 191;
 		posy = 446;
 		dx=dy = 3;
+		cantbal = gcnew cli::array<CMensaje^>(5);
+		for (Int16 i = 0; i < 5; i++){
+			cantbal[i] = gcnew CMensaje();
+		}
 		imagen = gcnew Bitmap("jugador.png");
+		mensaje = gcnew Bitmap("papel.png");
 		anchoSprite = imagen->Width;
 		altoSprite = imagen->Height;
 		anchoImagen = anchoSprite / 12;
@@ -32,7 +41,28 @@ public:
 	}
 	~CJugador(){}
 
-	Void Disparar(){}
+	Void Disparar(Graphics^g) {
+		for (int i = 0; i < 5; i++) {
+			if (cantbal[i]->getactivador() == true) {
+				x -= 1;
+				cantbal[i]->setx(x);
+				g->DrawImage(mensaje, cantbal[i]->getx(), cantbal[i]->gety());
+				
+			}
+
+		}
+
+	}
+	Void MostrarDisparo(Int16 x, Int16 y){
+		for (int i = 0; i < 5; i++){
+			if (cantbal[i]->getactivador() == false) {
+				cantbal[i]->setactivador(true);
+				cantbal[i]->CORDENADA(x, y);
+					break;
+			}
+		}
+	
+	}
 	Void Mostrar(Graphics^g,bool act) {
 		
 		areaVisible = Rectangle(anchoImagen*x, altoImagen*y, anchoImagen, altoImagen);
