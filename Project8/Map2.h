@@ -20,7 +20,7 @@ namespace Project8 {
 		{
 			InitializeComponent();
 			g = panel1->CreateGraphics();
-			mapa = gcnew CMapas(2);
+			mapa = gcnew CMapas(3);
 			jugador = gcnew CJugador();
 			//
 			//TODO: agregar código de constructor aquí
@@ -128,17 +128,17 @@ namespace Project8 {
 private: System::Void Map2_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
 	activo = true;
 	if (e->KeyCode == Keys::Up) {
-		jugador->Mover2(Direccion::Arriba);
+		jugador->Mover3(Direccion::Arriba);
 	}
 	else if (e->KeyCode == Keys::Down) {
-		jugador->Mover2(Direccion::Abajo);
+		jugador->Mover3(Direccion::Abajo);
 	}
 	else if (e->KeyCode == Keys::Left) {
-		jugador->Mover2(Direccion::Izquierda);
+		jugador->Mover3(Direccion::Izquierda);
 
 	}
 	else if (e->KeyCode == Keys::Right) {
-		jugador->Mover2(Direccion::Derecha);
+		jugador->Mover3(Direccion::Derecha);
 	}
 }
 private: System::Void Map2_KeyUp(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {

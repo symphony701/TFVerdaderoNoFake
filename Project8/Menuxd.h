@@ -189,15 +189,15 @@ private: System::Void panel1_MouseMove(System::Object^  sender, System::Windows:
 	}
 }
 private: System::Void Menuxd_Load(System::Object^  sender, System::EventArgs^  e) {
-<<<<<<< HEAD
-=======
+//<<<<<<< HEAD
+//=======
 
 	
 	
 }
 private: System::Void panel1_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
 	gr->DrawImage(fondo, 0, 0);
->>>>>>> a3eac13f89f3d32f83b4a6b7e49736eb00f37d4a
+//>>>>>>> a3eac13f89f3d32f83b4a6b7e49736eb00f37d4a
 }
 };
 }
