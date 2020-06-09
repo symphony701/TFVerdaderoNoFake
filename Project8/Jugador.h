@@ -44,20 +44,37 @@ public:
 	Void Disparar(Graphics^g) {
 		for (int i = 0; i < 5; i++) {
 			if (cantbal[i]->getactivador() == true) {
-				int a = cantbal[i]->gethor() + 1;
-				cantbal[i]->sethor(a);
-				g->DrawImage(mensaje, cantbal[i]->gethor(), cantbal[i]->getver());
+				if (cantbal[i]->getdirec() == 0){
+					int a = cantbal[i]->getver() + 6;
+					cantbal[i]->setver(a);
+				}
+				if (cantbal[i]->getdirec() == 1) {
+					int a = cantbal[i]->gethor() - 6;
+					cantbal[i]->sethor(a);
+
+				}
+				if (cantbal[i]->getdirec() == 2) {
+					int a = cantbal[i]->gethor() + 6;
+					cantbal[i]->sethor(a);
+				}
+				if (cantbal[i]->getdirec() == 3) {
+					int a = cantbal[i]->getver() - 6;
+					cantbal[i]->setver(a);
+				}
 				
+				g->DrawImage(mensaje, cantbal[i]->gethor(), cantbal[i]->getver());
+				cantbal[i]->distancia();
 			}
 
 		}
-
+		
 	}
-	Void MostrarDisparo(Int16 x, Int16 y){
+	Void MostrarDisparo(Int16 x, Int16 y, Int16 d){
 		for (int i = 0; i < 5; i++){
 			if (cantbal[i]->getactivador() == false) {
 				cantbal[i]->setactivador(true);
 				cantbal[i]->CORDENADA(x, y);
+				cantbal[i]->setdirec(d);
 					break;
 			}
 		}

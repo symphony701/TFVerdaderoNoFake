@@ -167,7 +167,7 @@ namespace Project8 {
 			jugador->Mover(Direccion::Derecha);
 		}
 		else if (e->KeyCode == Keys::W) {
-			jugador->MostrarDisparo(jugador->getPosX(), jugador->getPosY());
+			jugador->MostrarDisparo(jugador->getPosX(), jugador->getPosY(), jugador->getY());
 		}
 		
 	}
