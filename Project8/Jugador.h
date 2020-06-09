@@ -127,7 +127,213 @@ public:
 		else { movAbajo = true; }
 
 		//Codigo solo para valientes xd
-		
+		while (true) {
+			////Casa aislada
+
+			if (posy >= 440 && posy <= 445 && posx <= 250 && posx >= 179) {
+
+				movArriba = false; break;
+			}
+			else { movArriba = true; }
+
+
+			if (posy >= 374 && posy <= 437 && posx <= 260 && posx >= 257) {
+
+				movIzquierda = false; break;
+			}
+			else { movIzquierda = true; }
+			if (posy >= 365 && posy <= 368 && posx <= 250 && posx >= 179) {
+
+				movAbajo = false; break;
+			}
+			else { movAbajo = true; }
+
+
+			if (posy >= 380 && posy <= 431 && posx <= 161 && posx >= 158) {
+
+				movDerecha = false; break;
+			}
+			else { movDerecha = true; }
+
+
+
+			//Valla baja
+			if (posy >= 517 && 521 >= posy  &&  posx >= 104 && 632 >= posx) {
+
+				movAbajo = false; break;
+			}
+			else { movAbajo = true; }
+			if (posy >= 329 && 521 >= posy  &&  posx >= 101 && 104 >= posx) {
+
+				movIzquierda = false; break;
+			}
+			else { movIzquierda = true; }
+			if (posy >= 327 && 329 >= posy  &&  posx >= -4 && 103 >= posx) {
+
+				movAbajo = false; break;
+			}
+			else { movAbajo = true; }
+
+			//Valla derecha
+			if (posy >= 143 && 146 >= posy  &&  posx >= 590 && 632 >= posx) {
+
+				movArriba = false; break;
+			}
+			else { movArriba = true; }
+			if (posy >= 47 && 146 >= posy  &&  posx >= 587 && 593 >= posx) {
+
+				movDerecha = false; break;
+			}
+			else { movDerecha = true; }
+			if (posy >= 47 && 49 >= posy  &&  posx >= 420 && 590 >= posx) {
+
+				movArriba = false; break;
+			}
+			else { movArriba = true; }
+			//salta las leyes de la programacion
+			if (posy >= 47 && 83 >= posy  &&  posx >= 467 && 470 >= posx) {
+
+				movIzquierda = false; break;
+			}
+			else { movIzquierda = true; }
+			//
+			if (posy >= 80 && 83 >= posy  &&  posx >= 470 && 563 >= posx) {
+
+				movAbajo = false; break;
+			}
+			else { movAbajo = true; }
+
+
+			if (posy >= 83 && 320 >= posy  &&  posx >= 560 && 563 >= posx) {
+
+				movIzquierda = false; break;
+			}
+			else { movIzquierda = true; }
+			//
+			if (posy >= 317 && 320 >= posy  &&  posx >= 299 && 563 >= posx) {
+
+				movArriba = false; break;
+			}
+			else { movArriba = true; }
+
+			if (posy >= 260 && 320 >= posy  &&  posx >= 296 && 299 >= posx) {
+
+				movDerecha = false; break;
+			}
+
+			if (posy >= 260 && 320 >= posy  &&  posx >= 296 && 299 >= posx) {
+
+				movDerecha = false; break;
+			}
+
+			else { movDerecha = true; }
+
+			if (posy >= 257 && 260 >= posy  &&  posx >= 149 && 299 >= posx) {
+
+				movArriba = false; break;
+			}
+
+			else { movArriba = true; }
+
+			if (posy >= 188 && 260 >= posy  &&  posx >= 146 && 149 >= posx) {
+
+				movDerecha = false; break;
+			}
+
+			else { movDerecha = true; }
+
+			if (posy >= 185 && 188 >= posy  &&  posx >= 149 && 524 >= posx) {
+
+				movAbajo = false; break;
+			}
+
+			else { movAbajo = true; }
+
+			if (posy >= 158 && 194 >= posy  &&  posx >= 521 && 524 >= posx) {
+
+				movDerecha = false; break;
+			}
+
+			else { movDerecha = true; }
+
+			if (posy >= 155 && 158 >= posy  &&  posx >= 389 && 524 >= posx) {
+
+				movArriba = false; break;
+			}
+
+			else { movArriba = true; }
+
+			if (posy >= 155 && 158 >= posy  &&  posx >= 125 && 356 >= posx) {
+
+				movArriba = false; break;
+			}
+
+			else { movArriba = true; }
+
+			if (posy >= 158 && 293 >= posy  &&  posx >= 125 && 127 >= posx) {
+
+				movIzquierda = false; break;
+			}
+
+			else { movIzquierda = true; }
+
+			if (posy >= 10 && 158 >= posy  &&  posx >= 386 && 389 >= posx) {
+
+				movDerecha = false; break;
+			}
+
+			else { movDerecha = true; }
+
+			if (posy >= 10 && 158 >= posy  &&  posx >= 356 && 359 >= posx) {
+
+				movIzquierda = false; break;
+			}
+
+			else { movIzquierda = true; }
+
+			if (posy >= 290 && 293 >= posy  &&  posx >= -13 && 125 >= posx) {
+
+				movArriba = false; break;
+			}
+
+			else { movArriba = true; }
+
+			if (posy >= 365 && 443 >= posy  &&  posx >= 287 && 290 >= posx) {
+
+				movDerecha = false; break;
+			}
+
+			else { movDerecha = true; }
+
+			if (posy >= 440 && 443 >= posy  &&  posx >= 290 && 584 >= posx) {
+
+				movArriba = false; break;
+			}
+
+			else { movArriba = true; }
+
+			if (posy >= 365 && 443 >= posy  &&  posx >= 584 && 587 >= posx) {
+
+				movIzquierda = false; break;
+			}
+
+			else { movIzquierda = true; }
+
+			if (posy >= 362 && 365 >= posy  &&  posx >= 290 && 584 >= posx) {
+
+				movAbajo = false; break;
+			}
+
+			else { movAbajo = true; }
+
+
+
+
+
+
+			break;
+		}
+
 
 		cout << posx << "----" << posy << endl;
 	}
@@ -452,6 +658,51 @@ public:
 		{
 			if (Formula(389, 392, 518, 578)) { movDerecha = false; break; }
 			if (Formula(392, 620, 515, 518)) { movAbajo = false; break; }
+			if (Formula(617, 620, 485, 518)) { movDerecha = false; break; }
+			if (Formula(344, 620, 485, 488)) { movArriba = false; break; }
+			if (Formula(341, 344, 434, 485)) { movDerecha = false; break; }
+			if (Formula(344, 656, 431, 434)) { movAbajo = false; break; }
+			if (Formula(653, 656, 239, 434)) { movDerecha = false; break; }
+			if (Formula(629, 656, 239, 242)) { movArriba = false; break; }
+			if (Formula(629, 632, 239, 287)) { movIzquierda = false; break; }
+			if (Formula(506, 629, 287, 290)) { movArriba = false; break; }
+			if (Formula(503, 506, 239, 287)) { movDerecha = false; break; }
+			if (Formula(482, 506, 239, 242)) { movArriba = false; break; }
+			if (Formula(482, 485, 239, 287)) { movIzquierda = false; break; }
+			if (Formula(344, 482, 287, 290)) { movArriba = false; break; }
+			if (Formula(341, 344, 89, 287)) { movDerecha = false; break; }
+			if (Formula(344, 488, 87, 89)) { movAbajo = false; break; }
+			if (Formula(485, 488, 59, 89)) { movDerecha = false; break; }
+			if (Formula(488, 629, 57, 59)) { movAbajo = false; break; }
+			if (Formula(629, 632, 59, 143)) { movIzquierda = false; break; }
+			if (Formula(629, 657, 140, 143)) { movAbajo = false; break; }
+			if (Formula(654, 657, 41, 143)) { movDerecha = false; break; }
+			if (Formula(467, 657, 41, 44)) { movArriba = false; break; }
+			if (Formula(467, 470, 41, 62)) { movIzquierda = false; break; }
+			if (Formula(410, 470, 62, 65)) { movArriba = false; break; }
+			if (Formula(320, 368, 62, 65)) { movArriba = false; break; }
+			if (Formula(320, 323, 62, 239)) { movIzquierda = false; break; }
+			if (Formula(203, 320, 239, 242)) { movArriba = false; break; }
+			if (Formula(203, 206, 239, 275)) { movIzquierda = false; break; }
+			if (Formula(203, 320, 273, 275)) { movAbajo = false; break; }
+			if (Formula(320, 323, 275, 485)) { movIzquierda = false; break; }
+			if (Formula(224, 320, 485, 488)) { movArriba = false; break; }
+			if (Formula(224, 227, 485, 518)) { movIzquierda = false; break; }
+			if (Formula(224, 350, 515, 518)) { movAbajo = false; break; }
+			if (Formula(350, 353, 518, 578)) { movIzquierda = false; break; }
+			if (Formula(368, 371, -16, 62)) { movIzquierda = false; break; }
+			if (Formula(407, 410, -16, 62)) { movDerecha = false; break; }
+			if (Formula(341, 344, 320, 395)) { movDerecha = false; break; }
+			if (Formula(344, 482, 317, 320)) { movAbajo = false; break; }
+			if (Formula(482, 485, 320, 395)) { movIzquierda = false; break; }
+			if (Formula(344, 482, 395, 398)) { movArriba = false; break; }
+			if (Formula(503, 506, 320, 395)) { movDerecha = false; break; }
+			if (Formula(506, 629, 395, 398)) { movArriba = false; break; }
+			if (Formula(629, 632, 320, 395)) { movIzquierda = false; break; }
+			if (Formula(506, 629, 319, 320)) { movAbajo = false; break; }
+
+
+			movAbajo = movDerecha = movArriba = movIzquierda = true;
 			break;
 		}
 		cout << posx << "----" << posy << endl;
