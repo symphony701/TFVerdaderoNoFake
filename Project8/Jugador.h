@@ -44,9 +44,9 @@ public:
 	Void Disparar(Graphics^g) {
 		for (int i = 0; i < 5; i++) {
 			if (cantbal[i]->getactivador() == true) {
-				x -= 1;
-				cantbal[i]->setx(x);
-				g->DrawImage(mensaje, cantbal[i]->getx(), cantbal[i]->gety());
+				int a = cantbal[i]->gethor() + 1;
+				cantbal[i]->sethor(a);
+				g->DrawImage(mensaje, cantbal[i]->gethor(), cantbal[i]->getver());
 				
 			}
 
@@ -57,7 +57,11 @@ public:
 		for (int i = 0; i < 5; i++){
 			if (cantbal[i]->getactivador() == false) {
 				cantbal[i]->setactivador(true);
-				cantbal[i]->CORDENADA(x, y);
+				/*cantbal[i]->CORDENADA(x, y);*/
+				Int16 a = x;
+				Int16 b = y;
+				cantbal[i]->sethor(a);
+				cantbal[i]->setver(b);
 					break;
 			}
 		}
