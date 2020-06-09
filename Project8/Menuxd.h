@@ -90,14 +90,14 @@ namespace Project8 {
 			// btnstart
 			// 
 			this->btnstart->BackColor = System::Drawing::Color::Black;
-			this->btnstart->Font = (gcnew System::Drawing::Font(L"Exergamer Viet", 48, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->btnstart->Font = (gcnew System::Drawing::Font(L"Bernard MT Condensed", 36, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->btnstart->ForeColor = System::Drawing::Color::White;
 			this->btnstart->Location = System::Drawing::Point(524, 167);
 			this->btnstart->Name = L"btnstart";
 			this->btnstart->Size = System::Drawing::Size(141, 83);
 			this->btnstart->TabIndex = 0;
-			this->btnstart->Text = L"Start";
+			this->btnstart->Text = L" Start";
 			this->btnstart->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->btnstart->UseVisualStyleBackColor = false;
 			this->btnstart->Click += gcnew System::EventHandler(this, &Menuxd::btnStart_Click);
@@ -106,7 +106,7 @@ namespace Project8 {
 			// btnexit
 			// 
 			this->btnexit->BackColor = System::Drawing::Color::Black;
-			this->btnexit->Font = (gcnew System::Drawing::Font(L"Exergamer Viet", 48, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+			this->btnexit->Font = (gcnew System::Drawing::Font(L"Bernard MT Condensed", 36, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->btnexit->ForeColor = System::Drawing::Color::White;
 			this->btnexit->Location = System::Drawing::Point(524, 290);

@@ -89,14 +89,16 @@ namespace Project8 {
 		{
 			this->components = (gcnew System::ComponentModel::Container());
 			this->panelito = (gcnew System::Windows::Forms::Panel());
-			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->lbl_hora = (gcnew System::Windows::Forms::Label());
+			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->panelito->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// panelito
 			// 
 			this->panelito->Controls->Add(this->lbl_hora);
+			this->panelito->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->panelito->Location = System::Drawing::Point(1, 1);
 			this->panelito->Name = L"panelito";
 			this->panelito->Size = System::Drawing::Size(768, 631);
@@ -106,17 +108,12 @@ namespace Project8 {
 			this->panelito->DoubleClick += gcnew System::EventHandler(this, &MyForm::panelito_DoubleClick);
 			this->panelito->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MyForm::panelito_MouseClick);
 			// 
-			// timer1
-			// 
-			this->timer1->Enabled = true;
-			this->timer1->Tick += gcnew System::EventHandler(this, &MyForm::timer1_Tick);
-			// 
 			// lbl_hora
 			// 
 			this->lbl_hora->BackColor = System::Drawing::Color::Black;
 			this->lbl_hora->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
-			this->lbl_hora->Font = (gcnew System::Drawing::Font(L"Heroes Assemble Bold Italic", 20.25F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->lbl_hora->Font = (gcnew System::Drawing::Font(L"Impact", 14.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->lbl_hora->ForeColor = System::Drawing::Color::White;
 			this->lbl_hora->Location = System::Drawing::Point(695, 8);
 			this->lbl_hora->Name = L"lbl_hora";
@@ -124,6 +121,11 @@ namespace Project8 {
 			this->lbl_hora->TabIndex = 1;
 			this->lbl_hora->Text = L" 6:00";
 			this->lbl_hora->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			// 
+			// timer1
+			// 
+			this->timer1->Enabled = true;
+			this->timer1->Tick += gcnew System::EventHandler(this, &MyForm::timer1_Tick);
 			// 
 			// MyForm
 			// 

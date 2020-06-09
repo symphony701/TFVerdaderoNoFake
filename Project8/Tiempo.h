@@ -4,7 +4,7 @@ using namespace System;
 ref class tiempo
 {
 public:
-	tiempo() { hora = 6; min = 00; tiem = "6:00" + ""; };
+	tiempo() { hora = 6; min = 00; tiem = " 6:00" + ""; };
 	~tiempo() {};
 	void cambio(Int16 cambio) {
 		min += cambio;
@@ -18,9 +18,18 @@ public:
 	};
 	String^ mostrarT() {
 		if (min << 10) {
-			tiem = hora + ":0" + min;
+			tiem = " " + hora;
+			if (hora << 10) {
+				tiem = "  " + hora;
+			}
+			tiem = tiem + ":0" + min;
 		}
-		if(min >=10 ) {tiem = hora + ":" + min;}
+		if(min >=10 ) {
+			tiem = " " + hora;
+			if (hora << 10) {
+				tiem = "  " + hora;
+			}
+			tiem = tiem + ":" + min;}
 		return tiem;
 	}
 	Int16 gethora() { return hora; }
