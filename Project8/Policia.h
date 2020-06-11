@@ -7,6 +7,10 @@ using namespace System::Drawing;
 ref class CPolicia : public CEntidad {
 private:
 	bool direcc;
+	bool arriba;
+	bool abajo;
+	bool derecha;
+	bool izquierda;
 public:
 	CPolicia() {
 		dx = dy = 4;
@@ -17,7 +21,7 @@ public:
 		altoImagen = altoSprite / 8;
 		posx = 0;
 		posy = 200;
-
+		arriba = abajo = derecha = izquierda = true;
 		
 	}
 	~CPolicia() {}
