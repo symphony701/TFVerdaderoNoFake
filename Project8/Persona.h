@@ -7,6 +7,8 @@ using namespace System::Drawing;
 ref class CPersona : public CEntidad {
 protected:
 	bool virus;
+	Int16 posx, posy, altoImagen, anchoImagen,altoSprite,anchoSprite;
+	Bitmap^imagen;
 public:
 	CPersona(){}
 	~CPersona(){}
