@@ -373,259 +373,151 @@ public:
 		}
 	
 		//while (true) {
-
 		//	/*	if (posy >= 551 && 554 >= posy  &&  posx >= 134 && 638 >= posx) {
-
 		//			movArriba = false; break;
 		//		}
-
 		//		else { movArriba = true; }*/
-
 		//	if (posy >= 293 && 554 >= posy  &&  posx >= 635 && 638 >= posx) {
-
 		//		movDerecha = false; break;
 		//	}
-
 		//	else { movDerecha = true; }
-
 		//	if (posy >= 293 && 296 >= posy  &&  posx >= 608 && 638 >= posx) {
-
 		//		movArriba = false; break;
 		//	}
-
 		//	else { movArriba = true; }
-
 		//	if (posy >= 293 && 512 >= posy  &&  posx >= 608 && 611 >= posx) {
-
 		//		movIzquierda = false; break;
 		//	}
-
 		//	else { movIzquierda = true; }
-
 		//	if (posy >= 512 && 515 >= posy  &&  posx >= 236 && 608 >= posx) {
-
 		//		movArriba = false; break;
 		//	}
-
 		//	else { movArriba = true; }
-
 		//	if (posy >= 494 && 512 >= posy  &&  posx >= 233 && 236 >= posx) {
-
 		//		movDerecha = false; break;
 		//	}
-
 		//	else { movDerecha = true; }
 		//	//no madido xd 
-		//	if (posy >= 491 && 494 >= posy  &&  posx >= 236 && 582 >= posx) {
-
-		//		movAbajo = false; break;
-		//	}
-
-		//	else { movAbajo = true; }
-
+		/*	if (posy >= 491 && 494 >= posy  &&  posx >= 236 && 582 >= posx) {
+				movAbajo = false; break;
+			}
+			else { movAbajo = true; }*/
 		//	if (posy >= 438 && 494 >= posy  &&  posx >= 434 && 437 >= posx) {
-
 		//		movDerecha = false; break;
 		//	}
-
 		//	else { movDerecha = true; }
-
 		//	if (posy >= 458 && 461 >= posy  &&  posx >= 236 && 582 >= posx) {
-
 		//		movArriba = false; break;
 		//	}
-
 		//	else { movArriba = true; }
-
 		//	if (posx >= 233 && 236 >= posx && posy >= 356 && 458 >= posy) {
-
 		//		movDerecha = false; break;
 		//	}
-
 		//	else { movDerecha = true; }
-
-		//	if (posx >= 236 && 401 >= posx && posy >= 353 && 356 >= posy) {
-
-		//		movAbajo = false; break;
-		//	}
-
-		//	else { movAbajo = true; }
-
+			//if (posx >= 236 && 401 >= posx && posy >= 353 && 356 >= posy) {
+			//	movAbajo = false; break;
+			//}
+			//else { movAbajo = true; }
 		//	if (posx >= 398 && 401 >= posx && posy >= 320 && 356 >= posy) {
-
 		//		movDerecha = false; break;
 		//	}
-
 		//	else { movDerecha = true; }
-
 		//	if (posx >= 236 && 401 >= posx && posy >= 320 && 323 >= posy) {
-
 		//		movArriba = false; break;
 		//	}
-
 		//	else { movArriba = true; }
-
 		//	if (posx >= 233 && 236 >= posx && posy >= 224 && 320 >= posy) {
-
 		//		movDerecha = false; break;
 		//	}
-
 		//	else { movDerecha = true; }
-
-		//	if (posx >= 236 && 338 >= posx && posy >= 221 && 224 >= posy) {
-
-		//		movAbajo = false; break;
-		//	}
-
-		//	else { movAbajo = true; }
-
+			//if (posx >= 236 && 338 >= posx && posy >= 221 && 224 >= posy) {
+			//	movAbajo = false; break;
+			//}
+			//else { movAbajo = true; }
 		//	if (posx >= 335 && 338 >= posx && posy >= 188 && 224 >= posy) {
-
 		//		movDerecha = false; break;
 		//	}
-
 		//	else { movDerecha = true; }
-
 		//	if (posx >= 236 && 338 >= posx && posy >= 188 && 191 >= posy) {
-
 		//		movArriba = false; break;
 		//	}
-
 		//	else { movArriba = true; }
-
 		//	if (posx >= 233 && 236 >= posx && posy >= 134 && 188 >= posy) {
-
 		//		movDerecha = false; break;
 		//	}
-
 		//	else { movDerecha = true; }
-
 		//	if (posx >= 212 && 236 >= posx && posy >= 134 && 137 >= posy) {
-
 		//		movArriba = false; break;
 		//	}
-
 		//	else { movArriba = true; }
-
 		//	if (posx >= 212 && 215 >= posx && posy >= 134 && 188 >= posy) {
-
 		//		movIzquierda = false; break;
 		//	}
-
 		//	else { movIzquierda = true; }
-
 		//	if (posx >= 8 && 212 >= posx && posy >= 188 && 191 >= posy) {
-
 		//		movArriba = false; break;
 		//	}
-
 		//	else { movArriba = true; }
-
 		//	if (posx >= 8 && 11 >= posx && posy >= 188 && 224 >= posy) {
-
 		//		movIzquierda = false; break;
 		//	}
-
 		//	else { movIzquierda = true; }
-
 		//	if (posx >= 8 && 212 >= posx && posy >= 221 && 224 >= posy) {
-
 		//		movAbajo = false; break;
 		//	}
-
 		//	else { movAbajo = true; }
-
 		//	if (posx >= 212 && 215 >= posx && posy >= 224 && 320 >= posy) {
-
 		//		movIzquierda = false; break;
 		//	}
-
 		//	else { movIzquierda = true; }
-
 		//	if (posx >= 8 && 212 >= posx && posy >= 320 && 323 >= posy) {
-
 		//		movArriba = false; break;
 		//	}
-
 		//	else { movArriba = true; }
-
 		//	if (posx >= 8 && 11 >= posx && posy >= 320 && 356 >= posy) {
-
 		//		movIzquierda = false; break;
 		//	}
-
 		//	else { movIzquierda = true; }
-
 		//	if (posx >= 8 && 212 >= posx && posy >= 353 && 356 >= posy) {
-
 		//		movAbajo = false; break;
 		//	}
-
 		//	else { movAbajo = true; }
-
 		//	if (posx >= 212 && 215 >= posx && posy >= 356 && 458 >= posy) {
-
 		//		movIzquierda = false; break;
 		//	}
-
 		//	else { movIzquierda = true; }
-
 		//	if (posx >= 128 && 212 >= posx && posy >= 458 && 461 >= posy) {
-
 		//		movArriba = false; break;
 		//	}
-
 		//	else { movArriba = true; }
-
 		//	//confuncion mental, si sale error revisar aqui
-
 		//	if (posx >= 128 && 131 >= posx && posy >= 458 && 494 >= posy) {
-
 		//		movIzquierda = false; break;
 		//	}
-
 		//	else { movIzquierda = true; }
-
 		//	if (posx >= 128 && 212 >= posx && posy >= 491 && 494 >= posy) {
-
 		//		movAbajo = false; break;
 		//	}
-
 		//	else { movAbajo = true; }
-
 		//	if (posx >= 212 && 215 >= posx && posy >= 494 && 512 >= posy) {
-
 		//		movIzquierda = false; break;
 		//	}
-
 		//	else { movIzquierda = true; }
-
 		//	if (posx >= 134 && 212 >= posx && posy >= 512 && 515 >= posy) {
-
 		//		movArriba = false; break;
 		//	}
-
 		//	else { movArriba = true; }
-
 		//	if (posx >= 134 && 137 >= posx && posy >= 512 && 554 >= posy) {
-
 		//		movIzquierda = false; break;
 		//	}
-
 		//	else { movIzquierda = true; }
-
 		//	/*if (posx >= 134 && 638 >= posx && posy >= 551 && 554 >= posy) {
-
 		//		movAbajo = false; break;
 		//	}
-
 		//	else { movAbajo = true; }*/
 		//	if (Formula(134, 638, 551, 554)) { movAbajo = false; break; }
-
-
 		//	break;
 		//}
-
 		//cout << posx << "----" << posy << endl;
 
 	}

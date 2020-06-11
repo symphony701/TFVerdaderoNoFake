@@ -5,7 +5,6 @@ using namespace System::Windows::Forms;
 using namespace System::Drawing;
 using namespace std;
 ref class Climites{
-
 public:
 	Climites(){}
 	~Climites(){}
@@ -143,76 +142,19 @@ public:
 			else { movArriba = true; }*/
 
 			//no madido xd 
-			if (posy >= 491 && 494 >= posy  &&  posx >= 236 && 582 >= posx) {
-
-				movAbajo = false; break;
-			}
-
-			else { movAbajo = true; }
-
-
-
-			if (posx >= 236 && 401 >= posx && posy >= 353 && 356 >= posy) {
-
-				movAbajo = false; break;
-			}
-
-			else { movAbajo = true; }
-
-			if (posx >= 398 && 401 >= posx && posy >= 320 && 356 >= posy) {
-
-
-
-				if (posx >= 236 && 338 >= posx && posy >= 221 && 224 >= posy) {
-
-					movAbajo = false; break;
-				}
-
-				else { movAbajo = true; }
-
-
-
-
-				if (posx >= 8 && 212 >= posx && posy >= 221 && 224 >= posy) {
-
-					movAbajo = false; break;
-				}
-
-				else { movAbajo = true; }
-
-
-
-				if (posx >= 8 && 212 >= posx && posy >= 353 && 356 >= posy) {
-
-					movAbajo = false; break;
-				}
-
-				else { movAbajo = true; }
-
-
+			if (Formula(491, 494, 236, 582, posx, posy)) { movAbajo = false; break; }
+			if (Formula(236, 401, 353, 356, posx, posy)) { movAbajo = false; break; }
+			if (Formula(236, 338, 221, 224, posx, posy)) { movAbajo = false; break; }
+			if (Formula(398, 401, 320, 356, posx, posy)) { movAbajo = false; break; }
+			if (Formula(8, 212, 221, 224, posx, posy)) { movAbajo = false; break; }
+			if (Formula(8, 212, 353, 356, posx, posy)) { movAbajo = false; break; }
+			if (Formula(128, 212, 491, 494, posx, posy)) { movAbajo = false; break; }
 
 				//confuncion mental, si sale error revisar aqui
-
-
-				if (posx >= 128 && 212 >= posx && posy >= 491 && 494 >= posy) {
-
-					movAbajo = false; break;
-				}
-
-				else { movAbajo = true; }
-
-
-
-
-				if (posx >= 134 && 638 >= posx && posy >= 551 && 554 >= posy) {
-
-					movAbajo = false; break;
-				}
-
-				else { movAbajo = true; }
+			if (Formula(134, 638, 551, 554, posx, posy)) { movAbajo = false; break; }
 				/*if (Formula(134, 638, 551, 554, posx, posy)) { movAbajo = false; break; }*/
 
-
+			movAbajo = true;
 				break;
 			}
 			return(movAbajo);
@@ -220,7 +162,6 @@ public:
 			cout << posx << "----" << posy << endl;
 
 		}
-	}
 	bool mapa2derecha( bool movDerecha, Int16 posx, Int16 posy) {
 		while (true) {
 
@@ -230,97 +171,21 @@ public:
 			}
 
 			else { movArriba = true; }*/
-
-			if (posy >= 293 && 554 >= posy  &&  posx >= 635 && 638 >= posx) {
-
-				movDerecha = false; break;
-			}
-
-			else { movDerecha = true; }
-
-
-
-
-
-			if (posy >= 494 && 512 >= posy  &&  posx >= 233 && 236 >= posx) {
-
-				movDerecha = false; break;
-			}
-
-			else { movDerecha = true; }
+			if (Formula(635, 638, 293, 554, posx, posy)) { movDerecha = false; break; }
+			if (Formula(233, 236, 494, 512, posx, posy)) { movDerecha = false; break; }
 			//no madido xd 
-
-
-			if (posy >= 438 && 494 >= posy  &&  posx >= 434 && 437 >= posx) {
-
-				movDerecha = false; break;
-			}
-
-			else { movDerecha = true; }
-
-
-
-			if (posx >= 233 && 236 >= posx && posy >= 356 && 458 >= posy) {
-
-				movDerecha = false; break;
-			}
-
-			else { movDerecha = true; }
-
-
-
-			if (posx >= 398 && 401 >= posx && posy >= 320 && 356 >= posy) {
-
-				movDerecha = false; break;
-			}
-
-			else { movDerecha = true; }
-
-
-
-			if (posx >= 233 && 236 >= posx && posy >= 224 && 320 >= posy) {
-
-				movDerecha = false; break;
-			}
-
-			else { movDerecha = true; }
-
-
-
-			if (posx >= 335 && 338 >= posx && posy >= 188 && 224 >= posy) {
-
-				movDerecha = false; break;
-			}
-
-			else { movDerecha = true; }
-
-
-
-			if (posx >= 233 && 236 >= posx && posy >= 134 && 188 >= posy) {
-
-				movDerecha = false; break;
-			}
-
-			else { movDerecha = true; }
-
-
-
-
-
-
+			if (Formula(434, 437, 438, 494, posx, posy)) { movDerecha = false; break; }
+			if (Formula(233, 236, 356, 458, posx, posy)) { movDerecha = false; break; }
+			if (Formula(398, 401, 320, 356, posx, posy)) { movDerecha = false; break; }
+			if (Formula(233, 236, 224, 320, posx, posy)) { movDerecha = false; break; }
+			if (Formula(335, 338, 188, 224, posx, posy)) { movDerecha = false; break; }
+			if (Formula(233, 236, 134, 188, posx, posy)) { movDerecha = false; break; }
 			//confuncion mental, si sale error revisar aqui
-
-
-
 			/*if (posx >= 134 && 638 >= posx && posy >= 551 && 554 >= posy) {
-
 			movAbajo = false; break;
 			}
-
 			else { movAbajo = true; }*/
-
-
-
+			movDerecha = true;
 			break;
 		}
 		return(movDerecha);
@@ -329,111 +194,28 @@ public:
 	}
 	bool mapa2izquierda(bool movIzquierda, Int16 posx, Int16 posy) {
 		while (true) {
-
 			/*	if (posy >= 551 && 554 >= posy  &&  posx >= 134 && 638 >= posx) {
-
 			movArriba = false; break;
 			}
-
 			else { movArriba = true; }*/
 
-		
-
-			if (posy >= 293 && 512 >= posy  &&  posx >= 608 && 611 >= posx) {
-
-				movIzquierda = false; break;
-			}
-
-			else { movIzquierda = true; }
-
-
+			if (Formula(608, 611, 293, 512, posx, posy)) { movIzquierda = false; break; }
 			//no madido xd 
-	
-
-
-
-
-			if (posx >= 212 && 215 >= posx && posy >= 134 && 188 >= posy) {
-
-				movIzquierda = false; break;
-			}
-
-			else { movIzquierda = true; }
-
-
-
-			if (posx >= 8 && 11 >= posx && posy >= 188 && 224 >= posy) {
-
-				movIzquierda = false; break;
-			}
-
-			else { movIzquierda = true; }
-
-
-
-			if (posx >= 212 && 215 >= posx && posy >= 224 && 320 >= posy) {
-
-				movIzquierda = false; break;
-			}
-
-			else { movIzquierda = true; }
-
-
-
-			if (posx >= 8 && 11 >= posx && posy >= 320 && 356 >= posy) {
-
-				movIzquierda = false; break;
-			}
-
-			else { movIzquierda = true; }
-
-
-
-			if (posx >= 212 && 215 >= posx && posy >= 356 && 458 >= posy) {
-
-				movIzquierda = false; break;
-			}
-
-			else { movIzquierda = true; }
-
-
-
+			if (Formula(212, 215, 134, 188, posx, posy)) { movIzquierda = false; break; }
+			if (Formula(8, 11, 188, 224, posx, posy)) { movIzquierda = false; break; }
+			if (Formula(212, 215, 224, 320, posx, posy)) { movIzquierda = false; break; }
+			if (Formula(8, 11, 320, 356, posx, posy)) { movIzquierda = false; break; }
+			if (Formula(212, 215, 356, 458, posx, posy)) { movIzquierda = false; break; }
 			//confuncion mental, si sale error revisar aqui
-
-			if (posx >= 128 && 131 >= posx && posy >= 458 && 494 >= posy) {
-
-				movIzquierda = false; break;
-			}
-
-			else { movIzquierda = true; }
-
-
-
-			if (posx >= 212 && 215 >= posx && posy >= 494 && 512 >= posy) {
-
-				movIzquierda = false; break;
-			}
-
-			else { movIzquierda = true; }
-
-
-
-			if (posx >= 134 && 137 >= posx && posy >= 512 && 554 >= posy) {
-
-				movIzquierda = false; break;
-			}
-
-			else { movIzquierda = true; }
-
+			if (Formula(128, 131, 458, 494, posx, posy)) { movIzquierda = false; break; }
+			if (Formula(212, 215, 134, 188, posx, posy)) { movIzquierda = false; break; }
+			if (Formula(212, 215, 494, 512, posx, posy)) { movIzquierda = false; break; }
+			if (Formula(134, 137, 512, 554, posx, posy)) { movIzquierda = false; break; }
 			/*if (posx >= 134 && 638 >= posx && posy >= 551 && 554 >= posy) {
-
 			movAbajo = false; break;
 			}
-
 			else { movAbajo = true; }*/
-
-
-
+			movIzquierda = true;
 			break;
 		}
 		return(movIzquierda);
