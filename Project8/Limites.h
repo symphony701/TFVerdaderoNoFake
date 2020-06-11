@@ -276,9 +276,6 @@ public:
 			if (Formula(407, 410, -16, 62, posx, posy)) { movDerecha = false; break; }
 			if (Formula(341, 344, 320, 395, posx, posy)) { movDerecha = false; break; }
 			if (Formula(503, 506, 320, 395, posx, posy)) { movDerecha = false; break; }
-
-
-
 			movDerecha =  true;
 			break;
 		}
@@ -306,6 +303,7 @@ public:
 			movIzquierda = true;
 			break;
 		}
+		return(movIzquierda);
 		cout << posx << "----" << posy << endl;
 	}
 	bool Formula(Int16 xmin, Int16 xmax, Int16 ymin, Int16 ymax,Int16 posx, Int16 posy) {
