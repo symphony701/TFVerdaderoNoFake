@@ -144,6 +144,7 @@
     <ClInclude Include="Map2.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="mapas.h" />
     <ClInclude Include="Mensaje.h" />
     <ClInclude Include="Menuxd.h">
       <FileType>CppForm</FileType>
@@ -152,6 +153,7 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Persona.h" />
+    <ClInclude Include="Personas.h" />
     <ClInclude Include="Policia.h" />
     <ClInclude Include="Sano.h" />
   </ItemGroup>

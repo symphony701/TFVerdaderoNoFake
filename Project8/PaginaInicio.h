@@ -6,6 +6,7 @@
 #include "mapas.h"
 #include "Map2.h"
 #include "Tiempo.h"
+#include "Personas.h"
 #include <iostream>
 using namespace std;
 namespace Project8 {
@@ -35,6 +36,7 @@ namespace Project8 {
 			ambulancia = gcnew CAmbulancia();
 			mapa = gcnew CMapas(1);
 			st=gcnew SoundPlayer("soundtrackTono.wav");
+			personas = gcnew CPersonas();
 			//g->DrawImage(personaje->getImagen(), 0, 0, personaje->getRectangle(), GraphicsUnit::Pixel);
 
 
@@ -73,6 +75,7 @@ namespace Project8 {
 		bool activo;
 		SoundPlayer^ st;
 		tiempo^ tiem;
+		CPersonas ^ personas;
 	private: System::ComponentModel::IContainer^  components;
 
 		/// <summary>
@@ -184,6 +187,8 @@ namespace Project8 {
 		
 		poli->Mostrar(bf->Graphics);
 		poli->Mover();
+		personas->Mostrar(bf->Graphics);
+		personas->Mover();
 
 		///////FIN DE CODIGO
 		bf->Render(g);
