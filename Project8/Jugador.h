@@ -126,10 +126,10 @@ public:
 			posx = 670 - anchoImagen;
 		}
 
-		if (posy >= 573 - altoImagen) {
-			movAbajo = false;
-		}
-		else { movAbajo = true; }
+		//if (posy >= 573 - altoImagen) {
+		//	movAbajo = false;
+		//}
+		//else { movAbajo = true; }
 		
 		////Codigo solo para valientes xd
 		//while (true) {

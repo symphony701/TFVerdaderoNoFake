@@ -84,12 +84,12 @@ public:
 			decision(random(1, 2));
 		}
 			if (punt->X == puntos[4]->X&&punt->Y == puntos[4]->Y) {
-			decision(random(3, 3));	cout << punt->X << "--" << punt->Y;
+			decision(random(3, 3));/*	cout << punt->X << "--" << punt->Y;*/
 		}
 			if (punt->X == puntos[5]->X&&punt->Y == puntos[5]->Y) {
 			 
 			do {  vacio = random(1, 4); } while (vacio==3);
-			decision(vacio);	cout << punt->X << "--" << punt->Y;
+			decision(vacio);	/*cout << punt->X << "--" << punt->Y;*/
 		}
 			if (punt->X == puntos[6]->X&&punt->Y == puntos[6]->Y) {
 			decision(random(3, 4));
@@ -137,7 +137,7 @@ public:
 		default:
 			break;
 		}
-		cout << "-" << arriba << derecha << abajo << izquierda<<endl;
+		/*cout << "-" << arriba << derecha << abajo << izquierda<<endl;*/
 
 	}
 	Void movimiento() {

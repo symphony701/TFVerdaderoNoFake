@@ -28,11 +28,11 @@ public:
 			movArriba = true;
 			break;
 		}
+		cout << posx << "----" << posy << endl;
 		return (movArriba);
 
 
 
-		cout << posx << "----" << posy << endl;
 	}
 	bool mapa1abajo(bool movAbajo, Int16 posx, Int16 posy) {
 		//Codigo solo para valientes xd
@@ -50,8 +50,10 @@ public:
 			movAbajo = true;
 			break;
 		}
-		return (movAbajo);
 		cout << posx << "----" << posy << endl;
+
+		return (movAbajo);
+		
 	}
 	bool mapa1derecha(bool movDerecha, Int16 posx, Int16 posy) {
 		//Codigo solo para valientes xd
@@ -71,9 +73,9 @@ public:
 
 			break;
 		}
-
-		return (movDerecha);
 		cout << posx << "----" << posy << endl;
+		return (movDerecha);
+		
 	}
 	bool mapa1izquierda(bool movIzquierda, Int16 posx, Int16 posy) {
 		//Codigo solo para valientes xd
@@ -93,11 +95,8 @@ public:
 			break;
 		}
 
-		return(movIzquierda);
-
-
-
 		cout << posx << "----" << posy << endl;
+		return(movIzquierda);
 	}
 
 	bool mapa2arriba(bool movArriba,Int16 posx, Int16 posy){
