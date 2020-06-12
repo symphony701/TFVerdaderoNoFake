@@ -8,7 +8,11 @@ ref class Climites{
 public:
 	Climites(){}
 	~Climites(){}
-	
+	// recordatorio para las 9
+	// tendremos que implementar el camino del personaje mejorado
+	// para eso usaremos el panel y dibujaremos los caminos en el mapa
+	// pero tiene un desfase y por eso en el mismo dibujador pondre el desfase que genera el personaje
+
 	bool mapa1arriba(bool movArriba, Int16 posx, Int16 posy) {
 		//Codigo solo para valientes xd
 		while (true) {

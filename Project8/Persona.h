@@ -69,12 +69,16 @@ public:
 
 	Void cambioDireccion() {
 		Point^punt = gcnew Point(posx, posy);
-	
+		// recordatorio para las 9
+	//vas a colocar 2 if para poder activar lado horizontal o lado vertical
+		//tendras que activar el panel para que dibues unos mas para poder verlos
+		//y para poder ver como se activa y desactiva cuando escogen una opcion
+		//esto sera retirado una vez que tengamos bien los limites; 
 		int vacio;
 		if (punt->X==puntos[0]->X&&punt->Y== puntos[0]->Y) {
-			decision(random(2,2));
-			
-		}	if (punt->X == puntos[1]->X&&punt->Y == puntos[1]->Y) {
+			decision(random(2,2));	
+		}
+		if (punt->X == puntos[1]->X&&punt->Y == puntos[1]->Y) {
 			decision(random(2, 3));
 		}
 			if (punt->X == puntos[2]->X&&punt->Y == puntos[2]->Y) {
