@@ -11,18 +11,21 @@ private:
 	bool abajo;
 	bool derecha;
 	bool izquierda;
+	Point^origen;
 public:
 	CPolicia() {
-		dx = dy = 4;
+		origen = gcnew Point(posx, posy);
+		dx = dy = 1;
 		imagen = gcnew Bitmap("policias.png");
 		anchoSprite = imagen->Width;
 		altoSprite = imagen->Height;
 		anchoImagen = anchoSprite / 4;
 		altoImagen = altoSprite / 8;
-		posx = 0;
-		posy = 200;
+		posx = 368;
+		posy = 176;
 		arriba = abajo = derecha = izquierda = true;
-		
+		origen->X = posx;
+		origen->Y = posy;
 	}
 	~CPolicia() {}
 	Void Mostrar(Graphics^g) {
@@ -32,10 +35,27 @@ public:
 		x++;
 	}
 	Void Mover() {
-		if (posx == 0) { direcc = true; y = 2; }
-		if (posx == 300) { direcc = false; y = 1; }
-		if (direcc) { posx = posx + dx; }
-		if (direcc==false) { posx = posx - dx;; }
-
+		/*if (posx == 0) { direcc = true; y = 2; origen->X = posx;
+		origen->Y = posy;
+		}
+		if (posx == 300) { direcc = false; y = 1; origen->X = posx;
+		origen->Y = posy;
+		}
+		if (direcc) { posx = posx + dx; origen->X = posx;
+		origen->Y = posy;
+		}
+		if (direcc==false) { posx = posx - dx;; origen->X = posx;
+		origen->Y = posy;
+		}*/
+		posx = posx - dx;
+		origen->X=posx;
+		origen->Y = posy;
+		
 	}
+	
+	Point ^ getPoint() {
+		return origen;
+	}
+
+
 };

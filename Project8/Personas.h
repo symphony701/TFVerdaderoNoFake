@@ -34,7 +34,7 @@ public:
 	
 	
 	Void Mostrar(Graphics^gr) {
-		for (int i = 0; i < cantidadEnemigos; i++)
+		for (int i = 0; i < personas->Length; i++)
 		{
 			personas[i]->Mostrar(gr);
 		}
@@ -45,6 +45,40 @@ public:
 			personas[i]->desplazamiento();
 		}
 	}
+
+	Void Atrapado(Point^point) {
+	
+
+		for (int i = 0; i < personas->Length; i++)
+		{
+			if (personas[i]->getPoint()->X == point->X && personas[i]->getPoint()->Y == point->Y) {
+				Eliminar(i);
+				break;
+			}
+		}
+
+	}
+
+	Void Eliminar(int pos) {
+		cli::array<CPersona^>^fantasmas;
+		fantasmas = gcnew cli::array<CPersona^>(personas->Length-1);
+		int cont = 0;
+		for (int i = 0; i < personas->Length; i++)
+		{
+			if (i!=pos) {
+				fantasmas[cont] = personas[i];
+				cont++;
+				
+			}
+		}
+
+		delete personas;
+		personas = fantasmas;
+		delete fantasmas;
+
+	}
+
+
 
 	
 };

@@ -185,10 +185,12 @@ namespace Project8 {
 		jugador->Disparar(bf->Graphics);
 		jugador->Mostrar(bf->Graphics,activo);
 		
-		poli->Mostrar(bf->Graphics);
-		poli->Mover();
+		
 		personas->Mostrar(bf->Graphics);
 		personas->Mover();
+		poli->Mostrar(bf->Graphics);
+		//poli->Mover();
+	 	personas->Atrapado(poli->getPoint());
 
 		///////FIN DE CODIGO
 		bf->Render(g);

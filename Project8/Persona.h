@@ -12,11 +12,13 @@ protected:
 	int posx, posy, altoImagen, anchoImagen,altoSprite,anchoSprite,cols,filas,dx,dy;
 	cli::array<Point^>^puntos;
 	Point^origen;
+	Point ^posicion;
 	bool izquierda, derecha, arriba, abajo;
 
 public:
 	CPersona(){
 		puntos = gcnew cli::array<Point^>(15);
+		posicion = gcnew Point(0,0);
 		iniciarPuntos(1);
 		dx = dy = 3;
 		posx=origen->X;
@@ -62,6 +64,7 @@ public:
 			puntos[13] = gcnew Point(587, 458);
 			puntos[14] = gcnew Point(140,308);
 			int puntito = 0 + rand() % (13 - 1);
+			origen = gcnew Point(0,0);
 			origen = puntos[puntito];
 		}
 
@@ -152,6 +155,8 @@ public:
 		 if (abajo) { posy = posy + dy; }
 		 if (derecha) { posx = posx + dx; }
 		 if (izquierda) { posx = posx - dx; }
+		 posicion->X = posx;
+		 posicion->Y = posy;
 	}
 
 
@@ -160,5 +165,7 @@ public:
 		return numero;
 	}
 
-
+	Point^ getPoint() {
+		return posicion;
+	}
 };
