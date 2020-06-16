@@ -57,7 +57,8 @@ public:
 		return origen;
 	}
 	Rectangle ^getRectangle() {
-		return Rectangle(posx, posy, posx+anchoImagen, posy+altoImagen);
+		//return Rectangle(posx, posy, posx+anchoImagen, posy+altoImagen);
+		return Rectangle(posx, posy, 29, 45);
 	}
 
 

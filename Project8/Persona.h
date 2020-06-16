@@ -169,7 +169,7 @@ public:
 		return posicion;
 	}
 	Rectangle  getRectangle() {
-		Rectangle rectangulito = Rectangle(posx, posy,posx+ anchoSprite, posy+altoSprite);
+		Rectangle rectangulito = Rectangle(posx, posy,33,49);
 		return rectangulito;
 	}
 };
