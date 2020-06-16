@@ -56,6 +56,9 @@ public:
 	Point ^ getPoint() {
 		return origen;
 	}
+	Rectangle ^getRectangle() {
+		return Rectangle(posx, posy, posx+anchoImagen, posy+altoImagen);
+	}
 
 
 };

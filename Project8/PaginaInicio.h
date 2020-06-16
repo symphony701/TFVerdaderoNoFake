@@ -190,8 +190,8 @@ namespace Project8 {
 		personas->Mover();
 		poli->Mostrar(bf->Graphics);
 		//poli->Mover();
-	 	personas->Atrapado(poli->getPoint());
-
+	 	//personas->Atrapado(poli->getPoint());
+		personas->AtrapadoPoli(poli->getRectangle());
 		///////FIN DE CODIGO
 		bf->Render(g);
 		delete bf, bfc;

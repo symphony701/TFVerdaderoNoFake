@@ -168,4 +168,8 @@ public:
 	Point^ getPoint() {
 		return posicion;
 	}
+	Rectangle  getRectangle() {
+		Rectangle rectangulito = Rectangle(posx, posy,posx+ anchoSprite, posy+altoSprite);
+		return rectangulito;
+	}
 };

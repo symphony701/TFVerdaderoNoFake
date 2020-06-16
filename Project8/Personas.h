@@ -58,6 +58,15 @@ public:
 		}
 
 	}
+	void AtrapadoPoli(Rectangle^ poli) {
+		for (int i = 0; i < personas->Length; i++)
+		{
+			if (poli->IntersectsWith(personas[i]->getRectangle()) ) {
+				Eliminar(i);
+				break;
+			}
+		}
+	}
 
 	Void Eliminar(int pos) {
 		cli::array<CPersona^>^fantasmas;
