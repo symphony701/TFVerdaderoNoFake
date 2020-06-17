@@ -20,7 +20,7 @@ public:
 		anchoSprite = imagen->Width;
 		altoSprite = imagen->Height;
 		anchoImagen = anchoSprite / 4;
-		altoImagen = altoSprite / 8;
+		altoImagen = altoSprite / 4;
 		posx = 368;
 		posy = 176;
 		arriba = abajo = derecha = izquierda = true;
@@ -57,7 +57,7 @@ public:
 		return origen;
 	}
 	Rectangle ^getRectangle() {
-		//return Rectangle(posx, posy, posx+anchoImagen, posy+altoImagen);
+		
 		return Rectangle(posx, posy, 29, 45);
 	}
 

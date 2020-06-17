@@ -189,9 +189,11 @@ namespace Project8 {
 		personas->Mostrar(bf->Graphics);
 		personas->Mover();
 		poli->Mostrar(bf->Graphics);
-		//poli->Mover();
-	 	//personas->Atrapado(poli->getPoint());
 		personas->AtrapadoPoli(poli->getRectangle());
+		personas->multado(jugador->colMensaje());
+
+
+
 		///////FIN DE CODIGO
 		bf->Render(g);
 		delete bf, bfc;

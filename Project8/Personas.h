@@ -67,6 +67,17 @@ public:
 			}
 		}
 	}
+	Void multado(cli::array<Rectangle>^sd) {
+		for (int i = 0; i < personas->Length; i++)
+		{
+			
+			if (sd[i].IntersectsWith(personas[i]->getRectangle)) {
+				Eliminar(i);
+				
+				break;
+			}
+		}
+	}
 
 	Void Eliminar(int pos) {
 		cli::array<CPersona^>^fantasmas;
