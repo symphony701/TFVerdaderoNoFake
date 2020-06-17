@@ -16,6 +16,8 @@ ref class CPersonas {
 	
 	Random r;
 	int cantidadEnemigos;
+	Int16 anchomen;
+	Int16 altomen;
 public:
 	CPersonas(){
 		cantidadEnemigos = (5 + rand() % (11 - 1));
@@ -67,7 +69,7 @@ public:
 			}
 		}
 	}
-	Void multado(cli::array<Rectangle>^sd) {
+	/*Void multado(cli::array<Rectangle^>^sd,) {
 		for (int i = 0; i < personas->Length; i++)
 		{
 			
@@ -77,8 +79,20 @@ public:
 				break;
 			}
 		}
+	}*/
+	Void multado(Int16 posx ,Int16 posy) {
+		for (int i = 0; i < personas->Length; i++) {
+			Rectangle^ intermensa = gcnew Rectangle(posx, posy, anchomen, altomen);
+			if ( intermensa->IntersectsWith(personas[i]->getRectangle())) {
+				Eliminar(i);
+				break;
+			}
+		}
 	}
-
+	Void tamañomen(Int16 ancho, Int16 alto) {
+		anchomen = ancho;
+		altomen = alto;
+	}
 	Void Eliminar(int pos) {
 		cli::array<CPersona^>^fantasmas;
 		fantasmas = gcnew cli::array<CPersona^>(personas->Length-1);

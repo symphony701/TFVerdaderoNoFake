@@ -94,9 +94,16 @@ public:
 		if (x == 3) { x = 0; }
 	}
 
-	cli::array<Rectangle>^colMensaje() {
-		cli::array<Rectangle>^ rectangulos;
-		rectangulos = gcnew cli::array<Rectangle>(5);
+	Rectangle colMensaje(Int16 i) {
+		Rectangle recta;
+		recta = cantbal[i]->getRectangle();
+
+		return recta;
+	}
+
+	/*cli::array<Rectangle^>^colMensaje() {
+		cli::array<Rectangle^>^ rectangulos;
+		rectangulos = gcnew cli::array<Rectangle^>(5);
 		for (int i = 0; i < cantbal->Length; i++)
 		{
 			rectangulos[i] = cantbal[i]->getRectangle();
@@ -106,7 +113,7 @@ public:
 		return rectangulos;
 
 	}
-
+*/
 
 
 

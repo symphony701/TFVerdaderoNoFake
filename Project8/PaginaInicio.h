@@ -8,6 +8,7 @@
 #include "Tiempo.h"
 #include "Personas.h"
 #include <iostream>
+#include "Arremensajes.h"
 using namespace std;
 namespace Project8 {
 
@@ -37,6 +38,8 @@ namespace Project8 {
 			mapa = gcnew CMapas(1);
 			st=gcnew SoundPlayer("soundtrackTono.wav");
 			personas = gcnew CPersonas();
+			mensajuga = gcnew CArreMensajes(1);
+			personas->tamañomen(mensajuga->getancho(), mensajuga->getalto());
 			//g->DrawImage(personaje->getImagen(), 0, 0, personaje->getRectangle(), GraphicsUnit::Pixel);
 
 
@@ -47,6 +50,8 @@ namespace Project8 {
 
 	protected:
 		Graphics^g;
+		CArreMensajes^ mensajuga;
+		/*cli::array<Rectangle^>^ rectangulo;*/
 		/// <summary>
 		/// Limpiar los recursos que se estén usando.
 		/// </summary>
@@ -173,16 +178,24 @@ namespace Project8 {
 		}
 		else if (e->KeyCode == Keys::W) {
 			jugador->MostrarDisparo(jugador->getPosX(), jugador->getPosY(), jugador->getY());
+			mensajuga->MostrarDisparo(jugador->getPosX(), jugador->getPosY(), jugador->getY());
 		}
 		
 	}
 	private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {
+		for (Int16 i = 0; i < 6; i++){
+			if (mensajuga->getactivador(i)) {
+				personas->multado(mensajuga->getposx(i), mensajuga->getposy(i));
+			}
+
+		}
 		
 		BufferedGraphicsContext ^bfc = BufferedGraphicsManager::Current;
 		BufferedGraphics ^bf = bfc->Allocate(g,this->ClientRectangle);
 		/////INICIO DE CODIGO
 		bf->Graphics->DrawImage(mapa->getImagen(), 0, 0, mapa->getRectangle(), GraphicsUnit::Pixel);
-		jugador->Disparar(bf->Graphics);
+		/*jugador->Disparar(bf->Graphics);*/
+		mensajuga->Disparar(bf->Graphics);
 		jugador->Mostrar(bf->Graphics,activo);
 		
 		
@@ -190,7 +203,7 @@ namespace Project8 {
 		personas->Mover();
 		poli->Mostrar(bf->Graphics);
 		personas->AtrapadoPoli(poli->getRectangle());
-		personas->multado(jugador->colMensaje());
+		/*personas->multado(jugador->colMensaje(), bf->Graphics);*/
 
 
 
