@@ -14,6 +14,9 @@ protected:
 	Point^origen;
 	Point ^posicion;
 	bool izquierda, derecha, arriba, abajo;
+	Random r;
+	int personaje;
+	bool multa;
 
 public:
 	CPersona(){
@@ -23,16 +26,44 @@ public:
 		dx = dy = 3;
 		posx=origen->X;
 		posy = origen->Y;
-		imagen = gcnew Bitmap("jugador.png");
+		imagen = gcnew Bitmap("enemigos(base1).png");
 		anchoImagen = imagen->Width;
 		altoImagen = imagen->Height;
 		anchoSprite = anchoImagen /12 ;
-		altoSprite = altoImagen / 8;
-		filas = 1;
-		cols = 0;
+		altoSprite = altoImagen / 4;
+		multa = false;
+		int contagiado = r.Next(1, 7);
+
+		if (contagiado%2==0) {
+			virus = true;
+		}
+		else { virus = false; }
+
+	
+		switch (r.Next(1,5))
+		{
+		case 1:filas = 1; cols = 0; personaje = 1; break;
+		case 2:filas = 4; cols = 0; personaje = 2; break;
+		case 3:filas = 7; cols = 0; personaje = 3; break;
+		case 4:filas = 10; cols = 0; personaje = 4; break;
+		default:
+			break;
+		}
+		
+		
 		cambioDireccion();
 	}
 	~CPersona(){}
+	Void multar() {
+		multa = true;
+	}
+	bool getVirus() { return virus; }
+	bool getMulta() { return multa; }
+	Void cambioImagen() {
+		if (virus) {
+			imagen = gcnew Bitmap("enemigos(infectados).png");
+		}else{ imagen = gcnew Bitmap("enemigos(sanos).png"); }
+	}
 	Void Mostrar(Graphics^gr) {
 		areaVisible = Rectangle(anchoSprite*filas, altoSprite*cols, anchoSprite, altoSprite);
 		gr->DrawImage(imagen, posx, posy, areaVisible, GraphicsUnit::Pixel);
@@ -41,7 +72,16 @@ public:
 	Void desplazamiento() {
 		movimiento();
 		filas++;
-		if (filas > 2) { filas = 0; }
+		
+		switch (personaje)
+		{
+		case 1:if (filas > 2) { filas = 0; }; break;
+		case 2:if (filas > 5) { filas = 3; }break;
+		case 3:if (filas > 8) { filas = 6; }break;
+		case 4:if (filas > 11) { filas = 9; } break;
+		default:
+			break;
+		}
 		cambioDireccion();
 	}
 
