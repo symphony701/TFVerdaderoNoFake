@@ -72,11 +72,7 @@ public:
 
 	Void cambioDireccion() {
 		Point^punt = gcnew Point(posx, posy);
-		// recordatorio para las 9
-	//vas a colocar 2 if para poder activar lado horizontal o lado vertical
-		//tendras que activar el panel para que dibues unos mas para poder verlos
-		//y para poder ver como se activa y desactiva cuando escogen una opcion
-		//esto sera retirado una vez que tengamos bien los limites; 
+		
 		int vacio;
 		if (punt->X==puntos[0]->X&&punt->Y== puntos[0]->Y) {
 			decision(random(2,2));	
@@ -91,12 +87,12 @@ public:
 			decision(random(1, 2));
 		}
 			if (punt->X == puntos[4]->X&&punt->Y == puntos[4]->Y) {
-			decision(random(3, 3));/*	cout << punt->X << "--" << punt->Y;*/
+			decision(random(3, 3));
 		}
 			if (punt->X == puntos[5]->X&&punt->Y == puntos[5]->Y) {
 			 
 			do {  vacio = random(1, 4); } while (vacio==3);
-			decision(vacio);	/*cout << punt->X << "--" << punt->Y;*/
+			decision(vacio);	
 		}
 			if (punt->X == puntos[6]->X&&punt->Y == puntos[6]->Y) {
 			decision(random(3, 4));
@@ -144,7 +140,7 @@ public:
 		default:
 			break;
 		}
-		/*cout << "-" << arriba << derecha << abajo << izquierda<<endl;*/
+	
 
 	}
 	Void movimiento() {
@@ -168,8 +164,8 @@ public:
 	Point^ getPoint() {
 		return posicion;
 	}
-	/*Rectangle  getRectangle() {
+	Rectangle  getRectangle() {
 		Rectangle rectangulito = Rectangle(posx, posy,33,49);
 		return rectangulito;
-	}*/
+	}
 };

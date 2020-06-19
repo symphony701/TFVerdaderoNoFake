@@ -7,7 +7,7 @@ using namespace System::Windows::Forms;
 using namespace System::Drawing;
 
 ref class CArreMensajes : public CEntidad {
-private:
+
 	cli::array<CMensaje^>^ cantbal;
 	Bitmap^ mensaje;
 	Int16 anchoSprite;
@@ -70,5 +70,5 @@ public:
 	Int16 getposy(Int16 i) { return cantbal[i]->getver(); }
 	Int16 getancho() { return anchoImagen; }
 	Int16 getalto() { return altoImagen; }
-	bool getactivador(Int16 i) { return cantbal[i]->getactivador(); }
+	bool getactivador(int i) { return cantbal[i]->getactivador(); }
 };
