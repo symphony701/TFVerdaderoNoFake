@@ -16,8 +16,8 @@ ref class CPersonas {
 	
 	Random r;
 	int cantidadEnemigos;
-	Int16 anchomen;
-	Int16 altomen;
+	Int16 anchomen=31;
+	Int16 altomen=25;
 public:
 	CPersonas(){
 		cantidadEnemigos = (5 + rand() % (11 - 1));
@@ -48,7 +48,7 @@ public:
 		}
 	}
 
-	Void Atrapado(Point^point) {
+	/*Void Atrapado(Point^point) {
 	
 
 		for (int i = 0; i < personas->Length; i++)
@@ -59,7 +59,7 @@ public:
 			}
 		}
 
-	}
+	}*/
 	void AtrapadoPoli(Rectangle^ poli) {
 		for (int i = 0; i < personas->Length; i++)
 		{

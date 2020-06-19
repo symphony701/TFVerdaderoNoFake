@@ -25,6 +25,8 @@ namespace Project8 {
 	/// </summary>
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
+		CArreMensajes^ mensajuga;
+
 	public:
 		MyForm(void)
 		{
@@ -50,7 +52,6 @@ namespace Project8 {
 
 	protected:
 		Graphics^g;
-		CArreMensajes^ mensajuga;
 		/*cli::array<Rectangle^>^ rectangulo;*/
 		/// <summary>
 		/// Limpiar los recursos que se estén usando.
@@ -183,7 +184,7 @@ namespace Project8 {
 		
 	}
 	private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {
-		for (Int16 i = 0; i < 6; i++){
+		for (int i = 0; i < 5; i++){
 			if (mensajuga->getactivador(i)) {
 				personas->multado(mensajuga->getposx(i), mensajuga->getposy(i));
 			}
@@ -202,6 +203,7 @@ namespace Project8 {
 		personas->Mostrar(bf->Graphics);
 		personas->Mover();
 		poli->Mostrar(bf->Graphics);
+		poli->desplazamiento();
 		personas->AtrapadoPoli(poli->getRectangle());
 		/*personas->multado(jugador->colMensaje(), bf->Graphics);*/
 

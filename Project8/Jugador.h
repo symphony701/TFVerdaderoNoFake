@@ -28,7 +28,7 @@ public:
 		posy = 446;
 		dx = dy = 3;
 		cantbal = gcnew cli::array<CMensaje^>(5);
-		for (Int16 i = 0; i < 5; i++) {
+		for (int i = 0; i < cantbal->Length; i++) {
 			cantbal[i] = gcnew CMensaje();
 		}
 		imagen = gcnew Bitmap("jugador.png");
