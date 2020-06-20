@@ -9,17 +9,19 @@ using namespace System::Windows::Forms;
 using namespace System::Data;
 using namespace System::Drawing;
 using namespace std;
+using namespace System::Media;
 
 ref class CPersonas {
 	cli::array<CPersona^>^personas;
 	
-	
+	SoundPlayer^ alto;
 	Random r;
 	int cantidadEnemigos;
 	Int16 anchomen=31;
 	Int16 altomen=25;
 public:
 	CPersonas(){
+		alto= gcnew SoundPlayer("alto.wav");
 		cantidadEnemigos = (5 + rand() % (11 - 1));
 		
 		personas = gcnew cli::array<CPersona^>(cantidadEnemigos);
@@ -63,7 +65,8 @@ public:
 	void AtrapadoPoli(Rectangle^ poli) {
 		for (int i = 0; i < personas->Length; i++)
 		{
-			if (poli->IntersectsWith(personas[i]->getRectangle()) ) {
+			if (poli->IntersectsWith(personas[i]->getRectangle())&&personas[i]->getMulta()&&!personas[i]->getVirus() ) {
+				alto->Play();
 				Eliminar(i);
 				break;
 			}
@@ -84,7 +87,8 @@ public:
 		for (int i = 0; i < personas->Length; i++) {
 			Rectangle^ intermensa = gcnew Rectangle(posx, posy, anchomen, altomen);
 			if ( intermensa->IntersectsWith(personas[i]->getRectangle())) {
-				Eliminar(i);
+				personas[i]->cambioImagen();
+				personas[i]->multar();
 				break;
 			}
 		}
