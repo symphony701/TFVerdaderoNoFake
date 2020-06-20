@@ -151,11 +151,15 @@ public:
 			posx = 670 - anchoImagen;
 		}
 
-		//if (posy >= 573 - altoImagen) {
-		//	movAbajo = false;
-		//}
-		//else { movAbajo = true; }
-		
+		if (posy >= 573 - altoImagen) {
+			movAbajo = 573 - altoImagen;
+		}
+		if (posy <= 0) {
+			movAbajo = 0;
+		}
+		if (0 >= posx) {
+			posx = 0;
+		}
 		////Codigo solo para valientes xd
 		//while (true) {
 		//	////Casa aislada
