@@ -16,6 +16,7 @@ private:
 	Point^origen;
 	cli::array<Point^>^puntos;
 	bool doble = true;
+	bool regre = false;
 	/*bool izquierda, derecha, arriba, abajo;*/
 public:
 	CPolicia() {
@@ -95,13 +96,23 @@ public:
 			decision(2);
 			doble = false;
 		}
-		if (funcion(14)&&doble==false) {
+		if (funcion(14)&&doble==false &&regre==false) {
 			decision(3);
 		}
-		if (funcion(3)) {
+		if (funcion(3) && doble == false) {
 			decision(2);
+			doble = true;
 		}
-
+		if (funcion(13)) {
+			decision(4);
+		}
+		if (funcion(3) && doble == true) {
+			decision(1);
+			regre = true;
+		}
+		if (funcion(14) && doble == false && regre == true) {
+			decision(1);
+		}
 
 
 

@@ -152,10 +152,10 @@ public:
 		}
 
 		if (posy >= 573 - altoImagen) {
-			movAbajo = 573 - altoImagen;
+			posy = 573 - altoImagen;
 		}
 		if (posy <= 0) {
-			movAbajo = 0;
+			posy = 0;
 		}
 		if (0 >= posx) {
 			posx = 0;
