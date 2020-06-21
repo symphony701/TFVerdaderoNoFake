@@ -23,7 +23,7 @@ public:
 	CPersonas(){
 		alto= gcnew SoundPlayer("alto.wav");
 		cantidadEnemigos = (5 + rand() % (11 - 1));
-		
+		cantidadEnemigos = r.Next(5,11);
 		personas = gcnew cli::array<CPersona^>(cantidadEnemigos);
 		
 			
