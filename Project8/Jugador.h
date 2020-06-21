@@ -18,8 +18,8 @@ ref class CJugador : public CEntidad {
 private:
 	Int16 vidas;
 	bool movArriba, movAbajo, movDerecha, movIzquierda;
-	Bitmap^ mensaje;
-	cli::array<CMensaje^>^ cantbal;
+	//Bitmap^ mensaje;
+	//cli::array<CMensaje^>^ cantbal;
 	Climites^ limites;
 public:
 	CJugador() {
@@ -27,12 +27,12 @@ public:
 		posx = 191;
 		posy = 446;
 		dx = dy = 3;
-		cantbal = gcnew cli::array<CMensaje^>(5);
-		for (int i = 0; i < cantbal->Length; i++) {
+	/*	cantbal = gcnew cli::array<CMensaje^>(5);*/
+		/*for (int i = 0; i < cantbal->Length; i++) {
 			cantbal[i] = gcnew CMensaje();
-		}
+		}*/
 		imagen = gcnew Bitmap("jugador.png");
-		mensaje = gcnew Bitmap("papel.png");
+		//mensaje = gcnew Bitmap("papel.png");
 		anchoSprite = imagen->Width;
 		altoSprite = imagen->Height;
 		anchoImagen = anchoSprite / 12;
@@ -42,10 +42,10 @@ public:
 		limites = gcnew Climites();
 	}
 	~CJugador() {
-		delete limites, cantbal, imagen, mensaje;
+		delete limites/*, cantbal*/, imagen/*, mensaje*/;
 	}
 
-	Void Disparar(Graphics^g) {
+	/*Void Disparar(Graphics^g) {
 		for (int i = 0; i < 5; i++) {
 			if (cantbal[i]->getactivador() == true) {
 				if (cantbal[i]->getdirec() == 0) {
@@ -72,18 +72,18 @@ public:
 
 		}
 
-	}
-	Void MostrarDisparo(Int16 x, Int16 y, Int16 d) {
-		for (int i = 0; i < 5; i++) {
-			if (cantbal[i]->getactivador() == false) {
-				cantbal[i]->setactivador(true);
-				cantbal[i]->CORDENADA(x, y);
-				cantbal[i]->setdirec(d);
-				break;
-			}
-		}
+	}*/
+	//Void MostrarDisparo(Int16 x, Int16 y, Int16 d) {
+	//	for (int i = 0; i < 5; i++) {
+	//		if (cantbal[i]->getactivador() == false) {
+	//			cantbal[i]->setactivador(true);
+	//			cantbal[i]->CORDENADA(x, y);
+	//			cantbal[i]->setdirec(d);
+	//			break;
+	//		}
+	//	}
 
-	}
+	//}
 	Void Mostrar(Graphics^g, bool act) {
 
 		areaVisible = Rectangle(anchoImagen*x, altoImagen*y, anchoImagen, altoImagen);
@@ -93,13 +93,8 @@ public:
 
 		if (x == 3) { x = 0; }
 	}
-
-	Rectangle colMensaje(Int16 i) {
-		Rectangle recta;
-		recta = cantbal[i]->getRectangle();
-
-		return recta;
-	}
+	Int16 getancho() {return anchoImagen;}
+	Int16 getalto() {return altoImagen;}
 
 	/*cli::array<Rectangle^>^colMensaje() {
 		cli::array<Rectangle^>^ rectangulos;

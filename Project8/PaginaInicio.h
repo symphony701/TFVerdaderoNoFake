@@ -26,6 +26,7 @@ namespace Project8 {
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
 		CArreMensajes^ mensajuga;
+		CArreMensajes^ tomateenemigos;
 
 	public:
 		MyForm(void)
@@ -41,6 +42,7 @@ namespace Project8 {
 			st=gcnew SoundPlayer("soundtrackTono.wav");
 			personas = gcnew CPersonas();
 			mensajuga = gcnew CArreMensajes(1);
+			tomateenemigos = gcnew CArreMensajes(2);
 			personas->tamañomen(mensajuga->getancho(), mensajuga->getalto());
 			//g->DrawImage(personaje->getImagen(), 0, 0, personaje->getRectangle(), GraphicsUnit::Pixel);
 
@@ -178,8 +180,8 @@ namespace Project8 {
 			jugador->Mover(Direccion::Derecha);
 		}
 		else if (e->KeyCode == Keys::W) {
-			jugador->MostrarDisparo(jugador->getPosX(), jugador->getPosY(), jugador->getY());
-			mensajuga->MostrarDisparo(jugador->getPosX(), jugador->getPosY(), jugador->getY());
+			/*jugador->MostrarDisparo(jugador->getPosX(), jugador->getPosY(), jugador->getY());*/
+			mensajuga->Disparar(jugador->getPosX(), jugador->getPosY(), jugador->getY(), jugador->getancho(), jugador->getalto());
 		}
 		
 	}
@@ -190,13 +192,13 @@ namespace Project8 {
 			}
 
 		}
-		
+		/*personas->Cercania(jugador->getPosX, jugador->getPosY, jugador->getancho, jugador->getalto);*/
 		BufferedGraphicsContext ^bfc = BufferedGraphicsManager::Current;
 		BufferedGraphics ^bf = bfc->Allocate(g,this->ClientRectangle);
 		/////INICIO DE CODIGO
 		bf->Graphics->DrawImage(mapa->getImagen(), 0, 0, mapa->getRectangle(), GraphicsUnit::Pixel);
 		/*jugador->Disparar(bf->Graphics);*/
-		mensajuga->Disparar(bf->Graphics);
+		mensajuga->MostrarDisparo(bf->Graphics);
 		jugador->Mostrar(bf->Graphics,activo);
 		
 		
