@@ -16,7 +16,8 @@ private:
 	Point^origen;
 	cli::array<Point^>^puntos;
 	bool doble = true;
-	bool regre = false;
+	bool ir = true;
+	
 	/*bool izquierda, derecha, arriba, abajo;*/
 public:
 	CPolicia() {
@@ -68,52 +69,89 @@ public:
 		movimiento();
 	}
 	Void cambioDireccion() {
-			/*1:arriba
-			2 : derech
-			3 : abajo
-			4 : izquie*/
+		/*1:arriba
+		2 : derech
+		3 : abajo
+		4 : izquie*/
 		/*bool doble=true;*/
-		if (funcion(4)) {
-			decision(3);
+		if(ir){
+			if (funcion(4)) {
+				decision(3);
+				doble = true;
+			}
+			if (funcion(5) && doble) {
+				decision(2);
+				doble = false;
+			}
+			if (funcion(10)) {
+				decision(4);
+			}
+
+			if (funcion(1)) {
+				decision(3);
+				doble = true;
+			}
+			if (funcion(14) && doble) {
+				decision(4);
+
+			}
+			if (funcion(0)) {
+				decision(2);
+				doble = false;
+			}
+			if (funcion(14) && !doble ) {
+				decision(3);
+			}
+			if (funcion(3)) {
+				decision(2);
+			//	ir = false;
+				doble = true;
+			}
+			if (funcion(13)) {
+				decision(2);
+				ir = false;
+			//	doble = true;
+			}
 		}
-		if (funcion(5)&&doble) {
-			decision(2);
-			doble = false;
+		if (!ir)
+		{
+			if (funcion(13)) {
+				decision(4);
+			}
+			if (funcion(3)) {
+				decision(1);
+			}
+			if (funcion(14)&&doble) {
+				decision(4);
+			}
+			if (funcion(0)) {
+				decision(2);
+				doble = false;
+			}
+			if (funcion(14)&&!doble) {
+				decision(1);
+			}
+			if (funcion(1)) {
+				decision(2);
+				doble = true;
+			}
+			if (funcion(5)&&doble) {
+				decision(2);
+			}
+			if (funcion(10)) {
+				decision(4);
+				doble = false;
+			}
+			if (funcion(5)&&!doble) {
+				decision(1);
+				ir = true;
+			}
+			//if (funcion(4)) {
+			//	decision(3);
+			////	ir = true;
+			//}
 		}
-		if (funcion(10)) {
-			decision(4);
-		}
-	
-		if (funcion(1)) {
-			decision(3); 
-			doble = true;
-		}
-		if (funcion(14)&&doble) {
-			decision(4);
-			
-		}
-		if (funcion(0)) {
-			decision(2);
-			doble = false;
-		}
-		if (funcion(14)&&doble==false &&regre==false) {
-			decision(3);
-			doble = false;
-		}
-		if (funcion(3) && doble == false) {
-			decision(2);
-			doble = true;
-		}
-		if (funcion(13)) {
-			decision(4);
-		}
-		if (funcion(3) && doble == true) {
-			decision(1);
-			regre = true;
-		}
-		if (funcion(14) && doble == false && regre == true) {
-			decision(1);
-		}
+		
 
 
 

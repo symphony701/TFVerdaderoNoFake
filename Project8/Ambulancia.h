@@ -62,7 +62,7 @@ public:
 	}
 	Void desplazamiento() {
 		x++;
-		if (x > 3) { x = 0; }
+		if (x > 2) { x = 0; }
 		cambioDireccion();
 		movimiento();
 	}
