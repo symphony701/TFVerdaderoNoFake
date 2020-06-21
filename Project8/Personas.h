@@ -72,6 +72,18 @@ public:
 			}
 		}
 	}
+
+	void AtrapadoAmbu(Rectangle ^poli) {
+		for (int i = 0; i < personas->Length; i++)
+		{
+			if (poli->IntersectsWith(personas[i]->getRectangle()) && personas[i]->getMulta() && personas[i]->getVirus()) {
+			//	alto->Play();
+				Eliminar(i);
+				break;
+			}
+		}
+	}
+
 	/*Void multado(cli::array<Rectangle^>^sd,) {
 		for (int i = 0; i < personas->Length; i++)
 		{

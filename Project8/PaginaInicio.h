@@ -202,9 +202,12 @@ namespace Project8 {
 		
 		personas->Mostrar(bf->Graphics);
 		personas->Mover();
-		poli->Mostrar(bf->Graphics);
-		poli->desplazamiento();
-		personas->AtrapadoPoli(poli->getRectangle());
+	//	poli->Mostrar(bf->Graphics);
+	//	poli->desplazamiento();
+	//	personas->AtrapadoPoli(poli->getRectangle());
+		ambulancia->Mostrar(bf->Graphics);
+		ambulancia->desplazamiento();
+		personas->AtrapadoAmbu(ambulancia->getRectangle());
 		/*personas->multado(jugador->colMensaje(), bf->Graphics);*/
 
 
