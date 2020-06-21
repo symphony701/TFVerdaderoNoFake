@@ -98,6 +98,7 @@ public:
 		}
 		if (funcion(14)&&doble==false &&regre==false) {
 			decision(3);
+			doble = false;
 		}
 		if (funcion(3) && doble == false) {
 			decision(2);
