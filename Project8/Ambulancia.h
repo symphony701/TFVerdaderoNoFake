@@ -16,9 +16,15 @@ private:
 	Point^origen;
 	cli::array<Point^>^puntos;
 	bool doble = true;
-	/*bool izquierda, derecha, arriba, abajo;*/
+	bool ir = true;
+	int mapa;
+	int nroP;
+	bool triple = true;
+
 public:
-	CAmbulancia() {
+	CAmbulancia(int mapa, int nroP) {
+		this->mapa = mapa;
+		this->nroP = nroP;
 		origen = gcnew Point(posx, posy);
 		puntos = gcnew cli::array<Point^>(15);
 		dx = dy = 3;
@@ -27,12 +33,22 @@ public:
 		altoSprite = imagen->Height;
 		anchoImagen = anchoSprite / 3;
 		altoImagen = altoSprite / 4;
-		posx = 368;
-		posy = -1;
+		if (mapa == 1 && nroP == 1) {
+			posx = 368;
+			posy = -1;
+		}
+		if (mapa == 1 && nroP == 2)
+		{
+			posx = 497;
+			posy = 59;
+
+		}
+
+
 		izquierda, derecha, arriba, abajo = false;
 		origen->X = posx;
 		origen->Y = posy;
-		iniciarPuntos(1);
+		iniciarPuntos();
 		cambioDireccion();
 	}
 	~CAmbulancia() {}
@@ -43,22 +59,6 @@ public:
 		x++;*/
 	}
 	Void Mover() {
-		///*if (posx == 0) { direcc = true; y = 2; origen->X = posx;
-		//origen->Y = posy;
-		//}
-		//if (posx == 300) { direcc = false; y = 1; origen->X = posx;
-		//origen->Y = posy;
-		//}
-		//if (direcc) { posx = posx + dx; origen->X = posx;
-		//origen->Y = posy;
-		//}
-		//if (direcc==false) { posx = posx - dx;; origen->X = posx;
-		//origen->Y = posy;
-		//}*/
-		//posx = posx - dx;
-		//origen->X=posx;
-		//origen->Y = posy;
-
 	}
 	Void desplazamiento() {
 		x++;
@@ -72,40 +72,159 @@ public:
 		3 : abajo
 		4 : izquie*/
 		/*bool doble=true;*/
-		if (funcion(4)) {
-			decision(3);
-		}
-		if (funcion(5) && doble) {
-			decision(2);
-			doble = false;
-		}
-		if (funcion(10)) {
-			decision(4);
+
+		if (mapa == 1 && nroP == 1) {
+			if (ir) {
+				if (funcion(4)) {
+					decision(3);
+					doble = true;
+				}
+				if (funcion(5) && doble) {
+					decision(2);
+					doble = false;
+				}
+				if (funcion(10)) {
+					decision(4);
+				}
+
+				if (funcion(1)) {
+					decision(3);
+					doble = true;
+				}
+				if (funcion(14) && doble) {
+					decision(4);
+
+				}
+				if (funcion(0)) {
+					decision(2);
+					doble = false;
+				}
+				if (funcion(14) && !doble) {
+					decision(3);
+				}
+				if (funcion(3)) {
+					decision(2);
+					//	ir = false;
+					doble = true;
+				}
+				if (funcion(13)) {
+					decision(2);
+					ir = false;
+					//	doble = true;
+				}
+			}
+			if (!ir)
+			{
+				if (funcion(13)) {
+					decision(4);
+				}
+				if (funcion(3)) {
+					decision(1);
+				}
+				if (funcion(14) && doble) {
+					decision(4);
+				}
+				if (funcion(0)) {
+					decision(2);
+					doble = false;
+				}
+				if (funcion(14) && !doble) {
+					decision(1);
+				}
+				if (funcion(1)) {
+					decision(2);
+					doble = true;
+				}
+				if (funcion(5) && doble) {
+					decision(2);
+				}
+				if (funcion(10)) {
+					decision(4);
+					doble = false;
+				}
+				if (funcion(5) && !doble) {
+					decision(1);
+					ir = true;
+				}
+				//if (funcion(4)) {
+				//	decision(3);
+				////	ir = true;
+				//}
+			}
+
 		}
 
-		if (funcion(1)) {
-			decision(3);
-			doble = true;
+
+		if (mapa == 1 && nroP == 2)
+		{
+			if (true) {
+				if (funcion(9)) {
+					decision(2);
+					doble = true;
+					triple = true;
+				}
+				if (funcion(11) && doble) {
+					decision(3);
+				}
+				if (funcion(11) && doble) {
+					decision(3);
+				}
+				if (funcion(11) && doble) {
+					decision(3);
+				}
+				if (funcion(12) && doble) {
+					decision(4);
+				}
+				if (funcion(7) && doble) {
+					decision(1);
+				}
+				if (funcion(6) && doble) {
+					decision(4);
+				}
+				if (funcion(2) && doble) {
+					decision(2);
+					doble = false;
+				}
+				if (funcion(6) && !doble) {
+					decision(3);
+				}
+				if (funcion(8)) {
+					triple = false;
+					decision(1);
+				}
+				if (funcion(7) && !doble&&triple) {
+					decision(3);
+
+				}
+				if (funcion(7) && !doble && !triple) {
+					decision(2);
+				}
+				if (funcion(12) && !doble) {
+					decision(1);
+				}
+				if (funcion(11) && !doble) {
+					decision(4);
+				}if (funcion(9) && !doble) {
+					decision(2);
+					doble = true;
+					triple = true;
+				}
+			}
 		}
-		if (funcion(14) && doble) {
-			decision(4);
-
-		}
-		if (funcion(0)) {
-			decision(2);
-			doble = false;
-		}
-		if (funcion(14) && doble == false) {
-			decision(3);
-		}
-		if (funcion(3)) {
-			decision(2);
-		}
 
 
 
 
 
+
+	}
+
+	Void cambioDireccion2() {
+		/*1:arriba
+		2 : derech
+		3 : abajo
+		4 : izquie*/
+		/*bool doble=true;*/
 
 	}
 
@@ -121,8 +240,8 @@ public:
 
 
 
-	Void iniciarPuntos(int map) {
-		if (map == 1) {
+	Void iniciarPuntos() {
+		if (mapa == 1) {
 			puntos[0] = gcnew Point(11, 308);
 			puntos[1] = gcnew Point(140, 176);
 			puntos[2] = gcnew Point(140, 275);
@@ -138,9 +257,7 @@ public:
 			puntos[12] = gcnew Point(572, 341);
 			puntos[13] = gcnew Point(587, 458);
 			puntos[14] = gcnew Point(140, 308);
-			/*int puntito = 0 + rand() % (13 - 1);
-			origen = gcnew Point(0, 0);
-			origen = puntos[puntito];*/
+
 		}
 
 	}
@@ -156,9 +273,9 @@ public:
 	Void movimiento() {
 		if (arriba)
 		{
-			posy = posy - dy; cout << "ok2" << endl;
+			posy = posy - dy;
 		}
-		if (abajo) { posy = posy + dy; cout << "ok" << endl; }
+		if (abajo) { posy = posy + dy; }
 		if (derecha) { posx = posx + dx; }
 		if (izquierda) { posx = posx - dx; }
 		//posicion->X = posx;
@@ -183,3 +300,4 @@ public:
 
 
 };
+

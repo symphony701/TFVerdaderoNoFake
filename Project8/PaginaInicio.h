@@ -31,12 +31,13 @@ namespace Project8 {
 		MyForm(void)
 		{
 			InitializeComponent();
-
+			dia = 0;
 			g = panelito->CreateGraphics();
 			tiem = gcnew tiempo();
 			jugador = gcnew CJugador();
-			poli = gcnew CPolicia();
-			ambulancia = gcnew CAmbulancia();
+			
+			
+			
 			mapa = gcnew CMapas(1);
 			st=gcnew SoundPlayer("soundtrackTono.wav");
 			personas = gcnew CPersonas();
@@ -82,6 +83,8 @@ namespace Project8 {
 		SoundPlayer^ st;
 		tiempo^ tiem;
 		CPersonas ^ personas;
+		CPolicia ^poli2;
+		int dia;
 	private: System::ComponentModel::IContainer^  components;
 
 		/// <summary>
@@ -194,6 +197,20 @@ namespace Project8 {
 		BufferedGraphicsContext ^bfc = BufferedGraphicsManager::Current;
 		BufferedGraphics ^bf = bfc->Allocate(g,this->ClientRectangle);
 		/////INICIO DE CODIGO
+		
+		
+		if (tiem->gethora() == 6 && tiem->getmin()==00)
+		{
+			ambulancia = gcnew CAmbulancia(1, 1);
+			/*delete poli,poli2;*/
+		}
+		if (tiem->gethora()==20 && tiem->getmin() == 00)
+		{
+			delete ambulancia;
+			/*poli = gcnew CPolicia(1, 1);
+			poli2 = gcnew CPolicia(1, 2);*/
+		}
+
 		bf->Graphics->DrawImage(mapa->getImagen(), 0, 0, mapa->getRectangle(), GraphicsUnit::Pixel);
 		/*jugador->Disparar(bf->Graphics);*/
 		mensajuga->Disparar(bf->Graphics);
@@ -202,12 +219,24 @@ namespace Project8 {
 		
 		personas->Mostrar(bf->Graphics);
 		personas->Mover();
+		if (tiem->gethora()>=6&&tiem->gethora()<=20)
+		{
+		ambulancia->Mostrar(bf->Graphics);
+		ambulancia->desplazamiento();
+		personas->AtrapadoAmbu(ambulancia->getRectangle());
+
+		}
+		if(tiem->gethora()>=20 && tiem->gethora()<=6){
+		
 		poli->Mostrar(bf->Graphics);
 		poli->desplazamiento();
+		poli2->Mostrar(bf->Graphics);
+		poli2->desplazamiento();
 		personas->AtrapadoPoli(poli->getRectangle());
-	/*	ambulancia->Mostrar(bf->Graphics);
-		ambulancia->desplazamiento();*/
-		personas->AtrapadoAmbu(ambulancia->getRectangle());
+		personas->AtrapadoPoli(poli2->getRectangle());
+		}
+		
+		
 		/*personas->multado(jugador->colMensaje(), bf->Graphics);*/
 
 
@@ -216,8 +245,9 @@ namespace Project8 {
 		bf->Render(g);
 		delete bf, bfc;
 		tiem->cambio(1);
-		lbl_hora->Text = tiem->mostrarT();
 		mapa->cambio(tiem->gethora());
+		lbl_hora->Text = tiem->mostrarT();
+		
 	}
 private: System::Void MyForm_KeyUp(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
 	if (e->KeyCode == Keys::W) {

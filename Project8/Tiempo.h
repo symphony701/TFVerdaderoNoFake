@@ -6,7 +6,7 @@ ref class tiempo
 public:
 	tiempo() { hora = 6; min = 00; tiem = " 6:00" + ""; };
 	~tiempo() {};
-	void cambio(Int16 cambio) {
+	void cambio(int cambio) {
 		min += cambio;
 		if (min >= 60) {
 			hora += 1;
@@ -32,10 +32,11 @@ public:
 			tiem = tiem + ":" + min;}
 		return tiem;
 	}
-	Int16 gethora() { return hora; }
+	int gethora() { return hora; }
+	int getmin() { return min; }
 private:
-	Int16 hora;
-	Int16 min;
+	int hora;
+	int min;
 	String^ tiem;
 };
 
