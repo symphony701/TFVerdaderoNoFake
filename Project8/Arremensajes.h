@@ -12,54 +12,93 @@ ref class CArreMensajes : public CEntidad {
 	Bitmap^ mensaje;
 	Int16 anchoSprite;
 	Int16 altoSprite;
+	Int16 opc;
 public:
 	CArreMensajes(Int16 num) {
-
+		opc = num;
 		cantbal = gcnew cli::array<CMensaje^>(5);
 		for (Int16 i = 0; i < 5; i++) {
 			cantbal[i] = gcnew CMensaje();
 		}
 		switch (num){
 		case 1:mensaje = gcnew Bitmap("papel.png"); break;
-		case 2:mensaje = gcnew Bitmap("papel.png"); break;
+		case 2:mensaje = gcnew Bitmap("tomate.png"); break;
 		}
 		anchoImagen = mensaje->Width;
 		altoImagen = mensaje->Height;
 	}
 	~CArreMensajes() {}
-	Void Disparar(Graphics^g) {
-		for (int i = 0; i < 5; i++) {
-			if (cantbal[i]->getactivador() == true) {
-				if (cantbal[i]->getdirec() == 0) {
-					int a = cantbal[i]->getver() + 6;
-					cantbal[i]->setver(a);
-				}
-				if (cantbal[i]->getdirec() == 1) {
-					int a = cantbal[i]->gethor() - 6;
-					cantbal[i]->sethor(a);
+	Void MostrarDisparo(Graphics^g) {
+		if(opc ==1){
+			for (int i = 0; i < 5; i++) {
+				if (cantbal[i]->getactivador() == true) {
+					if (cantbal[i]->getdirec() == 0) {
+						int a = cantbal[i]->getver() + 6;
+						cantbal[i]->setver(a);
+					}
+					if (cantbal[i]->getdirec() == 1) {
+						int a = cantbal[i]->gethor() - 6;
+						cantbal[i]->sethor(a);
 
-				}
-				if (cantbal[i]->getdirec() == 2) {
-					int a = cantbal[i]->gethor() + 6;
-					cantbal[i]->sethor(a);
-				}
-				if (cantbal[i]->getdirec() == 3) {
-					int a = cantbal[i]->getver() - 6;
-					cantbal[i]->setver(a);
-				}
+					}
+					if (cantbal[i]->getdirec() == 2) {
+						int a = cantbal[i]->gethor() + 6;
+						cantbal[i]->sethor(a);
+					}
+					if (cantbal[i]->getdirec() == 3) {
+						int a = cantbal[i]->getver() - 6;
+						cantbal[i]->setver(a);
+					}
 
-				g->DrawImage(mensaje, cantbal[i]->gethor(), cantbal[i]->getver());
-				cantbal[i]->distancia();
+					g->DrawImage(mensaje, cantbal[i]->gethor(), cantbal[i]->getver());
+					cantbal[i]->distancia(18);
+				}
 			}
+		}
+		if (opc == 2) {
+			for (int i = 0; i < 5; i++) {
+				if (cantbal[i]->getactivador() == true) {
+					if (cantbal[i]->getdirec() == 0) {
+						int a = cantbal[i]->getver() + 6;
+						cantbal[i]->setver(a);
+					}
+					if (cantbal[i]->getdirec() == 1) {
+						int a = cantbal[i]->gethor() - 6;
+						cantbal[i]->sethor(a);
 
+					}
+					if (cantbal[i]->getdirec() == 2) {
+						int a = cantbal[i]->gethor() + 6;
+						cantbal[i]->sethor(a);
+					}
+					if (cantbal[i]->getdirec() == 3) {
+						int a = cantbal[i]->getver() - 6;
+						cantbal[i]->setver(a);
+					}
+
+					g->DrawImage(mensaje, cantbal[i]->gethor(), cantbal[i]->getver());
+					cantbal[i]->distancia(26);
+				}
+			}
 		}
 
 	}
-	Void MostrarDisparo(Int16 x, Int16 y, Int16 d) {
+	Void Disparar(Int16 x, Int16 y, Int16 d,Int16 ancho, Int16 alto) {
 		for (int i = 0; i < 5; i++) {
 			if (cantbal[i]->getactivador() == false) {
 				cantbal[i]->setactivador(true);
-				cantbal[i]->CORDENADA(x, y);
+				if (d == 0) {
+					cantbal[i]->CORDENADA(x, y+alto-10);
+				}
+				if (d == 1) {
+					cantbal[i]->CORDENADA(x-anchoImagen+6, y+12);
+				}
+				if (d == 2) {
+					cantbal[i]->CORDENADA(x+ ancho-9, y+12);
+				}
+				if (d == 3) {
+					cantbal[i]->CORDENADA(x, y- altoImagen +14);
+				}
 				cantbal[i]->setdirec(d);
 				break;
 			}

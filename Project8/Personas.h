@@ -127,7 +127,14 @@ public:
 		delete fantasmas;
 
 	}
+	Void Cercania(Int16 posx, Int16 posy, Int16 ancho, Int16 alto2) {
+		/*for (int i = 0; i < personas->Length; i++){
+			if (personas[i]->getPosX -50 >= posx + ancho && personas[i]->getPosX+ personas[i]->getancho + 50<= posx && personas[i]->getPosY - 50 >= posx + alto2 && personas[i]->getPosY + personas[i]->getalto +50<= posy) {
 
+			}*/
+		/*	
+		}*/
+	}
 
 
 	

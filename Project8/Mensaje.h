@@ -33,9 +33,9 @@ public:
 	
 	
 	}
-	void distancia() {
+	void distancia(int d) {
 		distan += 1;
-		if (distan >= 18) {
+		if (distan >= d) {
 			activador = false;
 			distan = 0;
 		}

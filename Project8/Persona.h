@@ -208,4 +208,6 @@ public:
 		Rectangle rectangulito = Rectangle(posx, posy,33,49);
 		return rectangulito;
 	}
+	Int16 getancho() { return anchoSprite; }
+	Int16 getalto() { return altoSprite; }
 };
