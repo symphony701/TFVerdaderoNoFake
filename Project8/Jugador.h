@@ -17,7 +17,7 @@ enum  Direccion
 ref class CJugador : public CEntidad {
 private:
 	Int16 vidas;
-	bool movArriba, movAbajo, movDerecha, movIzquierda;
+	bool movArriba, movAbajo, movDerecha, movIzquierda, alquiler;
 	//Bitmap^ mensaje;
 	//cli::array<CMensaje^>^ cantbal;
 	Climites^ limites;
@@ -92,6 +92,9 @@ public:
 		if (act == true) { x++; }
 
 		if (x == 3) { x = 0; }
+		/*if (alquiler) {
+			g->DrawImage(gcnew Bitmap("casaLuri.png"), 179, 365);
+		}*/
 	}
 	Int16 getancho() {return anchoImagen;}
 	Int16 getalto() {return altoImagen;}
@@ -122,11 +125,13 @@ public:
 		case Direccion::Abajo:
 			if (movAbajo) { posy += dy; }
 			movAbajo = limites->mapa1abajo(movAbajo, posx, posy);
+
 			y = 0;
 			break;
 		case Direccion::Arriba:
 			if (movArriba) { posy -= dy; }
 			movArriba =limites->mapa1arriba( movArriba,  posx,  posy);
+			/*limites->colocamapa1(alquiler, posx, posy);*/
 			y = 3;
 			break;
 		case Direccion::Izquierda:

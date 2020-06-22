@@ -12,12 +12,17 @@ public:
 	// tendremos que implementar el camino del personaje mejorado
 	// para eso usaremos el panel y dibujaremos los caminos en el mapa
 	// pero tiene un desfase y por eso en el mismo dibujador pondre el desfase que genera el personaje
-
+	/*Formula(179, 250, 440, 445, posx, posy)*/
+	/*bool colocamapa1(bool i,Int16 posx, Int16 posy) {
+		i = false;
+		if (Formula(179, 250, 440, 445, posx, posy)) {i = true;}
+		return i;
+	}*/
 	bool mapa1arriba(bool movArriba, Int16 posx, Int16 posy) {
 		//Codigo solo para valientes xd
 		while (true) {
 			////Casa aislada
-			if(Formula(179, 250, 440, 445, posx, posy)) { movArriba = false; break; }
+			if(Formula(179, 250, 405, 408, posx, posy)) { movArriba = false; break; }
 			//Valla derecha
 			if (Formula(590, 632, 143, 146, posx, posy)) { movArriba = false; break; }
 			if (Formula(420, 590, 47, 49, posx, posy)) { movArriba = false; break; }
