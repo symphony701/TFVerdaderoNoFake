@@ -92,9 +92,9 @@ public:
 		if (act == true) { x++; }
 
 		if (x == 3) { x = 0; }
-		/*if (alquiler) {
-			g->DrawImage(gcnew Bitmap("casaLuri.png"), 179, 365);
-		}*/
+		if (alquiler) {
+			g->DrawImage(gcnew Bitmap("casaLuri.png"), 188, 418);
+		}
 	}
 	Int16 getancho() {return anchoImagen;}
 	Int16 getalto() {return altoImagen;}
@@ -131,7 +131,7 @@ public:
 		case Direccion::Arriba:
 			if (movArriba) { posy -= dy; }
 			movArriba =limites->mapa1arriba( movArriba,  posx,  posy);
-			/*limites->colocamapa1(alquiler, posx, posy);*/
+			alquiler = limites->colocamapa1(posx, posy);
 			y = 3;
 			break;
 		case Direccion::Izquierda:
