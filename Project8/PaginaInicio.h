@@ -204,13 +204,13 @@ namespace Project8 {
 		if (tiem->gethora() == 6 && tiem->getmin()==00)
 		{
 			ambulancia = gcnew CAmbulancia(1, 1);
-			/*delete poli,poli2;*/
+			delete poli,poli2;
 		}
 		if (tiem->gethora()==20 && tiem->getmin() == 00)
 		{
 			delete ambulancia;
-			/*poli = gcnew CPolicia(1, 1);
-			poli2 = gcnew CPolicia(1, 2);*/
+			poli = gcnew CPolicia(1, 1);
+			poli2 = gcnew CPolicia(1, 2);
 		}
 
 		bf->Graphics->DrawImage(mapa->getImagen(), 0, 0, mapa->getRectangle(), GraphicsUnit::Pixel);

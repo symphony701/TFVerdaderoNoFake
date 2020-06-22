@@ -22,7 +22,7 @@ public:
 		//Codigo solo para valientes xd
 		while (true) {
 			////Casa aislada
-			if(Formula(179, 250, 405, 408, posx, posy)) { movArriba = false; break; }
+			if(Formula(179, 250, 385, 388, posx, posy)) { movArriba = false; break; }
 			//Valla derecha
 			if (Formula(590, 632, 143, 146, posx, posy)) { movArriba = false; break; }
 			if (Formula(420, 590, 47, 49, posx, posy)) { movArriba = false; break; }
@@ -31,7 +31,6 @@ public:
 			if (Formula(149, 299, 257, 260, posx, posy)) { movArriba = false; break; }
 			if (Formula(389, 524, 155, 158, posx, posy)) { movArriba = false; break; }
 			if (Formula(125, 356, 155, 158, posx, posy)) { movArriba = false; break; }
-			if (Formula(179, 250, 440, 445, posx, posy)) { movArriba = false; break; }
 			if (Formula(-13, 125, 290, 293, posx, posy)) { movArriba = false; break; }
 			if (Formula(290, 584, 440, 443, posx, posy)) { movArriba = false; break; }
 			movArriba = true;
