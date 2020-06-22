@@ -15,7 +15,7 @@ public:
 	/*Formula(179, 250, 440, 445, posx, posy)*/
 	bool colocamapa1(Int16 posx, Int16 posy) {
 		bool i = false;
-		if (Formula(179, 250, 440, 445, posx, posy)) {i = true;}
+		if (Formula(179, 250, 385, 425, posx, posy)) {i = true;}
 		return i;
 	}
 	bool mapa1arriba(bool movArriba, Int16 posx, Int16 posy) {
@@ -23,6 +23,7 @@ public:
 		while (true) {
 			////Casa aislada
 			if(Formula(179, 250, 385, 388, posx, posy)) { movArriba = false; break; }
+			if (Formula(195, 250, 440,445, posx, posy)) { movArriba = false; break; }
 			//Valla derecha
 			if (Formula(590, 632, 143, 146, posx, posy)) { movArriba = false; break; }
 			if (Formula(420, 590, 47, 49, posx, posy)) { movArriba = false; break; }
@@ -47,6 +48,7 @@ public:
 		while (true) {
 			////Casa aislada
 			if (Formula(179, 250, 365, 368, posx, posy)) { movAbajo = false; break; }
+			if (Formula(195, 250, 420, 425, posx, posy)) { movAbajo = false; break; }
 			//Valla baja
 			if (Formula(104, 632, 517, 521, posx, posy)) { movAbajo = false; break; }
 			if (Formula(-4, 103, 327, 329, posx, posy)) { movAbajo = false; break; }
@@ -68,6 +70,7 @@ public:
 		while (true) {
 			////Casa aislada
 			if (Formula(158, 161, 380, 431, posx, posy)) { movDerecha = false; break; }
+			if (Formula(236, 240, 374, 437, posx, posy)) { movDerecha = false; break; }
 			//Valla baja
 			//Valla derecha
 			if (Formula(587, 593, 47, 146, posx, posy)) { movDerecha = false; break; }
@@ -90,6 +93,7 @@ public:
 		while (true) {
 			////Casa aislada
 			if (Formula(257, 260, 374, 437, posx, posy)) { movIzquierda = false; break; }
+			if (Formula(178, 181, 380, 431, posx, posy)) { movIzquierda = false; break; }
 			//Valla baja
 			if (Formula(101, 104, 329, 521, posx, posy)) { movIzquierda = false; break; }
 			//Valla derecha

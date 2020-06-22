@@ -125,7 +125,7 @@ public:
 		case Direccion::Abajo:
 			if (movAbajo) { posy += dy; }
 			movAbajo = limites->mapa1abajo(movAbajo, posx, posy);
-
+			alquiler = limites->colocamapa1(posx, posy);
 			y = 0;
 			break;
 		case Direccion::Arriba:
