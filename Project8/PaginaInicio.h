@@ -165,7 +165,7 @@ namespace Project8 {
 	private: System::Void panelito_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
 		
 		
-	
+	//amen
 	//	st->PlayLooping();
 		
 	}
