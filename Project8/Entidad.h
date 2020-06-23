@@ -22,7 +22,7 @@ public:
 		areaVisible = Rectangle(anchoImagen*x, altoImagen*y, anchoImagen, altoImagen);
 
 	};
-	~CEntidad() {};
+	~CEntidad() { delete imagen; };
 
 	Int16 getX() { return x; }
 	Int16 getY() { return y; }

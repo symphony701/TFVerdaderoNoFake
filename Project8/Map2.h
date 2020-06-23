@@ -161,7 +161,7 @@ namespace Project8 {
 	private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {
 		for (int i = 0; i < 5; i++) {
 			if (mensajuga->getactivador(i)) {
-				personas->multado(mensajuga->getposx(i), mensajuga->getposy(i));
+				/*personas->multado(mensajuga->getposx(i), mensajuga->getposy(i));*/
 			}
 
 		}

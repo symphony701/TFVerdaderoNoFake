@@ -40,6 +40,10 @@ public:
 			distan = 0;
 		}
 	}
+	void desativador() {
+		activador = false;
+		distan = 0;
+	}
 	bool getactivador() { return activador; }
 	void setactivador(bool activador) { this->activador = activador; }
 	void CORDENADA(Int16 h, Int16 v) { hor=h; ver = v; }

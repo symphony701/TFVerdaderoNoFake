@@ -19,16 +19,19 @@ ref class CPersonas {
 	int cantidadEnemigos;
 	Int16 anchomen=31;
 	Int16 altomen=25;
+	bool desac;
 public:
 	CPersonas(int nroMapa){
 		alto= gcnew SoundPlayer("alto.wav");
 		
 		cantidadEnemigos = r.Next(5,11);
 		personas = gcnew cli::array<CPersona^>(cantidadEnemigos);
-		
 			
 		for (int i = 0; i < cantidadEnemigos; i++)
 		{
+
+			desac = true;
+
 			personas[i] = gcnew CPersona(nroMapa);
 
 
@@ -95,15 +98,33 @@ public:
 			}
 		}
 	}*/
-	Void multado(Int16 posx ,Int16 posy) {
+	Int16 multado(Int16 posx ,Int16 posy) {
+		Rectangle^ intermensa = gcnew Rectangle(posx, posy, anchomen, altomen);
 		for (int i = 0; i < personas->Length; i++) {
-			Rectangle^ intermensa = gcnew Rectangle(posx, posy, anchomen, altomen);
-			if ( intermensa->IntersectsWith(personas[i]->getRectangle())) {
+			desac = true;
+			if ( intermensa->IntersectsWith(personas[i]->getRectangle()) && personas[i]->getestadoba()) {
 				personas[i]->cambioImagen();
+				personas[i]->estadocambiado();
+				desac = personas[i]->getestadoba();
 				personas[i]->multar();
+				return 10;
 				break;
 			}
 		}
+		return 0;
+	}
+	bool desacmensa() {
+		return !(desac);
+	}
+	bool Colision(Rectangle ^juga) {
+		for (int i = 0; i < personas->Length; i++)
+		{
+			if (juga->IntersectsWith(personas[i]->getRectangle()) ) {
+				return true;
+				break;
+			}
+		}
+		return false;
 	}
 	Void tamañomen(Int16 ancho, Int16 alto) {
 		anchomen = ancho;

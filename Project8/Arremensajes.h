@@ -110,4 +110,5 @@ public:
 	Int16 getancho() { return anchoImagen; }
 	Int16 getalto() { return altoImagen; }
 	bool getactivador(int i) { return cantbal[i]->getactivador(); }
+	void desativador(int i) { return cantbal[i]->desativador(); }
 };
