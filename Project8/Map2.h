@@ -180,13 +180,13 @@ namespace Project8 {
 		}
 		if (tiem->gethora() == 6 && tiem->getmin() == 00 && !actPoli)
 		{
-			ambulancia = gcnew CAmbulancia(1, 1);
+			ambulancia = gcnew CAmbulancia(2, 1);
 			delete poli, poli2;
 		}
 		if (tiem->gethora() == 20 && tiem->getmin() == 00)
 		{
 			delete ambulancia;
-			poli = gcnew CPolicia(1, 1);
+			poli = gcnew CPolicia(2, 1);
 			poli2 = gcnew CPolicia(1, 2);
 		}
 
