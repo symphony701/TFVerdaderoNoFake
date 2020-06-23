@@ -157,6 +157,7 @@
     <ClInclude Include="Personas.h" />
     <ClInclude Include="Policia.h" />
     <ClInclude Include="Sano.h" />
+    <ClInclude Include="Vidas.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Map2.resx">

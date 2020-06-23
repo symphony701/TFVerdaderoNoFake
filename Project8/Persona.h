@@ -17,9 +17,11 @@ protected:
 	Random r;
 	int personaje;
 	bool multa;
+	bool estadoba;
 
 public:
 	CPersona(){
+		estadoba = true;
 		puntos = gcnew cli::array<Point^>(15);
 		posicion = gcnew Point(0,0);
 		iniciarPuntos(1);
@@ -64,6 +66,8 @@ public:
 			imagen = gcnew Bitmap("enemigos(infectados).png");
 		}else{ imagen = gcnew Bitmap("enemigos(sanos).png"); }
 	}
+	Void estadocambiado() { estadoba = false; }
+	bool getestadoba() { return estadoba; }
 	Void Mostrar(Graphics^gr) {
 		areaVisible = Rectangle(anchoSprite*filas, altoSprite*cols, anchoSprite, altoSprite);
 		gr->DrawImage(imagen, posx, posy, areaVisible, GraphicsUnit::Pixel);

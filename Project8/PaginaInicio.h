@@ -9,6 +9,7 @@
 #include "Personas.h"
 #include <iostream>
 #include "Arremensajes.h"
+#include "Vidas.h"
 using namespace std;
 namespace Project8 {
 
@@ -27,18 +28,24 @@ namespace Project8 {
 	{
 		CArreMensajes^ mensajuga;
 		CArreMensajes^ tomateenemigos;
+		Int16 punta;
+		Int16 dinero;
+	private: System::Windows::Forms::Label^  lbl_puntaje;
+	private: System::Windows::Forms::Label^  lbl_dinero;
+			 Cvidas^ vidajuga;
 
 	public:
 		MyForm(void)
 		{
 			InitializeComponent();
 			dia = 0;
+			dinero = 100;
 			g = panelito->CreateGraphics();
 			tiem = gcnew tiempo();
 			jugador = gcnew CJugador();
 			
-			
-			
+			vidajuga = gcnew Cvidas();
+			punta = 0;
 			mapa = gcnew CMapas(1);
 			st=gcnew SoundPlayer("soundtrackTono.wav");
 			personas = gcnew CPersonas();
@@ -105,11 +112,15 @@ namespace Project8 {
 			this->panelito = (gcnew System::Windows::Forms::Panel());
 			this->lbl_hora = (gcnew System::Windows::Forms::Label());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->lbl_dinero = (gcnew System::Windows::Forms::Label());
+			this->lbl_puntaje = (gcnew System::Windows::Forms::Label());
 			this->panelito->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// panelito
 			// 
+			this->panelito->Controls->Add(this->lbl_puntaje);
+			this->panelito->Controls->Add(this->lbl_dinero);
 			this->panelito->Controls->Add(this->lbl_hora);
 			this->panelito->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
@@ -140,6 +151,34 @@ namespace Project8 {
 			// 
 			this->timer1->Enabled = true;
 			this->timer1->Tick += gcnew System::EventHandler(this, &MyForm::timer1_Tick);
+			// 
+			// lbl_dinero
+			// 
+			this->lbl_dinero->BackColor = System::Drawing::Color::Black;
+			this->lbl_dinero->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->lbl_dinero->Font = (gcnew System::Drawing::Font(L"Impact", 14.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lbl_dinero->ForeColor = System::Drawing::Color::White;
+			this->lbl_dinero->Location = System::Drawing::Point(622, 8);
+			this->lbl_dinero->Name = L"lbl_dinero";
+			this->lbl_dinero->Size = System::Drawing::Size(61, 35);
+			this->lbl_dinero->TabIndex = 2;
+			this->lbl_dinero->Text = L"$100";
+			this->lbl_dinero->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			// 
+			// lbl_puntaje
+			// 
+			this->lbl_puntaje->BackColor = System::Drawing::Color::Black;
+			this->lbl_puntaje->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->lbl_puntaje->Font = (gcnew System::Drawing::Font(L"Impact", 14.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lbl_puntaje->ForeColor = System::Drawing::Color::White;
+			this->lbl_puntaje->Location = System::Drawing::Point(162, 8);
+			this->lbl_puntaje->Name = L"lbl_puntaje";
+			this->lbl_puntaje->Size = System::Drawing::Size(61, 35);
+			this->lbl_puntaje->TabIndex = 3;
+			this->lbl_puntaje->Text = L"0p";
+			this->lbl_puntaje->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			// 
 			// MyForm
 			// 
@@ -191,7 +230,11 @@ namespace Project8 {
 	private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {
 		for (int i = 0; i < 5; i++){
 			if (mensajuga->getactivador(i)) {
-				personas->multado(mensajuga->getposx(i), mensajuga->getposy(i));
+				punta = punta + personas->multado(mensajuga->getposx(i), mensajuga->getposy(i));
+				lbl_puntaje->Text = punta + "p";
+				if (personas->desacmensa()/*&& personas->sincambio()*/) {
+					mensajuga->desativador(i);
+				}
 			}
 
 		}
@@ -217,6 +260,8 @@ namespace Project8 {
 		/*jugador->Disparar(bf->Graphics);*/
 		mensajuga->MostrarDisparo(bf->Graphics);
 		jugador->Mostrar(bf->Graphics,activo);
+		dinero = dinero - jugador->cobro();
+		lbl_dinero->Text = "$" + dinero;
 		
 		
 		personas->Mostrar(bf->Graphics);
@@ -237,7 +282,8 @@ namespace Project8 {
 		personas->AtrapadoPoli(poli->getRectangle());
 		personas->AtrapadoPoli(poli2->getRectangle());
 		}
-		
+		vidajuga->perdervida (personas->Colision(jugador->getRectangle()));
+		vidajuga->Cantivi(bf->Graphics);
 		
 		/*personas->multado(jugador->colMensaje(), bf->Graphics);*/
 

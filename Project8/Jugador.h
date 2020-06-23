@@ -16,14 +16,14 @@ enum  Direccion
 
 ref class CJugador : public CEntidad {
 private:
-	Int16 vidas;
+	Int16 aldis;
 	bool movArriba, movAbajo, movDerecha, movIzquierda, alquiler;
 	//Bitmap^ mensaje;
 	//cli::array<CMensaje^>^ cantbal;
 	Climites^ limites;
 public:
 	CJugador() {
-
+		aldis = 0;
 		posx = 191;
 		posy = 446;
 		dx = dy = 3;
@@ -94,7 +94,19 @@ public:
 		if (x == 3) { x = 0; }
 		if (alquiler) {
 			g->DrawImage(gcnew Bitmap("casaLuri.png"), 188, 418);
+			aldis++;
+			if (aldis >= 60) {
+				aldis = 0;
+			}
 		}
+	}
+	Int16 cobro() {
+		if (alquiler) {
+			if (aldis == 1) {
+				return 20;
+			}
+		}
+		return 0;
 	}
 	Int16 getancho() {return anchoImagen;}
 	Int16 getalto() {return altoImagen;}
@@ -554,6 +566,10 @@ public:
 			break;
 		}
 		cout << posx << "----" << posy << endl;*/
+	}
+	Rectangle ^getRectangle() {
+
+		return Rectangle(posx, posy, anchoImagen, altoImagen);
 	}
 
 
