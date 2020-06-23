@@ -48,12 +48,12 @@ namespace Project8 {
 			punta = 0;
 			mapa = gcnew CMapas(1);
 			st=gcnew SoundPlayer("soundtrackTono.wav");
-			personas = gcnew CPersonas();
+			personas = gcnew CPersonas(1);
 			mensajuga = gcnew CArreMensajes(1);
 			tomateenemigos = gcnew CArreMensajes(2);
 			personas->tamañomen(mensajuga->getancho(), mensajuga->getalto());
-			//g->DrawImage(personaje->getImagen(), 0, 0, personaje->getRectangle(), GraphicsUnit::Pixel);
-
+			
+			actPoli = true;
 
 		};
 	private: System::Windows::Forms::Timer^  timer1;
@@ -87,6 +87,7 @@ namespace Project8 {
 		CJugador^ jugador;
 		CPolicia^poli;
 		CAmbulancia ^ambulancia;
+		CAmbulancia^ambulancia2;
 		CMapas^ mapa;
 		bool activo;
 		SoundPlayer^ st;
@@ -94,6 +95,8 @@ namespace Project8 {
 		CPersonas ^ personas;
 		CPolicia ^poli2;
 		int dia;
+		bool actPoli;
+		
 	private: System::ComponentModel::IContainer^  components;
 
 		/// <summary>
@@ -244,7 +247,14 @@ namespace Project8 {
 		/////INICIO DE CODIGO
 		
 		
-		if (tiem->gethora() == 6 && tiem->getmin()==00)
+		if (tiem->gethora() == 6 && tiem->getmin() == 00 && actPoli)
+		{
+			ambulancia = gcnew CAmbulancia(1, 1);
+			ambulancia2 = gcnew CAmbulancia(1,2);
+			
+			actPoli = false;
+		}
+		if (tiem->gethora() == 6 && tiem->getmin() == 00&&!actPoli)
 		{
 			ambulancia = gcnew CAmbulancia(1, 1);
 			delete poli,poli2;
@@ -257,7 +267,7 @@ namespace Project8 {
 		}
 
 		bf->Graphics->DrawImage(mapa->getImagen(), 0, 0, mapa->getRectangle(), GraphicsUnit::Pixel);
-		/*jugador->Disparar(bf->Graphics);*/
+		
 		mensajuga->MostrarDisparo(bf->Graphics);
 		jugador->Mostrar(bf->Graphics,activo);
 		dinero = dinero - jugador->cobro();
@@ -273,7 +283,7 @@ namespace Project8 {
 		personas->AtrapadoAmbu(ambulancia->getRectangle());
 
 		}
-		if(tiem->gethora()>=20 && tiem->gethora()<=6){
+		if((tiem->gethora() >= 20 && tiem->gethora() <= 23) || (tiem->gethora() < 6&& tiem->gethora()>=0)){
 		
 		poli->Mostrar(bf->Graphics);
 		poli->desplazamiento();
@@ -282,6 +292,7 @@ namespace Project8 {
 		personas->AtrapadoPoli(poli->getRectangle());
 		personas->AtrapadoPoli(poli2->getRectangle());
 		}
+
 		vidajuga->perdervida (personas->Colision(jugador->getRectangle()));
 		vidajuga->Cantivi(bf->Graphics);
 		
@@ -320,10 +331,11 @@ private: System::Void panelito_DoubleClick(System::Object^  sender, System::Even
 	WindowState = FormWindowState::Minimized;
 	map2->ShowDialog();
 	
+	Close();
+	
 	WindowState = FormWindowState::Normal;
 	
 	delete map2;
-	Close();
 }
 private: System::Void panelito_Click(System::Object^  sender, System::EventArgs^  e) {
 	

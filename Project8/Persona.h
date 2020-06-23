@@ -17,14 +17,27 @@ protected:
 	Random r;
 	int personaje;
 	bool multa;
+
 	bool estadoba;
 
+	int nroMapa;
+
 public:
-	CPersona(){
-		estadoba = true;
-		puntos = gcnew cli::array<Point^>(15);
+	CPersona(int nroMapa){
+		this->nroMapa = nroMapa;
+		if (nroMapa==1)
+		{
+			puntos = gcnew cli::array<Point^>(15);
+
+		}
+		if (nroMapa==2)
+		{
+		puntos = gcnew cli::array<Point^>(18);
+
+		}
+
 		posicion = gcnew Point(0,0);
-		iniciarPuntos(1);
+		iniciarPuntos(nroMapa);
 		dx = dy = 3;
 		posx=origen->X;
 		posy = origen->Y;
@@ -111,6 +124,29 @@ public:
 			origen = gcnew Point(0,0);
 			origen = puntos[puntito];
 		}
+		if (map == 2) {
+			puntos[0] = gcnew Point(230, 506);
+			puntos[1] = gcnew Point(335, 506);
+			puntos[2] = gcnew Point(617, 506);
+			puntos[3] = gcnew Point(335, 422);
+			puntos[4] = gcnew Point(494, 422);
+			puntos[5] = gcnew Point(641, 422);
+			puntos[6] = gcnew Point(335, 308);
+			puntos[7] = gcnew Point(494, 308);
+			puntos[8] = gcnew Point(641, 308);
+			puntos[9] = gcnew Point(335, 257);
+			puntos[10] = gcnew Point(494, 248);
+			puntos[11] = gcnew Point(641, 248);
+			puntos[12] = gcnew Point(215, 257);
+			puntos[13] = gcnew Point(335, 80);
+			puntos[14] = gcnew Point(479, 80);
+			puntos[15] = gcnew Point(479, 50);
+			puntos[16] = gcnew Point(647, 50);
+			puntos[17] = gcnew Point(647, 128);
+			int puntito = random(0,17);
+			origen = gcnew Point(0, 0);
+			origen = puntos[puntito];
+		}
 
 	}
 
@@ -118,59 +154,135 @@ public:
 		Point^punt = gcnew Point(posx, posy);
 		
 		int vacio;
-		if (punt->X==puntos[0]->X&&punt->Y== puntos[0]->Y) {
-			decision(random(2,2));	
-		}
-		if (punt->X == puntos[1]->X&&punt->Y == puntos[1]->Y) {
-			decision(random(2, 3));
-		}
+		if (nroMapa==1)
+		{
+			if (punt->X == puntos[0]->X&&punt->Y == puntos[0]->Y) {
+				decision(random(2, 2));
+			}
+			if (punt->X == puntos[1]->X&&punt->Y == puntos[1]->Y) {
+				decision(random(2, 3));
+			}
 			if (punt->X == puntos[2]->X&&punt->Y == puntos[2]->Y) {
-			decision(random(1, 3));	
-		}
+				decision(random(1, 3));
+			}
 			if (punt->X == puntos[3]->X&&punt->Y == puntos[3]->Y) {
-			decision(random(1, 2));
-		}
+				decision(random(1, 2));
+			}
 			if (punt->X == puntos[4]->X&&punt->Y == puntos[4]->Y) {
-			decision(random(3, 3));
-		}
+				decision(random(3, 3));
+			}
 			if (punt->X == puntos[5]->X&&punt->Y == puntos[5]->Y) {
-			 
-			do {  vacio = random(1, 4); } while (vacio==3);
-			decision(vacio);	
-		}
+
+				do { vacio = random(1, 4); } while (vacio == 3);
+				decision(vacio);
+			}
 			if (punt->X == puntos[6]->X&&punt->Y == puntos[6]->Y) {
-			decision(random(3, 4));
-		}
+				decision(random(3, 4));
+			}
 			if (punt->X == puntos[7]->X&&punt->Y == puntos[7]->Y) {
-			decision(random(1, 3));
-		}
+				decision(random(1, 3));
+			}
 			if (punt->X == puntos[8]->X&&punt->Y == puntos[8]->Y) {
-			 
-			do { vacio = random(1, 4); } while (vacio == 3);
-			decision(vacio);	
-		}
+
+				do { vacio = random(1, 4); } while (vacio == 3);
+				decision(vacio);
+			}
 			if (punt->X == puntos[9]->X&&punt->Y == puntos[9]->Y) {
-			decision(random(2, 2));
-		}
+				decision(random(2, 2));
+			}
 			if (punt->X == puntos[10]->X&&punt->Y == puntos[10]->Y) {
-			decision(random(4, 4));
-		}
+				decision(random(4, 4));
+			}
 			if (punt->X == puntos[11]->X&&punt->Y == puntos[11]->Y) {
-			decision(random(3, 4));
-		}
+				decision(random(3, 4));
+			}
 			if (punt->X == puntos[12]->X&&punt->Y == puntos[12]->Y) {
-			 
-			do { vacio = random(1, 4); } while (vacio == 3||vacio==2);
-			decision(vacio);	
-		}
+
+				do { vacio = random(1, 4); } while (vacio == 3 || vacio == 2);
+				decision(vacio);
+			}
 			if (punt->X == puntos[13]->X&&punt->Y == puntos[13]->Y) {
-			decision(random(4, 4));	
-		}
+				decision(random(4, 4));
+			}
 			if (punt->X == puntos[14]->X&&punt->Y == puntos[14]->Y) {
-			 
-			do { vacio = random(1, 4); } while ( vacio == 2);
-			decision(vacio);
+
+				do { vacio = random(1, 4); } while (vacio == 2);
+				decision(vacio);
+			}
 		}
+
+
+		if (nroMapa==2)
+		{
+			/*1:arriba
+			2 : derech
+			3 : abajo
+			4 : izquie*/
+			
+			if(funcion(0)){
+				decision(2);
+			}
+			if (funcion(1)) {
+				do { vacio = random(1, 4); } while (vacio == 3);
+				decision(vacio);
+			}
+			if (funcion(2)) {
+				decision(4);
+			}
+			if (funcion(3)) {
+				decision(random(1,2));
+			}
+			if (funcion(4)) {
+				do { vacio = random(1, 4); } while (vacio == 3);
+				decision(vacio);
+			}
+			if (funcion(5)) {
+				do { vacio = random(1, 4); } while (vacio == 2||vacio==3);
+				decision(vacio);
+			}
+			if (funcion(6)) {
+				decision(random(1, 3));
+			}
+			if (funcion(7)) {
+				decision(random(1, 4));
+			}
+			if (funcion(8)) {
+				do { vacio = random(1, 4); } while (vacio == 2);
+				decision(vacio);
+			}
+			if (funcion(9)) {
+				do { vacio = random(1, 4); } while (vacio == 2 );
+				decision(vacio);
+			}
+			if (funcion(10)) {
+				decision(3);
+			}
+			if (funcion(11)) {
+				decision(3);
+			}
+			if (funcion(12)) {
+				decision(2);
+			}
+			if (funcion(13)) {
+				decision(random(2, 3));
+			}
+			if (funcion(14)) {
+				do { vacio = random(1, 4); } while (vacio == 2||vacio==3);
+				decision(vacio);
+			}
+			if (funcion(15)) {
+				decision(random(2, 3));
+			}
+			if (funcion(16)) {
+				decision(random(3, 4));
+			}
+			if (funcion(17)) {
+				decision(1);
+			}
+
+		}
+
+		
 		
 	}
 
@@ -214,4 +326,13 @@ public:
 	}
 	Int16 getancho() { return anchoSprite; }
 	Int16 getalto() { return altoSprite; }
+	bool funcion(int xd) {
+		Point^punt = gcnew Point(posx, posy);
+		bool val;
+		if (punt->X == puntos[xd]->X&&punt->Y == puntos[xd]->Y) {
+			val = true;
+		}
+		else { val = false; }
+		return val;
+	}
 };
