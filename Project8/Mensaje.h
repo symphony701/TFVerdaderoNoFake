@@ -53,4 +53,5 @@ public:
 
 		return Rectangle(posx, posy, 31, 25);
 	}*/
+
 };

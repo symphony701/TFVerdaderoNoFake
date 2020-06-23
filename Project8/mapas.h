@@ -18,7 +18,7 @@ public:
 		{
 		case 1:imagen = gcnew Bitmap("paisaje1.jpg"); num = 1; break;
 		case 2:imagen = gcnew Bitmap("paisajeSJL1.jpg"); num = 2; break;
-		case 3:imagen = gcnew Bitmap("paisajeSM1.jpg"); break;
+		case 3:imagen = gcnew Bitmap("paisajeSM1.jpg"); num = 3; break;
 		default:
 			break;
 		}

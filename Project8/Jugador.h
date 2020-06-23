@@ -322,6 +322,7 @@ public:
 		default:
 			break;
 		}
+			cout << posx << "----" << posy << endl;
 	
 		//while (true) {
 		//	/*	if (posy >= 551 && 554 >= posy  &&  posx >= 134 && 638 >= posx) {
@@ -469,7 +470,7 @@ public:
 		//	if (Formula(134, 638, 551, 554)) { movAbajo = false; break; }
 		//	break;
 		//}
-		//cout << posx << "----" << posy << endl;
+		cout << posx << "----" << posy << endl;
 
 	}
 
@@ -566,5 +567,6 @@ public:
 		}
 		else { valzz = false; }return valzz;
 	}*/
-
+	int getPosX() { return posx; }
+	int getPosY() { return posy; }
 };

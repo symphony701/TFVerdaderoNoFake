@@ -20,7 +20,7 @@ ref class CPersonas {
 	Int16 anchomen=31;
 	Int16 altomen=25;
 public:
-	CPersonas(){
+	CPersonas(int nroMapa){
 		alto= gcnew SoundPlayer("alto.wav");
 		
 		cantidadEnemigos = r.Next(5,11);
@@ -29,7 +29,7 @@ public:
 			
 		for (int i = 0; i < cantidadEnemigos; i++)
 		{
-			personas[i] = gcnew CPersona();
+			personas[i] = gcnew CPersona(nroMapa);
 
 
 		}

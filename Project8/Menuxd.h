@@ -1,6 +1,7 @@
 #pragma once
 #include "PaginaInicio.h"
 #include <iostream>
+#include "Map2.h"
 
 namespace Project8 {
 
@@ -134,13 +135,14 @@ namespace Project8 {
 		}
 #pragma endregion
 	private: System::Void btnStart_Click(System::Object^  sender, System::EventArgs^  e) {
-		
 
 		MyForm^map1 = gcnew MyForm();
 		WindowState = FormWindowState::Minimized;
 		map1->ShowDialog();
 		WindowState = FormWindowState::Normal;
 		delete map1;
+		Map2^map2 = gcnew Map2();
+		map2->ShowDialog();
 	}
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 	Close();
