@@ -17,7 +17,7 @@ public:
 		switch (nroMap)
 		{
 		case 1:imagen = gcnew Bitmap("paisaje1.jpg"); num = 1; break;
-		case 2:imagen = gcnew Bitmap("paisajeSJL1.jpg"); num = 2; break;
+		case 2:imagen = gcnew Bitmap("paisajeSM4.jpg"); num = 2; break;
 		case 3:imagen = gcnew Bitmap("paisajeSM1.jpg"); num = 3; break;
 		default:
 			break;
@@ -34,7 +34,8 @@ public:
 	~CMapas() {}
 	void cambio(Int16 tiem){
 		if (num == 1) { cambioSJL1(tiem); }
-		if (num == 2) { cambioSJL2(tiem); }
+		if (num == 3) { cambioSJL2(tiem); }
+		if (num == 2) { cambioSM(tiem); }
 	}
 	void cambioSJL1(Int16 tiem) {
 		if (tiem >= 0 && tiem << 2) { imagen = gcnew Bitmap("paisaje1(+noche).jpg"); }
@@ -47,16 +48,26 @@ public:
 	}
 	void cambioSJL2(Int16 tiem) {
 		
-		if (tiem >= 0 && tiem << 2) { imagen = gcnew Bitmap("PaisajeSJL1(+noche).jpg"); }
-		if (tiem >= 2 && tiem << 4) { imagen = gcnew Bitmap("PaisajeSJL1(noche).jpg"); }
-		if (tiem >= 4 && tiem << 6) { imagen = gcnew Bitmap("PaisajeSJL1(-noche).jpg"); }
-		if (tiem >= 6 && tiem << 18) { imagen = gcnew Bitmap("PaisajeSJL1.jpg"); }
-		if (tiem >= 18 && tiem << 20) { imagen = gcnew Bitmap("PaisajeSJL1(-noche).jpg"); }
-		if (tiem >= 20 && tiem << 22) { imagen = gcnew Bitmap("PaisajeSJL1(noche).jpg"); }
-		if (tiem >= 22 && tiem << 24) { imagen = gcnew Bitmap("PaisajeSJL1(+noche).jpg"); }
+		if (tiem >= 0 && tiem << 2) { imagen = gcnew Bitmap("paisajeSM1(+noche).jpg"); }
+		if (tiem >= 2 && tiem << 4) { imagen = gcnew Bitmap("paisajeSM1(noche).jpg"); }
+		if (tiem >= 4 && tiem << 6) { imagen = gcnew Bitmap("paisajeSM1(-noche).jpg"); }
+		if (tiem >= 6 && tiem << 18) { imagen = gcnew Bitmap("paisajeSM1.jpg"); }
+		if (tiem >= 18 && tiem << 20) { imagen = gcnew Bitmap("paisajeSM1(-noche).jpg"); }
+		if (tiem >= 20 && tiem << 22) { imagen = gcnew Bitmap("paisajeSM1(noche).jpg"); }
+		if (tiem >= 22 && tiem << 24) { imagen = gcnew Bitmap("paisajeSM1(+noche).jpg"); }
 
 	}
-	
+	void cambioSM(Int16 tiem) {
+
+		if (tiem >= 0 && tiem << 2) { imagen = gcnew Bitmap("paisajeSM4(+noche).jpg"); }
+		if (tiem >= 2 && tiem << 4) { imagen = gcnew Bitmap("paisajeSM4(noche).jpg"); }
+		if (tiem >= 4 && tiem << 6) { imagen = gcnew Bitmap("paisajeSM4(-noche).jpg"); }
+		if (tiem >= 6 && tiem << 18) { imagen = gcnew Bitmap("paisajeSM4.jpg"); }
+		if (tiem >= 18 && tiem << 20) { imagen = gcnew Bitmap("paisajeSM4(-noche).jpg"); }
+		if (tiem >= 20 && tiem << 22) { imagen = gcnew Bitmap("paisajeSM4(noche).jpg"); }
+		if (tiem >= 22 && tiem << 24) { imagen = gcnew Bitmap("paisajeSM4(+noche).jpg"); }
+
+	}
 	Void Disparar() {}
 
 

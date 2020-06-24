@@ -86,7 +86,7 @@ public:
 		cout << posx << "----" << posy << endl;
 		return(movIzquierda);
 	}
-
+	//mapa 2
 	bool mapa2arriba(bool movArriba,Int16 posx, Int16 posy){
 		while (true) {
 			if (Formula(608, 638, 293, 296, posx, posy)) { movArriba = false; break; }
@@ -248,6 +248,85 @@ public:
 		}
 		return(movIzquierda);
 		cout << posx << "----" << posy << endl;
+	}
+	//mapa4
+	bool mapa4arriba(bool movArriba, Int16 posx, Int16 posy) {
+		while (true) {
+			if (Formula(98, 272, 482, 485, posx, posy)) { movArriba = false; break; }
+			if (Formula(236, 608, 512, 515, posx, posy)) { movArriba = false; break; }
+			if (Formula(236, 582, 458, 461, posx, posy)) { movArriba = false; break; }
+			if (Formula(236, 401, 320, 323, posx, posy)) { movArriba = false; break; }
+			if (Formula(236, 338, 188, 191, posx, posy)) { movArriba = false; break; }
+			if (Formula(236, 582, 458, 461, posx, posy)) { movArriba = false; break; }
+			if (Formula(212, 236, 134, 137, posx, posy)) { movArriba = false; break; }
+			if (Formula(236, 582, 458, 461, posx, posy)) { movArriba = false; break; }
+			if (Formula(8, 212, 188, 191, posx, posy)) { movArriba = false; break; }
+			if (Formula(8, 212, 320, 323, posx, posy)) { movArriba = false; break; }
+			if (Formula(128, 212, 458, 461, posx, posy)) { movArriba = false; break; }
+			if (Formula(134, 212, 512, 515, posx, posy)) { movArriba = false; break; }
+			movArriba = true;
+			break;
+		}
+		return(movArriba);
+
+	}
+	bool mapa4abajo(bool movAbajo, Int16 posx, Int16 posy) {
+		while (true) {
+			if (Formula(71, 680, 509, 512, posx, posy)) { movAbajo = false; break; }
+			if (Formula(98, 272, 398, 395, posx, posy)) { movAbajo = false; break; }
+			if (Formula(293, 650, 395, 398, posx, posy)) { movAbajo = false; break; }
+			if (Formula(113, 269, 239, 242, posx, posy)) { movAbajo = false; break; }
+			if (Formula(458, 614, 239, 242, posx, posy)) { movAbajo = false; break; }
+			if (Formula(98, 278, 116, 119, posx, posy)) { movAbajo = false; break; }
+			if (Formula(449, 605, 116, 119, posx, posy)) { movAbajo = false; break; }
+			if (Formula(278, 449, 107, 110, posx, posy)) { movAbajo = false; break; }
+			movAbajo = true;
+			break;
+		}
+		return(movAbajo);
+
+		cout << posx << "----" << posy << endl;
+
+	}
+	bool mapa4derecha(bool movDerecha, Int16 posx, Int16 posy) {
+		while (true) {
+
+			if (Formula(635, 638, 293, 554, posx, posy)) { movDerecha = false; break; }
+			if (Formula(233, 236, 494, 512, posx, posy)) { movDerecha = false; break; }
+			if (Formula(434, 437, 438, 494, posx, posy)) { movDerecha = false; break; }
+			if (Formula(233, 236, 356, 458, posx, posy)) { movDerecha = false; break; }
+			if (Formula(398, 401, 320, 356, posx, posy)) { movDerecha = false; break; }
+			if (Formula(233, 236, 224, 320, posx, posy)) { movDerecha = false; break; }
+			if (Formula(335, 338, 188, 224, posx, posy)) { movDerecha = false; break; }
+			if (Formula(233, 236, 134, 188, posx, posy)) { movDerecha = false; break; }
+
+			movDerecha = true;
+			break;
+		}
+		return(movDerecha);
+		cout << posx << "----" << posy << endl;
+
+	}
+	bool mapa4izquierda(bool movIzquierda, Int16 posx, Int16 posy) {
+		while (true) {
+
+
+			if (Formula(608, 611, 293, 512, posx, posy)) { movIzquierda = false; break; }
+			if (Formula(212, 215, 134, 188, posx, posy)) { movIzquierda = false; break; }
+			if (Formula(8, 11, 188, 224, posx, posy)) { movIzquierda = false; break; }
+			if (Formula(212, 215, 224, 320, posx, posy)) { movIzquierda = false; break; }
+			if (Formula(8, 11, 320, 356, posx, posy)) { movIzquierda = false; break; }
+			if (Formula(212, 215, 356, 458, posx, posy)) { movIzquierda = false; break; }
+			if (Formula(128, 131, 458, 494, posx, posy)) { movIzquierda = false; break; }
+			if (Formula(212, 215, 134, 188, posx, posy)) { movIzquierda = false; break; }
+			if (Formula(212, 215, 494, 512, posx, posy)) { movIzquierda = false; break; }
+			if (Formula(134, 137, 512, 554, posx, posy)) { movIzquierda = false; break; }
+			movIzquierda = true;
+			break;
+		}
+		return(movIzquierda);
+		cout << posx << "----" << posy << endl;
+
 	}
 	bool Formula(Int16 xmin, Int16 xmax, Int16 ymin, Int16 ymax,Int16 posx, Int16 posy) {
 		bool valzz;

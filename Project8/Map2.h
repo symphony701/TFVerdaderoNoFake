@@ -4,7 +4,6 @@
 #include "Policia.h"
 #include "Ambulancia.h"
 #include "mapas.h"
-//#include "Map2.h"
 #include "Tiempo.h"
 #include "Personas.h"
 #include <iostream>
@@ -43,15 +42,6 @@ namespace Project8 {
 			mensajuga = gcnew CArreMensajes(1);
 			tomateenemigos = gcnew CArreMensajes(2);
 			personas->tamañomen(mensajuga->getancho(), mensajuga->getalto());
-
-
-
-
-
-
-			//
-			//TODO: agregar código de constructor aquí
-			//
 		}
 	private: System::Windows::Forms::Label^  lbl_hora;
 	public:

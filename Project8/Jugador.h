@@ -215,6 +215,38 @@ public:
 			break;
 		}
 	}
+
+	Void Mover4(Direccion direccion) {
+		switch (direccion)
+		{
+		case Direccion::Ninguna:
+			break;
+		case Direccion::Abajo:
+			if (/*movAbajo*/true) { posy += dy; }
+			//movAbajo = limites->mapa3abajo(movAbajo, posx, posy);
+			y = 0;
+			break;
+		case Direccion::Arriba:
+			if (/*movArriba*/true) { posy -= dy; }
+			//movArriba = limites->mapa3arriba(movArriba, posx, posy);
+			y = 3;
+			break;
+		case Direccion::Izquierda:
+			if (/*movIzquierda*/true) { posx -= dx; }
+			//movIzquierda = limites->mapa3izquierda(movIzquierda, posx, posy);
+			y = 1;
+			break;
+		case Direccion::Derecha:
+			if (/*movDerecha*/true) { posx += dx; }
+			//movDerecha = limites->mapa3derecha(movDerecha, posx, posy);
+			y = 2;
+			break;
+		default:
+			break;
+		}
+		cout << posx << "----" << posy << endl;
+	}
+
 	Rectangle ^getRectangle() {
 
 		return Rectangle(posx, posy, anchoImagen, altoImagen);
