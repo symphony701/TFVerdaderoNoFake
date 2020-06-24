@@ -54,7 +54,7 @@ namespace Project8 {
 			personas->tamañomen(mensajuga->getancho(), mensajuga->getalto());
 			
 			actPoli = true;
-
+			creada = false;
 		};
 	private: System::Windows::Forms::Timer^  timer1;
 	private: System::Windows::Forms::Label^  lbl_hora;
@@ -96,6 +96,7 @@ namespace Project8 {
 		CPolicia ^poli2;
 		int dia;
 		bool actPoli;
+		bool creada;
 		
 	private: System::ComponentModel::IContainer^  components;
 
@@ -228,6 +229,10 @@ namespace Project8 {
 			/*jugador->MostrarDisparo(jugador->getPosX(), jugador->getPosY(), jugador->getY());*/
 			mensajuga->Disparar(jugador->getPosX(), jugador->getPosY(), jugador->getY(), jugador->getancho(), jugador->getalto());
 		}
+		else if (e->KeyCode==Keys::T) {
+			personas->Disparad(jugador->getPosX(),jugador->getPosY());
+			creada = true;
+		}
 		
 	}
 	private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {
@@ -292,6 +297,12 @@ namespace Project8 {
 		personas->AtrapadoPoli(poli->getRectangle());
 		personas->AtrapadoPoli(poli2->getRectangle());
 		}
+
+		if (creada) {
+			personas->Trayectoria();
+			personas->verBala(bf->Graphics);
+		}
+
 
 		vidajuga->perdervida (personas->Colision(jugador->getRectangle()));
 		vidajuga->Cantivi(bf->Graphics);

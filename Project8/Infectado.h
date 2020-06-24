@@ -6,6 +6,6 @@ using namespace System::Drawing;
 
 ref class CInfectado : public CPersona {
 public:
-	CInfectado() {}
-	~CInfectado() {}
+	//CInfectado() {}
+	//~CInfectado() {}
 };

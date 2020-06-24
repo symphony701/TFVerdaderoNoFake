@@ -1,6 +1,7 @@
 #pragma once
 #include "Entidad.h"
 #include <iostream>
+#include "Bala.h"
 using namespace System;
 using namespace System::Windows::Forms;
 using namespace System::Drawing;
@@ -17,10 +18,9 @@ protected:
 	Random r;
 	int personaje;
 	bool multa;
-
 	bool estadoba;
-
 	int nroMapa;
+	CBala^ bala;
 
 public:
 	CPersona(int nroMapa){
@@ -69,6 +69,15 @@ public:
 		cambioDireccion();
 	}
 	~CPersona(){}
+	Void Diasparar(int destx,int desty) {
+		bala = gcnew CBala((double)posx, (double)posy,5, (double)destx, (double)desty);
+	}
+	Void Trayectar() {
+		bala->Mover();
+	}
+	Void verBala(Graphics^g) {
+		bala->graficar(g);
+	}
 	Void multar() {
 		multa = true;
 	}
