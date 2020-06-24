@@ -83,7 +83,7 @@ public:
 	}
 	Void Trayectoria() {
 		for (int i = 0; i < personas->Length; i++) {
-			personas[i]->Mover();
+			personas[i]->Trayectar();
 		}
 	}
 	Void verBala(Graphics^g) {
