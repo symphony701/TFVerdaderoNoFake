@@ -13,6 +13,7 @@ ref class CArreMensajes : public CEntidad {
 	Int16 anchoSprite;
 	Int16 altoSprite;
 	Int16 opc;
+	Int16 dis;
 public:
 	CArreMensajes(Int16 num) {
 		opc = num;
@@ -20,6 +21,7 @@ public:
 		for (Int16 i = 0; i < 5; i++) {
 			cantbal[i] = gcnew CMensaje();
 		}
+		dis = 0;
 		switch (num){
 		case 1:mensaje = gcnew Bitmap("papel.png"); break;
 		case 2:mensaje = gcnew Bitmap("tomate.png"); break;
@@ -84,23 +86,48 @@ public:
 
 	}
 	Void Disparar(Int16 x, Int16 y, Int16 d,Int16 ancho, Int16 alto) {
-		for (int i = 0; i < 5; i++) {
-			if (cantbal[i]->getactivador() == false) {
-				cantbal[i]->setactivador(true);
-				if (d == 0) {
-					cantbal[i]->CORDENADA(x, y+alto-10);
+		if (opc == 1) {
+			for (int i = 0; i < 5; i++) {
+				if (cantbal[i]->getactivador() == false) {
+					cantbal[i]->setactivador(true);
+					if (d == 0) {
+						cantbal[i]->CORDENADA(x, y + alto - 10);
+					}
+					if (d == 1) {
+						cantbal[i]->CORDENADA(x - anchoImagen + 6, y + 12);
+					}
+					if (d == 2) {
+						cantbal[i]->CORDENADA(x + ancho - 9, y + 12);
+					}
+					if (d == 3) {
+						cantbal[i]->CORDENADA(x, y - altoImagen + 14);
+					}
+					cantbal[i]->setdirec(d);
+					break;
 				}
-				if (d == 1) {
-					cantbal[i]->CORDENADA(x-anchoImagen+6, y+12);
+			}
+		}
+		if (opc == 2) {
+			for (int i = 0; i < 5; i++) {
+				dis++;
+				if (dis >= 4) { dis = 0; }
+				if (cantbal[i]->getactivador() == false&& dis ==1) {
+					cantbal[i]->setactivador(true);
+					if (d == 0) {
+						cantbal[i]->CORDENADA(x, y + alto - 10);
+					}
+					if (d == 1) {
+						cantbal[i]->CORDENADA(x - anchoImagen + 6, y + 12);
+					}
+					if (d == 2) {
+						cantbal[i]->CORDENADA(x + ancho - 9, y + 12);
+					}
+					if (d == 3) {
+						cantbal[i]->CORDENADA(x, y - altoImagen + 14);
+					}
+					cantbal[i]->setdirec(d);
+					break;
 				}
-				if (d == 2) {
-					cantbal[i]->CORDENADA(x+ ancho-9, y+12);
-				}
-				if (d == 3) {
-					cantbal[i]->CORDENADA(x, y- altoImagen +14);
-				}
-				cantbal[i]->setdirec(d);
-				break;
 			}
 		}
 

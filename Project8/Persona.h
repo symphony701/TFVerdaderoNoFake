@@ -24,6 +24,7 @@ protected:
 
 public:
 	CPersona(int nroMapa){
+
 		this->nroMapa = nroMapa;
 		if (nroMapa==1)
 		{
@@ -42,6 +43,7 @@ public:
 		posx=origen->X;
 		posy = origen->Y;
 		imagen = gcnew Bitmap("enemigos(base1).png");
+		bala = gcnew CBala();
 		anchoImagen = imagen->Width;
 		altoImagen = imagen->Height;
 		anchoSprite = anchoImagen /12 ;
@@ -70,9 +72,11 @@ public:
 		cambioDireccion();
 	}
 	~CPersona(){}
-	Void Diasparar(int destx,int desty) {
-		bala = gcnew CBala((double)posx, (double)posy,5, (double)destx, (double)desty);
+	Void Diasparar() {
+		bala->modificar(posx,posy,cols);
 	}
+	Int16 direccion() { return cols; }
+	bool Dispactiva() { return bala->getactivador(); }
 	Void Trayectar() {
 		bala->Mover();
 	}
