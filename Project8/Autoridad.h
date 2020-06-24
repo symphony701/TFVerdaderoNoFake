@@ -43,8 +43,6 @@ public:
 	Void Mostrar(Graphics^g) {
 		areaVisible = Rectangle(anchoImagen*x, altoImagen*y, anchoImagen, altoImagen);
 		g->DrawImage(imagen, posx, posy, areaVisible, GraphicsUnit::Pixel);
-		/*if (x == 3) { x = 0; }
-		x++;*/
 	}
 	Void Mover() {
 	}
@@ -92,13 +90,13 @@ public:
 				}
 				if (funcion(3)) {
 					decision(2);
-					//	ir = false;
+				
 					doble = true;
 				}
 				if (funcion(13)) {
 					decision(2);
 					ir = false;
-					//	doble = true;
+				
 				}
 			}
 			if (!ir)
@@ -134,10 +132,7 @@ public:
 					decision(1);
 					ir = true;
 				}
-				//if (funcion(4)) {
-				//	decision(3);
-				////	ir = true;
-				//}
+			
 			}
 
 		}
@@ -246,7 +241,6 @@ public:
 				}
 				if (funcion(9) && !doble && !triple) {
 					decision(4);
-					/*triple=true;*/
 				}
 				if (funcion(13) && !doble) {
 					decision(2);
@@ -268,6 +262,9 @@ public:
 			}
 		}
 
+		if (mapa == 2 && nroP == 2) {
+
+		}
 
 
 
@@ -332,9 +329,7 @@ public:
 			puntos[15] = gcnew Point(479, 50);
 			puntos[16] = gcnew Point(647, 50);
 			puntos[17] = gcnew Point(647, 128);
-			/*	int puntito = random(0, 17);*/
-			/*	origen = gcnew Point(0, 0);
-			origen = puntos[puntito];*/
+			
 		}
 
 	}
@@ -355,9 +350,7 @@ public:
 		if (abajo) { posy = posy + dy; }
 		if (derecha) { posx = posx + dx; }
 		if (izquierda) { posx = posx - dx; }
-		//posicion->X = posx;
-		//posicion->Y = posy;
-		/*cout << posx << " " << posy<<endl;*/
+		
 
 	}
 

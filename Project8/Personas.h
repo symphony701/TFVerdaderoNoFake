@@ -76,6 +76,21 @@ public:
 		}
 	}
 
+	Void Disparad(int jx,int jy) {
+		for (int i = 0; i < personas->Length; i++) {
+			personas[i]->Diasparar(jx,jy);
+		}
+	}
+	Void Trayectoria() {
+		for (int i = 0; i < personas->Length; i++) {
+			personas[i]->Mover();
+		}
+	}
+	Void verBala(Graphics^g) {
+		for (int i = 0; i < personas->Length; i++) {
+			personas[i]->verBala(g);
+		}
+	}
 	void AtrapadoAmbu(Rectangle ^poli) {
 		for (int i = 0; i < personas->Length; i++)
 		{
@@ -102,7 +117,7 @@ public:
 		Rectangle^ intermensa = gcnew Rectangle(posx, posy, anchomen, altomen);
 		for (int i = 0; i < personas->Length; i++) {
 			desac = true;
-			if ( intermensa->IntersectsWith(personas[i]->getRectangle()) && personas[i]->getestadoba()) {
+			if ( intermensa->IntersectsWith(personas[i]->getRectangle()) && !personas[i]->getestadoba()) {
 				personas[i]->cambioImagen();
 				personas[i]->estadocambiado();
 				desac = personas[i]->getestadoba();

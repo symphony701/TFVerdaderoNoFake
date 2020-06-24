@@ -8,26 +8,17 @@ ref class Climites{
 public:
 	Climites(){}
 	~Climites(){}
-	// recordatorio para las 9
-	// tendremos que implementar el camino del personaje mejorado
-	// para eso usaremos el panel y dibujaremos los caminos en el mapa
-	// pero tiene un desfase y por eso en el mismo dibujador pondre el desfase que genera el personaje
-	/*Formula(179, 250, 440, 445, posx, posy)*/
 	bool colocamapa1(Int16 posx, Int16 posy) {
 		bool i = false;
 		if (Formula(179, 250, 385, 425, posx, posy)) {i = true;}
 		return i;
 	}
 	bool mapa1arriba(bool movArriba, Int16 posx, Int16 posy) {
-		//Codigo solo para valientes xd
 		while (true) {
-			////Casa aislada
 			if(Formula(179, 250, 385, 388, posx, posy)) { movArriba = false; break; }
 			if (Formula(195, 250, 440,445, posx, posy)) { movArriba = false; break; }
-			//Valla derecha
 			if (Formula(590, 632, 143, 146, posx, posy)) { movArriba = false; break; }
 			if (Formula(420, 590, 47, 49, posx, posy)) { movArriba = false; break; }
-			//
 			if (Formula(299, 563, 317, 320, posx, posy)) { movArriba = false; break; }
 			if (Formula(149, 299, 257, 260, posx, posy)) { movArriba = false; break; }
 			if (Formula(389, 524, 155, 158, posx, posy)) { movArriba = false; break; }
@@ -44,16 +35,11 @@ public:
 
 	}
 	bool mapa1abajo(bool movAbajo, Int16 posx, Int16 posy) {
-		//Codigo solo para valientes xd
 		while (true) {
-			////Casa aislada
 			if (Formula(179, 250, 365, 368, posx, posy)) { movAbajo = false; break; }
 			if (Formula(195, 250, 420, 425, posx, posy)) { movAbajo = false; break; }
-			//Valla baja
 			if (Formula(104, 632, 517, 521, posx, posy)) { movAbajo = false; break; }
 			if (Formula(-4, 103, 327, 329, posx, posy)) { movAbajo = false; break; }
-			//Valla derecha
-			//salta las leyes de la programacion
 			if (Formula(470, 563, 80, 83, posx, posy)) { movAbajo = false; break; }
 			if (Formula(149, 524, 185, 188, posx, posy)) { movAbajo = false; break; }
 			if (Formula(290, 584, 362, 365, posx, posy)) { movAbajo = false; break; }
@@ -66,15 +52,10 @@ public:
 		
 	}
 	bool mapa1derecha(bool movDerecha, Int16 posx, Int16 posy) {
-		//Codigo solo para valientes xd
 		while (true) {
-			////Casa aislada
 			if (Formula(158, 161, 380, 431, posx, posy)) { movDerecha = false; break; }
 			if (Formula(236, 240, 374, 437, posx, posy)) { movDerecha = false; break; }
-			//Valla baja
-			//Valla derecha
 			if (Formula(587, 593, 47, 146, posx, posy)) { movDerecha = false; break; }
-			//salta las leyes de la programacion
 			if (Formula(296, 299, 260, 320, posx, posy)) { movDerecha = false; break; }
 			if (Formula(146, 149, 188, 260, posx, posy)) { movDerecha = false; break; }
 			if (Formula(521, 524, 158, 194, posx, posy)) { movDerecha = false; break; }
@@ -89,15 +70,10 @@ public:
 		
 	}
 	bool mapa1izquierda(bool movIzquierda, Int16 posx, Int16 posy) {
-		//Codigo solo para valientes xd
 		while (true) {
-			////Casa aislada
 			if (Formula(257, 260, 374, 437, posx, posy)) { movIzquierda = false; break; }
 			if (Formula(178, 181, 380, 431, posx, posy)) { movIzquierda = false; break; }
-			//Valla baja
 			if (Formula(101, 104, 329, 521, posx, posy)) { movIzquierda = false; break; }
-			//Valla derecha
-			//salta las leyes de la programacion
 			if (Formula(467, 470, 47, 83, posx, posy)) { movIzquierda = false; break; }
 			if (Formula(560, 563, 83, 320, posx, posy)) { movIzquierda = false; break; }
 			if (Formula(125, 127, 158, 293, posx, posy)) { movIzquierda = false; break; }
@@ -113,17 +89,8 @@ public:
 
 	bool mapa2arriba(bool movArriba,Int16 posx, Int16 posy){
 		while (true) {
-
-			/*	if (posy >= 551 && 554 >= posy  &&  posx >= 134 && 638 >= posx) {
-
-			movArriba = false; break;
-			}
-
-			else { movArriba = true; }*/
-
 			if (Formula(608, 638, 293, 296, posx, posy)) { movArriba = false; break; }
 			if (Formula(236, 608, 512, 515, posx, posy)) { movArriba = false; break; }
-			//no madido xd 
 			if (Formula(236, 582, 458, 461, posx, posy)) { movArriba = false; break; }
 			if (Formula(236, 401, 320, 323, posx, posy)) { movArriba = false; break; }
 			if (Formula(236, 338, 188, 191, posx, posy)) { movArriba = false; break; }
@@ -133,26 +100,15 @@ public:
 			if (Formula(8, 212, 188, 191, posx, posy)) { movArriba = false; break; }
 			if (Formula(8, 212, 320, 323, posx, posy)) { movArriba = false; break; }
 			if (Formula(128, 212, 458, 461, posx, posy)) { movArriba = false; break; }
-			//confuncion mental, si sale error revisar aqui
 			if (Formula(134, 212, 512, 515, posx, posy)) { movArriba = false; break; }
 			movArriba = true;
 			break;
 		}
 		return(movArriba);
-		cout << posx << "----" << posy << endl;
 
 	}
 	bool mapa2abajo(bool movAbajo, Int16 posx, Int16 posy) {
 		while (true) {
-
-			/*	if (posy >= 551 && 554 >= posy  &&  posx >= 134 && 638 >= posx) {
-
-			movArriba = false; break;
-			}
-
-			else { movArriba = true; }*/
-
-			//no madido xd 
 			if (Formula(491, 494, 236, 582, posx, posy)) { movAbajo = false; break; }
 			if (Formula(236, 401, 353, 356, posx, posy)) { movAbajo = false; break; }
 			if (Formula(236, 338, 221, 224, posx, posy)) { movAbajo = false; break; }
@@ -160,11 +116,7 @@ public:
 			if (Formula(8, 212, 221, 224, posx, posy)) { movAbajo = false; break; }
 			if (Formula(8, 212, 353, 356, posx, posy)) { movAbajo = false; break; }
 			if (Formula(128, 212, 491, 494, posx, posy)) { movAbajo = false; break; }
-
-				//confuncion mental, si sale error revisar aqui
 			if (Formula(134, 638, 551, 554, posx, posy)) { movAbajo = false; break; }
-				/*if (Formula(134, 638, 551, 554, posx, posy)) { movAbajo = false; break; }*/
-
 			movAbajo = true;
 				break;
 			}
@@ -176,26 +128,15 @@ public:
 	bool mapa2derecha( bool movDerecha, Int16 posx, Int16 posy) {
 		while (true) {
 
-			/*	if (posy >= 551 && 554 >= posy  &&  posx >= 134 && 638 >= posx) {
-
-			movArriba = false; break;
-			}
-
-			else { movArriba = true; }*/
 			if (Formula(635, 638, 293, 554, posx, posy)) { movDerecha = false; break; }
 			if (Formula(233, 236, 494, 512, posx, posy)) { movDerecha = false; break; }
-			//no madido xd 
 			if (Formula(434, 437, 438, 494, posx, posy)) { movDerecha = false; break; }
 			if (Formula(233, 236, 356, 458, posx, posy)) { movDerecha = false; break; }
 			if (Formula(398, 401, 320, 356, posx, posy)) { movDerecha = false; break; }
 			if (Formula(233, 236, 224, 320, posx, posy)) { movDerecha = false; break; }
 			if (Formula(335, 338, 188, 224, posx, posy)) { movDerecha = false; break; }
 			if (Formula(233, 236, 134, 188, posx, posy)) { movDerecha = false; break; }
-			//confuncion mental, si sale error revisar aqui
-			/*if (posx >= 134 && 638 >= posx && posy >= 551 && 554 >= posy) {
-			movAbajo = false; break;
-			}
-			else { movAbajo = true; }*/
+		
 			movDerecha = true;
 			break;
 		}
@@ -205,27 +146,18 @@ public:
 	}
 	bool mapa2izquierda(bool movIzquierda, Int16 posx, Int16 posy) {
 		while (true) {
-			/*	if (posy >= 551 && 554 >= posy  &&  posx >= 134 && 638 >= posx) {
-			movArriba = false; break;
-			}
-			else { movArriba = true; }*/
+		
 
 			if (Formula(608, 611, 293, 512, posx, posy)) { movIzquierda = false; break; }
-			//no madido xd 
 			if (Formula(212, 215, 134, 188, posx, posy)) { movIzquierda = false; break; }
 			if (Formula(8, 11, 188, 224, posx, posy)) { movIzquierda = false; break; }
 			if (Formula(212, 215, 224, 320, posx, posy)) { movIzquierda = false; break; }
 			if (Formula(8, 11, 320, 356, posx, posy)) { movIzquierda = false; break; }
 			if (Formula(212, 215, 356, 458, posx, posy)) { movIzquierda = false; break; }
-			//confuncion mental, si sale error revisar aqui
 			if (Formula(128, 131, 458, 494, posx, posy)) { movIzquierda = false; break; }
 			if (Formula(212, 215, 134, 188, posx, posy)) { movIzquierda = false; break; }
 			if (Formula(212, 215, 494, 512, posx, posy)) { movIzquierda = false; break; }
 			if (Formula(134, 137, 512, 554, posx, posy)) { movIzquierda = false; break; }
-			/*if (posx >= 134 && 638 >= posx && posy >= 551 && 554 >= posy) {
-			movAbajo = false; break;
-			}
-			else { movAbajo = true; }*/
 			movIzquierda = true;
 			break;
 		}

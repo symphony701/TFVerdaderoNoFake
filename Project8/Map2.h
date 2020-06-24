@@ -165,7 +165,6 @@ namespace Project8 {
 			}
 
 		}
-		/*personas->Cercania(jugador->getPosX, jugador->getPosY, jugador->getancho, jugador->getalto);*/
 		BufferedGraphicsContext ^bfc = BufferedGraphicsManager::Current;
 		BufferedGraphics ^bf = bfc->Allocate(g, this->ClientRectangle);
 		/////INICIO DE CODIGO
