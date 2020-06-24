@@ -222,23 +222,23 @@ public:
 		case Direccion::Ninguna:
 			break;
 		case Direccion::Abajo:
-			if (/*movAbajo*/true) { posy += dy; }
-			//movAbajo = limites->mapa3abajo(movAbajo, posx, posy);
+			if (movAbajo) { posy += dy; }
+			movAbajo = limites->mapa4abajo(movAbajo, posx, posy);
 			y = 0;
 			break;
 		case Direccion::Arriba:
-			if (/*movArriba*/true) { posy -= dy; }
-			//movArriba = limites->mapa3arriba(movArriba, posx, posy);
+			if (movArriba) { posy -= dy; }
+			movArriba = limites->mapa4arriba(movArriba, posx, posy);
 			y = 3;
 			break;
 		case Direccion::Izquierda:
-			if (/*movIzquierda*/true) { posx -= dx; }
-			//movIzquierda = limites->mapa3izquierda(movIzquierda, posx, posy);
+			if (movIzquierda) { posx -= dx; }
+			movIzquierda = limites->mapa4izquierda(movIzquierda, posx, posy);
 			y = 1;
 			break;
 		case Direccion::Derecha:
-			if (/*movDerecha*/true) { posx += dx; }
-			//movDerecha = limites->mapa3derecha(movDerecha, posx, posy);
+			if (movDerecha) { posx += dx; }
+			movDerecha = limites->mapa4derecha(movDerecha, posx, posy);
 			y = 2;
 			break;
 		default:
