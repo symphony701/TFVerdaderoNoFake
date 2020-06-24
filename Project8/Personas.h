@@ -117,7 +117,7 @@ public:
 		Rectangle^ intermensa = gcnew Rectangle(posx, posy, anchomen, altomen);
 		for (int i = 0; i < personas->Length; i++) {
 			desac = true;
-			if ( intermensa->IntersectsWith(personas[i]->getRectangle()) && !personas[i]->getestadoba()) {
+			if ( intermensa->IntersectsWith(personas[i]->getRectangle()) && personas[i]->getestadoba()) {
 				personas[i]->cambioImagen();
 				personas[i]->estadocambiado();
 				desac = personas[i]->getestadoba();

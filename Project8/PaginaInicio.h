@@ -262,11 +262,12 @@ namespace Project8 {
 		if (tiem->gethora() == 6 && tiem->getmin() == 00&&!actPoli)
 		{
 			ambulancia = gcnew CAmbulancia(1, 1);
+			ambulancia2 = gcnew CAmbulancia(1,2);
 			delete poli,poli2;
 		}
 		if (tiem->gethora()==20 && tiem->getmin() == 00)
 		{
-			delete ambulancia;
+			delete ambulancia, ambulancia2;
 			poli = gcnew CPolicia(1, 1);
 			poli2 = gcnew CPolicia(1, 2);
 		}
@@ -283,17 +284,19 @@ namespace Project8 {
 		personas->Mover();
 		if (tiem->gethora()>=6&&tiem->gethora()<=20)
 		{
-		ambulancia->Mostrar(bf->Graphics);
 		ambulancia->desplazamiento();
+		ambulancia->Mostrar(bf->Graphics);
+		ambulancia2->desplazamiento();
+		ambulancia2->Mostrar(bf->Graphics);
 		personas->AtrapadoAmbu(ambulancia->getRectangle());
-
+		personas->AtrapadoAmbu(ambulancia2->getRectangle());
 		}
 		if((tiem->gethora() >= 20 && tiem->gethora() <= 23) || (tiem->gethora() < 6&& tiem->gethora()>=0)){
 		
-		poli->Mostrar(bf->Graphics);
 		poli->desplazamiento();
-		poli2->Mostrar(bf->Graphics);
+		poli->Mostrar(bf->Graphics);
 		poli2->desplazamiento();
+		poli2->Mostrar(bf->Graphics);
 		personas->AtrapadoPoli(poli->getRectangle());
 		personas->AtrapadoPoli(poli2->getRectangle());
 		}
