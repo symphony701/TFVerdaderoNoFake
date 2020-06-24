@@ -47,6 +47,7 @@ public:
 		anchoSprite = anchoImagen /12 ;
 		altoSprite = altoImagen / 4;
 		multa = false;
+		estadoba = true;
 		int contagiado = r.Next(1, 7);
 
 		if (contagiado%2==0) {
