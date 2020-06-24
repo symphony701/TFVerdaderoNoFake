@@ -9,47 +9,60 @@ ref class CBala {
 	double x;
 	double y;
 	double dx;
-	double DestX;
-	double DestY;
 	double angulo;
 	int alto;
 	int ancho;
 	Bitmap^imagen;
-	Rectangle areaVisible;
-	double dis = 0;
-	double Ad;
+	int direc;
+	int dis = 0;
+
+	bool act;
 public:
-	CBala(double x,double y,double dx,double DestX,double DestY){
+	CBala(){
 		imagen = gcnew Bitmap("tomate.png");
-		this->x = x;
-		this->y = y;
-	/*	this->x = 500;
-		this->y = 200;*/
-		Ad = y;
+		this->x = 500;
+		this->y = 200;
+
+		act = false;
 		this->dx = dx;
 		dis = 0;
-		/*this->DestX = 191;
-		this->DestY = 446;*/
-		double i = (DestY - y) / (DestX - x);
-		angulo = atan((DestY - y) / (DestX - x));
-		/*if (i <= 0) {
-			angulo = angulo + atan(0);
-		}*/
+		
 		dx = 5;
 
 	}
 	~CBala(){}
-	Void Mover() {
-		dis += dx;
-		x += dx;
-		y = Ad + dis*tan(angulo);
-		if (dis >= 5) {
-			dis = 100;
+	Void modificar(double x, double y, int direc) {
+		this->x = x;
+		this->y = y;
+		this->direc = direc;
+		act = true;
+	}
+	Void direccion() {
+		switch (direc){
+		case 3: y-=dx; break;
+		case 2:x+=dx; break;
+		case 0:y+=dx; break;
+		case 1: x-=dx; break;
+		default:break;
 		}
+	}
+	Void Mover() {
+		
+		/*x += dx;
+		y = Ad + dis*tan(angulo);*/
+		if (act) {
+			direccion();
+		}
+		if (dis >= 7) {
+			act = false;
+			dis =0;
+		}
+		dis++;
 	 }
 	Void graficar(Graphics^g) {
-		areaVisible = Rectangle((int)x, (int)y, 17, 15);
-		g->DrawImage(imagen, (int)x, (int)y);
+		if (act) { g->DrawImage(imagen, (int)x, (int)y); }
+		
 	//	g->DrawImage(imagen, x, y,GraphicsUnit::Pixel);
 	}
+	bool getactivador() { return act; }
 };

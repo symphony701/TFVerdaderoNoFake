@@ -75,10 +75,36 @@ public:
 			}
 		}
 	}
-
-	Void Disparad(int jx,int jy) {
+	Void Cercania(Int16 posx, Int16 posy, Int16 ancho, Int16 alto2) {
 		for (int i = 0; i < personas->Length; i++) {
-			personas[i]->Diasparar(jx,jy);
+			if (personas[i]->Dispactiva()){
+				switch (personas[i]->direccion()) {
+				case 3: if (personas[i]->getPosX() >= posx + ancho && personas[i]->getPosX() + personas[i]->getancho() <= posx && personas[i]->getPosY() - 40 >= posx + alto2 && personas[i]->getPosY() + personas[i]->getalto() <= posy) {
+					Disparad();				
+				};
+						break;
+				case 2:if (personas[i]->getPosX() >= posx + ancho && personas[i]->getPosX() + personas[i]->getancho()+40 <= posx && personas[i]->getPosY() >= posx + alto2 && personas[i]->getPosY() + personas[i]->getalto() <= posy) {
+					Disparad();
+				}; break;
+				case 0:if (personas[i]->getPosX() >= posx + ancho && personas[i]->getPosX() + personas[i]->getancho() <= posx && personas[i]->getPosY() + 40 >= posx + alto2 && personas[i]->getPosY() + personas[i]->getalto() <= posy) {
+					Disparad();
+				}; break;
+				case 1:if (personas[i]->getPosX() >= posx + ancho && personas[i]->getPosX() + personas[i]->getancho() - 40 <= posx && personas[i]->getPosY() >= posx + alto2 && personas[i]->getPosY() + personas[i]->getalto() <= posy) {
+					Disparad();
+				}; break;
+				default:break;
+				}
+				
+					//personas[i]->getPosX - 50 >= posx + ancho && personas[i]->getPosX + personas[i]->getancho + 50 <= posx &&  
+			
+			}
+			
+
+		}
+	}
+	Void Disparad() {
+		for (int i = 0; i < personas->Length; i++) {
+			personas[i]->Diasparar();
 		}
 	}
 	Void Trayectoria() {
@@ -163,14 +189,7 @@ public:
 		delete fantasmas;
 
 	}
-	Void Cercania(Int16 posx, Int16 posy, Int16 ancho, Int16 alto2) {
-		/*for (int i = 0; i < personas->Length; i++){
-			if (personas[i]->getPosX -50 >= posx + ancho && personas[i]->getPosX+ personas[i]->getancho + 50<= posx && personas[i]->getPosY - 50 >= posx + alto2 && personas[i]->getPosY + personas[i]->getalto +50<= posy) {
-
-			}*/
-		/*	
-		}*/
-	}
+	
 
 
 	

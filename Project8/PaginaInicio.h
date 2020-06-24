@@ -230,7 +230,7 @@ namespace Project8 {
 			mensajuga->Disparar(jugador->getPosX(), jugador->getPosY(), jugador->getY(), jugador->getancho(), jugador->getalto());
 		}
 		else if (e->KeyCode==Keys::T) {
-			personas->Disparad(jugador->getPosX(),jugador->getPosY());
+			personas->Disparad();
 			creada = true;
 		}
 		
