@@ -7,8 +7,8 @@ ref class Cvidas : public CEntidad {
 public:
 	Cvidas() {
 		imagen = gcnew Bitmap("corazon.png");
-		posx = 0;
-		posy = 0;
+		posx = 10;
+		posy = 15;
 		cant = 3;
 		d = 0;
 		act = false;
@@ -16,7 +16,7 @@ public:
 	~Cvidas() { delete imagen; }
 	Void Cantivi(Graphics^ g) {
 		for (int i = 0; i < cant; i++){
-			g->DrawImage(imagen, 10+30 * i, 15);
+			g->DrawImage(imagen, posx+30 * i, posy);
 		}
 	}
 	Void perdervida(bool i) {
@@ -36,4 +36,6 @@ public:
 		}
 	}
 	Int16 getcantvida() { return cant; }
+	Void setcantvida(Int16 cantv) { cant = cantv; }
+	Void cambioppos(Int16 x, Int16 y) { posx = x; posy = y; }
 };
