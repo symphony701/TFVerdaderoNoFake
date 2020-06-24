@@ -37,6 +37,7 @@ public:
 
 		}
 
+
 	}
 	
 	
@@ -75,31 +76,38 @@ public:
 			}
 		}
 	}
-	Void Cercania(Int16 posx, Int16 posy, Int16 ancho, Int16 alto2) {
+	Void Cercania(Rectangle ^juga) {
+		
 		for (int i = 0; i < personas->Length; i++) {
-			if (personas[i]->Dispactiva()){
-				switch (personas[i]->direccion()) {
-				case 3: if (personas[i]->getPosX() >= posx + ancho && personas[i]->getPosX() + personas[i]->getancho() <= posx && personas[i]->getPosY() - 40 >= posx + alto2 && personas[i]->getPosY() + personas[i]->getalto() <= posy) {
-					Disparad();				
-				};
-						break;
-				case 2:if (personas[i]->getPosX() >= posx + ancho && personas[i]->getPosX() + personas[i]->getancho()+40 <= posx && personas[i]->getPosY() >= posx + alto2 && personas[i]->getPosY() + personas[i]->getalto() <= posy) {
-					Disparad();
-				}; break;
-				case 0:if (personas[i]->getPosX() >= posx + ancho && personas[i]->getPosX() + personas[i]->getancho() <= posx && personas[i]->getPosY() + 40 >= posx + alto2 && personas[i]->getPosY() + personas[i]->getalto() <= posy) {
-					Disparad();
-				}; break;
-				case 1:if (personas[i]->getPosX() >= posx + ancho && personas[i]->getPosX() + personas[i]->getancho() - 40 <= posx && personas[i]->getPosY() >= posx + alto2 && personas[i]->getPosY() + personas[i]->getalto() <= posy) {
-					Disparad();
-				}; break;
-				default:break;
-				}
-				
-					//personas[i]->getPosX - 50 >= posx + ancho && personas[i]->getPosX + personas[i]->getancho + 50 <= posx &&  
-			
-			}
-			
+			for (int a = 0; a < 5; a++) {
 
+					Rectangle cercaniaariba = Rectangle(personas[i]->getPosX(), (personas[i]->getPosY()- (altomen * 5)), anchomen, altomen*5);
+					Rectangle cercaniaabajo = Rectangle(personas[i]->getPosX(), personas[i]->getPosY(), anchomen, altomen*5);
+					Rectangle cercaniaderecha =Rectangle(personas[i]->getPosX(), personas[i]->getPosY(), anchomen*5, altomen);
+					Rectangle cercaniaizquierda =Rectangle(personas[i]->getPosX()-(anchomen * 5), personas[i]->getPosY(), anchomen*5, altomen);
+					switch (personas[i]->direccion()) {
+					case 3: if (juga->IntersectsWith(cercaniaariba)){
+						Disparad();
+					};
+							break;
+					case 2:if (juga->IntersectsWith(cercaniaderecha)){
+						Disparad();
+					}; break;
+					case 0:if (juga->IntersectsWith(cercaniaabajo)){
+						Disparad();
+					}; break;
+					case 1:if (juga->IntersectsWith(cercaniaizquierda)){
+						Disparad();
+					}; break;
+					default:break;
+					
+
+					//personas[i]->getPosX - 50 >= posx + ancho && personas[i]->getPosX + personas[i]->getancho + 50 <= posx &&  
+
+				}
+
+
+			}
 		}
 	}
 	Void Disparad() {
@@ -107,11 +115,11 @@ public:
 			personas[i]->Diasparar();
 		}
 	}
-	Void Trayectoria() {
+	/*Void Trayectoria() {
 		for (int i = 0; i < personas->Length; i++) {
 			personas[i]->Trayectar();
 		}
-	}
+	}*/
 	Void verBala(Graphics^g) {
 		for (int i = 0; i < personas->Length; i++) {
 			personas[i]->verBala(g);

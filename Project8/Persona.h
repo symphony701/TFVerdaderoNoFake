@@ -2,6 +2,7 @@
 #include "Entidad.h"
 #include <iostream>
 #include "Bala.h"
+#include "Arremensajes.h"
 using namespace System;
 using namespace System::Windows::Forms;
 using namespace System::Drawing;
@@ -21,6 +22,7 @@ protected:
 	bool estadoba;
 	int nroMapa;
 	CBala^ bala;
+	CArreMensajes^ tomate;
 
 public:
 	CPersona(int nroMapa){
@@ -44,6 +46,7 @@ public:
 		posy = origen->Y;
 		imagen = gcnew Bitmap("enemigos(base1).png");
 		bala = gcnew CBala();
+		tomate = gcnew CArreMensajes(2);
 		anchoImagen = imagen->Width;
 		altoImagen = imagen->Height;
 		anchoSprite = anchoImagen /12 ;
@@ -73,15 +76,17 @@ public:
 	}
 	~CPersona(){}
 	Void Diasparar() {
-		bala->modificar(posx,posy,cols);
+		/*bala->modificar(posx,posy,cols);*/
+		tomate->Disparar(posx, posy, cols, anchoSprite, altoSprite);
 	}
 	Int16 direccion() { return cols; }
-	bool Dispactiva() { return bala->getactivador(); }
+	bool Dispactiva(Int16 i) { /*return bala->getactivador();*/ return tomate->getactivador(i); }
 	Void Trayectar() {
 		bala->Mover();
 	}
 	Void verBala(Graphics^g) {
-		bala->graficar(g);
+		/*bala->graficar(g);*/
+		tomate->MostrarDisparo(g);
 	}
 	Void multar() {
 		multa = true;

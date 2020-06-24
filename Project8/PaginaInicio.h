@@ -300,11 +300,11 @@ namespace Project8 {
 		personas->AtrapadoPoli(poli->getRectangle());
 		personas->AtrapadoPoli(poli2->getRectangle());
 		}
-
-		if (creada) {
-			personas->Trayectoria();
+		personas->Cercania(jugador->getRectangle());
+		/*if (creada) {*/
+			/*personas->Trayectoria();*/
 			personas->verBala(bf->Graphics);
-		}
+		/*}*/
 
 
 		vidajuga->perdervida (personas->Colision(jugador->getRectangle()));
