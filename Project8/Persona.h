@@ -354,4 +354,6 @@ public:
 		else { val = false; }
 		return val;
 	}
+	int getPosX() { return this->posx; }
+	int getPosY() { return this->posy; }
 };

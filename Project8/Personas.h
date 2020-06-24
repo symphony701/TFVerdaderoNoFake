@@ -87,17 +87,16 @@ public:
 					Rectangle cercaniaizquierda =Rectangle(personas[i]->getPosX()-(anchomen * 5), personas[i]->getPosY(), anchomen*5, altomen);
 					switch (personas[i]->direccion()) {
 					case 3: if (juga->IntersectsWith(cercaniaariba)){
-						Disparad();
-					};
-							break;
+						personas[i]->Diasparar();
+					};break;
 					case 2:if (juga->IntersectsWith(cercaniaderecha)){
-						Disparad();
+						personas[i]->Diasparar();
 					}; break;
 					case 0:if (juga->IntersectsWith(cercaniaabajo)){
-						Disparad();
+						personas[i]->Diasparar();
 					}; break;
 					case 1:if (juga->IntersectsWith(cercaniaizquierda)){
-						Disparad();
+						personas[i]->Diasparar();
 					}; break;
 					default:break;
 					

@@ -236,7 +236,7 @@ namespace Project8 {
 		
 	}
 	private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {
-		for (int i = 0; i < 5; i++){
+		for (int i = 0; i < 5; i++) {
 			if (mensajuga->getactivador(i)) {
 				punta = punta + personas->multado(mensajuga->getposx(i), mensajuga->getposy(i));
 				lbl_puntaje->Text = punta + "p";
@@ -248,24 +248,24 @@ namespace Project8 {
 		}
 		/*personas->Cercania(jugador->getPosX, jugador->getPosY, jugador->getancho, jugador->getalto);*/
 		BufferedGraphicsContext ^bfc = BufferedGraphicsManager::Current;
-		BufferedGraphics ^bf = bfc->Allocate(g,this->ClientRectangle);
+		BufferedGraphics ^bf = bfc->Allocate(g, this->ClientRectangle);
 		/////INICIO DE CODIGO
-		
-		
+
+
 		if (tiem->gethora() == 6 && tiem->getmin() == 00 && actPoli)
 		{
 			ambulancia = gcnew CAmbulancia(1, 1);
-			ambulancia2 = gcnew CAmbulancia(1,2);
-			
+			ambulancia2 = gcnew CAmbulancia(1, 2);
+
 			actPoli = false;
 		}
-		if (tiem->gethora() == 6 && tiem->getmin() == 00&&!actPoli)
+		if (tiem->gethora() == 6 && tiem->getmin() == 00 && !actPoli)
 		{
 			ambulancia = gcnew CAmbulancia(1, 1);
-			ambulancia2 = gcnew CAmbulancia(1,2);
-			delete poli,poli2;
+			ambulancia2 = gcnew CAmbulancia(1, 2);
+			delete poli, poli2;
 		}
-		if (tiem->gethora()==20 && tiem->getmin() == 00)
+		if (tiem->gethora() == 20 && tiem->getmin() == 00)
 		{
 			delete ambulancia, ambulancia2;
 			poli = gcnew CPolicia(1, 1);
@@ -273,16 +273,16 @@ namespace Project8 {
 		}
 
 		bf->Graphics->DrawImage(mapa->getImagen(), 0, 0, mapa->getRectangle(), GraphicsUnit::Pixel);
-		
+
 		mensajuga->MostrarDisparo(bf->Graphics);
-		jugador->Mostrar(bf->Graphics,activo);
+		jugador->Mostrar(bf->Graphics, activo);
 		dinero = dinero - jugador->cobro();
 		lbl_dinero->Text = "$" + dinero;
-		
-		
+
+
 		personas->Mostrar(bf->Graphics);
 		personas->Mover();
-		if (tiem->gethora()>=6&&tiem->gethora()<=20)
+		if (tiem->gethora() >= 6 && (tiem->gethora()<= 19 && tiem->getmin() <= 59))
 		{
 		ambulancia->desplazamiento();
 		ambulancia->Mostrar(bf->Graphics);
