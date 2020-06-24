@@ -2,6 +2,7 @@
 #include "PaginaInicio.h"
 #include <iostream>
 #include "Map2.h"
+#include "map3.h"
 
 namespace Project8 {
 
@@ -24,7 +25,7 @@ namespace Project8 {
 			InitializeComponent();
 			fondo = gcnew Bitmap("imagenmenu.jpeg");
 			gr = panel1->CreateGraphics();
-		//	gr->DrawImage(fondo, 0, 0);
+		
 			//
 			//TODO: agregar código de constructor aquí
 			//
@@ -142,7 +143,16 @@ namespace Project8 {
 		WindowState = FormWindowState::Normal;
 		delete map1;
 		Map2^map2 = gcnew Map2();
+		WindowState = FormWindowState::Minimized;
 		map2->ShowDialog();
+		WindowState = FormWindowState::Normal;
+		delete map2;
+		map3^Map3 = gcnew map3();
+		WindowState = FormWindowState::Minimized;
+		Map3->ShowDialog();
+		WindowState = FormWindowState::Normal;
+		delete Map3;
+
 	}
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 	Close();

@@ -16,8 +16,8 @@ ref class CBala {
 	int ancho;
 	Bitmap^imagen;
 	Rectangle areaVisible;
-	int dis = 0;
-	int Ad;
+	double dis = 0;
+	double Ad;
 public:
 	CBala(double x,double y,double dx,double DestX,double DestY){
 		imagen = gcnew Bitmap("tomate.png");
@@ -30,7 +30,7 @@ public:
 		dis = 0;
 		/*this->DestX = 191;
 		this->DestY = 446;*/
-		int i = (DestY - y) / (DestX - x);
+		double i = (DestY - y) / (DestX - x);
 		angulo = atan((DestY - y) / (DestX - x));
 		/*if (i <= 0) {
 			angulo = angulo + atan(0);
@@ -44,7 +44,7 @@ public:
 		x += dx;
 		y = Ad + dis*tan(angulo);
 		if (dis >= 5) {
-			dis == 100;
+			dis = 100;
 		}
 	 }
 	Void graficar(Graphics^g) {
