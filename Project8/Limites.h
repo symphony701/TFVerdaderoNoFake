@@ -253,17 +253,11 @@ public:
 	bool mapa4arriba(bool movArriba, Int16 posx, Int16 posy) {
 		while (true) {
 			if (Formula(98, 272, 482, 485, posx, posy)) { movArriba = false; break; }
-			if (Formula(236, 608, 512, 515, posx, posy)) { movArriba = false; break; }
-			if (Formula(236, 582, 458, 461, posx, posy)) { movArriba = false; break; }
-			if (Formula(236, 401, 320, 323, posx, posy)) { movArriba = false; break; }
-			if (Formula(236, 338, 188, 191, posx, posy)) { movArriba = false; break; }
-			if (Formula(236, 582, 458, 461, posx, posy)) { movArriba = false; break; }
-			if (Formula(212, 236, 134, 137, posx, posy)) { movArriba = false; break; }
-			if (Formula(236, 582, 458, 461, posx, posy)) { movArriba = false; break; }
-			if (Formula(8, 212, 188, 191, posx, posy)) { movArriba = false; break; }
-			if (Formula(8, 212, 320, 323, posx, posy)) { movArriba = false; break; }
-			if (Formula(128, 212, 458, 461, posx, posy)) { movArriba = false; break; }
-			if (Formula(134, 212, 512, 515, posx, posy)) { movArriba = false; break; }
+			if (Formula(293, 650, 488, 491, posx, posy)) { movArriba = false; break; }
+			if (Formula(116, 614, 368, 371, posx, posy)) { movArriba = false; break; }
+			if (Formula(98, 269, 206, 209, posx, posy)) { movArriba = false; break; }
+			if (Formula(458, 647, 206, 209, posx, posy)) { movArriba = false; break; }
+			if (Formula(71, 680, 89, 92, posx, posy)) { movArriba = false; break; }
 			movArriba = true;
 			break;
 		}
@@ -273,7 +267,7 @@ public:
 	bool mapa4abajo(bool movAbajo, Int16 posx, Int16 posy) {
 		while (true) {
 			if (Formula(71, 680, 509, 512, posx, posy)) { movAbajo = false; break; }
-			if (Formula(98, 272, 398, 395, posx, posy)) { movAbajo = false; break; }
+			if (Formula(98, 272, 395, 398, posx, posy)) { movAbajo = false; break; }
 			if (Formula(293, 650, 395, 398, posx, posy)) { movAbajo = false; break; }
 			if (Formula(113, 269, 239, 242, posx, posy)) { movAbajo = false; break; }
 			if (Formula(458, 614, 239, 242, posx, posy)) { movAbajo = false; break; }
@@ -291,15 +285,13 @@ public:
 	bool mapa4derecha(bool movDerecha, Int16 posx, Int16 posy) {
 		while (true) {
 
-			if (Formula(635, 638, 293, 554, posx, posy)) { movDerecha = false; break; }
-			if (Formula(233, 236, 494, 512, posx, posy)) { movDerecha = false; break; }
-			if (Formula(434, 437, 438, 494, posx, posy)) { movDerecha = false; break; }
-			if (Formula(233, 236, 356, 458, posx, posy)) { movDerecha = false; break; }
-			if (Formula(398, 401, 320, 356, posx, posy)) { movDerecha = false; break; }
-			if (Formula(233, 236, 224, 320, posx, posy)) { movDerecha = false; break; }
-			if (Formula(335, 338, 188, 224, posx, posy)) { movDerecha = false; break; }
-			if (Formula(233, 236, 134, 188, posx, posy)) { movDerecha = false; break; }
-
+			if (Formula(673, 680, 89, 512, posx, posy)) { movDerecha = false; break; }
+			if (Formula(275, 278, 110, 119, posx, posy)) { movDerecha = false; break; }
+			if (Formula(95, 98, 119, 206, posx, posy)) { movDerecha = false; break; }
+			if (Formula(110, 113, 242, 368, posx, posy)) { movDerecha = false; break; }
+			if (Formula(95, 98, 398, 482, posx, posy)) { movDerecha = false; break; }
+			if (Formula(290, 293, 398, 488, posx, posy)) { movDerecha = false; break; }
+			if (Formula(266, 269, 188, 224, posx, posy)) { movDerecha = false; break; }
 			movDerecha = true;
 			break;
 		}
@@ -311,16 +303,13 @@ public:
 		while (true) {
 
 
-			if (Formula(608, 611, 293, 512, posx, posy)) { movIzquierda = false; break; }
-			if (Formula(212, 215, 134, 188, posx, posy)) { movIzquierda = false; break; }
-			if (Formula(8, 11, 188, 224, posx, posy)) { movIzquierda = false; break; }
-			if (Formula(212, 215, 224, 320, posx, posy)) { movIzquierda = false; break; }
-			if (Formula(8, 11, 320, 356, posx, posy)) { movIzquierda = false; break; }
-			if (Formula(212, 215, 356, 458, posx, posy)) { movIzquierda = false; break; }
-			if (Formula(128, 131, 458, 494, posx, posy)) { movIzquierda = false; break; }
-			if (Formula(212, 215, 134, 188, posx, posy)) { movIzquierda = false; break; }
-			if (Formula(212, 215, 494, 512, posx, posy)) { movIzquierda = false; break; }
-			if (Formula(134, 137, 512, 554, posx, posy)) { movIzquierda = false; break; }
+			if (Formula(71, 73, 89, 512, posx, posy)) { movIzquierda = false; break; }
+			if (Formula(647, 650, 119, 206, posx, posy)) { movIzquierda = false; break; }
+			if (Formula(449, 452, 98, 119, posx, posy)) { movIzquierda = false; break; }
+			if (Formula(458, 461, 206, 242, posx, posy)) { movIzquierda = false; break; }
+			if (Formula(272, 275, 398, 482, posx, posy)) { movIzquierda = false; break; }
+			if (Formula(650, 653, 398, 488, posx, posy)) { movIzquierda = false; break; }
+			if (Formula(614, 617, 242, 368, posx, posy)) { movIzquierda = false; break; }
 			movIzquierda = true;
 			break;
 		}
