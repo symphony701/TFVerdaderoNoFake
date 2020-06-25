@@ -131,6 +131,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Instrucciones.cpp" />
     <ClCompile Include="Map2.cpp" />
     <ClCompile Include="map3.cpp" />
     <ClCompile Include="Menuxd.cpp" />
@@ -144,6 +145,9 @@
     <ClInclude Include="Bala.h" />
     <ClInclude Include="Entidad.h" />
     <ClInclude Include="Infectado.h" />
+    <ClInclude Include="Instrucciones.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Jugador.h" />
     <ClInclude Include="Map2.h">
       <FileType>CppForm</FileType>
@@ -166,6 +170,9 @@
     <ClInclude Include="Vidas.h" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Instrucciones.resx">
+      <DependentUpon>Instrucciones.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Map2.resx">
       <DependentUpon>Map2.h</DependentUpon>
     </EmbeddedResource>
