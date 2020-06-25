@@ -46,6 +46,12 @@ public:
 			posx = 647;
 			posy = 128;
 		}
+		if (mapa == 2 && nroP == 2)
+		{
+			posx = 230;
+			posy = 506;
+		}
+
 
 
 		izquierda, derecha, arriba, abajo = false;

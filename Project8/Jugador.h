@@ -37,46 +37,6 @@ public:
 	~CJugador() {
 		delete limites, imagen;
 	}
-
-	/*Void Disparar(Graphics^g) {
-		for (int i = 0; i < 5; i++) {
-			if (cantbal[i]->getactivador() == true) {
-				if (cantbal[i]->getdirec() == 0) {
-					int a = cantbal[i]->getver() + 6;
-					cantbal[i]->setver(a);
-				}
-				if (cantbal[i]->getdirec() == 1) {
-					int a = cantbal[i]->gethor() - 6;
-					cantbal[i]->sethor(a);
-
-				}
-				if (cantbal[i]->getdirec() == 2) {
-					int a = cantbal[i]->gethor() + 6;
-					cantbal[i]->sethor(a);
-				}
-				if (cantbal[i]->getdirec() == 3) {
-					int a = cantbal[i]->getver() - 6;
-					cantbal[i]->setver(a);
-				}
-
-				g->DrawImage(mensaje, cantbal[i]->gethor(), cantbal[i]->getver());
-				cantbal[i]->distancia();
-			}
-
-		}
-
-	}*/
-	//Void MostrarDisparo(Int16 x, Int16 y, Int16 d) {
-	//	for (int i = 0; i < 5; i++) {
-	//		if (cantbal[i]->getactivador() == false) {
-	//			cantbal[i]->setactivador(true);
-	//			cantbal[i]->CORDENADA(x, y);
-	//			cantbal[i]->setdirec(d);
-	//			break;
-	//		}
-	//	}
-
-	//}
 	Void Mostrar(Graphics^g, bool act) {
 
 		areaVisible = Rectangle(anchoImagen*x, altoImagen*y, anchoImagen, altoImagen);
@@ -148,9 +108,6 @@ public:
 			posx = 0;
 		}
 	}
-
-	//MAPA 2 LURIGANCHO COLISIONES
-
 	Void Mover2(Direccion direccion) {
 		switch (direccion)
 		{

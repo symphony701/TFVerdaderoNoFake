@@ -263,21 +263,71 @@ public:
 		}
 
 		if (mapa == 2 && nroP == 2) {
+			if (true) {
+				if (funcion(0) && doble) {
+					decision(2);
+					doble = true;
+					triple = true;
+				}
+				if (funcion(2) && doble&&triple) {
+					decision(4);
+					triple = false;
+				}
+				if (funcion(1) && doble&&!triple) {
+					decision(1);
+				}
+				if (funcion(6) && doble) {
+					decision(3);
+					triple = true;
+				}
+				if (funcion(3) && doble&&triple) {
+					decision(2);
+				}
+				if (funcion(4) && doble&&triple) {
+					decision(1);
+				}
+				if (funcion(10) ) {
+					decision(3);
+					triple = false;
+				}
+				if (funcion(4) && doble&&!triple) {
+					decision(2);
+				}
+				if (funcion(5) && doble&&!triple) {
+					decision(1);
+				}
+				if (funcion(11)) {
+					decision(3);
+					doble = false;
+				}
+				if (funcion(5) && !doble&&!triple) {
+					decision(4);
+				}
+				if (funcion(4) && !doble&&!triple) {
+					decision(4);
+				}
+				if (funcion(3) && !doble&&!triple) {
+					decision(3);
+				}
+				if (funcion(1) && !doble&&!triple) {
+					decision(2);
+				}
+				if (funcion(2) && !doble&&!triple) {
+					decision(4);
+					doble = true;
+					triple = true;
+				}
+				
 
+
+			}
 		}
 
 
 
 	}
 
-	Void cambioDireccion2() {
-		/*1:arriba
-		2 : derech
-		3 : abajo
-		4 : izquie*/
-		/*bool doble=true;*/
 
-	}
 
 	bool funcion(int xd) {
 		Point^punt = gcnew Point(posx, posy);

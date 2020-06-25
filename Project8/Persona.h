@@ -36,14 +36,17 @@ public:
 		if (nroMapa==2)
 		{
 		puntos = gcnew cli::array<Point^>(18);
-
 		}
-
+		if (nroMapa == 3) {
+			puntos = gcnew cli::array<Point^>(12);
+		}
 		posicion = gcnew Point(0,0);
 		iniciarPuntos(nroMapa);
 		dx = dy = 3;
+		if (nroMapa==2||nroMapa==1) {
 		posx=origen->X;
 		posy = origen->Y;
+		}
 		imagen = gcnew Bitmap("enemigos(base1).png");
 		bala = gcnew CBala();
 		tomate = gcnew CArreMensajes(2);
@@ -54,13 +57,10 @@ public:
 		multa = false;
 		estadoba = true;
 		int contagiado = r.Next(1, 7);
-
 		if (contagiado%2==0) {
 			virus = true;
 		}
 		else { virus = false; }
-
-	
 		switch (r.Next(1,5))
 		{
 		case 1:filas = 1; cols = 0; personaje = 1; break;
@@ -70,22 +70,18 @@ public:
 		default:
 			break;
 		}
-		
-		
 		cambioDireccion();
 	}
 	~CPersona(){}
 	Void Diasparar() {
-		/*bala->modificar(posx,posy,cols);*/
 		tomate->Disparar(posx, posy, cols, anchoSprite, altoSprite);
 	}
 	Int16 direccion() { return cols; }
-	bool Dispactiva(Int16 i) { /*return bala->getactivador();*/ return tomate->getactivador(i); }
+	bool Dispactiva(Int16 i) {  return tomate->getactivador(i); }
 	Void Trayectar() {
 		bala->Mover();
 	}
 	Void verBala(Graphics^g) {
-		/*bala->graficar(g);*/
 		tomate->MostrarDisparo(g);
 	}
 	Void multar() {
@@ -166,9 +162,25 @@ public:
 			origen = gcnew Point(0, 0);
 			origen = puntos[puntito];
 		}
-
+		if (map == 3) {
+			puntos[0] = gcnew Point(578, 92);
+			puntos[1] = gcnew Point(365, 371);
+			puntos[2] = gcnew Point(305, 371);
+			puntos[3] = gcnew Point(239, 371);
+			puntos[4] = gcnew Point(194, 371);
+			puntos[5] = gcnew Point(146, 371);
+			puntos[6] = gcnew Point(415, 371);
+			puntos[7] = gcnew Point(481, 371);
+			puntos[8] = gcnew Point(526, 371);
+			puntos[9] = gcnew Point(574, 371);
+			puntos[10] = gcnew Point(218, 485);
+			puntos[11] = gcnew Point(527, 491);
+		}
 	}
-
+	Void onlyMap3(int i) {
+		posx = puntos[i]->X;
+		posy = puntos[i]->Y;
+	}
 	Void cambioDireccion() {
 		Point^punt = gcnew Point(posx, posy);
 		
@@ -298,11 +310,7 @@ public:
 			if (funcion(17)) {
 				decision(1);
 			}
-
 		}
-
-		
-		
 	}
 
 	Void decision(int cambio) {
@@ -315,8 +323,6 @@ public:
 		default:
 			break;
 		}
-	
-
 	}
 	Void movimiento() {
 		if (arriba)
@@ -329,8 +335,6 @@ public:
 		 posicion->X = posx;
 		 posicion->Y = posy;
 	}
-
-
 	int random(int min,int max) {
 		int numero=	min + rand() % (max + 1 - min);
 		return numero;

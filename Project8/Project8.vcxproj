@@ -143,6 +143,9 @@
     <ClInclude Include="Arremensajes.h" />
     <ClInclude Include="Autoridad.h" />
     <ClInclude Include="Bala.h" />
+    <ClInclude Include="Control1.h" />
+    <ClInclude Include="Control2.h" />
+    <ClInclude Include="Control3.h" />
     <ClInclude Include="Entidad.h" />
     <ClInclude Include="Infectado.h" />
     <ClInclude Include="Instrucciones.h">
@@ -166,6 +169,7 @@
     <ClInclude Include="Persona.h" />
     <ClInclude Include="Personas.h" />
     <ClInclude Include="Policia.h" />
+    <ClInclude Include="Recomendaciones.h" />
     <ClInclude Include="Sano.h" />
     <ClInclude Include="Vidas.h" />
   </ItemGroup>

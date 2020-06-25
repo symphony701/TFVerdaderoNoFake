@@ -1,13 +1,6 @@
 #pragma once
-#include "Entidad.h"
-#include "Jugador.h"
-#include "Policia.h"
-#include "Ambulancia.h"
-#include "mapas.h"
-#include "Tiempo.h"
-#include "Personas.h"
 #include <iostream>
-#include "Arremensajes.h"
+#include "Control3.h"
 namespace Project8 {
 
 	using namespace System;
@@ -23,39 +16,18 @@ namespace Project8 {
 	public ref class map3 : public System::Windows::Forms::Form
 	{
 	private:
-		CJugador^ jugador;
-		CPolicia^poli;
-		CAmbulancia ^ambulancia;
-		CAmbulancia^ambulancia2;
-		CMapas^ mapa;
-		bool activo;
-		SoundPlayer^ st;
-		tiempo^ tiem;
-		CPersonas ^ personas;
-		CPolicia ^poli2;
-		int dia;
-		bool actPoli;
-
+		CControl3^ juego;
 
 	private: System::Windows::Forms::Timer^  timer1;
+	private: System::Windows::Forms::Label^  lbl_puntaje;
+	private: System::Windows::Forms::Label^  lbl_dinero;
 			 Graphics^g;
 	public:
 		map3(void)
 		{
 			InitializeComponent();
 			g = panel1->CreateGraphics();
-			mapa = gcnew CMapas(2);
-			jugador = gcnew CJugador();
-			dia = 0;
-			g = panel1->CreateGraphics();
-			tiem = gcnew tiempo();
-			jugador = gcnew CJugador();
-			st = gcnew SoundPlayer("soundtrackTono.wav");
-			personas = gcnew CPersonas(2);
-			poli = gcnew CPolicia(2,1);
-			poli2 = gcnew CPolicia(2,2);
-			ambulancia = gcnew CAmbulancia(2,1);
-			ambulancia2 = gcnew CAmbulancia(2, 2);
+			juego = gcnew CControl3();
 		}
 
 	protected:
@@ -91,13 +63,17 @@ namespace Project8 {
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->lbl_hora = (gcnew System::Windows::Forms::Label());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->lbl_puntaje = (gcnew System::Windows::Forms::Label());
+			this->lbl_dinero = (gcnew System::Windows::Forms::Label());
 			this->panel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// panel1
 			// 
+			this->panel1->Controls->Add(this->lbl_dinero);
+			this->panel1->Controls->Add(this->lbl_puntaje);
 			this->panel1->Controls->Add(this->lbl_hora);
-			this->panel1->Location = System::Drawing::Point(2, 2);
+			this->panel1->Location = System::Drawing::Point(1, 1);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(765, 627);
 			this->panel1->TabIndex = 1;
@@ -121,6 +97,34 @@ namespace Project8 {
 			this->timer1->Enabled = true;
 			this->timer1->Tick += gcnew System::EventHandler(this, &map3::timer1_Tick);
 			// 
+			// lbl_puntaje
+			// 
+			this->lbl_puntaje->BackColor = System::Drawing::Color::Black;
+			this->lbl_puntaje->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->lbl_puntaje->Font = (gcnew System::Drawing::Font(L"Impact", 14.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lbl_puntaje->ForeColor = System::Drawing::Color::White;
+			this->lbl_puntaje->Location = System::Drawing::Point(335, 7);
+			this->lbl_puntaje->Name = L"lbl_puntaje";
+			this->lbl_puntaje->Size = System::Drawing::Size(61, 35);
+			this->lbl_puntaje->TabIndex = 5;
+			this->lbl_puntaje->Text = L"0p";
+			this->lbl_puntaje->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
+			// 
+			// lbl_dinero
+			// 
+			this->lbl_dinero->BackColor = System::Drawing::Color::Black;
+			this->lbl_dinero->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->lbl_dinero->Font = (gcnew System::Drawing::Font(L"Impact", 14.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lbl_dinero->ForeColor = System::Drawing::Color::White;
+			this->lbl_dinero->Location = System::Drawing::Point(542, 7);
+			this->lbl_dinero->Name = L"lbl_dinero";
+			this->lbl_dinero->Size = System::Drawing::Size(61, 35);
+			this->lbl_dinero->TabIndex = 6;
+			this->lbl_dinero->Text = L"$100";
+			this->lbl_dinero->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			// 
 			// map3
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -133,96 +137,26 @@ namespace Project8 {
 			this->KeyUp += gcnew System::Windows::Forms::KeyEventHandler(this, &map3::map3_KeyUp);
 			this->panel1->ResumeLayout(false);
 			this->ResumeLayout(false);
-
 		}
 #pragma endregion
 	private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {
 		BufferedGraphicsContext ^bfc = BufferedGraphicsManager::Current;
 		BufferedGraphics ^bf = bfc->Allocate(g, this->ClientRectangle);
 		/////INICIO DE CODIGO
-
-
-		//if (tiem->gethora() == 6 && tiem->getmin() == 00 && actPoli)
-		//{
-		//	ambulancia = gcnew CAmbulancia(1, 1);
-		//	ambulancia2 = gcnew CAmbulancia(1, 2);
-
-		//	actPoli = false;
-		//}
-		//if (tiem->gethora() == 6 && tiem->getmin() == 00 && !actPoli)
-		//{
-		//	ambulancia = gcnew CAmbulancia(2, 1);
-		//	delete poli, poli2;
-		//}
-		//if (tiem->gethora() == 20 && tiem->getmin() == 00)
-		//{
-		//	delete ambulancia;
-		//	poli = gcnew CPolicia(2, 1);
-		//	poli2 = gcnew CPolicia(1, 2);
-		//}
-		bf->Graphics->DrawImage(mapa->getImagen(), 0, 0, mapa->getRectangle(), GraphicsUnit::Pixel);
-		jugador->Mostrar(bf->Graphics, activo);
-
-
-		personas->Mostrar(bf->Graphics);
-		personas->Mover();
-		//if (tiem->gethora() >= 6 && tiem->gethora() <= 20)
-		//{
-			ambulancia->Mostrar(bf->Graphics);
-			ambulancia->desplazamiento();
-			personas->AtrapadoAmbu(ambulancia->getRectangle());
-
-		//}
-		//if ((tiem->gethora() >= 20 && tiem->gethora() <= 23) || (tiem->gethora() < 6 && tiem->gethora() >= 0)) {
-
-		poli->Mostrar(bf->Graphics);
-		poli->desplazamiento();
-		poli2->Mostrar(bf->Graphics);
-		poli2->desplazamiento();
-		personas->AtrapadoPoli(poli->getRectangle());
-		personas->AtrapadoPoli(poli2->getRectangle());
-		//}
+		juego->cadaTick(lbl_puntaje, bf->Graphics, lbl_dinero, lbl_hora);
 		///////FIN DE CODIGO
 		bf->Render(g);
+		if (juego->getContadorRecomendaciones()>12)
+		{
+			Close();
+		}
 		delete bf, bfc;
-		tiem->cambio(1);
-		mapa->cambio(tiem->gethora());
 	}
 private: System::Void map3_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
-	activo = true;
-	if (e->KeyCode == Keys::Up) {
-		jugador->Mover4(Direccion::Arriba);
-	}
-	else if (e->KeyCode == Keys::Down) {
-		jugador->Mover4(Direccion::Abajo);
-	}
-	else if (e->KeyCode == Keys::Left) {
-		jugador->Mover4(Direccion::Izquierda);
-
-	}
-	else if (e->KeyCode == Keys::Right) {
-		jugador->Mover4(Direccion::Derecha);
-	}
-
+	juego->keyDown(e);
 }
 private: System::Void map3_KeyUp(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
-	if (e->KeyCode == Keys::Up) {
-		activo = false;
-	}
-	else if (e->KeyCode == Keys::Down) {
-		activo = false;
-	}
-	else if (e->KeyCode == Keys::Left) {
-		activo = false;
-
-	}
-	else if (e->KeyCode == Keys::Right) {
-		activo = false;
-	}
-	else if (e->KeyCode == Keys::W) {
-
-		//mensajuga->Disparar(jugador->getPosX(), jugador->getPosY(), jugador->getY(), jugador->getancho(), jugador->getalto());
-	}
+	juego->keyUp(e);
 }
 };
 }
