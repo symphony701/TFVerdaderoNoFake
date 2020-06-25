@@ -209,7 +209,8 @@ public:
 		return Rectangle(posx, posy, anchoImagen, altoImagen);
 	}
 
-
+	Void setPosX(Int16 a) { posx = a; }
+	Void setPosY(Int16 b) { posy = b; }
 	int getPosX() { return posx; }
 	int getPosY() { return posy; }
 };
