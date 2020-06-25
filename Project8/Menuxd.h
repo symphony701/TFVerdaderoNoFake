@@ -12,19 +12,22 @@ namespace Project8 {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-	
+	using namespace System::Media;
 
 	/// <summary>
 	/// Resumen de Menuxd
 	/// </summary>
 	public ref class Menuxd : public System::Windows::Forms::Form
 	{
+		SoundPlayer^ ost;
 	public:
 		Menuxd(void)
 		{
 			InitializeComponent();
 			fondo = gcnew Bitmap("imagenmenu.jpeg");
 			gr = panel1->CreateGraphics();
+			ost = gcnew SoundPlayer("ost.wav");
+			ost->PlayLooping();
 		
 			//
 			//TODO: agregar código de constructor aquí

@@ -142,6 +142,7 @@
     <ClInclude Include="Arremensajes.h" />
     <ClInclude Include="Autoridad.h" />
     <ClInclude Include="Bala.h" />
+    <ClInclude Include="Control1.h" />
     <ClInclude Include="Entidad.h" />
     <ClInclude Include="Infectado.h" />
     <ClInclude Include="Jugador.h" />

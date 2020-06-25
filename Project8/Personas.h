@@ -20,10 +20,11 @@ ref class CPersonas {
 	Int16 anchomen=31;
 	Int16 altomen=25;
 	bool desac;
+	SoundPlayer^ uh;
 public:
 	CPersonas(int nroMapa){
 		alto= gcnew SoundPlayer("alto.wav");
-		
+		uh = gcnew SoundPlayer("uh.wav");
 		cantidadEnemigos = r.Next(5,11);
 		personas = gcnew cli::array<CPersona^>(cantidadEnemigos);
 			
@@ -70,7 +71,7 @@ public:
 		for (int i = 0; i < personas->Length; i++)
 		{
 			if (poli->IntersectsWith(personas[i]->getRectangle())&&personas[i]->getMulta()&&!personas[i]->getVirus() ) {
-				alto->Play();
+				//alto->Play();
 				Eliminar(i);
 				break;
 			}
@@ -155,6 +156,8 @@ public:
 				personas[i]->estadocambiado();
 				desac = personas[i]->getestadoba();
 				personas[i]->multar();
+				//uh->Play();
+
 				return 10;
 				break;
 			}
