@@ -151,7 +151,6 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Entidad.h" />
-    <ClInclude Include="dificultad1.h" />
     <ClInclude Include="Infectado.h" />
     <ClInclude Include="Instrucciones.h">
       <FileType>CppForm</FileType>
