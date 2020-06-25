@@ -131,6 +131,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Dificultad.cpp" />
     <ClCompile Include="Instrucciones.cpp" />
     <ClCompile Include="Map2.cpp" />
     <ClCompile Include="map3.cpp" />
@@ -146,6 +147,9 @@
     <ClInclude Include="Control1.h" />
     <ClInclude Include="Control2.h" />
     <ClInclude Include="Control3.h" />
+    <ClInclude Include="Dificultad.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Entidad.h" />
     <ClInclude Include="dificultad1.h" />
     <ClInclude Include="Infectado.h" />
@@ -174,6 +178,9 @@
     <ClInclude Include="Vidas.h" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Dificultad.resx">
+      <DependentUpon>Dificultad.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Instrucciones.resx">
       <DependentUpon>Instrucciones.h</DependentUpon>
     </EmbeddedResource>
