@@ -132,7 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Instrucciones.cpp" />
-    <ClCompile Include="dificultad1.cpp" />
+    <ClCompile Include="dificultad1.h" />
     <ClCompile Include="Map2.cpp" />
     <ClCompile Include="map3.cpp" />
     <ClCompile Include="Menuxd.cpp" />
