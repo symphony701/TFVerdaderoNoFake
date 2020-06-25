@@ -10,6 +10,7 @@
 #include <iostream>
 #include "Arremensajes.h"
 #include "Vidas.h"
+#include <fstream>
 using namespace System;
 using namespace System::ComponentModel;
 using namespace System::Collections;
@@ -18,6 +19,7 @@ using namespace System::Data;
 using namespace System::Drawing;
 using namespace std;
 using namespace System::Media;
+using namespace std;
 
 ref class CControl1 {
 private:
@@ -27,8 +29,6 @@ private:
 	CAmbulancia^ambulancia2;
 	CMapas^ mapa;
 	bool activo;
-	SoundPlayer^ st;
-
 	tiempo^ tiem;
 	CPersonas ^ personas;
 	CPolicia ^poli2;
@@ -49,7 +49,7 @@ public:
 		vidajuga = gcnew Cvidas();
 		punta = 0;
 		mapa = gcnew CMapas(1);
-		st = gcnew SoundPlayer("soundtrackTono.wav");
+		
 	
 		personas = gcnew CPersonas(1);
 		mensajuga = gcnew CArreMensajes(1);
@@ -139,6 +139,13 @@ public:
 
 	}
 
+	int getCantidadEnemigos() {
+		return personas->getPersonas();
+	}
+	Void registrarDatos() {
+		fstream puntaje("puntaje.txt",ios::out);
+		puntaje << to_string(punta); << endl;
+	}
 
 	Void keyDown(KeyEventArgs^  e) {
 		activo = true;

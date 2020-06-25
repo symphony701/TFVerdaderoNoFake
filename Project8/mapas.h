@@ -23,7 +23,6 @@ public:
 			break;
 		}
 		
-	//	imagen = gcnew Bitmap("paisaje1.jpg");
 		anchoSprite = imagen->Width;
 		altoSprite = imagen->Height;
 		anchoImagen = anchoSprite;
