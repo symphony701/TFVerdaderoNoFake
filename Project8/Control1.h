@@ -19,6 +19,7 @@ using namespace System::Data;
 using namespace System::Drawing;
 using namespace std;
 using namespace System::Media;
+using namespace std;
 
 ref class CControl1 {
 private:
@@ -143,7 +144,7 @@ public:
 	}
 	Void registrarDatos() {
 		fstream puntaje("puntaje.txt",ios::out);
-		puntaje<<to_string(punta);<<endl
+		puntaje << to_string(punta); << endl;
 	}
 
 	Void keyDown(KeyEventArgs^  e) {
