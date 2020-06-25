@@ -60,21 +60,7 @@ namespace Project8 {
 
 
 	private:
-		/*CJugador^ jugador;
-		CPolicia^poli;
-		CAmbulancia ^ambulancia;
-		CAmbulancia^ambulancia2;
-		CMapas^ mapa;
-		bool activo;
-		SoundPlayer^ st;
-		tiempo^ tiem;
-		CPersonas ^ personas;
-		CPolicia ^poli2;
-		int dia;
-		bool actPoli;
-		Graphics^g;
-		CArreMensajes^ mensajuga;
-		CArreMensajes^ tomateenemigos;*/
+	
 
 
 	private: System::ComponentModel::IContainer^  components;
@@ -176,67 +162,17 @@ namespace Project8 {
 		}
 #pragma endregion
 	private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {
-		//for (int i = 0; i < 5; i++) {
-		//	if (mensajuga->getactivador(i)) {
-		//		/*personas->multado(mensajuga->getposx(i), mensajuga->getposy(i));*/
-		//	}
-
-		//}
+	
 		BufferedGraphicsContext ^bfc = BufferedGraphicsManager::Current;
 		BufferedGraphics ^bf = bfc->Allocate(g, this->ClientRectangle);
 		/////INICIO DE CODIGO
 
 
-		//if (tiem->gethora() == 6 && tiem->getmin() == 00 && actPoli)
-		//{
-		//	ambulancia = gcnew CAmbulancia(1, 1);
-		//	ambulancia2 = gcnew CAmbulancia(1, 2);
-
-		//	actPoli = false;
-		//}
-		//if (tiem->gethora() == 6 && tiem->getmin() == 00 && !actPoli)
-		//{
-		//	ambulancia = gcnew CAmbulancia(2, 1);
-		//	delete poli, poli2;
-		//}
-		//if (tiem->gethora() == 20 && tiem->getmin() == 00)
-		//{
-		//	delete ambulancia;
-		//	poli = gcnew CPolicia(2, 1);
-		//	poli2 = gcnew CPolicia(2, 2);
-		//}
-
-		//bf->Graphics->DrawImage(mapa->getImagen(), 0, 0, mapa->getRectangle(), GraphicsUnit::Pixel);
-
-		//mensajuga->MostrarDisparo(bf->Graphics);
-		//jugador->Mostrar(bf->Graphics, activo);
-
-
-		//personas->Mostrar(bf->Graphics);
-		//personas->Mover();
-		//if (tiem->gethora() >= 6 && tiem->gethora() <= 20)
-		//{
-		//	ambulancia->Mostrar(bf->Graphics);
-		//	ambulancia->desplazamiento();
-		//	personas->AtrapadoAmbu(ambulancia->getRectangle());
-
-		//}
-		//if ((tiem->gethora() >= 20 && tiem->gethora() <= 23) || (tiem->gethora() < 6 && tiem->gethora() >= 0)) {
-
-		//	poli->Mostrar(bf->Graphics);
-		//	poli->desplazamiento();
-		//	poli2->Mostrar(bf->Graphics);
-		//	poli2->desplazamiento();
-		//	personas->AtrapadoPoli(poli->getRectangle());
-		//	personas->AtrapadoPoli(poli2->getRectangle());
-		//}
 		juego->cadaTick(lbl_puntaje, bf->Graphics, lbl_dinero, lbl_hora);
 		///////FIN DE CODIGO
 		bf->Render(g);
 		delete bf, bfc;
-		/*tiem->cambio(1);
-		mapa->cambio(tiem->gethora());*/
-	//	lbl_hora->Text = tiem->mostrarT();
+	
 	}
 	private: System::Void panel1_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
 	}
@@ -246,43 +182,12 @@ namespace Project8 {
 
 	}
 private: System::Void Map2_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
-	/*activo = true;
-	if (e->KeyCode == Keys::Up) {
-		jugador->Mover3(Direccion::Arriba);
-	}
-	else if (e->KeyCode == Keys::Down) {
-		jugador->Mover3(Direccion::Abajo);
-	}
-	else if (e->KeyCode == Keys::Left) {
-		jugador->Mover3(Direccion::Izquierda);
 
-	}
-	else if (e->KeyCode == Keys::Right) {
-		jugador->Mover3(Direccion::Derecha);
-	}
-
-	cout << jugador->getPosX() << "-" << jugador->getPosY() << endl;*/
 	juego->keyDown(e);
 
 }
 private: System::Void Map2_KeyUp(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
-	/*if (e->KeyCode == Keys::Up) {
-		activo = false;
-	}
-	else if (e->KeyCode == Keys::Down) {
-		activo = false;
-	}
-	else if (e->KeyCode == Keys::Left) {
-		activo = false;
-
-	}
-	else if (e->KeyCode == Keys::Right) {
-		activo = false;
-	}
-	else if (e->KeyCode == Keys::W) {
-		
-		mensajuga->Disparar(jugador->getPosX(), jugador->getPosY(), jugador->getY(), jugador->getancho(), jugador->getalto());
-	}*/
+	
 	juego->keyUp(e);
 }
 private: System::Void Map2_Load(System::Object^  sender, System::EventArgs^  e) {

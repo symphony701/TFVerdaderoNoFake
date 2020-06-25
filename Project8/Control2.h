@@ -27,8 +27,6 @@ private:
 	CAmbulancia^ambulancia2;
 	CMapas^ mapa;
 	bool activo;
-
-
 	tiempo^ tiem;
 	CPersonas ^ personas;
 	CPolicia ^poli2;
@@ -70,13 +68,10 @@ public:
 			}
 
 		}
-
-
 		if (tiem->gethora() == 6 && tiem->getmin() == 00 && actPoli)
 		{
 			ambulancia = gcnew CAmbulancia(2, 1);
 			ambulancia2 = gcnew CAmbulancia(2, 2);
-
 			actPoli = false;
 		}
 		if (tiem->gethora() == 6 && tiem->getmin() == 00 && !actPoli)
@@ -88,8 +83,8 @@ public:
 		if (tiem->gethora() == 20 && tiem->getmin() == 00)
 		{
 			delete ambulancia, ambulancia2;
-			poli = gcnew CPolicia(1, 1);
-			poli2 = gcnew CPolicia(1, 2);
+			poli = gcnew CPolicia(2, 1);
+			poli2 = gcnew CPolicia(2, 2);
 		}
 		g->DrawImage(mapa->getImagen(), 0, 0, mapa->getRectangle(), GraphicsUnit::Pixel);
 
@@ -97,8 +92,6 @@ public:
 		jugador->Mostrar(g, activo);
 		dinero = dinero - jugador->cobro();
 		lbl_dinero->Text = "$" + dinero;
-
-
 		personas->Mostrar(g);
 		personas->Mover();
 		if (tiem->gethora() >= 6 && (tiem->gethora() <= 19 && tiem->getmin() <= 59))
@@ -120,24 +113,13 @@ public:
 			personas->AtrapadoPoli(poli2->getRectangle());
 		}
 		personas->Cercania(jugador->getRectangle());
-
 		personas->verBala(g);
-
-
-
 		vidajuga->perdervida(personas->Colision(jugador->getRectangle()));
 		vidajuga->Cantivi(g);
 		tiem->cambio(1);
 		mapa->cambio(tiem->gethora());
 		lbl_hora->Text = tiem->mostrarT();
-
-
-
-
-
 	}
-
-
 	Void keyDown(KeyEventArgs^  e) {
 		activo = true;
 		if (e->KeyCode == Keys::Up) {
@@ -160,6 +142,7 @@ public:
 			personas->Disparad();
 			creada = true;
 		}
+		cout << jugador->getPosX() << jugador->getPosY() << endl;
 	}
 
 	Void keyUp(KeyEventArgs^  e) {

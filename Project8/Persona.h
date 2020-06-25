@@ -38,12 +38,18 @@ public:
 		puntos = gcnew cli::array<Point^>(18);
 
 		}
+		if (nroMapa == 3) {
+			puntos = gcnew cli::array<Point^>(12);
+		}
 
 		posicion = gcnew Point(0,0);
 		iniciarPuntos(nroMapa);
 		dx = dy = 3;
+		if (nroMapa==2||nroMapa==1) {
 		posx=origen->X;
 		posy = origen->Y;
+
+		}
 		imagen = gcnew Bitmap("enemigos(base1).png");
 		bala = gcnew CBala();
 		tomate = gcnew CArreMensajes(2);
@@ -166,7 +172,28 @@ public:
 			origen = gcnew Point(0, 0);
 			origen = puntos[puntito];
 		}
+		if (map == 3) {
+			puntos[0] = gcnew Point(578, 92);
+			puntos[1] = gcnew Point(365, 371);
+			puntos[2] = gcnew Point(305, 371);
+			puntos[3] = gcnew Point(239, 371);
+			puntos[4] = gcnew Point(194, 371);
+			puntos[5] = gcnew Point(146, 371);
+			puntos[6] = gcnew Point(415, 371);
+			puntos[7] = gcnew Point(481, 371);
+			puntos[8] = gcnew Point(526, 371);
+			puntos[9] = gcnew Point(574, 371);
+			puntos[10] = gcnew Point(218, 485);
+			puntos[11] = gcnew Point(527, 491);
+			/*int puntito = random(0, 17);
+			origen = gcnew Point(0, 0);
+			origen = puntos[puntito];*/
+		}
 
+	}
+	Void onlyMap3(int i) {
+		posx = puntos[i]->X;
+		posy = puntos[i]->Y;
 	}
 
 	Void cambioDireccion() {

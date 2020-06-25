@@ -155,6 +155,7 @@ namespace Project8 {
 		Map3->ShowDialog();
 		WindowState = FormWindowState::Normal;
 		delete Map3;
+		MessageBox::Show("Gracias por jugar!!");
 
 	}
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {

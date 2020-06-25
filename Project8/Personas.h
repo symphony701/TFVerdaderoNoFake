@@ -26,18 +26,37 @@ public:
 		alto= gcnew SoundPlayer("alto.wav");
 		uh = gcnew SoundPlayer("uh.wav");
 		cantidadEnemigos = r.Next(5,11);
-		personas = gcnew cli::array<CPersona^>(cantidadEnemigos);
-			
-		for (int i = 0; i < cantidadEnemigos; i++)
+		if (nroMapa==3)
 		{
+			cantidadEnemigos = 12;
+		}
+		personas = gcnew cli::array<CPersona^>(cantidadEnemigos);
+		if (nroMapa==1||nroMapa==2)
+		{
+			for (int i = 0; i < cantidadEnemigos; i++)
+			{
 
-			desac = true;
+				desac = true;
 
-			personas[i] = gcnew CPersona(nroMapa);
+				personas[i] = gcnew CPersona(nroMapa);
 
+
+			}
 
 		}
+		if (nroMapa==3)
+		{
+			for (int i = 0; i < cantidadEnemigos; i++)
+			{
 
+				desac = true;
+
+				personas[i] = gcnew CPersona(nroMapa);
+				personas[i]->onlyMap3(i);
+
+			}
+		}
+		
 
 	}
 	
