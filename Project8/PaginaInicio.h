@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "Control1.h"
+#include <fstream>
 using namespace std;
 namespace Project8 {
 
@@ -59,19 +60,7 @@ namespace Project8 {
 
 	private:
 
-		CJugador^ jugador;
-		CPolicia^poli;
-		CAmbulancia ^ambulancia;
-		CAmbulancia^ambulancia2;
-		CMapas^ mapa;
-		bool activo;
-		SoundPlayer^ st;
-		tiempo^ tiem;
-		CPersonas ^ personas;
-		CPolicia ^poli2;
-		int dia;
-		bool actPoli;
-		bool creada;
+		
 		
 	private: System::ComponentModel::IContainer^  components;
 
@@ -198,6 +187,11 @@ namespace Project8 {
 		BufferedGraphics ^bf = bfc->Allocate(g, this->ClientRectangle);
 		/////INICIO DE CODIGO
 		juego->cadaTick(lbl_puntaje, bf->Graphics, lbl_dinero,  lbl_hora);
+		if (juego->getCantidadEnemigos()<=0)
+		{
+			juego->registrarDatos();
+			Close();
+		}
 		///////FIN DE CODIGO
 		bf->Render(g);
 		delete bf, bfc;

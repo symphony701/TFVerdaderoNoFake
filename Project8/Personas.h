@@ -159,4 +159,5 @@ public:
 		personas = fantasmas;
 		delete fantasmas;
 	}
+	int getPersonas() { return personas->Length; }
 };

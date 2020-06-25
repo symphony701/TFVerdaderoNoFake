@@ -48,8 +48,6 @@ public:
 	}
 	Void Mover() {
 		
-		/*x += dx;
-		y = Ad + dis*tan(angulo);*/
 		if (act) {
 			direccion();
 		}
@@ -62,7 +60,6 @@ public:
 	Void graficar(Graphics^g) {
 		if (act) { g->DrawImage(imagen, (int)x, (int)y); }
 		
-	//	g->DrawImage(imagen, x, y,GraphicsUnit::Pixel);
 	}
 	bool getactivador() { return act; }
 };
