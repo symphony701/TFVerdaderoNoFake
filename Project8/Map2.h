@@ -26,17 +26,6 @@ namespace Project8 {
 			InitializeComponent();
 			g = panel1->CreateGraphics();
 			juego = gcnew CControl2();
-			/*mapa = gcnew CMapas(3);
-			jugador = gcnew CJugador();
-			dia = 0;
-			g = panel1->CreateGraphics();
-			tiem = gcnew tiempo();
-			jugador = gcnew CJugador();
-			st = gcnew SoundPlayer("soundtrackTono.wav");
-			personas = gcnew CPersonas(2);
-			mensajuga = gcnew CArreMensajes(1);
-			tomateenemigos = gcnew CArreMensajes(2);
-			personas->tamañomen(mensajuga->getancho(), mensajuga->getalto());*/
 		}
 	private: System::Windows::Forms::Label^  lbl_hora;
 	public:

@@ -2,7 +2,6 @@
 #include "Persona.h"
 #include <cstdlib>
 using namespace System;
-//using namespace Windows;
 using namespace System::ComponentModel;
 using namespace System::Collections;
 using namespace System::Windows::Forms;
@@ -13,18 +12,13 @@ using namespace System::Media;
 
 ref class CPersonas {
 	cli::array<CPersona^>^personas;
-	
-	SoundPlayer^ alto;
 	Random r;
 	int cantidadEnemigos;
 	Int16 anchomen=31;
 	Int16 altomen=25;
 	bool desac;
-	SoundPlayer^ uh;
 public:
 	CPersonas(int nroMapa){
-		alto= gcnew SoundPlayer("alto.wav");
-		uh = gcnew SoundPlayer("uh.wav");
 		cantidadEnemigos = r.Next(5,11);
 		if (nroMapa==3)
 		{
@@ -35,29 +29,19 @@ public:
 		{
 			for (int i = 0; i < cantidadEnemigos; i++)
 			{
-
 				desac = true;
-
 				personas[i] = gcnew CPersona(nroMapa);
-
-
 			}
-
 		}
 		if (nroMapa==3)
 		{
 			for (int i = 0; i < cantidadEnemigos; i++)
 			{
-
 				desac = true;
-
 				personas[i] = gcnew CPersona(nroMapa);
 				personas[i]->onlyMap3(i);
-
 			}
 		}
-		
-
 	}
 	
 	
@@ -73,24 +57,10 @@ public:
 			personas[i]->desplazamiento();
 		}
 	}
-
-	/*Void Atrapado(Point^point) {
-	
-
-		for (int i = 0; i < personas->Length; i++)
-		{
-			if (personas[i]->getPoint()->X == point->X && personas[i]->getPoint()->Y == point->Y) {
-				Eliminar(i);
-				break;
-			}
-		}
-
-	}*/
 	void AtrapadoPoli(Rectangle^ poli) {
 		for (int i = 0; i < personas->Length; i++)
 		{
 			if (poli->IntersectsWith(personas[i]->getRectangle())&&personas[i]->getMulta()&&!personas[i]->getVirus() ) {
-				//alto->Play();
 				Eliminar(i);
 				break;
 			}
@@ -119,13 +89,7 @@ public:
 						personas[i]->Diasparar();
 					}; break;
 					default:break;
-					
-
-					//personas[i]->getPosX - 50 >= posx + ancho && personas[i]->getPosX + personas[i]->getancho + 50 <= posx &&  
-
 				}
-
-
 			}
 		}
 	}
@@ -134,11 +98,6 @@ public:
 			personas[i]->Diasparar();
 		}
 	}
-	/*Void Trayectoria() {
-		for (int i = 0; i < personas->Length; i++) {
-			personas[i]->Trayectar();
-		}
-	}*/
 	Void verBala(Graphics^g) {
 		for (int i = 0; i < personas->Length; i++) {
 			personas[i]->verBala(g);
@@ -148,24 +107,11 @@ public:
 		for (int i = 0; i < personas->Length; i++)
 		{
 			if (poli->IntersectsWith(personas[i]->getRectangle()) && personas[i]->getMulta() && personas[i]->getVirus()) {
-			//	alto->Play();
 				Eliminar(i);
 				break;
 			}
 		}
 	}
-
-	/*Void multado(cli::array<Rectangle^>^sd,) {
-		for (int i = 0; i < personas->Length; i++)
-		{
-			
-			if (sd[i].IntersectsWith(personas[i]->getRectangle)) {
-				Eliminar(i);
-				
-				break;
-			}
-		}
-	}*/
 	Int16 multado(Int16 posx ,Int16 posy) {
 		Rectangle^ intermensa = gcnew Rectangle(posx, posy, anchomen, altomen);
 		for (int i = 0; i < personas->Length; i++) {
@@ -175,8 +121,6 @@ public:
 				personas[i]->estadocambiado();
 				desac = personas[i]->getestadoba();
 				personas[i]->multar();
-				//uh->Play();
-
 				return 10;
 				break;
 			}
@@ -209,17 +153,10 @@ public:
 			if (i!=pos) {
 				fantasmas[cont] = personas[i];
 				cont++;
-				
 			}
 		}
-
 		delete personas;
 		personas = fantasmas;
 		delete fantasmas;
-
 	}
-	
-
-
-	
 };

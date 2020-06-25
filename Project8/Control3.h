@@ -51,14 +51,10 @@ public:
 
 	Void cadaTick(Label^  lbl_puntaje, Graphics^g, Label^  lbl_dinero, Label^  lbl_hora) {
 		g->DrawImage(mapa->getImagen(), 0, 0, mapa->getRectangle(), GraphicsUnit::Pixel);
-
-		
 		personas->Mostrar(g);
 		jugador->Mostrar(g, activo);
 		dinero = dinero - jugador->cobro();
 		lbl_dinero->Text = "$" + dinero;
-		
-		//vidajuga->perdervida(personas->Colision(jugador->getRectangle()));
 		if (personas->Colision(jugador->getRectangle()))
 		{
 			activadorRecomendacion = true;

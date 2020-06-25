@@ -36,19 +36,16 @@ public:
 		if (nroMapa==2)
 		{
 		puntos = gcnew cli::array<Point^>(18);
-
 		}
 		if (nroMapa == 3) {
 			puntos = gcnew cli::array<Point^>(12);
 		}
-
 		posicion = gcnew Point(0,0);
 		iniciarPuntos(nroMapa);
 		dx = dy = 3;
 		if (nroMapa==2||nroMapa==1) {
 		posx=origen->X;
 		posy = origen->Y;
-
 		}
 		imagen = gcnew Bitmap("enemigos(base1).png");
 		bala = gcnew CBala();
@@ -60,13 +57,10 @@ public:
 		multa = false;
 		estadoba = true;
 		int contagiado = r.Next(1, 7);
-
 		if (contagiado%2==0) {
 			virus = true;
 		}
 		else { virus = false; }
-
-	
 		switch (r.Next(1,5))
 		{
 		case 1:filas = 1; cols = 0; personaje = 1; break;
@@ -76,22 +70,18 @@ public:
 		default:
 			break;
 		}
-		
-		
 		cambioDireccion();
 	}
 	~CPersona(){}
 	Void Diasparar() {
-		/*bala->modificar(posx,posy,cols);*/
 		tomate->Disparar(posx, posy, cols, anchoSprite, altoSprite);
 	}
 	Int16 direccion() { return cols; }
-	bool Dispactiva(Int16 i) { /*return bala->getactivador();*/ return tomate->getactivador(i); }
+	bool Dispactiva(Int16 i) {  return tomate->getactivador(i); }
 	Void Trayectar() {
 		bala->Mover();
 	}
 	Void verBala(Graphics^g) {
-		/*bala->graficar(g);*/
 		tomate->MostrarDisparo(g);
 	}
 	Void multar() {
@@ -185,17 +175,12 @@ public:
 			puntos[9] = gcnew Point(574, 371);
 			puntos[10] = gcnew Point(218, 485);
 			puntos[11] = gcnew Point(527, 491);
-			/*int puntito = random(0, 17);
-			origen = gcnew Point(0, 0);
-			origen = puntos[puntito];*/
 		}
-
 	}
 	Void onlyMap3(int i) {
 		posx = puntos[i]->X;
 		posy = puntos[i]->Y;
 	}
-
 	Void cambioDireccion() {
 		Point^punt = gcnew Point(posx, posy);
 		
@@ -325,11 +310,7 @@ public:
 			if (funcion(17)) {
 				decision(1);
 			}
-
 		}
-
-		
-		
 	}
 
 	Void decision(int cambio) {
@@ -342,8 +323,6 @@ public:
 		default:
 			break;
 		}
-	
-
 	}
 	Void movimiento() {
 		if (arriba)
@@ -356,8 +335,6 @@ public:
 		 posicion->X = posx;
 		 posicion->Y = posy;
 	}
-
-
 	int random(int min,int max) {
 		int numero=	min + rand() % (max + 1 - min);
 		return numero;
