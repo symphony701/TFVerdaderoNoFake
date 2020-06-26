@@ -60,11 +60,11 @@ public:
 		jugador->Mostrar(g, activo);
 		dinero = dinero - jugador->cobro();
 		lbl_dinero->Text = "$" + dinero;
-		if (personas->Colision(jugador->getRectangle()))
+		/*if (personas->colisionConRecomendacion(jugador->getRectangle()))
 		{
 			activadorRecomendacion = true;
 		}
-		else { activadorRecomendacion = false; }
+		else { activadorRecomendacion = false; }*/
 		vidajuga->Cantivi(g);
 		tiem->cambio(1);
 		mapa->cambio(tiem->gethora());
@@ -87,9 +87,13 @@ public:
 		else if (e->KeyCode == Keys::Right) {
 			jugador->Mover4(Direccion::Derecha);
 		}
-		else if (e->KeyCode == Keys::W&&activadorRecomendacion) {
+		else if (e->KeyCode == Keys::W) {
+			if (personas->colisionConRecomendacion(jugador->getRectangle()))
+			{
 			recomendaciones->darRecomendacion(iteradorDeRecomendaciones);
 			iteradorDeRecomendaciones++;
+
+			}
 		}
 	
 		cout << jugador->getPosX() << jugador->getPosY() << endl;

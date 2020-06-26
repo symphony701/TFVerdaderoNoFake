@@ -23,6 +23,7 @@ protected:
 	int nroMapa;
 	/*CBala^ bala;*/
 	CArreMensajes^ tomate;
+	bool recomendado;
 
 public:
 	CPersona(){
@@ -30,6 +31,7 @@ public:
 		multa = false;
 		estadoba = true;
 		virus = true;
+		recomendado = false;
 		imagen = gcnew Bitmap("enemigos(base1).png");
 		anchoImagen = imagen->Width;
 		altoImagen = imagen->Height;
@@ -43,7 +45,7 @@ public:
 		personaje = 1;
 	}
 	CPersona(int nroMapa){
-
+		recomendado = false;
 		this->nroMapa = nroMapa;
 		if (nroMapa==1)
 		{
@@ -198,6 +200,8 @@ public:
 		posx = puntos[i]->X;
 		posy = puntos[i]->Y;
 	}
+	Void cambioRecomendado() { recomendado = true; }
+	bool getRecomendado() { return recomendado; }
 	Void cambioDireccion() {
 		Point^punt = gcnew Point(posx, posy);
 		
