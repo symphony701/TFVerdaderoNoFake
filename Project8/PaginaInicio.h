@@ -190,6 +190,7 @@ namespace Project8 {
 		if (juego->getCantidadEnemigos()<=0)
 		{
 			juego->registrarDatos();
+			
 			Close();
 		}
 		///////FIN DE CODIGO
@@ -203,15 +204,7 @@ private: System::Void MyForm_KeyUp(System::Object^  sender, System::Windows::For
 	juego->keyUp(e);
 }
 private: System::Void panelito_DoubleClick(System::Object^  sender, System::EventArgs^  e) {
-	Map2^map2 = gcnew Map2(10);
-	WindowState = FormWindowState::Minimized;
-	map2->ShowDialog();
-	
-	Close();
-	
-	WindowState = FormWindowState::Normal;
-	
-	delete map2;
+
 }
 private: System::Void panelito_Click(System::Object^  sender, System::EventArgs^  e) {
 	
@@ -219,5 +212,7 @@ private: System::Void panelito_Click(System::Object^  sender, System::EventArgs^
 private: System::Void panelito_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
 	cout << e->X << "---" << e->Y << endl;
 }
+		public:
+			int devolverVidas() { return juego->retornarVidas(); }
 };
 }

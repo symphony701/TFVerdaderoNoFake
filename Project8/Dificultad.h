@@ -24,6 +24,7 @@ namespace Project8 {
 	CPersona^ persona2;
 	CPersona^ persona3;
 	Int16 valdis;
+	int cantidadVidas;
 public:
 	Dificultad(void)
 	{
@@ -436,8 +437,9 @@ private: System::Void btn_facil_MouseClick(System::Object^  sender, System::Wind
 	WindowState = FormWindowState::Minimized;
 	map1->ShowDialog();
 	WindowState = FormWindowState::Normal;
+	cantidadVidas = map1->devolverVidas();
 	delete map1;
-	Map2^map2 = gcnew Map2(5);
+	Map2^map2 = gcnew Map2(cantidadVidas);
 	WindowState = FormWindowState::Minimized;
 	map2->ShowDialog();
 	WindowState = FormWindowState::Normal;
