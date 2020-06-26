@@ -35,6 +35,7 @@ public:
 	int gethora() { return hora; }
 	int getmin() { return min; }
 	bool fueraentoquedequeda(){
+		if (toquedequedacomi == 24 && toquedequedafinal == 0) { return false; }
 		if (hora >= toquedequedafinal && hora < toquedequedacomi) { return false; }
 		return true;
 	}
