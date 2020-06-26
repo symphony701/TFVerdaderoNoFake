@@ -36,9 +36,9 @@ public:
 	int getmin() { return min; }
 	bool fueraentoquedequeda(){
 		if (hora >= toquedequedafinal && hora <= toquedequedacomi) { return false; }
-
 		return true;
 	}
+	void Horasdetoquedequeda(int sup, int inf) { toquedequedacomi = sup; toquedequedafinal = inf; }
 private:
 	int hora;
 	int min;

@@ -137,7 +137,7 @@ public:
 		lbl_hora->Text = tiem->mostrarT();
 
 
-
+		if (tiem->fueraentoquedequeda && jugador->getAlquiler()==false) { tipomuer = 2; }
 		if (vidajuga->Muerte()) { tipomuer = 1; }
 		return vidajuga->Muerte();
 
