@@ -134,9 +134,9 @@ public:
 		return !(desac);
 	}
 	bool Colision(Rectangle ^juga) {
-		for (int i = 0; i < personas->Length; i++)
-		{
-			if (juga->IntersectsWith(personas[i]->getRectangle()) ) {
+		Rectangle^ juga2 = gcnew Rectangle(juga->X + 7, juga->Y + 11, juga->Width - 14, juga->Height - 22);
+		for (int i = 0; i < personas->Length; i++){
+			if (juga2->IntersectsWith(personas[i]->getRectangle()) ) {
 				return true;
 				break;
 			}
