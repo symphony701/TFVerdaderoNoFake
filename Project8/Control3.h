@@ -34,8 +34,10 @@ private:
 	Cvidas^ vidajuga;
 	CRecomendaciones^recomendaciones;
 	int iteradorDeRecomendaciones;
+	bool dispaene;
 public:
-	CControl3(Int16 vi) {
+	CControl3(Int16 vi, bool dispaene) {
+		this->dispaene = dispaene;
 		recomendaciones = gcnew CRecomendaciones();
 		iteradorDeRecomendaciones = 1;
 		dia = 0;

@@ -1,8 +1,6 @@
 #pragma once
-#include "PaginaInicio.h"
-#include <iostream>
-#include "Map2.h"
-#include "map3.h"
+#include "Dificultad.h"
+#include "Instrucciones.h"
 
 namespace Project8 {
 
@@ -77,9 +75,9 @@ namespace Project8 {
 		void InitializeComponent(void)
 		{
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->btn_int = (gcnew System::Windows::Forms::Button());
 			this->btnstart = (gcnew System::Windows::Forms::Button());
 			this->btnexit = (gcnew System::Windows::Forms::Button());
-			this->btn_int = (gcnew System::Windows::Forms::Button());
 			this->panel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -95,6 +93,22 @@ namespace Project8 {
 			this->panel1->TabIndex = 1;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Menuxd::panel1_Paint);
 			this->panel1->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &Menuxd::panel1_MouseMove);
+			// 
+			// btn_int
+			// 
+			this->btn_int->BackColor = System::Drawing::Color::Black;
+			this->btn_int->Font = (gcnew System::Drawing::Font(L"Bernard MT Condensed", 27.75F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btn_int->ForeColor = System::Drawing::Color::White;
+			this->btn_int->Location = System::Drawing::Point(524, 227);
+			this->btn_int->Name = L"btn_int";
+			this->btn_int->Size = System::Drawing::Size(182, 71);
+			this->btn_int->TabIndex = 2;
+			this->btn_int->Text = L"Intructions";
+			this->btn_int->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->btn_int->UseVisualStyleBackColor = false;
+			this->btn_int->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &Menuxd::btn_int_MouseClick);
+			this->btn_int->MouseHover += gcnew System::EventHandler(this, &Menuxd::button1_MouseHover);
 			// 
 			// btnstart
 			// 
@@ -128,21 +142,6 @@ namespace Project8 {
 			this->btnexit->Click += gcnew System::EventHandler(this, &Menuxd::button1_Click);
 			this->btnexit->MouseHover += gcnew System::EventHandler(this, &Menuxd::btnexit_MouseHover);
 			// 
-			// btn_int
-			// 
-			this->btn_int->BackColor = System::Drawing::Color::Black;
-			this->btn_int->Font = (gcnew System::Drawing::Font(L"Bernard MT Condensed", 27.75F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->btn_int->ForeColor = System::Drawing::Color::White;
-			this->btn_int->Location = System::Drawing::Point(524, 227);
-			this->btn_int->Name = L"btn_int";
-			this->btn_int->Size = System::Drawing::Size(182, 71);
-			this->btn_int->TabIndex = 2;
-			this->btn_int->Text = L"Intructions";
-			this->btn_int->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->btn_int->UseVisualStyleBackColor = false;
-			this->btn_int->MouseHover += gcnew System::EventHandler(this, &Menuxd::button1_MouseHover);
-			// 
 			// Menuxd
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -158,12 +157,12 @@ namespace Project8 {
 #pragma endregion
 	private: System::Void btnStart_Click(System::Object^  sender, System::EventArgs^  e) {
 
-		/*MyForm^map1 = gcnew MyForm();
+		Dificultad^difi1 = gcnew Dificultad();
 		WindowState = FormWindowState::Minimized;
-		map1->ShowDialog();
+		difi1->ShowDialog();
 		WindowState = FormWindowState::Normal;
-		delete map1;
-		Map2^map2 = gcnew Map2();
+		delete difi1;
+		/*Map2^map2 = gcnew Map2();
 		WindowState = FormWindowState::Minimized;
 		map2->ShowDialog();
 		WindowState = FormWindowState::Normal;
@@ -172,8 +171,8 @@ namespace Project8 {
 		WindowState = FormWindowState::Minimized;
 		Map3->ShowDialog();
 		WindowState = FormWindowState::Normal;
-		delete Map3;
-		MessageBox::Show("Gracias por jugar!!");*/
+		delete Map3;*/
+		
 
 	}
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -226,6 +225,13 @@ private: System::Void btnstart_MouseHover(System::Object^  sender, System::Event
 }
 private: System::Void button1_MouseHover(System::Object^  sender, System::EventArgs^  e) {
 	btn_int->ForeColor = System::Drawing::Color::Lime;
+}
+private: System::Void btn_int_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+	Instrucciones^instruc = gcnew Instrucciones();
+	WindowState = FormWindowState::Minimized;
+	instruc->ShowDialog();
+	WindowState = FormWindowState::Normal;
+	delete instruc;
 }
 };
 }

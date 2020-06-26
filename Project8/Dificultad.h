@@ -23,8 +23,7 @@ namespace Project8 {
 	CPersona^ persona1;
 	CPersona^ persona2;
 	CPersona^ persona3;
-	Int16 valdis;
-	int cantidadVidas;
+	bool valdis;
 public:
 	Dificultad(void)
 	{
@@ -37,16 +36,16 @@ public:
 		persona2->Ubicacion(280, 120);
 		persona3 = gcnew CPersona();
 		persona3->Ubicacion(550, 120);
-		valdis = 1;
+		valdis = false;
 
 		//
-		//TODO: agregar código de constructor aquí
+		//TODO: agregar cï¿½digo de constructor aquï¿½
 		//
 	}
 
 protected:
 	/// <summary>
-	/// Limpiar los recursos que se estén usando.
+	/// Limpiar los recursos que se estï¿½n usando.
 	/// </summary>
 	~Dificultad()
 	{
@@ -88,14 +87,14 @@ private: System::ComponentModel::IContainer^  components;
 
 private:
 	/// <summary>
-	/// Variable del diseñador necesaria.
+	/// Variable del diseï¿½ador necesaria.
 	/// </summary>
 
 
 #pragma region Windows Form Designer generated code
 	/// <summary>
-	/// Método necesario para admitir el Diseñador. No se puede modificar
-	/// el contenido de este método con el editor de código.
+	/// Mï¿½todo necesario para admitir el Diseï¿½ador. No se puede modificar
+	/// el contenido de este mï¿½todo con el editor de cï¿½digo.
 	/// </summary>
 	void InitializeComponent(void)
 	{
@@ -122,9 +121,9 @@ private:
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->nud_comi))->BeginInit();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->nud_vidas))->BeginInit();
 		this->SuspendLayout();
-		// 
+		//
 		// panel1
-		// 
+		//
 		this->panel1->BackColor = System::Drawing::Color::Black;
 		this->panel1->Controls->Add(this->nud_ter);
 		this->panel1->Controls->Add(this->label7);
@@ -145,9 +144,9 @@ private:
 		this->panel1->Name = L"panel1";
 		this->panel1->Size = System::Drawing::Size(757, 404);
 		this->panel1->TabIndex = 2;
-		// 
+		//
 		// nud_ter
-		// 
+		//
 		this->nud_ter->Font = (gcnew System::Drawing::Font(L"Bernard MT Condensed", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(0)));
 		this->nud_ter->Location = System::Drawing::Point(642, 41);
@@ -155,9 +154,9 @@ private:
 		this->nud_ter->Name = L"nud_ter";
 		this->nud_ter->Size = System::Drawing::Size(41, 32);
 		this->nud_ter->TabIndex = 14;
-		// 
+		//
 		// label7
-		// 
+		//
 		this->label7->AutoSize = true;
 		this->label7->Font = (gcnew System::Drawing::Font(L"Bernard MT Condensed", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(0)));
@@ -167,9 +166,9 @@ private:
 		this->label7->Size = System::Drawing::Size(42, 28);
 		this->label7->TabIndex = 16;
 		this->label7->Text = L":00";
-		// 
+		//
 		// nud_comi
-		// 
+		//
 		this->nud_comi->Font = (gcnew System::Drawing::Font(L"Bernard MT Condensed", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(0)));
 		this->nud_comi->Location = System::Drawing::Point(546, 41);
@@ -179,9 +178,9 @@ private:
 		this->nud_comi->Size = System::Drawing::Size(41, 32);
 		this->nud_comi->TabIndex = 13;
 		this->nud_comi->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 18, 0, 0, 0 });
-		// 
+		//
 		// label6
-		// 
+		//
 		this->label6->AutoSize = true;
 		this->label6->Font = (gcnew System::Drawing::Font(L"Bernard MT Condensed", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(0)));
@@ -191,9 +190,9 @@ private:
 		this->label6->Size = System::Drawing::Size(60, 28);
 		this->label6->TabIndex = 15;
 		this->label6->Text = L":00 a";
-		// 
+		//
 		// label5
-		// 
+		//
 		this->label5->AutoSize = true;
 		this->label5->Font = (gcnew System::Drawing::Font(L"Bernard MT Condensed", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(0)));
@@ -203,9 +202,9 @@ private:
 		this->label5->Size = System::Drawing::Size(132, 28);
 		this->label5->TabIndex = 12;
 		this->label5->Text = L"20:00 a 6:00";
-		// 
+		//
 		// label4
-		// 
+		//
 		this->label4->AutoSize = true;
 		this->label4->Font = (gcnew System::Drawing::Font(L"Bernard MT Condensed", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(0)));
@@ -215,9 +214,9 @@ private:
 		this->label4->Size = System::Drawing::Size(132, 28);
 		this->label4->TabIndex = 11;
 		this->label4->Text = L"22:00 a 4:00";
-		// 
+		//
 		// label3
-		// 
+		//
 		this->label3->AutoSize = true;
 		this->label3->Font = (gcnew System::Drawing::Font(L"Bernard MT Condensed", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(0)));
@@ -227,9 +226,9 @@ private:
 		this->label3->Size = System::Drawing::Size(152, 28);
 		this->label3->TabIndex = 10;
 		this->label3->Text = L"Hora de queda";
-		// 
+		//
 		// label2
-		// 
+		//
 		this->label2->AutoSize = true;
 		this->label2->Font = (gcnew System::Drawing::Font(L"Bernard MT Condensed", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(0)));
@@ -239,9 +238,9 @@ private:
 		this->label2->Size = System::Drawing::Size(152, 28);
 		this->label2->TabIndex = 9;
 		this->label2->Text = L"Hora de queda";
-		// 
+		//
 		// label1
-		// 
+		//
 		this->label1->AutoSize = true;
 		this->label1->Font = (gcnew System::Drawing::Font(L"Bernard MT Condensed", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(0)));
@@ -251,9 +250,9 @@ private:
 		this->label1->Size = System::Drawing::Size(152, 28);
 		this->label1->TabIndex = 8;
 		this->label1->Text = L"Hora de queda";
-		// 
+		//
 		// nud_vidas
-		// 
+		//
 		this->nud_vidas->Location = System::Drawing::Point(573, 263);
 		this->nud_vidas->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 8, 0, 0, 0 });
 		this->nud_vidas->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
@@ -262,9 +261,9 @@ private:
 		this->nud_vidas->TabIndex = 7;
 		this->nud_vidas->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 		this->nud_vidas->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
-		// 
+		//
 		// btn_condis
-		// 
+		//
 		this->btn_condis->Font = (gcnew System::Drawing::Font(L"Bernard MT Condensed", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(0)));
 		this->btn_condis->ForeColor = System::Drawing::Color::White;
@@ -275,9 +274,9 @@ private:
 		this->btn_condis->Text = L"con disparo";
 		this->btn_condis->UseVisualStyleBackColor = true;
 		this->btn_condis->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &Dificultad::btn_condis_MouseClick);
-		// 
+		//
 		// btn_sindis
-		// 
+		//
 		this->btn_sindis->BackColor = System::Drawing::Color::Red;
 		this->btn_sindis->Enabled = false;
 		this->btn_sindis->Font = (gcnew System::Drawing::Font(L"Bernard MT Condensed", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -290,9 +289,9 @@ private:
 		this->btn_sindis->Text = L"sin disparo";
 		this->btn_sindis->UseVisualStyleBackColor = false;
 		this->btn_sindis->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &Dificultad::btn_sindis_MouseClick);
-		// 
+		//
 		// btn_creativo
-		// 
+		//
 		this->btn_creativo->BackColor = System::Drawing::Color::Black;
 		this->btn_creativo->Font = (gcnew System::Drawing::Font(L"Bernard MT Condensed", 36, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(0)));
@@ -305,9 +304,9 @@ private:
 		this->btn_creativo->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 		this->btn_creativo->UseVisualStyleBackColor = false;
 		this->btn_creativo->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &Dificultad::btn_creativo_MouseClick);
-		// 
+		//
 		// btn_dificil
-		// 
+		//
 		this->btn_dificil->BackColor = System::Drawing::Color::Black;
 		this->btn_dificil->Font = (gcnew System::Drawing::Font(L"Bernard MT Condensed", 36, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(0)));
@@ -320,9 +319,9 @@ private:
 		this->btn_dificil->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 		this->btn_dificil->UseVisualStyleBackColor = false;
 		this->btn_dificil->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &Dificultad::btn_dificil_MouseClick);
-		// 
+		//
 		// btn_facil
-		// 
+		//
 		this->btn_facil->BackColor = System::Drawing::Color::Black;
 		this->btn_facil->Font = (gcnew System::Drawing::Font(L"Bernard MT Condensed", 36, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
 			System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
@@ -335,14 +334,14 @@ private:
 		this->btn_facil->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 		this->btn_facil->UseVisualStyleBackColor = false;
 		this->btn_facil->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &Dificultad::btn_facil_MouseClick);
-		// 
+		//
 		// timer1
-		// 
+		//
 		this->timer1->Enabled = true;
 		this->timer1->Tick += gcnew System::EventHandler(this, &Dificultad::timer1_Tick);
-		// 
+		//
 		// Dificultad
-		// 
+		//
 		this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 		this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 		this->BackColor = System::Drawing::Color::Black;
@@ -380,7 +379,7 @@ private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e
 	cantvidas->setcantvida(3);
 	cantvidas->cambioppos(340, 240);
 	cantvidas->Cantivi(bf->Graphics);
-	
+
 	persona2->Mostrar(bf->Graphics);
 	persona2->desplazamiento();
 	if (350 <= persona2->getPosX()) {
@@ -394,8 +393,8 @@ private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e
 	cantvidas->setcantvida(a);
 	cantvidas->cambioppos(635 - a * 15, 240);
 	cantvidas->Cantivi(bf->Graphics);
-	
-	if (valdis == 1) {
+
+	if (valdis == false) {
 		persona3->Mostrar(bf->Graphics);
 		persona3->desplazamiento();
 		if (640 <= persona3->getPosX()) {
@@ -403,7 +402,7 @@ private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e
 			persona3->CambioPersona();
 		}
 	}
-	if (valdis == 2) {
+	if (valdis == true) {
 		persona3->Mostrar(bf->Graphics);
 		persona3->desplazamiento();
 		if (600 <= persona3->getPosX()) {
@@ -422,29 +421,29 @@ private: System::Void btn_sindis_MouseClick(System::Object^  sender, System::Win
 	btn_condis->Enabled = true;
 	btn_sindis->BackColor = System::Drawing::Color::Red;
 	btn_condis->BackColor = System::Drawing::Color::Black;
-	valdis = 1;
+	valdis = false;
 }
 private: System::Void btn_condis_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
 	btn_sindis->Enabled = true;
 	btn_condis->Enabled = false;
 	btn_condis->BackColor = System::Drawing::Color::Red;
 	btn_sindis->BackColor = System::Drawing::Color::Black;
-	valdis = 2;
+	valdis = true;
 }
 
 private: System::Void btn_facil_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
-	MyForm^map1 = gcnew MyForm(5);
+	MyForm^map1 = gcnew MyForm(5, false);
 	WindowState = FormWindowState::Minimized;
 	map1->ShowDialog();
 	WindowState = FormWindowState::Normal;
 	cantidadVidas = map1->devolverVidas();
 	delete map1;
-	Map2^map2 = gcnew Map2(cantidadVidas);
+	Map2^map2 = gcnew Map2(5, false);
 	WindowState = FormWindowState::Minimized;
 	map2->ShowDialog();
 	WindowState = FormWindowState::Normal;
 	delete map2;
-	map3^Map3 = gcnew map3(5);
+	map3^Map3 = gcnew map3(5, false);
 	WindowState = FormWindowState::Minimized;
 	Map3->ShowDialog();
 	WindowState = FormWindowState::Normal;
@@ -452,8 +451,40 @@ private: System::Void btn_facil_MouseClick(System::Object^  sender, System::Wind
 	MessageBox::Show("Gracias por jugar!!");
 }
 private: System::Void btn_dificil_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+	MyForm^map1 = gcnew MyForm(3, true);
+	WindowState = FormWindowState::Minimized;
+	map1->ShowDialog();
+	WindowState = FormWindowState::Normal;
+	delete map1;
+	Map2^map2 = gcnew Map2(3, true);
+	WindowState = FormWindowState::Minimized;
+	map2->ShowDialog();
+	WindowState = FormWindowState::Normal;
+	delete map2;
+	map3^Map3 = gcnew map3(3, true);
+	WindowState = FormWindowState::Minimized;
+	Map3->ShowDialog();
+	WindowState = FormWindowState::Normal;
+	delete Map3;
+	MessageBox::Show("Gracias por jugar!!");
 }
 private: System::Void btn_creativo_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+	MyForm^map1 = gcnew MyForm(Int16(nud_vidas->Value), valdis);
+	WindowState = FormWindowState::Minimized;
+	map1->ShowDialog();
+	WindowState = FormWindowState::Normal;
+	delete map1;
+	Map2^map2 = gcnew Map2(Int16(nud_vidas->Value), valdis);
+	WindowState = FormWindowState::Minimized;
+	map2->ShowDialog();
+	WindowState = FormWindowState::Normal;
+	delete map2;
+	map3^Map3 = gcnew map3(Int16(nud_vidas->Value), valdis);
+	WindowState = FormWindowState::Minimized;
+	Map3->ShowDialog();
+	WindowState = FormWindowState::Normal;
+	delete Map3;
+	MessageBox::Show("Gracias por jugar!!");
 }
 };
 }

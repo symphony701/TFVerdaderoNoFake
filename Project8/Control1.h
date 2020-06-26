@@ -40,8 +40,9 @@ private:
 	Int16 punta;
 	Int16 dinero;
 	Cvidas^ vidajuga;
+	bool dispaene;
 public:
-	CControl1(Int16 vi){
+	CControl1(Int16 vi, bool dispaene){
 		dia = 0;
 		dinero = 100;
 		tiem = gcnew tiempo();
@@ -49,7 +50,7 @@ public:
 		vidajuga = gcnew Cvidas(vi);
 		punta = 0;
 		mapa = gcnew CMapas(1);
-		
+		this->dispaene = dispaene;
 	
 		personas = gcnew CPersonas(1);
 		mensajuga = gcnew CArreMensajes(1);
@@ -121,10 +122,10 @@ public:
 			personas->AtrapadoPoli(poli->getRectangle());
 			personas->AtrapadoPoli(poli2->getRectangle());
 		}
-		personas->Cercania(jugador->getRectangle());
-		
-		personas->verBala(g);
-		
+		if (dispaene) {
+			personas->Cercania(jugador->getRectangle());
+			personas->verBala(g);
+		}
 
 
 		vidajuga->perdervida(personas->Colision(jugador->getRectangle()));

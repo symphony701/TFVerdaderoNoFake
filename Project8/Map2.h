@@ -21,11 +21,11 @@ namespace Project8 {
 	private: System::Windows::Forms::Label^  lbl_puntaje;
 			 Graphics^g;
 	public:
-		Map2(Int16 vi)
+		Map2(Int16 vi, bool dispa)
 		{
 			InitializeComponent();
 			g = panel1->CreateGraphics();
-			juego = gcnew CControl2(vi);
+			juego = gcnew CControl2(vi, dispa);
 		}
 	private: System::Windows::Forms::Label^  lbl_hora;
 	public:

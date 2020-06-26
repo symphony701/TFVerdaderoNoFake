@@ -18,19 +18,19 @@ namespace Project8 {
 	/// </summary>
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
-		
+
 		CControl1^ juego;
 	private: System::Windows::Forms::Label^  lbl_puntaje;
 	private: System::Windows::Forms::Label^  lbl_dinero;
-			
+
 
 	public:
-		MyForm(Int16 vi)
+		MyForm(Int16 vi,bool dispa)
 		{
 			InitializeComponent();
-			juego = gcnew CControl1(vi);
+			juego = gcnew CControl1(vi, dispa);
 			g = panelito->CreateGraphics();
-			
+
 		};
 	private: System::Windows::Forms::Timer^  timer1;
 	private: System::Windows::Forms::Label^  lbl_hora;
@@ -40,7 +40,7 @@ namespace Project8 {
 		Graphics^g;
 
 		/// <summary>
-		/// Limpiar los recursos que se estén usando.
+		/// Limpiar los recursos que se estï¿½n usando.
 		/// </summary>
 		~MyForm()
 		{
@@ -60,19 +60,19 @@ namespace Project8 {
 
 	private:
 
-		
-		
+
+
 	private: System::ComponentModel::IContainer^  components;
 
 		/// <summary>
-		/// Variable del diseñador necesaria.
+		/// Variable del diseï¿½ador necesaria.
 		/// </summary>
 
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Método necesario para admitir el Diseñador. No se puede modificar
-		/// el contenido de este método con el editor de código.
+		/// Mï¿½todo necesario para admitir el Diseï¿½ador. No se puede modificar
+		/// el contenido de este mï¿½todo con el editor de cï¿½digo.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -84,9 +84,9 @@ namespace Project8 {
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->panelito->SuspendLayout();
 			this->SuspendLayout();
-			// 
+			//
 			// panelito
-			// 
+			//
 			this->panelito->Controls->Add(this->lbl_puntaje);
 			this->panelito->Controls->Add(this->lbl_dinero);
 			this->panelito->Controls->Add(this->lbl_hora);
@@ -100,9 +100,9 @@ namespace Project8 {
 			this->panelito->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::panelito_Paint);
 			this->panelito->DoubleClick += gcnew System::EventHandler(this, &MyForm::panelito_DoubleClick);
 			this->panelito->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MyForm::panelito_MouseClick);
-			// 
+			//
 			// lbl_puntaje
-			// 
+			//
 			this->lbl_puntaje->BackColor = System::Drawing::Color::Black;
 			this->lbl_puntaje->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
 			this->lbl_puntaje->Font = (gcnew System::Drawing::Font(L"Impact", 14.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
@@ -114,9 +114,9 @@ namespace Project8 {
 			this->lbl_puntaje->TabIndex = 3;
 			this->lbl_puntaje->Text = L"0p";
 			this->lbl_puntaje->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
-			// 
+			//
 			// lbl_dinero
-			// 
+			//
 			this->lbl_dinero->BackColor = System::Drawing::Color::Black;
 			this->lbl_dinero->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
 			this->lbl_dinero->Font = (gcnew System::Drawing::Font(L"Impact", 14.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
@@ -128,9 +128,9 @@ namespace Project8 {
 			this->lbl_dinero->TabIndex = 2;
 			this->lbl_dinero->Text = L"$100";
 			this->lbl_dinero->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			// 
+			//
 			// lbl_hora
-			// 
+			//
 			this->lbl_hora->BackColor = System::Drawing::Color::Black;
 			this->lbl_hora->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
 			this->lbl_hora->Font = (gcnew System::Drawing::Font(L"Impact", 14.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
@@ -142,14 +142,14 @@ namespace Project8 {
 			this->lbl_hora->TabIndex = 1;
 			this->lbl_hora->Text = L" 6:00";
 			this->lbl_hora->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			// 
+			//
 			// timer1
-			// 
+			//
 			this->timer1->Enabled = true;
 			this->timer1->Tick += gcnew System::EventHandler(this, &MyForm::timer1_Tick);
-			// 
+			//
 			// MyForm
-			// 
+			//
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::Control;
@@ -167,22 +167,22 @@ namespace Project8 {
 		}
 #pragma endregion
 	private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
-		
+
 	}
 	private: System::Void panelito_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
-		
-		
-	
-		
+
+
+
+
 	}
 	private: System::Void MyForm_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
-	
+
 		juego->keyDown(e);
-		
+
 	}
 	private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {
-		
-	
+
+
 		BufferedGraphicsContext ^bfc = BufferedGraphicsManager::Current;
 		BufferedGraphics ^bf = bfc->Allocate(g, this->ClientRectangle);
 		/////INICIO DE CODIGO
@@ -190,24 +190,33 @@ namespace Project8 {
 		if (juego->getCantidadEnemigos()<=0)
 		{
 			juego->registrarDatos();
-			
+
 			Close();
 		}
 		///////FIN DE CODIGO
 		bf->Render(g);
 		delete bf, bfc;
-		
-		
+
+
 	}
 private: System::Void MyForm_KeyUp(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
-	
+
 	juego->keyUp(e);
 }
 private: System::Void panelito_DoubleClick(System::Object^  sender, System::EventArgs^  e) {
+	/*Map2^map2 = gcnew Map2(5);
+	Map2^map2 = gcnew Map2(10);
+	WindowState = FormWindowState::Minimized;
+	map2->ShowDialog();
 
+	Close();
+
+	WindowState = FormWindowState::Normal;
+
+	delete map2;*/
 }
 private: System::Void panelito_Click(System::Object^  sender, System::EventArgs^  e) {
-	
+
 }
 private: System::Void panelito_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
 	cout << e->X << "---" << e->Y << endl;
