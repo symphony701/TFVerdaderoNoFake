@@ -26,10 +26,10 @@ namespace Project8 {
 
 
 	public:
-		MyForm(Int16 vi,bool dispa)
+		MyForm(Int16 vi,bool dispa,int toqueco,int toquefin)
 		{
 			InitializeComponent();
-			juego = gcnew CControl1(vi, dispa);
+			juego = gcnew CControl1(vi, dispa, toqueco, toquefin);
 			g = panelito->CreateGraphics();
 			Muerte = false;
 
@@ -224,5 +224,6 @@ private: System::Void panelito_MouseClick(System::Object^  sender, System::Windo
 			int devolverHora() { return juego->retornarHora(); }
 			int devolverMinutos() { return juego->retornarMinutos(); }
 			int tipoMuerte() { return juego->Tipomuerte(); }
+			bool Dead() { return Muerte; }
 };
 }

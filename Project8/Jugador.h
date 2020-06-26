@@ -61,7 +61,7 @@ public:
 		}
 		return 0;
 	}
-	bool setAlquiler() { return alquiler; }
+	bool getAlquiler() { return alquiler; }
 	Int16 getancho() {return anchoImagen;}
 	Int16 getalto() {return altoImagen;}
 	Void Mover(Direccion direccion) {

@@ -43,10 +43,10 @@ private:
 	bool dispaene;
 	Int16 tipomuer;
 public:
-	CControl1(Int16 vi, bool dispaene){
+	CControl1(Int16 vi, bool dispaene, int toqueco, int toquefin){
 		dia = 0;
 		dinero = 100;
-		tiem = gcnew tiempo();
+		tiem = gcnew tiempo(toquefin,0);
 		jugador = gcnew CJugador();
 		vidajuga = gcnew Cvidas(vi);
 		punta = 0;
@@ -61,6 +61,7 @@ public:
 
 		actPoli = true;
 		creada = false;
+		tiem->Horasdetoquedequeda(toqueco, toquefin);
 	}
 	~CControl1(){}
 
@@ -137,7 +138,7 @@ public:
 		lbl_hora->Text = tiem->mostrarT();
 
 
-
+		if (tiem->fueraentoquedequeda() && jugador->getAlquiler()==false) { tipomuer = 2; }
 		if (vidajuga->Muerte()) { tipomuer = 1; }
 		return vidajuga->Muerte();
 

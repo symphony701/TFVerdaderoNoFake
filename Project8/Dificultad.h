@@ -158,11 +158,10 @@ private:
 		this->nud_ter->Font = (gcnew System::Drawing::Font(L"Bernard MT Condensed", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(0)));
 		this->nud_ter->Location = System::Drawing::Point(642, 41);
-		this->nud_ter->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 6, 0, 0, 0 });
+		this->nud_ter->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 12, 0, 0, 0 });
 		this->nud_ter->Name = L"nud_ter";
 		this->nud_ter->Size = System::Drawing::Size(41, 32);
 		this->nud_ter->TabIndex = 14;
-		this->nud_ter->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 6, 0, 0, 0 });
 		// 
 		// label7
 		// 
@@ -182,7 +181,7 @@ private:
 			static_cast<System::Byte>(0)));
 		this->nud_comi->Location = System::Drawing::Point(543, 41);
 		this->nud_comi->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 24, 0, 0, 0 });
-		this->nud_comi->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 18, 0, 0, 0 });
+		this->nud_comi->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 12, 0, 0, 0 });
 		this->nud_comi->Name = L"nud_comi";
 		this->nud_comi->Size = System::Drawing::Size(43, 32);
 		this->nud_comi->TabIndex = 13;
@@ -441,76 +440,151 @@ private: System::Void btn_condis_MouseClick(System::Object^  sender, System::Win
 }
 
 private: System::Void btn_facil_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
-	MyForm^map1 = gcnew MyForm(5, false);
+	MyForm^map1 = gcnew MyForm(5, false,22,4);
 	WindowState = FormWindowState::Minimized;
 	map1->ShowDialog();
 	WindowState = FormWindowState::Normal;
 	cantidadVidas = map1->devolverVidas();
 	dinero = map1->devolverDinero();
 	puntaje = map1->devolverPuntaje();
+	hora = map1->devolverHora();
+	min = map1->devolverMinutos();
+	tipodead = map1->tipoMuerte();
+	Dead = map1->Dead();
 	delete map1;
-	Map2^map2 = gcnew Map2(cantidadVidas, false,dinero,puntaje);
-	WindowState = FormWindowState::Minimized;
-	map2->ShowDialog();
-	WindowState = FormWindowState::Normal;
-	cantidadVidas = map2->devolverVidas();
-	dinero = map2->devolverDinero();
-	puntaje = map2->devolverPuntaje();
-	delete map2;
-	map3^Map3 = gcnew map3(cantidadVidas, false,dinero,puntaje);
-	WindowState = FormWindowState::Minimized;
-	Map3->ShowDialog();
-	WindowState = FormWindowState::Normal;
-	delete Map3;
-	MessageBox::Show("Gracias por jugar!!");
+	if (Dead == false) {
+		Map2^map2 = gcnew Map2(cantidadVidas, false, 22, 4, dinero, puntaje);
+		WindowState = FormWindowState::Minimized;
+		map2->ShowDialog();
+		WindowState = FormWindowState::Normal;
+		cantidadVidas = map2->devolverVidas();
+		dinero = map2->devolverDinero();
+		puntaje = map2->devolverPuntaje();
+		hora = map2->devolverHora();
+		min = map2->devolverMinutos();
+		tipodead = map2->tipoMuerte();
+		Dead = map2->Dead();
+		delete map2;
+	}
+	if (Dead == false) {
+		map3^Map3 = gcnew map3(cantidadVidas, false, 22, 4, dinero, puntaje);
+		WindowState = FormWindowState::Minimized;
+		Map3->ShowDialog();
+		WindowState = FormWindowState::Normal;
+		tipodead = Map3->tipoMuerte();
+		Dead = Map3->Dead();
+		delete Map3;
+	}
+	if (Dead == true) {
+		if (tipodead == 1) {
+			MessageBox::Show("Perdiste");
+		}
+		if (tipodead == 2) {
+			MessageBox::Show("No te quedes fuera del toque de queda");
+		}
+
+	}
+	if (Dead == false) {
+		MessageBox::Show("Gracias por jugar!!");
+	}
 }
 private: System::Void btn_dificil_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
-	MyForm^map1 = gcnew MyForm(3, true);
+	MyForm^map1 = gcnew MyForm(3, true, 20, 6);
 	WindowState = FormWindowState::Minimized;
 	map1->ShowDialog();
 	WindowState = FormWindowState::Normal;
 	cantidadVidas = map1->devolverVidas();
 	dinero = map1->devolverDinero();
 	puntaje = map1->devolverPuntaje();
+	hora = map1->devolverHora();
+	min = map1->devolverMinutos();
+	tipodead = map1->tipoMuerte();
+	Dead = map1->Dead();
 	delete map1;
-	Map2^map2 = gcnew Map2(cantidadVidas, true,dinero,puntaje);
-	WindowState = FormWindowState::Minimized;
-	map2->ShowDialog();
-	WindowState = FormWindowState::Normal;
-	cantidadVidas = map2->devolverVidas();
-	dinero = map2->devolverDinero();
-	puntaje = map2->devolverPuntaje();
-	delete map2;
-	map3^Map3 = gcnew map3(cantidadVidas, true,dinero,puntaje);
-	WindowState = FormWindowState::Minimized;
-	Map3->ShowDialog();
-	WindowState = FormWindowState::Normal;
-	delete Map3;
-	MessageBox::Show("Gracias por jugar!!");
+	if (Dead == false) {
+		Map2^map2 = gcnew Map2(cantidadVidas, true, 20, 6, dinero, puntaje);
+		WindowState = FormWindowState::Minimized;
+		map2->ShowDialog();
+		WindowState = FormWindowState::Normal;
+		cantidadVidas = map2->devolverVidas();
+		dinero = map2->devolverDinero();
+		puntaje = map2->devolverPuntaje();
+		hora = map2->devolverHora();
+		min = map2->devolverMinutos();
+		tipodead = map2->tipoMuerte();
+		Dead = map2->Dead();
+		delete map2;
+	}
+	if (Dead == false) {
+		map3^Map3 = gcnew map3(cantidadVidas, true, 20, 6, dinero, puntaje);
+		WindowState = FormWindowState::Minimized;
+		Map3->ShowDialog();
+		WindowState = FormWindowState::Normal;
+		tipodead = Map3->tipoMuerte();
+		Dead = Map3->Dead();
+		delete Map3;
+	}
+	if (Dead == true) {
+		if (tipodead == 1) {
+			MessageBox::Show("Perdiste");
+		}
+		if (tipodead == 2) {
+			MessageBox::Show("No te quedes fuera del toque de queda");
+		}
+
+	}
+	if (Dead == false) {
+		MessageBox::Show("Gracias por jugar!!");
+	}
 }
 private: System::Void btn_creativo_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
-	MyForm^map1 = gcnew MyForm(Int16(nud_vidas->Value), valdis);
+	MyForm^map1 = gcnew MyForm(Int16(nud_vidas->Value), valdis,Int16(nud_comi->Value), Int16(nud_ter->Value));
 	WindowState = FormWindowState::Minimized;
 	map1->ShowDialog();
 	WindowState = FormWindowState::Normal;
 	cantidadVidas = map1->devolverVidas();
 	dinero = map1->devolverDinero();
 	puntaje = map1->devolverPuntaje();
+	hora = map1->devolverHora();
+	min = map1->devolverMinutos();
+	tipodead = map1->tipoMuerte();
+	Dead = map1->Dead();
 	delete map1;
-	Map2^map2 = gcnew Map2(cantidadVidas, valdis,dinero,puntaje);
-	WindowState = FormWindowState::Minimized;
-	map2->ShowDialog();
-	WindowState = FormWindowState::Normal;
-	cantidadVidas = map2->devolverVidas();
-	dinero = map2->devolverDinero();
-	puntaje = map2->devolverPuntaje();
-	delete map2;
-	map3^Map3 = gcnew map3(cantidadVidas, valdis,dinero,puntaje);
-	WindowState = FormWindowState::Minimized;
-	Map3->ShowDialog();
-	WindowState = FormWindowState::Normal;
-	delete Map3;
-	MessageBox::Show("Gracias por jugar!!");
+	if (Dead == false) {
+		Map2^map2 = gcnew Map2(cantidadVidas, valdis, Int16(nud_comi->Value), Int16(nud_ter->Value), dinero, puntaje);
+		WindowState = FormWindowState::Minimized;
+		map2->ShowDialog();
+		WindowState = FormWindowState::Normal;
+		cantidadVidas = map2->devolverVidas();
+		dinero = map2->devolverDinero();
+		puntaje = map2->devolverPuntaje();
+		hora = map2->devolverHora();
+		min = map2->devolverMinutos();
+		tipodead = map2->tipoMuerte();
+		Dead = map2->Dead();
+		delete map2;
+	}
+	if (Dead == false) {
+		map3^Map3 = gcnew map3(cantidadVidas, valdis, Int16(nud_comi->Value), Int16(nud_ter->Value), dinero, puntaje);
+		WindowState = FormWindowState::Minimized;
+		Map3->ShowDialog();
+		WindowState = FormWindowState::Normal;
+		tipodead = Map3->tipoMuerte();
+		Dead = Map3->Dead();
+		delete Map3;
+	}
+	if (Dead == true) {
+		if (tipodead == 1) {
+			MessageBox::Show("Perdiste");
+		}
+		if (tipodead == 2) {
+			MessageBox::Show("No te quedes fuera del toque de queda");
+		}
+
+	}
+	if (Dead == false) {
+		MessageBox::Show("Gracias por jugar!!");
+	}
 }
 };
 }
