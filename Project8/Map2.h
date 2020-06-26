@@ -185,5 +185,7 @@ private: System::Void Map2_Load(System::Object^  sender, System::EventArgs^  e) 
 			 int devolverVidas() { return juego->retornarVidas(); }
 			 int devolverDinero() { return juego->retornarDinero(); }
 			 int devolverPuntaje() { return juego->returnPuntaje(); }
+			 int devolverHora() { return juego->retornarHora(); }
+			 int devolverHora() { return juego->retornarMinutos(); }
 };
 }

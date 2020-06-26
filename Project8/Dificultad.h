@@ -27,6 +27,8 @@ namespace Project8 {
 	int cantidadVidas;
 	int dinero;
 	int puntaje;
+	int hora;
+	int min;
 public:
 	Dificultad(void)
 	{

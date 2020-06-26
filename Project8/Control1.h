@@ -194,5 +194,5 @@ public:
 	int retornarDinero() { return dinero; }
 	int returnPuntaje() { return punta; }
 	int retornarHora() { return tiem->gethora(); }
-	int returnMinutos() { return tiem->getmin(); }
+	int retornarMinutos() { return tiem->getmin(); }
 };
