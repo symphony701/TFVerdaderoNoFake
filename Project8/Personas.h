@@ -1,5 +1,6 @@
 #pragma once
 #include "Persona.h"
+#include "Recomendaciones.h"
 #include <cstdlib>
 using namespace System;
 using namespace System::ComponentModel;
@@ -17,8 +18,10 @@ ref class CPersonas {
 	Int16 anchomen=31;
 	Int16 altomen=25;
 	bool desac;
+	CRecomendaciones^recomendaciones;
 public:
 	CPersonas(int nroMapa){
+		recomendaciones = gcnew CRecomendaciones();
 		cantidadEnemigos = r.Next(5,11);
 		if (nroMapa==3)
 		{
@@ -140,6 +143,22 @@ public:
 		}
 		return false;
 	}
+
+	bool colisionConRecomendacion(Rectangle ^juga) {
+		bool retornador = false;;
+		for (int i = 0; i < personas->Length; i++)
+		{
+			if (juga->IntersectsWith(personas[i]->getRectangle())&&personas[i]->getRecomendado()==false) {
+				personas[i]->cambioRecomendado();
+				retornador = true;
+				break;
+			}
+			else { retornador = false; }
+		}
+		return retornador;
+	}
+
+
 	Void tamañomen(Int16 ancho, Int16 alto) {
 		anchomen = ancho;
 		altomen = alto;
