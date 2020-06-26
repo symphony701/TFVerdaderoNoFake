@@ -193,4 +193,6 @@ public:
 	int retornarVidas() { return vidajuga->getcantvida(); }
 	int retornarDinero() { return dinero; }
 	int returnPuntaje() { return punta; }
+	int retornarHora() { return tiem->gethora(); }
+	int returnMinutos() { return tiem->getmin(); }
 };

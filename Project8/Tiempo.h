@@ -5,6 +5,7 @@ ref class tiempo
 {
 public:
 	tiempo() { hora = 6; min = 00; tiem = " 6:00" + ""; };
+	tiempo(Int16 hora, Int16 min) { this->hora = hora; this->min = min; }
 	~tiempo() {};
 	void cambio(int cambio) {
 		min += cambio;
