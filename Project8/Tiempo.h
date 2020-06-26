@@ -35,13 +35,8 @@ public:
 	int gethora() { return hora; }
 	int getmin() { return min; }
 	bool fueraentoquedequeda(){
-		if (hora >= 0 && hora << 2) { }
-		if (hora >= 2 && hora << 4) { }
-		if (hora >= 4 && hora << 6) {  }
-		if (hora >= 6 && hora <= 17) { }
-		if (hora >= 18 && hora << 20) { }
-		if (hora >= 20 && hora << 22) { }
-		if (hora >= 22 && hora << 24) { }
+		if (hora >= toquedequedafinal && hora <= toquedequedacomi) { return false; }
+
 		return true;
 	}
 private:

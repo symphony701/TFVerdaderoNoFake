@@ -180,11 +180,11 @@ private:
 		// 
 		this->nud_comi->Font = (gcnew System::Drawing::Font(L"Bernard MT Condensed", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(0)));
-		this->nud_comi->Location = System::Drawing::Point(546, 41);
+		this->nud_comi->Location = System::Drawing::Point(543, 41);
 		this->nud_comi->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 24, 0, 0, 0 });
 		this->nud_comi->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 18, 0, 0, 0 });
 		this->nud_comi->Name = L"nud_comi";
-		this->nud_comi->Size = System::Drawing::Size(41, 32);
+		this->nud_comi->Size = System::Drawing::Size(43, 32);
 		this->nud_comi->TabIndex = 13;
 		this->nud_comi->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 18, 0, 0, 0 });
 		// 
