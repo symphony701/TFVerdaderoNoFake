@@ -193,5 +193,6 @@ private: System::Void Map2_Load(System::Object^  sender, System::EventArgs^  e) 
 			 int devolverHora() { return juego->retornarHora(); }
 			 int devolverMinutos() { return juego->retornarMinutos(); }
 			 int tipoMuerte() { return juego->Tipomuerte(); }
+			 bool Dead() { return Muerte; }
 };
 }

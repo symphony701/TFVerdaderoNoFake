@@ -224,5 +224,6 @@ private: System::Void panelito_MouseClick(System::Object^  sender, System::Windo
 			int devolverHora() { return juego->retornarHora(); }
 			int devolverMinutos() { return juego->retornarMinutos(); }
 			int tipoMuerte() { return juego->Tipomuerte(); }
+			bool Dead() { return Muerte; }
 };
 }

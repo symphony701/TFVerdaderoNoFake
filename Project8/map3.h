@@ -169,5 +169,6 @@ private: System::Void map3_Load(System::Object^  sender, System::EventArgs^  e) 
 }
 		 public:
 			 int tipoMuerte() { return juego->Tipomuerte(); }
+			 bool Dead() { return Muerte; }
 };
 }
