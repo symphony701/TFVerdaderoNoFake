@@ -140,6 +140,7 @@ public:
 
 
 		vidajuga->perdervida(personas->Colision(jugador->getRectangle()));
+		vidajuga->perdervida(tomateenemigos->Colision(jugador->getRectangle()));
 		vidajuga->Cantivi(g);
 		tiem->cambio(1);
 		mapa->cambio(tiem->gethora());

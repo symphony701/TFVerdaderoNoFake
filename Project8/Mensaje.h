@@ -53,5 +53,9 @@ public:
 	Int16 getdirec() { return direc; }
 	Int16 gethor() { return hor; }
 	Int16 getver() { return ver; }
+	Rectangle  getRectangle() {
+
+		return  Rectangle(posx, posy, 17, 15);
+	}
 
 };

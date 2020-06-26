@@ -138,4 +138,18 @@ public:
 	Int16 getalto() { return altoImagen; }
 	bool getactivador(int i) { return cantbal[i]->getactivador(); }
 	void desativador(int i) { return cantbal[i]->desativador(); }
+	bool Colision(Rectangle^ juga) {
+		bool retornador = false;
+	
+		for (int i = 0; i < cantbal->Length; i++)
+		{
+			if (juga->IntersectsWith(cantbal[i]->getRectangle())) {
+				
+				retornador = true;
+				break;
+			}
+			else { retornador = false; }
+		}
+		return retornador;
+	}
 };
