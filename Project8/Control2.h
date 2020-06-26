@@ -127,7 +127,7 @@ public:
 		tiem->cambio(1);
 		mapa->cambio(tiem->gethora());
 		lbl_hora->Text = tiem->mostrarT();
-		if (tiem->fueraentoquedequeda() && jugador->getAlquiler() == false) { tipomuer = 2; }
+		if (tiem->fueraentoquedequeda() && jugador->getAlquiler() == false) { tipomuer = 2; return true;}
 		if (vidajuga->Muerte()) { tipomuer = 1; }
 		return vidajuga->Muerte();
 	}
