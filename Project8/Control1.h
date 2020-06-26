@@ -191,4 +191,6 @@ public:
 		}
 	}
 	int retornarVidas() { return vidajuga->getcantvida(); }
+	int retornarDinero() { return dinero; }
+	int returnPuntaje() { return punta; }
 };

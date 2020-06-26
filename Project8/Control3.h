@@ -36,16 +36,17 @@ private:
 	int iteradorDeRecomendaciones;
 	bool dispaene;
 public:
-	CControl3(Int16 vi, bool dispaene) {
+	CControl3(Int16 vi, bool dispaene,int dinero,int punta) {
 		this->dispaene = dispaene;
 		recomendaciones = gcnew CRecomendaciones();
 		iteradorDeRecomendaciones = 1;
-		dia = 0;
-		dinero = 100;
+
+		this->dinero = dinero;
+		this->punta = punta;
 		tiem = gcnew tiempo();
 		jugador = gcnew CJugador();
 		vidajuga = gcnew Cvidas(vi);
-		punta = 0;
+	
 		mapa = gcnew CMapas(2);
 		personas = gcnew CPersonas(3);
 	}

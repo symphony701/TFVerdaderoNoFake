@@ -21,11 +21,11 @@ namespace Project8 {
 	private: System::Windows::Forms::Label^  lbl_puntaje;
 			 Graphics^g;
 	public:
-		Map2(Int16 vi, bool dispa)
+		Map2(Int16 vi, bool dispa,int dinero,int punta)
 		{
 			InitializeComponent();
 			g = panel1->CreateGraphics();
-			juego = gcnew CControl2(vi, dispa);
+			juego = gcnew CControl2(vi, dispa,dinero,punta);
 		}
 	private: System::Windows::Forms::Label^  lbl_hora;
 	public:
@@ -183,5 +183,7 @@ private: System::Void Map2_Load(System::Object^  sender, System::EventArgs^  e) 
 }
 		 public:
 			 int devolverVidas() { return juego->retornarVidas(); }
+			 int devolverDinero() { return juego->retornarDinero(); }
+			 int devolverPuntaje() { return juego->returnPuntaje(); }
 };
 }

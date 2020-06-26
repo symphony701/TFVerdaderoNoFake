@@ -40,14 +40,16 @@ private:
 	Cvidas^ vidajuga;
 	bool dispaene;
 public:
-	CControl2(Int16 vi, bool dispaene) {
+	CControl2(Int16 vi, bool dispaene,int dinero,int punta) {
 		this->dispaene = dispaene;
+		this->dinero = dinero;
+		this->punta = punta;
 		dia = 0;
-		dinero = 100;
+		
 		tiem = gcnew tiempo();
 		jugador = gcnew CJugador();
 		vidajuga = gcnew Cvidas(vi);
-		punta = 0;
+		
 		mapa = gcnew CMapas(3);
 		personas = gcnew CPersonas(2);
 		mensajuga = gcnew CArreMensajes(1);
@@ -166,4 +168,6 @@ public:
 		}
 	}
 	int retornarVidas() { return vidajuga->getcantvida(); }
+	int retornarDinero() { return dinero; }
+	int returnPuntaje() { return punta; }
 };

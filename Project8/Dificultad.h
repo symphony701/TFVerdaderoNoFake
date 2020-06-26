@@ -25,6 +25,8 @@ namespace Project8 {
 	CPersona^ persona3;
 	bool valdis;
 	int cantidadVidas;
+	int dinero;
+	int puntaje;
 public:
 	Dificultad(void)
 	{
@@ -438,14 +440,18 @@ private: System::Void btn_facil_MouseClick(System::Object^  sender, System::Wind
 	map1->ShowDialog();
 	WindowState = FormWindowState::Normal;
 	cantidadVidas = map1->devolverVidas();
+	dinero = map1->devolverDinero();
+	puntaje = map1->devolverPuntaje();
 	delete map1;
-	Map2^map2 = gcnew Map2(cantidadVidas, false);
+	Map2^map2 = gcnew Map2(cantidadVidas, false,dinero,puntaje);
 	WindowState = FormWindowState::Minimized;
 	map2->ShowDialog();
 	WindowState = FormWindowState::Normal;
 	cantidadVidas = map2->devolverVidas();
+	dinero = map2->devolverDinero();
+	puntaje = map2->devolverPuntaje();
 	delete map2;
-	map3^Map3 = gcnew map3(cantidadVidas, false);
+	map3^Map3 = gcnew map3(cantidadVidas, false,dinero,puntaje);
 	WindowState = FormWindowState::Minimized;
 	Map3->ShowDialog();
 	WindowState = FormWindowState::Normal;
@@ -458,14 +464,18 @@ private: System::Void btn_dificil_MouseClick(System::Object^  sender, System::Wi
 	map1->ShowDialog();
 	WindowState = FormWindowState::Normal;
 	cantidadVidas = map1->devolverVidas();
+	dinero = map1->devolverDinero();
+	puntaje = map1->devolverPuntaje();
 	delete map1;
-	Map2^map2 = gcnew Map2(cantidadVidas, true);
+	Map2^map2 = gcnew Map2(cantidadVidas, true,dinero,puntaje);
 	WindowState = FormWindowState::Minimized;
 	map2->ShowDialog();
 	WindowState = FormWindowState::Normal;
 	cantidadVidas = map2->devolverVidas();
+	dinero = map2->devolverDinero();
+	puntaje = map2->devolverPuntaje();
 	delete map2;
-	map3^Map3 = gcnew map3(cantidadVidas, true);
+	map3^Map3 = gcnew map3(cantidadVidas, true,dinero,puntaje);
 	WindowState = FormWindowState::Minimized;
 	Map3->ShowDialog();
 	WindowState = FormWindowState::Normal;
@@ -478,14 +488,18 @@ private: System::Void btn_creativo_MouseClick(System::Object^  sender, System::W
 	map1->ShowDialog();
 	WindowState = FormWindowState::Normal;
 	cantidadVidas = map1->devolverVidas();
+	dinero = map1->devolverDinero();
+	puntaje = map1->devolverPuntaje();
 	delete map1;
-	Map2^map2 = gcnew Map2(cantidadVidas, valdis);
+	Map2^map2 = gcnew Map2(cantidadVidas, valdis,dinero,puntaje);
 	WindowState = FormWindowState::Minimized;
 	map2->ShowDialog();
 	WindowState = FormWindowState::Normal;
 	cantidadVidas = map2->devolverVidas();
+	dinero = map2->devolverDinero();
+	puntaje = map2->devolverPuntaje();
 	delete map2;
-	map3^Map3 = gcnew map3(cantidadVidas, valdis);
+	map3^Map3 = gcnew map3(cantidadVidas, valdis,dinero,puntaje);
 	WindowState = FormWindowState::Minimized;
 	Map3->ShowDialog();
 	WindowState = FormWindowState::Normal;

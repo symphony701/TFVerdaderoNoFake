@@ -223,5 +223,7 @@ private: System::Void panelito_MouseClick(System::Object^  sender, System::Windo
 }
 		public:
 			int devolverVidas() { return juego->retornarVidas(); }
+			int devolverDinero() { return juego->retornarDinero(); }
+			int devolverPuntaje() { return juego->returnPuntaje(); }
 };
 }
