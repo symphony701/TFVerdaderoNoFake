@@ -448,6 +448,9 @@ private: System::Void btn_facil_MouseClick(System::Object^  sender, System::Wind
 	cantidadVidas = map1->devolverVidas();
 	dinero = map1->devolverDinero();
 	puntaje = map1->devolverPuntaje();
+	hora = map1->devolverHora();
+	min = map1->devolverMinutos();
+	tipodead = map1->tipoMuerte();
 	delete map1;
 	Map2^map2 = gcnew Map2(cantidadVidas, false, 22, 4,dinero,puntaje);
 	WindowState = FormWindowState::Minimized;
@@ -456,11 +459,15 @@ private: System::Void btn_facil_MouseClick(System::Object^  sender, System::Wind
 	cantidadVidas = map2->devolverVidas();
 	dinero = map2->devolverDinero();
 	puntaje = map2->devolverPuntaje();
+	hora = map2->devolverHora();
+	min = map2->devolverMinutos();
+	tipodead = map2->tipoMuerte();
 	delete map2;
 	map3^Map3 = gcnew map3(cantidadVidas, false, 22, 4,dinero,puntaje);
 	WindowState = FormWindowState::Minimized;
 	Map3->ShowDialog();
 	WindowState = FormWindowState::Normal;
+	tipodead = Map3->tipoMuerte();
 	delete Map3;
 	MessageBox::Show("Gracias por jugar!!");
 }
@@ -472,6 +479,9 @@ private: System::Void btn_dificil_MouseClick(System::Object^  sender, System::Wi
 	cantidadVidas = map1->devolverVidas();
 	dinero = map1->devolverDinero();
 	puntaje = map1->devolverPuntaje();
+	hora = map1->devolverHora();
+	min = map1->devolverMinutos();
+	tipodead = map1->tipoMuerte();
 	delete map1;
 	Map2^map2 = gcnew Map2(cantidadVidas, true, 20, 6,dinero,puntaje);
 	WindowState = FormWindowState::Minimized;
@@ -480,11 +490,15 @@ private: System::Void btn_dificil_MouseClick(System::Object^  sender, System::Wi
 	cantidadVidas = map2->devolverVidas();
 	dinero = map2->devolverDinero();
 	puntaje = map2->devolverPuntaje();
+	hora = map2->devolverHora();
+	min = map2->devolverMinutos();
+	tipodead = map2->tipoMuerte();
 	delete map2;
 	map3^Map3 = gcnew map3(cantidadVidas, true, 20, 6,dinero,puntaje);
 	WindowState = FormWindowState::Minimized;
 	Map3->ShowDialog();
 	WindowState = FormWindowState::Normal;
+	tipodead = Map3->tipoMuerte();
 	delete Map3;
 	MessageBox::Show("Gracias por jugar!!");
 }
@@ -496,6 +510,9 @@ private: System::Void btn_creativo_MouseClick(System::Object^  sender, System::W
 	cantidadVidas = map1->devolverVidas();
 	dinero = map1->devolverDinero();
 	puntaje = map1->devolverPuntaje();
+	hora = map1->devolverHora();
+	min = map1->devolverMinutos();
+	tipodead = map1->tipoMuerte();
 	delete map1;
 	Map2^map2 = gcnew Map2(cantidadVidas, valdis,Int16(nud_comi->Value), Int16(nud_ter->Value),dinero,puntaje);
 	WindowState = FormWindowState::Minimized;
@@ -504,11 +521,15 @@ private: System::Void btn_creativo_MouseClick(System::Object^  sender, System::W
 	cantidadVidas = map2->devolverVidas();
 	dinero = map2->devolverDinero();
 	puntaje = map2->devolverPuntaje();
+	hora = map2->devolverHora();
+	min = map2->devolverMinutos();
+	tipodead = map2->tipoMuerte();
 	delete map2;
 	map3^Map3 = gcnew map3(cantidadVidas, valdis, Int16(nud_comi->Value), Int16(nud_ter->Value),dinero,puntaje);
 	WindowState = FormWindowState::Minimized;
 	Map3->ShowDialog();
 	WindowState = FormWindowState::Normal;
+	tipodead = Map3->tipoMuerte();
 	delete Map3;
 	MessageBox::Show("Gracias por jugar!!");
 }
