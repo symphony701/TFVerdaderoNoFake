@@ -7,6 +7,6 @@
 using namespace Project8;
 int main() {
 	srand(time(NULL));
-	Application::Run(gcnew Dificultad());
+	Application::Run(gcnew Menuxd());
 	return 0;
 }
