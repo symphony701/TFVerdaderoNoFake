@@ -482,6 +482,9 @@ private: System::Void btn_facil_MouseClick(System::Object^  sender, System::Wind
 		if (tipodead == 2) {
 			MessageBox::Show("No te quedes fuera del toque de queda");
 		}
+		if (tipodead == 3) {
+			MessageBox::Show("No te puedes quedarte con deudas");
+		}
 
 	}
 	if (Dead == false) {
@@ -531,7 +534,9 @@ private: System::Void btn_dificil_MouseClick(System::Object^  sender, System::Wi
 		if (tipodead == 2) {
 			MessageBox::Show("No te quedes fuera del toque de queda");
 		}
-
+		if (tipodead == 3) {
+			MessageBox::Show("No te puedes quedarte con deudas");
+		}
 	}
 	if (Dead == false) {
 		MessageBox::Show("Gracias por jugar!!");
@@ -580,7 +585,9 @@ private: System::Void btn_creativo_MouseClick(System::Object^  sender, System::W
 		if (tipodead == 2) {
 			MessageBox::Show("No te quedes fuera del toque de queda");
 		}
-
+		if (tipodead == 3) {
+			MessageBox::Show("No te puedes quedarte con deudas");
+		}
 	}
 	if (Dead == false) {
 		MessageBox::Show("Gracias por jugar!!");
