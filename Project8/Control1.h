@@ -119,8 +119,8 @@ public:
 			ambulancia->Mostrar(g);
 			ambulancia2->desplazamiento();
 			ambulancia2->Mostrar(g);
-			personas->AtrapadoAmbu(ambulancia->getRectangle());
-			personas->AtrapadoAmbu(ambulancia2->getRectangle());
+			dinero = dinero + personas->AtrapadoAmbu(ambulancia->getRectangle());
+			dinero = dinero + personas->AtrapadoAmbu(ambulancia2->getRectangle());
 		}
 		if ((tiem->gethora() >= 20 && tiem->gethora() <= 23) || (tiem->gethora() < 6 && tiem->gethora() >= 0)) {
 
@@ -128,8 +128,8 @@ public:
 			poli->Mostrar(g);
 			poli2->desplazamiento();
 			poli2->Mostrar(g);
-			personas->AtrapadoPoli(poli->getRectangle());
-			personas->AtrapadoPoli(poli2->getRectangle());
+			dinero = dinero + personas->AtrapadoPoli(poli->getRectangle());
+			dinero = dinero + personas->AtrapadoPoli(poli2->getRectangle());
 		}
 		if (dispaene) {
 			personas->Cercania(jugador->getRectangle());

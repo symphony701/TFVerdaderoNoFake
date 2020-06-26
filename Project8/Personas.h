@@ -60,14 +60,16 @@ public:
 			personas[i]->desplazamiento();
 		}
 	}
-	void AtrapadoPoli(Rectangle^ poli) {
+	Int16 AtrapadoPoli(Rectangle^ poli) {
 		for (int i = 0; i < personas->Length; i++)
 		{
 			if (poli->IntersectsWith(personas[i]->getRectangle())&&personas[i]->getMulta()&&!personas[i]->getVirus() ) {
+				return 25;
 				Eliminar(i);
 				break;
 			}
 		}
+		return 0;
 	}
 	Void Cercania(Rectangle ^juga) {
 		
@@ -111,14 +113,16 @@ public:
 			return personas[i]->Colisiontomate(juga);
 		}
 	}
-	void AtrapadoAmbu(Rectangle ^poli) {
+	Int16 AtrapadoAmbu(Rectangle ^poli) {
 		for (int i = 0; i < personas->Length; i++)
 		{
 			if (poli->IntersectsWith(personas[i]->getRectangle()) && personas[i]->getMulta() && personas[i]->getVirus()) {
+				return 15;
 				Eliminar(i);
 				break;
 			}
 		}
+		return 0;
 	}
 	Int16 multado(Int16 posx ,Int16 posy) {
 		Rectangle^ intermensa = gcnew Rectangle(posx, posy, anchomen, altomen);
