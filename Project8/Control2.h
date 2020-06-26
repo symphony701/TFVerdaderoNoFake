@@ -38,8 +38,10 @@ private:
 	Int16 punta;
 	Int16 dinero;
 	Cvidas^ vidajuga;
+	bool dispaene;
 public:
-	CControl2(Int16 vi) {
+	CControl2(Int16 vi, bool dispaene) {
+		this->dispaene = dispaene;
 		dia = 0;
 		dinero = 100;
 		tiem = gcnew tiempo();

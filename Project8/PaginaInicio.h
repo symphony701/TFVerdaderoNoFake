@@ -25,10 +25,10 @@ namespace Project8 {
 			
 
 	public:
-		MyForm(Int16 vi)
+		MyForm(Int16 vi,bool dispa)
 		{
 			InitializeComponent();
-			juego = gcnew CControl1(vi);
+			juego = gcnew CControl1(vi, dispa);
 			g = panelito->CreateGraphics();
 			
 		};
@@ -203,7 +203,7 @@ private: System::Void MyForm_KeyUp(System::Object^  sender, System::Windows::For
 	juego->keyUp(e);
 }
 private: System::Void panelito_DoubleClick(System::Object^  sender, System::EventArgs^  e) {
-	Map2^map2 = gcnew Map2();
+	/*Map2^map2 = gcnew Map2(5);
 	WindowState = FormWindowState::Minimized;
 	map2->ShowDialog();
 	
@@ -211,7 +211,7 @@ private: System::Void panelito_DoubleClick(System::Object^  sender, System::Even
 	
 	WindowState = FormWindowState::Normal;
 	
-	delete map2;
+	delete map2;*/
 }
 private: System::Void panelito_Click(System::Object^  sender, System::EventArgs^  e) {
 	

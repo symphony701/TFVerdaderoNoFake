@@ -23,7 +23,7 @@ namespace Project8 {
 	CPersona^ persona1;
 	CPersona^ persona2;
 	CPersona^ persona3;
-	Int16 valdis;
+	bool valdis;
 public:
 	Dificultad(void)
 	{
@@ -36,7 +36,7 @@ public:
 		persona2->Ubicacion(280, 120);
 		persona3 = gcnew CPersona();
 		persona3->Ubicacion(550, 120);
-		valdis = 1;
+		valdis = false;
 
 		//
 		//TODO: agregar código de constructor aquí
@@ -394,7 +394,7 @@ private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e
 	cantvidas->cambioppos(635 - a * 15, 240);
 	cantvidas->Cantivi(bf->Graphics);
 	
-	if (valdis == 1) {
+	if (valdis == false) {
 		persona3->Mostrar(bf->Graphics);
 		persona3->desplazamiento();
 		if (640 <= persona3->getPosX()) {
@@ -402,7 +402,7 @@ private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e
 			persona3->CambioPersona();
 		}
 	}
-	if (valdis == 2) {
+	if (valdis == true) {
 		persona3->Mostrar(bf->Graphics);
 		persona3->desplazamiento();
 		if (600 <= persona3->getPosX()) {
@@ -421,28 +421,28 @@ private: System::Void btn_sindis_MouseClick(System::Object^  sender, System::Win
 	btn_condis->Enabled = true;
 	btn_sindis->BackColor = System::Drawing::Color::Red;
 	btn_condis->BackColor = System::Drawing::Color::Black;
-	valdis = 1;
+	valdis = false;
 }
 private: System::Void btn_condis_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
 	btn_sindis->Enabled = true;
 	btn_condis->Enabled = false;
 	btn_condis->BackColor = System::Drawing::Color::Red;
 	btn_sindis->BackColor = System::Drawing::Color::Black;
-	valdis = 2;
+	valdis = true;
 }
 
 private: System::Void btn_facil_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
-	MyForm^map1 = gcnew MyForm(5);
+	MyForm^map1 = gcnew MyForm(5, false);
 	WindowState = FormWindowState::Minimized;
 	map1->ShowDialog();
 	WindowState = FormWindowState::Normal;
 	delete map1;
-	Map2^map2 = gcnew Map2(5);
+	Map2^map2 = gcnew Map2(5, false);
 	WindowState = FormWindowState::Minimized;
 	map2->ShowDialog();
 	WindowState = FormWindowState::Normal;
 	delete map2;
-	map3^Map3 = gcnew map3(5);
+	map3^Map3 = gcnew map3(5, false);
 	WindowState = FormWindowState::Minimized;
 	Map3->ShowDialog();
 	WindowState = FormWindowState::Normal;
@@ -450,8 +450,40 @@ private: System::Void btn_facil_MouseClick(System::Object^  sender, System::Wind
 	MessageBox::Show("Gracias por jugar!!");
 }
 private: System::Void btn_dificil_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+	MyForm^map1 = gcnew MyForm(3, true);
+	WindowState = FormWindowState::Minimized;
+	map1->ShowDialog();
+	WindowState = FormWindowState::Normal;
+	delete map1;
+	Map2^map2 = gcnew Map2(3, true);
+	WindowState = FormWindowState::Minimized;
+	map2->ShowDialog();
+	WindowState = FormWindowState::Normal;
+	delete map2;
+	map3^Map3 = gcnew map3(3, true);
+	WindowState = FormWindowState::Minimized;
+	Map3->ShowDialog();
+	WindowState = FormWindowState::Normal;
+	delete Map3;
+	MessageBox::Show("Gracias por jugar!!");
 }
 private: System::Void btn_creativo_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+	MyForm^map1 = gcnew MyForm(Int16(nud_vidas->Value), valdis);
+	WindowState = FormWindowState::Minimized;
+	map1->ShowDialog();
+	WindowState = FormWindowState::Normal;
+	delete map1;
+	Map2^map2 = gcnew Map2(Int16(nud_vidas->Value), valdis);
+	WindowState = FormWindowState::Minimized;
+	map2->ShowDialog();
+	WindowState = FormWindowState::Normal;
+	delete map2;
+	map3^Map3 = gcnew map3(Int16(nud_vidas->Value), valdis);
+	WindowState = FormWindowState::Minimized;
+	Map3->ShowDialog();
+	WindowState = FormWindowState::Normal;
+	delete Map3;
+	MessageBox::Show("Gracias por jugar!!");
 }
 };
 }
