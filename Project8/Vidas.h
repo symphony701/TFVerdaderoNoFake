@@ -38,4 +38,5 @@ public:
 	Int16 getcantvida() { return cant; }
 	Void setcantvida(Int16 cantv) { cant = cantv; }
 	Void cambioppos(Int16 x, Int16 y) { posx = x; posy = y; }
+	bool Muerte() { if (cant <= 0) { return true; } return false; }
 };

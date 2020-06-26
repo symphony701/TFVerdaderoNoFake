@@ -39,6 +39,7 @@ private:
 	Int16 dinero;
 	Cvidas^ vidajuga;
 	bool dispaene;
+	Int16 tipomuer;
 public:
 	CControl2(Int16 vi, bool dispaene,int dinero,int punta) {
 		this->dispaene = dispaene;
@@ -50,6 +51,7 @@ public:
 		jugador = gcnew CJugador();
 		vidajuga = gcnew Cvidas(vi);
 		
+		tipomuer = 1;
 		mapa = gcnew CMapas(3);
 		personas = gcnew CPersonas(2);
 		mensajuga = gcnew CArreMensajes(1);
@@ -61,7 +63,7 @@ public:
 	}
 	~CControl2() {}
 
-	Void cadaTick(Label^  lbl_puntaje, Graphics^g, Label^  lbl_dinero, Label^  lbl_hora) {
+	bool cadaTick(Label^  lbl_puntaje, Graphics^g, Label^  lbl_dinero, Label^  lbl_hora) {
 		for (int i = 0; i < 5; i++) {
 			if (mensajuga->getactivador(i)) {
 				punta = punta + personas->multado(mensajuga->getposx(i), mensajuga->getposy(i));
@@ -125,6 +127,9 @@ public:
 		tiem->cambio(1);
 		mapa->cambio(tiem->gethora());
 		lbl_hora->Text = tiem->mostrarT();
+
+		if (vidajuga->Muerte()) { tipomuer = 1; }
+		return vidajuga->Muerte();
 	}
 	Void keyDown(KeyEventArgs^  e) {
 		activo = true;
@@ -173,5 +178,6 @@ public:
 	int retornarDinero() { return dinero; }
 	int returnPuntaje() { return punta; }
 	int retornarHora() { return tiem->gethora(); }
-	int returnMinutos() { return tiem->getmin(); }
+	int retornarMinutos() { return tiem->getmin(); }
+	int Tipomuerte() { return tipomuer; }
 };

@@ -17,6 +17,7 @@ namespace Project8 {
 	public ref class Map2 : public System::Windows::Forms::Form
 	{
 		CControl2^ juego;
+		bool Muerte;
 	private: System::Windows::Forms::Label^  lbl_dinero;
 	private: System::Windows::Forms::Label^  lbl_puntaje;
 			 Graphics^g;
@@ -157,10 +158,14 @@ namespace Project8 {
 		/////INICIO DE CODIGO
 
 
-		juego->cadaTick(lbl_puntaje, bf->Graphics, lbl_dinero, lbl_hora);
+		Muerte = juego->cadaTick(lbl_puntaje, bf->Graphics, lbl_dinero, lbl_hora);
 		///////FIN DE CODIGO
 		bf->Render(g);
 		delete bf, bfc;
+		if (Muerte == true) {
+			timer1->Enabled = false;
+			Close();
+		}
 	
 	}
 	private: System::Void panel1_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
@@ -186,6 +191,7 @@ private: System::Void Map2_Load(System::Object^  sender, System::EventArgs^  e) 
 			 int devolverDinero() { return juego->retornarDinero(); }
 			 int devolverPuntaje() { return juego->returnPuntaje(); }
 			 int devolverHora() { return juego->retornarHora(); }
-			 int devolverHora() { return juego->retornarMinutos(); }
+			 int devolverMinutos() { return juego->retornarMinutos(); }
+			 int tipoMuerte() { return juego->Tipomuerte(); }
 };
 }

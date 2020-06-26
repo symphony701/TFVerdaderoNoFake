@@ -17,6 +17,7 @@ namespace Project8 {
 	{
 	private:
 		CControl3^ juego;
+		bool Muerte;
 
 	private: System::Windows::Forms::Timer^  timer1;
 	private: System::Windows::Forms::Label^  lbl_puntaje;
@@ -145,7 +146,7 @@ namespace Project8 {
 		BufferedGraphicsContext ^bfc = BufferedGraphicsManager::Current;
 		BufferedGraphics ^bf = bfc->Allocate(g, this->ClientRectangle);
 		/////INICIO DE CODIGO
-		juego->cadaTick(lbl_puntaje, bf->Graphics, lbl_dinero, lbl_hora);
+		Muerte = juego->cadaTick(lbl_puntaje, bf->Graphics, lbl_dinero, lbl_hora);
 		///////FIN DE CODIGO
 		bf->Render(g);
 		if (juego->getContadorRecomendaciones()>12)
@@ -153,6 +154,10 @@ namespace Project8 {
 			Close();
 		}
 		delete bf, bfc;
+		if (Muerte == true) {
+			timer1->Enabled = false;
+			Close();
+		}
 	}
 private: System::Void map3_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
 	juego->keyDown(e);
@@ -162,5 +167,7 @@ private: System::Void map3_KeyUp(System::Object^  sender, System::Windows::Forms
 }
 private: System::Void map3_Load(System::Object^  sender, System::EventArgs^  e) {
 }
+		 public:
+			 int tipoMuerte() { return juego->Tipomuerte(); }
 };
 }

@@ -35,11 +35,13 @@ private:
 	CRecomendaciones^recomendaciones;
 	int iteradorDeRecomendaciones;
 	bool dispaene;
+	Int16 tipomuer;
 public:
 	CControl3(Int16 vi, bool dispaene,int dinero,int punta) {
 		this->dispaene = dispaene;
 		recomendaciones = gcnew CRecomendaciones();
 		iteradorDeRecomendaciones = 1;
+		tipomuer = 1;
 
 		this->dinero = dinero;
 		this->punta = punta;
@@ -52,7 +54,7 @@ public:
 	}
 	~CControl3() {}
 
-	Void cadaTick(Label^  lbl_puntaje, Graphics^g, Label^  lbl_dinero, Label^  lbl_hora) {
+	bool cadaTick(Label^  lbl_puntaje, Graphics^g, Label^  lbl_dinero, Label^  lbl_hora) {
 		g->DrawImage(mapa->getImagen(), 0, 0, mapa->getRectangle(), GraphicsUnit::Pixel);
 		personas->Mostrar(g);
 		jugador->Mostrar(g, activo);
@@ -67,7 +69,8 @@ public:
 		tiem->cambio(1);
 		mapa->cambio(tiem->gethora());
 		lbl_hora->Text = tiem->mostrarT();
-		
+		if (vidajuga->Muerte()) { tipomuer = 1; }
+		return vidajuga->Muerte();
 	}
 	Void keyDown(KeyEventArgs^  e) {
 		activo = true;
@@ -111,4 +114,5 @@ public:
 		}
 	}
 	int getContadorRecomendaciones() { return iteradorDeRecomendaciones; }
+	int Tipomuerte() { return tipomuer; }
 };

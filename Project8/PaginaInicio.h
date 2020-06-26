@@ -20,6 +20,7 @@ namespace Project8 {
 	{
 
 		CControl1^ juego;
+		bool Muerte;
 	private: System::Windows::Forms::Label^  lbl_puntaje;
 	private: System::Windows::Forms::Label^  lbl_dinero;
 
@@ -30,6 +31,7 @@ namespace Project8 {
 			InitializeComponent();
 			juego = gcnew CControl1(vi, dispa);
 			g = panelito->CreateGraphics();
+			Muerte = false;
 
 		};
 	private: System::Windows::Forms::Timer^  timer1;
@@ -50,15 +52,6 @@ namespace Project8 {
 			}
 		}
 	private: System::Windows::Forms::Panel^  panelito;
-	protected:
-
-	protected:
-
-	protected:
-
-	protected:
-
-	private:
 
 
 
@@ -186,7 +179,7 @@ namespace Project8 {
 		BufferedGraphicsContext ^bfc = BufferedGraphicsManager::Current;
 		BufferedGraphics ^bf = bfc->Allocate(g, this->ClientRectangle);
 		/////INICIO DE CODIGO
-		juego->cadaTick(lbl_puntaje, bf->Graphics, lbl_dinero,  lbl_hora);
+		Muerte = juego->cadaTick(lbl_puntaje, bf->Graphics, lbl_dinero,  lbl_hora);
 		if (juego->getCantidadEnemigos()<=0)
 		{
 			juego->registrarDatos();
@@ -196,7 +189,10 @@ namespace Project8 {
 		///////FIN DE CODIGO
 		bf->Render(g);
 		delete bf, bfc;
-
+		if (Muerte == true) {
+			timer1->Enabled = false;
+			Close();
+		}
 
 	}
 private: System::Void MyForm_KeyUp(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
@@ -226,6 +222,7 @@ private: System::Void panelito_MouseClick(System::Object^  sender, System::Windo
 			int devolverDinero() { return juego->retornarDinero(); }
 			int devolverPuntaje() { return juego->returnPuntaje(); }
 			int devolverHora() { return juego->retornarHora(); }
-			int devolverHora() { return juego->retornarMinutos(); }
+			int devolverMinutos() { return juego->retornarMinutos(); }
+			int tipoMuerte() { return juego->Tipomuerte(); }
 };
 }
