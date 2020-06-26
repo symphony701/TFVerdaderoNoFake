@@ -40,13 +40,14 @@ private:
 	Cvidas^ vidajuga;
 	bool dispaene;
 	Int16 tipomuer;
+	bool creadorAmbulancia, creadorPolicia;
 public:
 	CControl2(Int16 vi, bool dispaene, int toqueco, int toquefin, int dinero,int punta) {
 		this->dispaene = dispaene;
 		this->dinero = dinero;
 		this->punta = punta;
 		dia = 0;
-		
+		creadorAmbulancia = creadorPolicia = true;
 		tiem = gcnew tiempo();
 		jugador = gcnew CJugador();
 		vidajuga = gcnew Cvidas(vi);
@@ -74,23 +75,30 @@ public:
 			}
 
 		}
-		if (tiem->gethora() == 6 && tiem->getmin() == 00 && actPoli)
+		if (tiem->gethora() >= 6 && tiem->getmin() >= 00 && tiem->gethora() <20 && actPoli && creadorAmbulancia)
 		{
 			ambulancia = gcnew CAmbulancia(2, 1);
 			ambulancia2 = gcnew CAmbulancia(2, 2);
+			creadorAmbulancia = false;
+			creadorPolicia = true;
+
 			actPoli = false;
 		}
-		if (tiem->gethora() == 6 && tiem->getmin() == 00 && !actPoli)
+		if (tiem->gethora() >= 6 && tiem->getmin() >= 00 && tiem->gethora() <20 && !actPoli&&creadorAmbulancia)
 		{
 			ambulancia = gcnew CAmbulancia(2, 1);
 			ambulancia2 = gcnew CAmbulancia(2, 2);
+			creadorAmbulancia = false;
+			creadorPolicia = true;
 			delete poli, poli2;
 		}
-		if (tiem->gethora() == 20 && tiem->getmin() == 00)
+		if ((tiem->gethora() >= 20 && tiem->getmin() >= 00 && creadorPolicia) || (tiem->gethora() < 6 && tiem->getmin() >= 00 && creadorPolicia))
 		{
 			delete ambulancia, ambulancia2;
 			poli = gcnew CPolicia(2, 1);
 			poli2 = gcnew CPolicia(2, 2);
+			creadorAmbulancia = true;
+			creadorPolicia = false;
 		}
 		g->DrawImage(mapa->getImagen(), 0, 0, mapa->getRectangle(), GraphicsUnit::Pixel);
 
