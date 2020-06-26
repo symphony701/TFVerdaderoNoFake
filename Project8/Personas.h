@@ -64,8 +64,9 @@ public:
 		for (int i = 0; i < personas->Length; i++)
 		{
 			if (poli->IntersectsWith(personas[i]->getRectangle())&&personas[i]->getMulta()&&!personas[i]->getVirus() ) {
-				return 25;
+				
 				Eliminar(i);
+				return 25;
 				break;
 			}
 		}
@@ -117,8 +118,9 @@ public:
 		for (int i = 0; i < personas->Length; i++)
 		{
 			if (poli->IntersectsWith(personas[i]->getRectangle()) && personas[i]->getMulta() && personas[i]->getVirus()) {
-				return 15;
+				
 				Eliminar(i);
+				return 15;
 				break;
 			}
 		}
