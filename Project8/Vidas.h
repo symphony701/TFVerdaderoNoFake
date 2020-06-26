@@ -5,11 +5,11 @@ ref class Cvidas : public CEntidad {
 	Int16 d;
 	bool act;
 public:
-	Cvidas() {
+	Cvidas(Int16 vi) {
 		imagen = gcnew Bitmap("corazon.png");
 		posx = 10;
 		posy = 15;
-		cant = 3;
+		cant = vi;
 		d = 0;
 		act = false;
 	}

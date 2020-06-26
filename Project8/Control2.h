@@ -39,12 +39,12 @@ private:
 	Int16 dinero;
 	Cvidas^ vidajuga;
 public:
-	CControl2() {
+	CControl2(Int16 vi) {
 		dia = 0;
 		dinero = 100;
 		tiem = gcnew tiempo();
 		jugador = gcnew CJugador();
-		vidajuga = gcnew Cvidas();
+		vidajuga = gcnew Cvidas(vi);
 		punta = 0;
 		mapa = gcnew CMapas(3);
 		personas = gcnew CPersonas(2);

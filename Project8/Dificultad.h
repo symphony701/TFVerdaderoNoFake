@@ -1,6 +1,10 @@
 #pragma once
 #include "Vidas.h"
 #include "Persona.h"
+#include "PaginaInicio.h"
+#include <iostream>
+#include "Map2.h"
+#include "map3.h"
 namespace Project8 {
 
 	using namespace System;
@@ -25,7 +29,7 @@ public:
 	{
 		InitializeComponent();
 		g = panel1->CreateGraphics();
-		cantvidas = gcnew Cvidas();
+		cantvidas = gcnew Cvidas(5);
 		persona1 = gcnew CPersona();
 		persona1->Ubicacion(70, 120);
 		persona2 = gcnew CPersona();
@@ -51,9 +55,11 @@ protected:
 		}
 	}
 private: System::Windows::Forms::Panel^  panel1;
-protected:
-private: System::Windows::Forms::Button^  btnstart;
-private: System::Windows::Forms::Button^  btnexit;
+	private: System::Windows::Forms::Button^  btn_dificil;
+	protected:
+
+	private: System::Windows::Forms::Button^  btn_facil;
+
 private: System::Windows::Forms::NumericUpDown^  nud_ter;
 
 
@@ -107,8 +113,8 @@ private:
 		this->btn_condis = (gcnew System::Windows::Forms::Button());
 		this->btn_sindis = (gcnew System::Windows::Forms::Button());
 		this->btn_creativo = (gcnew System::Windows::Forms::Button());
-		this->btnstart = (gcnew System::Windows::Forms::Button());
-		this->btnexit = (gcnew System::Windows::Forms::Button());
+		this->btn_dificil = (gcnew System::Windows::Forms::Button());
+		this->btn_facil = (gcnew System::Windows::Forms::Button());
 		this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 		this->panel1->SuspendLayout();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->nud_ter))->BeginInit();
@@ -132,8 +138,8 @@ private:
 		this->panel1->Controls->Add(this->btn_condis);
 		this->panel1->Controls->Add(this->btn_sindis);
 		this->panel1->Controls->Add(this->btn_creativo);
-		this->panel1->Controls->Add(this->btnstart);
-		this->panel1->Controls->Add(this->btnexit);
+		this->panel1->Controls->Add(this->btn_dificil);
+		this->panel1->Controls->Add(this->btn_facil);
 		this->panel1->Location = System::Drawing::Point(4, 8);
 		this->panel1->Name = L"panel1";
 		this->panel1->Size = System::Drawing::Size(757, 404);
@@ -297,34 +303,37 @@ private:
 		this->btn_creativo->Text = L"Creativo";
 		this->btn_creativo->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 		this->btn_creativo->UseVisualStyleBackColor = false;
+		this->btn_creativo->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &Dificultad::btn_creativo_MouseClick);
 		// 
-		// btnstart
+		// btn_dificil
 		// 
-		this->btnstart->BackColor = System::Drawing::Color::Black;
-		this->btnstart->Font = (gcnew System::Drawing::Font(L"Bernard MT Condensed", 36, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+		this->btn_dificil->BackColor = System::Drawing::Color::Black;
+		this->btn_dificil->Font = (gcnew System::Drawing::Font(L"Bernard MT Condensed", 36, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(0)));
-		this->btnstart->ForeColor = System::Drawing::Color::White;
-		this->btnstart->Location = System::Drawing::Point(313, 289);
-		this->btnstart->Name = L"btnstart";
-		this->btnstart->Size = System::Drawing::Size(141, 83);
-		this->btnstart->TabIndex = 0;
-		this->btnstart->Text = L"Dificil";
-		this->btnstart->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
-		this->btnstart->UseVisualStyleBackColor = false;
+		this->btn_dificil->ForeColor = System::Drawing::Color::White;
+		this->btn_dificil->Location = System::Drawing::Point(313, 289);
+		this->btn_dificil->Name = L"btn_dificil";
+		this->btn_dificil->Size = System::Drawing::Size(141, 83);
+		this->btn_dificil->TabIndex = 0;
+		this->btn_dificil->Text = L"Dificil";
+		this->btn_dificil->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+		this->btn_dificil->UseVisualStyleBackColor = false;
+		this->btn_dificil->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &Dificultad::btn_dificil_MouseClick);
 		// 
-		// btnexit
+		// btn_facil
 		// 
-		this->btnexit->BackColor = System::Drawing::Color::Black;
-		this->btnexit->Font = (gcnew System::Drawing::Font(L"Bernard MT Condensed", 36, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+		this->btn_facil->BackColor = System::Drawing::Color::Black;
+		this->btn_facil->Font = (gcnew System::Drawing::Font(L"Bernard MT Condensed", 36, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
 			System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-		this->btnexit->ForeColor = System::Drawing::Color::White;
-		this->btnexit->Location = System::Drawing::Point(68, 289);
-		this->btnexit->Name = L"btnexit";
-		this->btnexit->Size = System::Drawing::Size(141, 83);
-		this->btnexit->TabIndex = 1;
-		this->btnexit->Text = L"Facil";
-		this->btnexit->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
-		this->btnexit->UseVisualStyleBackColor = false;
+		this->btn_facil->ForeColor = System::Drawing::Color::White;
+		this->btn_facil->Location = System::Drawing::Point(68, 289);
+		this->btn_facil->Name = L"btn_facil";
+		this->btn_facil->Size = System::Drawing::Size(141, 83);
+		this->btn_facil->TabIndex = 1;
+		this->btn_facil->Text = L"Facil";
+		this->btn_facil->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+		this->btn_facil->UseVisualStyleBackColor = false;
+		this->btn_facil->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &Dificultad::btn_facil_MouseClick);
 		// 
 		// timer1
 		// 
@@ -420,6 +429,29 @@ private: System::Void btn_condis_MouseClick(System::Object^  sender, System::Win
 	btn_condis->BackColor = System::Drawing::Color::Red;
 	btn_sindis->BackColor = System::Drawing::Color::Black;
 	valdis = 2;
+}
+
+private: System::Void btn_facil_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+	MyForm^map1 = gcnew MyForm(5);
+	WindowState = FormWindowState::Minimized;
+	map1->ShowDialog();
+	WindowState = FormWindowState::Normal;
+	delete map1;
+	Map2^map2 = gcnew Map2(5);
+	WindowState = FormWindowState::Minimized;
+	map2->ShowDialog();
+	WindowState = FormWindowState::Normal;
+	delete map2;
+	map3^Map3 = gcnew map3(5);
+	WindowState = FormWindowState::Minimized;
+	Map3->ShowDialog();
+	WindowState = FormWindowState::Normal;
+	delete Map3;
+	MessageBox::Show("Gracias por jugar!!");
+}
+private: System::Void btn_dificil_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+}
+private: System::Void btn_creativo_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
 }
 };
 }

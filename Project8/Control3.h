@@ -35,14 +35,14 @@ private:
 	CRecomendaciones^recomendaciones;
 	int iteradorDeRecomendaciones;
 public:
-	CControl3() {
+	CControl3(Int16 vi) {
 		recomendaciones = gcnew CRecomendaciones();
 		iteradorDeRecomendaciones = 1;
 		dia = 0;
 		dinero = 100;
 		tiem = gcnew tiempo();
 		jugador = gcnew CJugador();
-		vidajuga = gcnew Cvidas();
+		vidajuga = gcnew Cvidas(vi);
 		punta = 0;
 		mapa = gcnew CMapas(2);
 		personas = gcnew CPersonas(3);

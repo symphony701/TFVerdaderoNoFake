@@ -23,11 +23,11 @@ namespace Project8 {
 	private: System::Windows::Forms::Label^  lbl_dinero;
 			 Graphics^g;
 	public:
-		map3(void)
+		map3(Int16 vi)
 		{
 			InitializeComponent();
 			g = panel1->CreateGraphics();
-			juego = gcnew CControl3();
+			juego = gcnew CControl3(vi);
 		}
 
 	protected:
@@ -61,10 +61,10 @@ namespace Project8 {
 		{
 			this->components = (gcnew System::ComponentModel::Container());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->lbl_dinero = (gcnew System::Windows::Forms::Label());
+			this->lbl_puntaje = (gcnew System::Windows::Forms::Label());
 			this->lbl_hora = (gcnew System::Windows::Forms::Label());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
-			this->lbl_puntaje = (gcnew System::Windows::Forms::Label());
-			this->lbl_dinero = (gcnew System::Windows::Forms::Label());
 			this->panel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -77,6 +77,34 @@ namespace Project8 {
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(765, 627);
 			this->panel1->TabIndex = 1;
+			// 
+			// lbl_dinero
+			// 
+			this->lbl_dinero->BackColor = System::Drawing::Color::Black;
+			this->lbl_dinero->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->lbl_dinero->Font = (gcnew System::Drawing::Font(L"Impact", 14.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lbl_dinero->ForeColor = System::Drawing::Color::White;
+			this->lbl_dinero->Location = System::Drawing::Point(542, 7);
+			this->lbl_dinero->Name = L"lbl_dinero";
+			this->lbl_dinero->Size = System::Drawing::Size(61, 35);
+			this->lbl_dinero->TabIndex = 6;
+			this->lbl_dinero->Text = L"$100";
+			this->lbl_dinero->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			// 
+			// lbl_puntaje
+			// 
+			this->lbl_puntaje->BackColor = System::Drawing::Color::Black;
+			this->lbl_puntaje->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->lbl_puntaje->Font = (gcnew System::Drawing::Font(L"Impact", 14.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lbl_puntaje->ForeColor = System::Drawing::Color::White;
+			this->lbl_puntaje->Location = System::Drawing::Point(335, 7);
+			this->lbl_puntaje->Name = L"lbl_puntaje";
+			this->lbl_puntaje->Size = System::Drawing::Size(61, 35);
+			this->lbl_puntaje->TabIndex = 5;
+			this->lbl_puntaje->Text = L"0p";
+			this->lbl_puntaje->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			// 
 			// lbl_hora
 			// 
@@ -97,34 +125,6 @@ namespace Project8 {
 			this->timer1->Enabled = true;
 			this->timer1->Tick += gcnew System::EventHandler(this, &map3::timer1_Tick);
 			// 
-			// lbl_puntaje
-			// 
-			this->lbl_puntaje->BackColor = System::Drawing::Color::Black;
-			this->lbl_puntaje->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
-			this->lbl_puntaje->Font = (gcnew System::Drawing::Font(L"Impact", 14.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->lbl_puntaje->ForeColor = System::Drawing::Color::White;
-			this->lbl_puntaje->Location = System::Drawing::Point(335, 7);
-			this->lbl_puntaje->Name = L"lbl_puntaje";
-			this->lbl_puntaje->Size = System::Drawing::Size(61, 35);
-			this->lbl_puntaje->TabIndex = 5;
-			this->lbl_puntaje->Text = L"0p";
-			this->lbl_puntaje->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
-			// 
-			// lbl_dinero
-			// 
-			this->lbl_dinero->BackColor = System::Drawing::Color::Black;
-			this->lbl_dinero->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
-			this->lbl_dinero->Font = (gcnew System::Drawing::Font(L"Impact", 14.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->lbl_dinero->ForeColor = System::Drawing::Color::White;
-			this->lbl_dinero->Location = System::Drawing::Point(542, 7);
-			this->lbl_dinero->Name = L"lbl_dinero";
-			this->lbl_dinero->Size = System::Drawing::Size(61, 35);
-			this->lbl_dinero->TabIndex = 6;
-			this->lbl_dinero->Text = L"$100";
-			this->lbl_dinero->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			// 
 			// map3
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -133,10 +133,12 @@ namespace Project8 {
 			this->Controls->Add(this->panel1);
 			this->Name = L"map3";
 			this->Text = L"map3";
+			this->Load += gcnew System::EventHandler(this, &map3::map3_Load);
 			this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &map3::map3_KeyDown);
 			this->KeyUp += gcnew System::Windows::Forms::KeyEventHandler(this, &map3::map3_KeyUp);
 			this->panel1->ResumeLayout(false);
 			this->ResumeLayout(false);
+
 		}
 #pragma endregion
 	private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {
@@ -157,6 +159,8 @@ private: System::Void map3_KeyDown(System::Object^  sender, System::Windows::For
 }
 private: System::Void map3_KeyUp(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
 	juego->keyUp(e);
+}
+private: System::Void map3_Load(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }

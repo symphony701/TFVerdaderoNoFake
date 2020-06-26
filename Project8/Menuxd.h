@@ -158,7 +158,7 @@ namespace Project8 {
 #pragma endregion
 	private: System::Void btnStart_Click(System::Object^  sender, System::EventArgs^  e) {
 
-		MyForm^map1 = gcnew MyForm();
+		/*MyForm^map1 = gcnew MyForm();
 		WindowState = FormWindowState::Minimized;
 		map1->ShowDialog();
 		WindowState = FormWindowState::Normal;
@@ -173,7 +173,7 @@ namespace Project8 {
 		Map3->ShowDialog();
 		WindowState = FormWindowState::Normal;
 		delete Map3;
-		MessageBox::Show("Gracias por jugar!!");
+		MessageBox::Show("Gracias por jugar!!");*/
 
 	}
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {

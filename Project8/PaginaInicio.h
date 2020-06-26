@@ -25,10 +25,10 @@ namespace Project8 {
 			
 
 	public:
-		MyForm(void)
+		MyForm(Int16 vi)
 		{
 			InitializeComponent();
-			juego = gcnew CControl1();
+			juego = gcnew CControl1(vi);
 			g = panelito->CreateGraphics();
 			
 		};
