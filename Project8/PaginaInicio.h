@@ -203,7 +203,7 @@ private: System::Void MyForm_KeyUp(System::Object^  sender, System::Windows::For
 	juego->keyUp(e);
 }
 private: System::Void panelito_DoubleClick(System::Object^  sender, System::EventArgs^  e) {
-	Map2^map2 = gcnew Map2();
+	Map2^map2 = gcnew Map2(10);
 	WindowState = FormWindowState::Minimized;
 	map2->ShowDialog();
 	
