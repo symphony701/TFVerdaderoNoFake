@@ -114,8 +114,10 @@ public:
 			personas->AtrapadoPoli(poli->getRectangle());
 			personas->AtrapadoPoli(poli2->getRectangle());
 		}
-		personas->Cercania(jugador->getRectangle());
-		personas->verBala(g);
+		if (dispaene) {
+			personas->Cercania(jugador->getRectangle());
+			personas->verBala(g);
+		}
 		vidajuga->perdervida(personas->Colision(jugador->getRectangle()));
 		vidajuga->Cantivi(g);
 		tiem->cambio(1);
