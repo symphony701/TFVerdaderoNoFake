@@ -36,7 +36,6 @@ private:
 	bool actPoli;
 	bool creada;
 	CArreMensajes^ mensajuga;
-	CArreMensajes^ tomateenemigos;
 	Int16 punta;
 	Int16 dinero;
 	Cvidas^ vidajuga;
@@ -58,7 +57,6 @@ public:
 	
 		personas = gcnew CPersonas(1);
 		mensajuga = gcnew CArreMensajes(1);
-		tomateenemigos = gcnew CArreMensajes(2);
 		personas->tamañomen(mensajuga->getancho(), mensajuga->getalto());
 
 		actPoli = true;
@@ -140,7 +138,7 @@ public:
 
 
 		vidajuga->perdervida(personas->Colision(jugador->getRectangle()));
-		vidajuga->perdervida(tomateenemigos->Colision(jugador->getRectangle()));
+		vidajuga->perdervida(personas->Colisiontomate(jugador->getRectangle()));
 		vidajuga->Cantivi(g);
 		tiem->cambio(1);
 		mapa->cambio(tiem->gethora());

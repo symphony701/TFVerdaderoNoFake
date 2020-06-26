@@ -106,6 +106,11 @@ public:
 			personas[i]->verBala(g);
 		}
 	}
+	bool Colisiontomate(Rectangle^ juga) {
+		for (int i = 0; i < personas->Length; i++) {
+			return personas[i]->Colisiontomate(juga);
+		}
+	}
 	void AtrapadoAmbu(Rectangle ^poli) {
 		for (int i = 0; i < personas->Length; i++)
 		{

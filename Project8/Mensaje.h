@@ -55,7 +55,7 @@ public:
 	Int16 getver() { return ver; }
 	Rectangle  getRectangle() {
 
-		return  Rectangle(posx, posy, 17, 15);
+		return  Rectangle(hor, ver, 17, 15);
 	}
 
 };

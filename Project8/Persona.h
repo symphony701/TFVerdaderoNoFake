@@ -103,6 +103,9 @@ public:
 	Void verBala(Graphics^g) {
 		tomate->MostrarDisparo(g);
 	}
+	bool Colisiontomate(Rectangle^ juga) {
+		return tomate->Colision(juga);
+	}
 	Void multar() {
 		multa = true;
 	}
