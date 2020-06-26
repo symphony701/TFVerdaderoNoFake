@@ -165,4 +165,5 @@ public:
 			activo = false;
 		}
 	}
+	int retornarVidas() { return vidajuga->getcantvida(); }
 };

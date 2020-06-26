@@ -24,6 +24,7 @@ namespace Project8 {
 	CPersona^ persona2;
 	CPersona^ persona3;
 	bool valdis;
+	int cantidadVidas;
 public:
 	Dificultad(void)
 	{
@@ -438,12 +439,13 @@ private: System::Void btn_facil_MouseClick(System::Object^  sender, System::Wind
 	WindowState = FormWindowState::Normal;
 	cantidadVidas = map1->devolverVidas();
 	delete map1;
-	Map2^map2 = gcnew Map2(5, false);
+	Map2^map2 = gcnew Map2(cantidadVidas, false);
 	WindowState = FormWindowState::Minimized;
 	map2->ShowDialog();
 	WindowState = FormWindowState::Normal;
+	cantidadVidas = map2->devolverVidas();
 	delete map2;
-	map3^Map3 = gcnew map3(5, false);
+	map3^Map3 = gcnew map3(cantidadVidas, false);
 	WindowState = FormWindowState::Minimized;
 	Map3->ShowDialog();
 	WindowState = FormWindowState::Normal;
@@ -455,13 +457,15 @@ private: System::Void btn_dificil_MouseClick(System::Object^  sender, System::Wi
 	WindowState = FormWindowState::Minimized;
 	map1->ShowDialog();
 	WindowState = FormWindowState::Normal;
+	cantidadVidas = map1->devolverVidas();
 	delete map1;
-	Map2^map2 = gcnew Map2(3, true);
+	Map2^map2 = gcnew Map2(cantidadVidas, true);
 	WindowState = FormWindowState::Minimized;
 	map2->ShowDialog();
 	WindowState = FormWindowState::Normal;
+	cantidadVidas = map2->devolverVidas();
 	delete map2;
-	map3^Map3 = gcnew map3(3, true);
+	map3^Map3 = gcnew map3(cantidadVidas, true);
 	WindowState = FormWindowState::Minimized;
 	Map3->ShowDialog();
 	WindowState = FormWindowState::Normal;
@@ -473,13 +477,15 @@ private: System::Void btn_creativo_MouseClick(System::Object^  sender, System::W
 	WindowState = FormWindowState::Minimized;
 	map1->ShowDialog();
 	WindowState = FormWindowState::Normal;
+	cantidadVidas = map1->devolverVidas();
 	delete map1;
-	Map2^map2 = gcnew Map2(Int16(nud_vidas->Value), valdis);
+	Map2^map2 = gcnew Map2(cantidadVidas, valdis);
 	WindowState = FormWindowState::Minimized;
 	map2->ShowDialog();
 	WindowState = FormWindowState::Normal;
+	cantidadVidas = map2->devolverVidas();
 	delete map2;
-	map3^Map3 = gcnew map3(Int16(nud_vidas->Value), valdis);
+	map3^Map3 = gcnew map3(cantidadVidas, valdis);
 	WindowState = FormWindowState::Minimized;
 	Map3->ShowDialog();
 	WindowState = FormWindowState::Normal;

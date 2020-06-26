@@ -181,5 +181,7 @@ private: System::Void Map2_KeyUp(System::Object^  sender, System::Windows::Forms
 }
 private: System::Void Map2_Load(System::Object^  sender, System::EventArgs^  e) {
 }
+		 public:
+			 int devolverVidas() { return juego->retornarVidas(); }
 };
 }
