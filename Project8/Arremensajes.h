@@ -79,7 +79,7 @@ public:
 					}
 
 					g->DrawImage(mensaje, cantbal[i]->gethor(), cantbal[i]->getver());
-					cantbal[i]->distancia(26);
+					cantbal[i]->distancia(18);
 				}
 			}
 		}
@@ -110,7 +110,7 @@ public:
 		if (opc == 2) {
 			for (int i = 0; i < 5; i++) {
 				dis++;
-				if (dis >= 4) { dis = 0; }
+				if (dis >= 8) { dis = 0; }
 				if (cantbal[i]->getactivador() == false&& dis ==1) {
 					cantbal[i]->setactivador(true);
 					if (d == 0) {

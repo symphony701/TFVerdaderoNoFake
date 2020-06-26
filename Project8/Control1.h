@@ -144,7 +144,7 @@ public:
 	}
 	Void registrarDatos() {
 		fstream puntaje("puntaje.txt",ios::out);
-		puntaje << to_string(punta); << endl;
+		puntaje << to_string(punta) << endl;
 	}
 
 	Void keyDown(KeyEventArgs^  e) {

@@ -21,10 +21,27 @@ protected:
 	bool multa;
 	bool estadoba;
 	int nroMapa;
-	CBala^ bala;
+	/*CBala^ bala;*/
 	CArreMensajes^ tomate;
 
 public:
+	CPersona(){
+		posx = posy = 0;
+		multa = false;
+		estadoba = true;
+		virus = true;
+		imagen = gcnew Bitmap("enemigos(base1).png");
+		anchoImagen = imagen->Width;
+		altoImagen = imagen->Height;
+		anchoSprite = anchoImagen / 12;
+		altoSprite = altoImagen / 4;
+		derecha = true; arriba = izquierda = abajo = false; cols = 2;
+		tomate = gcnew CArreMensajes(2);
+		posicion = gcnew Point(0, 0);
+		dx = dy = 3;
+		filas = 0;
+		personaje = 1;
+	}
 	CPersona(int nroMapa){
 
 		this->nroMapa = nroMapa;
@@ -48,7 +65,7 @@ public:
 		posy = origen->Y;
 		}
 		imagen = gcnew Bitmap("enemigos(base1).png");
-		bala = gcnew CBala();
+		/*ala = gcnew CBala();*/
 		tomate = gcnew CArreMensajes(2);
 		anchoImagen = imagen->Width;
 		altoImagen = imagen->Height;
@@ -79,7 +96,7 @@ public:
 	Int16 direccion() { return cols; }
 	bool Dispactiva(Int16 i) {  return tomate->getactivador(i); }
 	Void Trayectar() {
-		bala->Mover();
+		/*bala->Mover();*/
 	}
 	Void verBala(Graphics^g) {
 		tomate->MostrarDisparo(g);
@@ -360,4 +377,12 @@ public:
 	}
 	int getPosX() { return this->posx; }
 	int getPosY() { return this->posy; }
+	Void Ubicacion(int posx, int posy) {
+		this->posx = posx;
+		this->posy = posy;
+	}
+	Void CambioPersona() { 
+		personaje++; 
+		if (5 <= personaje) { personaje = 1; }
+	}
 };

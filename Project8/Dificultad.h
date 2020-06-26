@@ -16,14 +16,23 @@ namespace Project8 {
 	public ref class Dificultad : public System::Windows::Forms::Form{
 	Graphics^ g;
 	Cvidas^ cantvidas;
-	CPersona^ persona;
+	CPersona^ persona1;
+	CPersona^ persona2;
+	CPersona^ persona3;
+	Int16 valdis;
 public:
 	Dificultad(void)
 	{
 		InitializeComponent();
 		g = panel1->CreateGraphics();
 		cantvidas = gcnew Cvidas();
-		persona = gcnew CPersona();
+		persona1 = gcnew CPersona();
+		persona1->Ubicacion(70, 120);
+		persona2 = gcnew CPersona();
+		persona2->Ubicacion(280, 120);
+		persona3 = gcnew CPersona();
+		persona3->Ubicacion(550, 120);
+		valdis = 1;
 
 		//
 		//TODO: agregar código de constructor aquí
@@ -59,11 +68,14 @@ private: System::Windows::Forms::Label^  label3;
 private: System::Windows::Forms::Label^  label2;
 private: System::Windows::Forms::Label^  label1;
 private: System::Windows::Forms::NumericUpDown^  nud_vidas;
+	private: System::Windows::Forms::Button^  btn_condis;
 
 
-private: System::Windows::Forms::Button^  button3;
-private: System::Windows::Forms::Button^  button2;
-private: System::Windows::Forms::Button^  button1;
+
+	private: System::Windows::Forms::Button^  btn_sindis;
+	private: System::Windows::Forms::Button^  btn_creativo;
+
+
 private: System::Windows::Forms::Timer^  timer1;
 private: System::ComponentModel::IContainer^  components;
 
@@ -92,9 +104,9 @@ private:
 		this->label2 = (gcnew System::Windows::Forms::Label());
 		this->label1 = (gcnew System::Windows::Forms::Label());
 		this->nud_vidas = (gcnew System::Windows::Forms::NumericUpDown());
-		this->button3 = (gcnew System::Windows::Forms::Button());
-		this->button2 = (gcnew System::Windows::Forms::Button());
-		this->button1 = (gcnew System::Windows::Forms::Button());
+		this->btn_condis = (gcnew System::Windows::Forms::Button());
+		this->btn_sindis = (gcnew System::Windows::Forms::Button());
+		this->btn_creativo = (gcnew System::Windows::Forms::Button());
 		this->btnstart = (gcnew System::Windows::Forms::Button());
 		this->btnexit = (gcnew System::Windows::Forms::Button());
 		this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
@@ -117,9 +129,9 @@ private:
 		this->panel1->Controls->Add(this->label2);
 		this->panel1->Controls->Add(this->label1);
 		this->panel1->Controls->Add(this->nud_vidas);
-		this->panel1->Controls->Add(this->button3);
-		this->panel1->Controls->Add(this->button2);
-		this->panel1->Controls->Add(this->button1);
+		this->panel1->Controls->Add(this->btn_condis);
+		this->panel1->Controls->Add(this->btn_sindis);
+		this->panel1->Controls->Add(this->btn_creativo);
 		this->panel1->Controls->Add(this->btnstart);
 		this->panel1->Controls->Add(this->btnexit);
 		this->panel1->Location = System::Drawing::Point(4, 8);
@@ -244,43 +256,47 @@ private:
 		this->nud_vidas->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 		this->nud_vidas->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
 		// 
-		// button3
+		// btn_condis
 		// 
-		this->button3->Font = (gcnew System::Drawing::Font(L"Bernard MT Condensed", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+		this->btn_condis->Font = (gcnew System::Drawing::Font(L"Bernard MT Condensed", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(0)));
-		this->button3->ForeColor = System::Drawing::Color::White;
-		this->button3->Location = System::Drawing::Point(643, 202);
-		this->button3->Name = L"button3";
-		this->button3->Size = System::Drawing::Size(75, 23);
-		this->button3->TabIndex = 6;
-		this->button3->Text = L"con disparo";
-		this->button3->UseVisualStyleBackColor = true;
+		this->btn_condis->ForeColor = System::Drawing::Color::White;
+		this->btn_condis->Location = System::Drawing::Point(636, 195);
+		this->btn_condis->Name = L"btn_condis";
+		this->btn_condis->Size = System::Drawing::Size(91, 32);
+		this->btn_condis->TabIndex = 6;
+		this->btn_condis->Text = L"con disparo";
+		this->btn_condis->UseVisualStyleBackColor = true;
+		this->btn_condis->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &Dificultad::btn_condis_MouseClick);
 		// 
-		// button2
+		// btn_sindis
 		// 
-		this->button2->Font = (gcnew System::Drawing::Font(L"Bernard MT Condensed", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+		this->btn_sindis->BackColor = System::Drawing::Color::Red;
+		this->btn_sindis->Enabled = false;
+		this->btn_sindis->Font = (gcnew System::Drawing::Font(L"Bernard MT Condensed", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(0)));
-		this->button2->ForeColor = System::Drawing::Color::White;
-		this->button2->Location = System::Drawing::Point(542, 202);
-		this->button2->Name = L"button2";
-		this->button2->Size = System::Drawing::Size(75, 23);
-		this->button2->TabIndex = 5;
-		this->button2->Text = L"sin disparo";
-		this->button2->UseVisualStyleBackColor = true;
+		this->btn_sindis->ForeColor = System::Drawing::Color::White;
+		this->btn_sindis->Location = System::Drawing::Point(530, 195);
+		this->btn_sindis->Name = L"btn_sindis";
+		this->btn_sindis->Size = System::Drawing::Size(91, 32);
+		this->btn_sindis->TabIndex = 5;
+		this->btn_sindis->Text = L"sin disparo";
+		this->btn_sindis->UseVisualStyleBackColor = false;
+		this->btn_sindis->MouseClick += gcnew System::Windows::Forms::MouseEventHandler(this, &Dificultad::btn_sindis_MouseClick);
 		// 
-		// button1
+		// btn_creativo
 		// 
-		this->button1->BackColor = System::Drawing::Color::Black;
-		this->button1->Font = (gcnew System::Drawing::Font(L"Bernard MT Condensed", 36, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+		this->btn_creativo->BackColor = System::Drawing::Color::Black;
+		this->btn_creativo->Font = (gcnew System::Drawing::Font(L"Bernard MT Condensed", 36, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 			static_cast<System::Byte>(0)));
-		this->button1->ForeColor = System::Drawing::Color::White;
-		this->button1->Location = System::Drawing::Point(538, 289);
-		this->button1->Name = L"button1";
-		this->button1->Size = System::Drawing::Size(187, 83);
-		this->button1->TabIndex = 2;
-		this->button1->Text = L"Creativo";
-		this->button1->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
-		this->button1->UseVisualStyleBackColor = false;
+		this->btn_creativo->ForeColor = System::Drawing::Color::White;
+		this->btn_creativo->Location = System::Drawing::Point(538, 289);
+		this->btn_creativo->Name = L"btn_creativo";
+		this->btn_creativo->Size = System::Drawing::Size(187, 83);
+		this->btn_creativo->TabIndex = 2;
+		this->btn_creativo->Text = L"Creativo";
+		this->btn_creativo->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+		this->btn_creativo->UseVisualStyleBackColor = false;
 		// 
 		// btnstart
 		// 
@@ -315,14 +331,14 @@ private:
 		this->timer1->Enabled = true;
 		this->timer1->Tick += gcnew System::EventHandler(this, &Dificultad::timer1_Tick);
 		// 
-		// dificultad
+		// Dificultad
 		// 
 		this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 		this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 		this->BackColor = System::Drawing::Color::Black;
 		this->ClientSize = System::Drawing::Size(769, 430);
 		this->Controls->Add(this->panel1);
-		this->Name = L"dificultad";
+		this->Name = L"Dificultad";
 		this->Text = L"dificultad";
 		this->panel1->ResumeLayout(false);
 		this->panel1->PerformLayout();
@@ -338,28 +354,72 @@ private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e
 	BufferedGraphicsContext ^bfc = BufferedGraphicsManager::Current;
 	BufferedGraphics ^bf = bfc->Allocate(g, this->ClientRectangle);
 	bf->Graphics->FillRectangle(Brushes::Black, 0, 0, 757, 404);
+
 	cantvidas->setcantvida(5);
 	cantvidas->cambioppos(70, 240);
 	cantvidas->Cantivi(bf->Graphics);
 
-
+	persona1->Mostrar(bf->Graphics);
+	persona1->desplazamiento();
+	if (160 <= persona1->getPosX()) {
+		persona1->Ubicacion(70, 120);
+		persona1->CambioPersona();
+	}
 
 
 	cantvidas->setcantvida(3);
 	cantvidas->cambioppos(340, 240);
 	cantvidas->Cantivi(bf->Graphics);
-
+	
+	persona2->Mostrar(bf->Graphics);
+	persona2->desplazamiento();
+	if (350 <= persona2->getPosX()) {
+		persona2->Ubicacion(280, 120);
+		persona2->CambioPersona();
+	}
+	persona2->Diasparar();
+	persona2->verBala(bf->Graphics);
 
 
 	cantvidas->setcantvida(a);
 	cantvidas->cambioppos(635 - a * 15, 240);
 	cantvidas->Cantivi(bf->Graphics);
-
-
-
-
+	
+	if (valdis == 1) {
+		persona3->Mostrar(bf->Graphics);
+		persona3->desplazamiento();
+		if (640 <= persona3->getPosX()) {
+			persona3->Ubicacion(550, 120);
+			persona3->CambioPersona();
+		}
+	}
+	if (valdis == 2) {
+		persona3->Mostrar(bf->Graphics);
+		persona3->desplazamiento();
+		if (600 <= persona3->getPosX()) {
+			persona3->Ubicacion(530, 120);
+			persona3->CambioPersona();
+		}
+		persona3->Diasparar();
+		persona3->verBala(bf->Graphics);
+	}
 	bf->Render(g);
 	delete bf, bfc;
+}
+
+private: System::Void btn_sindis_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+	btn_sindis->Enabled = false;
+	btn_condis->Enabled = true;
+	btn_sindis->BackColor = System::Drawing::Color::Red;
+	btn_condis->BackColor = System::Drawing::Color::Black;
+	valdis = 1;
+}
+private: System::Void btn_condis_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+	btn_sindis->Enabled = true;
+	btn_condis->Enabled = false;
+	btn_condis->BackColor = System::Drawing::Color::Red;
+	btn_sindis->BackColor = System::Drawing::Color::Black;
+	valdis = 2;
 }
 };
 }
