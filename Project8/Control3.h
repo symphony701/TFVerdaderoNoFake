@@ -37,7 +37,7 @@ private:
 	bool dispaene;
 	Int16 tipomuer;
 public:
-	CControl3(Int16 vi, bool dispaene,int dinero,int punta) {
+	CControl3(Int16 vi, bool dispaene, int toqueco, int toquefin,int dinero,int punta) {
 		this->dispaene = dispaene;
 		recomendaciones = gcnew CRecomendaciones();
 		iteradorDeRecomendaciones = 1;
@@ -48,7 +48,7 @@ public:
 		tiem = gcnew tiempo();
 		jugador = gcnew CJugador();
 		vidajuga = gcnew Cvidas(vi);
-	
+		tiem->Horasdetoquedequeda(toqueco, toquefin);
 		mapa = gcnew CMapas(2);
 		personas = gcnew CPersonas(3);
 	}

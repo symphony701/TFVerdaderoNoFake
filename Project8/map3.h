@@ -24,11 +24,11 @@ namespace Project8 {
 	private: System::Windows::Forms::Label^  lbl_dinero;
 			 Graphics^g;
 	public:
-		map3(Int16 vi, bool dispaene,int dinero,int punta)
+		map3(Int16 vi, bool dispaene, int toqueco, int toquefin,int dinero,int punta)
 		{
 			InitializeComponent();
 			g = panel1->CreateGraphics();
-			juego = gcnew CControl3(vi,dispaene,dinero,punta);
+			juego = gcnew CControl3(vi,dispaene, toqueco,toquefin,dinero,punta);
 		}
 
 	protected:

@@ -441,7 +441,7 @@ private: System::Void btn_condis_MouseClick(System::Object^  sender, System::Win
 }
 
 private: System::Void btn_facil_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
-	MyForm^map1 = gcnew MyForm(5, false);
+	MyForm^map1 = gcnew MyForm(5, false,22,4);
 	WindowState = FormWindowState::Minimized;
 	map1->ShowDialog();
 	WindowState = FormWindowState::Normal;
@@ -449,7 +449,7 @@ private: System::Void btn_facil_MouseClick(System::Object^  sender, System::Wind
 	dinero = map1->devolverDinero();
 	puntaje = map1->devolverPuntaje();
 	delete map1;
-	Map2^map2 = gcnew Map2(cantidadVidas, false,dinero,puntaje);
+	Map2^map2 = gcnew Map2(cantidadVidas, false, 22, 4,dinero,puntaje);
 	WindowState = FormWindowState::Minimized;
 	map2->ShowDialog();
 	WindowState = FormWindowState::Normal;
@@ -457,7 +457,7 @@ private: System::Void btn_facil_MouseClick(System::Object^  sender, System::Wind
 	dinero = map2->devolverDinero();
 	puntaje = map2->devolverPuntaje();
 	delete map2;
-	map3^Map3 = gcnew map3(cantidadVidas, false,dinero,puntaje);
+	map3^Map3 = gcnew map3(cantidadVidas, false, 22, 4,dinero,puntaje);
 	WindowState = FormWindowState::Minimized;
 	Map3->ShowDialog();
 	WindowState = FormWindowState::Normal;
@@ -465,7 +465,7 @@ private: System::Void btn_facil_MouseClick(System::Object^  sender, System::Wind
 	MessageBox::Show("Gracias por jugar!!");
 }
 private: System::Void btn_dificil_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
-	MyForm^map1 = gcnew MyForm(3, true);
+	MyForm^map1 = gcnew MyForm(3, true, 20, 6);
 	WindowState = FormWindowState::Minimized;
 	map1->ShowDialog();
 	WindowState = FormWindowState::Normal;
@@ -473,7 +473,7 @@ private: System::Void btn_dificil_MouseClick(System::Object^  sender, System::Wi
 	dinero = map1->devolverDinero();
 	puntaje = map1->devolverPuntaje();
 	delete map1;
-	Map2^map2 = gcnew Map2(cantidadVidas, true,dinero,puntaje);
+	Map2^map2 = gcnew Map2(cantidadVidas, true, 20, 6,dinero,puntaje);
 	WindowState = FormWindowState::Minimized;
 	map2->ShowDialog();
 	WindowState = FormWindowState::Normal;
@@ -481,7 +481,7 @@ private: System::Void btn_dificil_MouseClick(System::Object^  sender, System::Wi
 	dinero = map2->devolverDinero();
 	puntaje = map2->devolverPuntaje();
 	delete map2;
-	map3^Map3 = gcnew map3(cantidadVidas, true,dinero,puntaje);
+	map3^Map3 = gcnew map3(cantidadVidas, true, 20, 6,dinero,puntaje);
 	WindowState = FormWindowState::Minimized;
 	Map3->ShowDialog();
 	WindowState = FormWindowState::Normal;
@@ -489,7 +489,7 @@ private: System::Void btn_dificil_MouseClick(System::Object^  sender, System::Wi
 	MessageBox::Show("Gracias por jugar!!");
 }
 private: System::Void btn_creativo_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
-	MyForm^map1 = gcnew MyForm(Int16(nud_vidas->Value), valdis);
+	MyForm^map1 = gcnew MyForm(Int16(nud_vidas->Value), valdis,Int16(nud_comi->Value), Int16(nud_ter->Value));
 	WindowState = FormWindowState::Minimized;
 	map1->ShowDialog();
 	WindowState = FormWindowState::Normal;
@@ -497,7 +497,7 @@ private: System::Void btn_creativo_MouseClick(System::Object^  sender, System::W
 	dinero = map1->devolverDinero();
 	puntaje = map1->devolverPuntaje();
 	delete map1;
-	Map2^map2 = gcnew Map2(cantidadVidas, valdis,dinero,puntaje);
+	Map2^map2 = gcnew Map2(cantidadVidas, valdis,Int16(nud_comi->Value), Int16(nud_ter->Value),dinero,puntaje);
 	WindowState = FormWindowState::Minimized;
 	map2->ShowDialog();
 	WindowState = FormWindowState::Normal;
@@ -505,7 +505,7 @@ private: System::Void btn_creativo_MouseClick(System::Object^  sender, System::W
 	dinero = map2->devolverDinero();
 	puntaje = map2->devolverPuntaje();
 	delete map2;
-	map3^Map3 = gcnew map3(cantidadVidas, valdis,dinero,puntaje);
+	map3^Map3 = gcnew map3(cantidadVidas, valdis, Int16(nud_comi->Value), Int16(nud_ter->Value),dinero,puntaje);
 	WindowState = FormWindowState::Minimized;
 	Map3->ShowDialog();
 	WindowState = FormWindowState::Normal;

@@ -26,10 +26,10 @@ namespace Project8 {
 
 
 	public:
-		MyForm(Int16 vi,bool dispa)
+		MyForm(Int16 vi,bool dispa,int toqueco,int toquefin)
 		{
 			InitializeComponent();
-			juego = gcnew CControl1(vi, dispa);
+			juego = gcnew CControl1(vi, dispa, toqueco, toquefin);
 			g = panelito->CreateGraphics();
 			Muerte = false;
 

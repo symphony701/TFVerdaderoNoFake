@@ -43,7 +43,7 @@ private:
 	bool dispaene;
 	Int16 tipomuer;
 public:
-	CControl1(Int16 vi, bool dispaene){
+	CControl1(Int16 vi, bool dispaene, int toqueco, int toquefin){
 		dia = 0;
 		dinero = 100;
 		tiem = gcnew tiempo();
@@ -61,6 +61,7 @@ public:
 
 		actPoli = true;
 		creada = false;
+		tiem->Horasdetoquedequeda(toqueco,toquefin)
 	}
 	~CControl1(){}
 
