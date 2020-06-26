@@ -20,6 +20,8 @@ protected:
 	int mapa;
 	int nroP;
 	bool triple = true;
+	Int16 desfaX;
+	Int16 desfaY;
 
 public:
 	CAutoridad(int mapa, int nroP) {
@@ -42,7 +44,7 @@ public:
 	~CAutoridad() {}
 	Void Mostrar(Graphics^g) {
 		areaVisible = Rectangle(anchoImagen*x, altoImagen*y, anchoImagen, altoImagen);
-		g->DrawImage(imagen, posx, posy, areaVisible, GraphicsUnit::Pixel);
+		g->DrawImage(imagen, posx-desfaX, posy-desfaY, areaVisible, GraphicsUnit::Pixel);
 	}
 	Void Mover() {
 	}
@@ -389,7 +391,7 @@ public:
 	}
 	Rectangle ^getRectangle() {
 
-		return Rectangle(posx, posy, 29, 45);
+		return Rectangle(posx-desfaX, posy-desfaY, 29, 45);
 	}
 
 	Void movimiento() {

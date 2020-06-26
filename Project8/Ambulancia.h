@@ -8,8 +8,6 @@ using namespace System::Drawing;
 using namespace std;
 
 ref class CAmbulancia : public CAutoridad {
-
-
 public:
 	CAmbulancia(int mapa, int nroP) {
 		this->mapa = mapa;
@@ -53,7 +51,8 @@ public:
 		}
 
 
-
+		desfaX = 15;
+		desfaY = 0;
 		izquierda, derecha, arriba, abajo = false;
 		origen->X = posx;
 		origen->Y = posy;

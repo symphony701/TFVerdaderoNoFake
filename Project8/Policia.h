@@ -8,10 +8,11 @@ using namespace System::Drawing;
 using namespace std;
 
 ref class CPolicia : public CAutoridad {
-
 	
 public:
 	CPolicia(int mapa,int nroP) {
+		desfaX = 0;
+		desfaY = 0;
 		this->mapa = mapa;
 		this->nroP = nroP;
 		origen = gcnew Point(posx, posy);
