@@ -72,6 +72,7 @@ public:
 				lbl_puntaje->Text = punta + "p";
 				if (personas->desacmensa()) {
 					mensajuga->desativador(i);
+					mensajuga->MostrarMensaje();
 				}
 			}
 

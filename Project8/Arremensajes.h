@@ -152,4 +152,5 @@ public:
 		}
 		return retornador;
 	}
+	Void MostrarMensaje() { cantbal[0]->Mosmensaje(); }
 };

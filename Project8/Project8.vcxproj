@@ -137,6 +137,7 @@
     <ClCompile Include="map3.cpp" />
     <ClCompile Include="Menuxd.cpp" />
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="Pantallafinal.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -170,6 +171,9 @@
     <ClInclude Include="PaginaInicio.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Pantallafinal.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Persona.h" />
     <ClInclude Include="Personas.h" />
     <ClInclude Include="Policia.h" />
@@ -194,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PaginaInicio.resx">
       <DependentUpon>PaginaInicio.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallafinal.resx">
+      <DependentUpon>Pantallafinal.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

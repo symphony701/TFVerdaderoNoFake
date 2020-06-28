@@ -24,12 +24,11 @@ public:
 	~CMensaje() {}
 
 	void Mosmensaje(){
-		mensa = rand() % 5;
-		if (mensa == 1) { MessageBox::Show("a"); }
-		if (mensa == 2) { MessageBox::Show("b"); }
-		if (mensa == 3) { MessageBox::Show("c"); }
-		if (mensa == 4) { MessageBox::Show("d"); }
-		if (mensa == 5) { MessageBox::Show("e"); }
+		mensa = rand() % 4;
+		if (mensa == 0) { MessageBox::Show("Quedate en tu casa"); }
+		if (mensa == 1) { MessageBox::Show("Manten la distancia"); }
+		if (mensa == 2) { MessageBox::Show("No salgas mas de 1 hora"); }
+		if (mensa == 3) { MessageBox::Show("Usa bien el tapabocas"); }
 	
 	
 	}

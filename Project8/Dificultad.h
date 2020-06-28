@@ -5,6 +5,7 @@
 #include <iostream>
 #include "Map2.h"
 #include "map3.h"
+#include "Pantallafinal.h"
 namespace Project8 {
 
 	using namespace System;
@@ -475,21 +476,11 @@ private: System::Void btn_facil_MouseClick(System::Object^  sender, System::Wind
 		Dead = Map3->Dead();
 		delete Map3;
 	}
-	if (Dead == true) {
-		if (tipodead == 1) {
-			MessageBox::Show("Perdiste");
-		}
-		if (tipodead == 2) {
-			MessageBox::Show("No te quedes fuera del toque de queda");
-		}
-		if (tipodead == 3) {
-			MessageBox::Show("No te puedes quedarte con deudas");
-		}
-
-	}
-	if (Dead == false) {
-		MessageBox::Show("Gracias por jugar!!");
-	}
+	Pantallafinal^ final = gcnew Pantallafinal(Dead, tipodead, puntaje, dinero);
+	WindowState = FormWindowState::Minimized;
+	final->ShowDialog();
+	WindowState = FormWindowState::Normal;
+	delete final;
 }
 private: System::Void btn_dificil_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
 	MyForm^map1 = gcnew MyForm(3, true, 20, 6);
@@ -527,20 +518,11 @@ private: System::Void btn_dificil_MouseClick(System::Object^  sender, System::Wi
 		Dead = Map3->Dead();
 		delete Map3;
 	}
-	if (Dead == true) {
-		if (tipodead == 1) {
-			MessageBox::Show("Perdiste");
-		}
-		if (tipodead == 2) {
-			MessageBox::Show("No te quedes fuera del toque de queda");
-		}
-		if (tipodead == 3) {
-			MessageBox::Show("No te puedes quedarte con deudas");
-		}
-	}
-	if (Dead == false) {
-		MessageBox::Show("Gracias por jugar!!");
-	}
+	Pantallafinal^ final = gcnew Pantallafinal(Dead, tipodead, puntaje, dinero);
+	WindowState = FormWindowState::Minimized;
+	final->ShowDialog();
+	WindowState = FormWindowState::Normal;
+	delete final;
 }
 private: System::Void btn_creativo_MouseClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
 	MyForm^map1 = gcnew MyForm(Int16(nud_vidas->Value), valdis,Int16(nud_comi->Value), Int16(nud_ter->Value));
@@ -578,20 +560,11 @@ private: System::Void btn_creativo_MouseClick(System::Object^  sender, System::W
 		Dead = Map3->Dead();
 		delete Map3;
 	}
-	if (Dead == true) {
-		if (tipodead == 1) {
-			MessageBox::Show("Perdiste");
-		}
-		if (tipodead == 2) {
-			MessageBox::Show("No te quedes fuera del toque de queda");
-		}
-		if (tipodead == 3) {
-			MessageBox::Show("No te puedes quedarte con deudas");
-		}
-	}
-	if (Dead == false) {
-		MessageBox::Show("Gracias por jugar!!");
-	}
+	Pantallafinal^ final = gcnew Pantallafinal(Dead, tipodead, puntaje, dinero);
+	WindowState = FormWindowState::Minimized;
+	final->ShowDialog();
+	WindowState = FormWindowState::Normal;
+	delete final;
 }
 };
 }
