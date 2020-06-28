@@ -30,7 +30,7 @@ namespace Project8 {
 			num = 1;
 			g = panel1->CreateGraphics();
 			mensajuga = gcnew CArreMensajes(1);
-			jugador = gcnew CJugador();
+			jugador = gcnew CJugador(1);
 			activo = false;
 			jugador->setPosX(350);
 			jugador->setPosY(150);
@@ -297,7 +297,7 @@ namespace Project8 {
 		BufferedGraphics ^bf = bfc->Allocate(g, this->ClientRectangle);
 		if (num == 2) {
 			/*jugador->*/
-			jugador->Mostrar(bf->Graphics, activo);
+			jugador->Mostrar(bf->Graphics, activo,0);
 			mensajuga->MostrarDisparo(bf->Graphics);
 		}
 

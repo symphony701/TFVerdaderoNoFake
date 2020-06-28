@@ -46,7 +46,7 @@ public:
 		this->dinero = dinero;
 		this->punta = punta;
 		tiem = gcnew tiempo();
-		jugador = gcnew CJugador();
+		jugador = gcnew CJugador(3);
 		vidajuga = gcnew Cvidas(vi);
 		tiem->Horasdetoquedequeda(toqueco, toquefin);
 		mapa = gcnew CMapas(2);
@@ -57,7 +57,7 @@ public:
 	bool cadaTick(Label^  lbl_puntaje, Graphics^g, Label^  lbl_dinero, Label^  lbl_hora) {
 		g->DrawImage(mapa->getImagen(), 0, 0, mapa->getRectangle(), GraphicsUnit::Pixel);
 		personas->Mostrar(g);
-		jugador->Mostrar(g, activo);
+		jugador->Mostrar(g, activo,0);
 		dinero = dinero - jugador->cobro();
 		lbl_dinero->Text = "$" + dinero;
 		/*if (personas->colisionConRecomendacion(jugador->getRectangle()))

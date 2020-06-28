@@ -20,10 +20,23 @@ private:
 	bool movArriba, movAbajo, movDerecha, movIzquierda, alquiler;
 	Climites^ limites;
 public:
-	CJugador() {
+	CJugador(Int16 i) {
 		aldis = 0;
-		posx = 191;
-		posy = 446;
+		if (i == 1) {
+			posx = 191;
+			posy = 446;
+
+		}
+		if (i == 2) {
+			posx = 375;
+			posy = 570;
+
+		}
+		if (i == 3) {
+			posx = 400;
+			posy = 570;
+
+		}
 		dx = dy = 3;
 	
 		imagen = gcnew Bitmap("jugador.png");
@@ -37,7 +50,7 @@ public:
 	~CJugador() {
 		delete limites, imagen;
 	}
-	Void Mostrar(Graphics^g, bool act) {
+	Void Mostrar(Graphics^g, bool act, Int16 i) {
 
 		areaVisible = Rectangle(anchoImagen*x, altoImagen*y, anchoImagen, altoImagen);
 
@@ -45,8 +58,15 @@ public:
 		if (act == true) { x++; }
 
 		if (x == 3) { x = 0; }
-		if (alquiler) {
+		if (alquiler&& i ==1) {
 			g->DrawImage(gcnew Bitmap("casaLuri.png"), 188, 418);
+			aldis++;
+			if (aldis >= 60) {
+				aldis = 0;
+			}
+		}
+		if (alquiler&& i == 2) {
+			g->DrawImage(gcnew Bitmap("casaSanMiguel.png"), 554, 253);
 			aldis++;
 			if (aldis >= 60) {
 				aldis = 0;
@@ -152,21 +172,25 @@ public:
 		case Direccion::Abajo:
 			if (movAbajo) { posy += dy; }
 			movAbajo = limites->mapa3abajo(movAbajo, posx, posy);
+			alquiler = limites->colocamapa2(posx, posy);
 			y = 0;
 			break;
 		case Direccion::Arriba:
 			if (movArriba) { posy -= dy; }
 			movArriba = limites->mapa3arriba(movArriba, posx, posy);
+			alquiler = limites->colocamapa2(posx, posy);
 			y = 3;
 			break;
 		case Direccion::Izquierda:
 			if (movIzquierda) { posx -= dx; }
 			movIzquierda = limites->mapa3izquierda(movIzquierda, posx, posy);
+			alquiler = limites->colocamapa2(posx, posy);
 			y = 1;
 			break;
 		case Direccion::Derecha:
 			if (movDerecha) { posx += dx; }
 			movDerecha = limites->mapa3derecha(movDerecha, posx, posy);
+			alquiler = limites->colocamapa2(posx, posy);
 			y = 2;
 			break;
 		default:

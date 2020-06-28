@@ -48,7 +48,7 @@ public:
 		dia = 0;
 		dinero = 100;
 		tiem = gcnew tiempo(toquefin,0);
-		jugador = gcnew CJugador();
+		jugador = gcnew CJugador(1);
 		vidajuga = gcnew Cvidas(vi);
 		punta = 0;
 		mapa = gcnew CMapas(1);
@@ -106,7 +106,7 @@ public:
 		g->DrawImage(mapa->getImagen(), 0, 0, mapa->getRectangle(), GraphicsUnit::Pixel);
 
 		mensajuga->MostrarDisparo(g);
-		jugador->Mostrar(g, activo);
+		jugador->Mostrar(g, activo, 1);
 		dinero = dinero - jugador->cobro();
 		lbl_dinero->Text = "$" + dinero;
 

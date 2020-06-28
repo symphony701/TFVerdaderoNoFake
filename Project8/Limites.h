@@ -13,6 +13,11 @@ public:
 		if (Formula(179, 250, 385, 425, posx, posy)) {i = true;}
 		return i;
 	}
+	bool colocamapa2(Int16 posx, Int16 posy) {
+		bool i = false;
+		if (Formula(545, 600, 239, 261, posx, posy)) { i = true; }
+		return i;
+	}
 	bool mapa1arriba(bool movArriba, Int16 posx, Int16 posy) {
 		while (true) {
 			if(Formula(179, 250, 385, 388, posx, posy)) { movArriba = false; break; }
@@ -136,7 +141,8 @@ public:
 	{
 		if (Formula(344, 620, 485, 488, posx, posy)) { movArriba = false; break; }
 		if (Formula(629, 656, 239, 242, posx, posy)) { movArriba = false; break; }
-		if (Formula(506, 629, 287, 290, posx, posy)) { movArriba = false; break; }
+		if (Formula(506, 629, 243, 239, posx, posy)) { movArriba = false; break; }
+		/*if (Formula(506, 629, 287, 290, posx, posy)) { movArriba = false; break; }*/
 		if (Formula(482, 506, 239, 242, posx, posy)) { movArriba = false; break; }
 		if (Formula(344, 482, 287, 290, posx, posy)) { movArriba = false; break; }
 		if (Formula(467, 657, 41, 44, posx, posy)) { movArriba = false; break; }
@@ -157,6 +163,7 @@ public:
 		while (true)
 		{
 			if (Formula(392, 620, 515, 518, posx, posy)) { movAbajo = false; break; }
+			if (Formula(566, 590, 255, 260, posx, posy)) { movAbajo = false; break; }
 			if (Formula(344, 656, 431, 434, posx, posy)) { movAbajo = false; break; }
 			if (Formula(344, 488, 87, 89, posx, posy)) { movAbajo = false; break; }
 			if (Formula(488, 629, 57, 59, posx, posy)) { movAbajo = false; break; }
@@ -176,6 +183,8 @@ public:
 		while (true)
 		{
 			if (Formula(389, 392, 518, 578, posx, posy)) { movDerecha = false; break; }
+			if (Formula(565, 569, 260, 290, posx, posy)) { movDerecha = false; break; }
+			if (Formula(590, 595, 236, 260, posx, posy)) { movDerecha = false; break; }
 			if (Formula(617, 620, 485, 518, posx, posy)) { movDerecha = false; break; }
 			if (Formula(341, 344, 434, 485, posx, posy)) { movDerecha = false; break; }
 			if (Formula(653, 656, 239, 434, posx, posy)) { movDerecha = false; break; }
@@ -197,6 +206,7 @@ public:
 		while (true)
 		{
 			if (Formula(629, 632, 239, 287, posx, posy)) { movIzquierda = false; break; }
+			if (Formula(540, 545, 236, 290, posx, posy)) { movIzquierda = false; break; }
 			if (Formula(482, 485, 239, 287, posx, posy)) { movIzquierda = false; break; }
 			if (Formula(629, 632, 59, 143, posx, posy)) { movIzquierda = false; break; }
 			if (Formula(467, 470, 41, 62, posx, posy)) { movIzquierda = false; break; }

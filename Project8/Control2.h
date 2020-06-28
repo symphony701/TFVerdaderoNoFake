@@ -49,7 +49,7 @@ public:
 		dia = 0;
 		creadorAmbulancia = creadorPolicia = true;
 		tiem = gcnew tiempo();
-		jugador = gcnew CJugador();
+		jugador = gcnew CJugador(2);
 		vidajuga = gcnew Cvidas(vi);
 		
 		tipomuer = 1;
@@ -103,7 +103,7 @@ public:
 		g->DrawImage(mapa->getImagen(), 0, 0, mapa->getRectangle(), GraphicsUnit::Pixel);
 
 		mensajuga->MostrarDisparo(g);
-		jugador->Mostrar(g, activo);
+		jugador->Mostrar(g, activo,2);
 		dinero = dinero - jugador->cobro();
 		lbl_dinero->Text = "$" + dinero;
 		personas->Mostrar(g);
