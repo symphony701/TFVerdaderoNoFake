@@ -35,21 +35,25 @@ private:
 	bool creada;
 	CArreMensajes^ mensajuga;
 	CArreMensajes^ tomateenemigos;
-	Int16 punta;
+	int punta;
 	Int16 dinero;
 	Cvidas^ vidajuga;
 	bool dispaene;
 	Int16 tipomuer;
 	bool creadorAmbulancia, creadorPolicia;
 public:
-	CControl2(Int16 vi, bool dispaene, int toqueco, int toquefin, int dinero,int punta) {
+	CControl2(Int16 vi, bool dispaene, int toqueco, int toquefin, int dinero,int punta, Label^  lbl_puntaje, Label^  lbl_dinero, int hora,int min) {
 		this->dispaene = dispaene;
 		this->dinero = dinero;
 		this->punta = punta;
+		lbl_puntaje->Text = punta + "p";
+		lbl_dinero->Text = "$" + dinero;
 		dia = 0;
 		creadorAmbulancia = creadorPolicia = true;
-		tiem = gcnew tiempo();
+
 		jugador = gcnew CJugador(2);
+		tiem = gcnew tiempo(hora,min);
+
 		vidajuga = gcnew Cvidas(vi);
 		
 		tipomuer = 1;
@@ -67,7 +71,7 @@ public:
 	bool cadaTick(Label^  lbl_puntaje, Graphics^g, Label^  lbl_dinero, Label^  lbl_hora) {
 		for (int i = 0; i < 5; i++) {
 			if (mensajuga->getactivador(i)) {
-				punta = punta + personas->multado(mensajuga->getposx(i), mensajuga->getposy(i));
+				this->punta = this->punta + personas->multado(mensajuga->getposx(i), mensajuga->getposy(i));
 				lbl_puntaje->Text = punta + "p";
 				if (personas->desacmensa()) {
 					mensajuga->desativador(i);

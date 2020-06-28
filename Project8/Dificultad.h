@@ -453,7 +453,7 @@ private: System::Void btn_facil_MouseClick(System::Object^  sender, System::Wind
 	Dead = map1->Dead();
 	delete map1;
 	if (Dead == false) {
-		Map2^map2 = gcnew Map2(cantidadVidas, false, 22, 4, dinero, puntaje);
+		Map2^map2 = gcnew Map2(cantidadVidas, false, 22, 4, dinero, puntaje,hora , min);
 		WindowState = FormWindowState::Minimized;
 		map2->ShowDialog();
 		WindowState = FormWindowState::Normal;
@@ -505,7 +505,7 @@ private: System::Void btn_dificil_MouseClick(System::Object^  sender, System::Wi
 	Dead = map1->Dead();
 	delete map1;
 	if (Dead == false) {
-		Map2^map2 = gcnew Map2(cantidadVidas, true, 20, 6, dinero, puntaje);
+		Map2^map2 = gcnew Map2(cantidadVidas, true, 20, 6, dinero, puntaje,hora,min);
 		WindowState = FormWindowState::Minimized;
 		map2->ShowDialog();
 		WindowState = FormWindowState::Normal;
@@ -556,7 +556,7 @@ private: System::Void btn_creativo_MouseClick(System::Object^  sender, System::W
 	Dead = map1->Dead();
 	delete map1;
 	if (Dead == false) {
-		Map2^map2 = gcnew Map2(cantidadVidas, valdis, Int16(nud_comi->Value), Int16(nud_ter->Value), dinero, puntaje);
+		Map2^map2 = gcnew Map2(cantidadVidas, valdis, Int16(nud_comi->Value), Int16(nud_ter->Value), dinero, puntaje,hora,min);
 		WindowState = FormWindowState::Minimized;
 		map2->ShowDialog();
 		WindowState = FormWindowState::Normal;

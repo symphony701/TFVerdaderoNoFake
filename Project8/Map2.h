@@ -22,11 +22,11 @@ namespace Project8 {
 	private: System::Windows::Forms::Label^  lbl_puntaje;
 			 Graphics^g;
 	public:
-		Map2(Int16 vi, bool dispa, int toqueco, int toquefin, int dinero,int punta)
+		Map2(Int16 vi, bool dispa, int toqueco, int toquefin, int dinero,int punta,int hora, int min)
 		{
 			InitializeComponent();
 			g = panel1->CreateGraphics();
-			juego = gcnew CControl2(vi, dispa,toqueco,toquefin, dinero,punta);
+			juego = gcnew CControl2(vi, dispa,toqueco,toquefin, dinero,punta,lbl_puntaje,lbl_dinero,hora,min);
 		}
 	private: System::Windows::Forms::Label^  lbl_hora;
 	public:
@@ -96,7 +96,7 @@ namespace Project8 {
 			this->lbl_puntaje->Font = (gcnew System::Drawing::Font(L"Impact", 14.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->lbl_puntaje->ForeColor = System::Drawing::Color::White;
-			this->lbl_puntaje->Location = System::Drawing::Point(268, 8);
+			this->lbl_puntaje->Location = System::Drawing::Point(437, 8);
 			this->lbl_puntaje->Name = L"lbl_puntaje";
 			this->lbl_puntaje->Size = System::Drawing::Size(61, 35);
 			this->lbl_puntaje->TabIndex = 4;
