@@ -144,17 +144,17 @@ public:
 	Void keyDown(KeyEventArgs^  e) {
 		activo = true;
 		if (e->KeyCode == Keys::Up) {
-			jugador->Mover3(Direccion::Arriba);
+			jugador->Mover2(Direccion::Arriba);
 		}
 		else if (e->KeyCode == Keys::Down) {
-			jugador->Mover3(Direccion::Abajo);
+			jugador->Mover2(Direccion::Abajo);
 		}
 		else if (e->KeyCode == Keys::Left) {
-			jugador->Mover3(Direccion::Izquierda);
+			jugador->Mover2(Direccion::Izquierda);
 
 		}
 		else if (e->KeyCode == Keys::Right) {
-			jugador->Mover3(Direccion::Derecha);
+			jugador->Mover2(Direccion::Derecha);
 		}
 		else if (e->KeyCode == Keys::W) {
 			mensajuga->Disparar(jugador->getPosX(), jugador->getPosY(), jugador->getY(), jugador->getancho(), jugador->getalto());
