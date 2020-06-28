@@ -22,11 +22,11 @@ namespace Project8 {
 	private: System::Windows::Forms::Label^  lbl_puntaje;
 			 Graphics^g;
 	public:
-		Map2(Int16 vi, bool dispa, int toqueco, int toquefin, int dinero,int punta)
+		Map2(Int16 vi, bool dispa, int toqueco, int toquefin, int dinero,int punta,int hora, int min)
 		{
 			InitializeComponent();
 			g = panel1->CreateGraphics();
-			juego = gcnew CControl2(vi, dispa,toqueco,toquefin, dinero,punta);
+			juego = gcnew CControl2(vi, dispa,toqueco,toquefin, dinero,punta,lbl_puntaje,lbl_dinero,hora,min);
 		}
 	private: System::Windows::Forms::Label^  lbl_hora;
 	public:
@@ -68,10 +68,10 @@ namespace Project8 {
 		{
 			this->components = (gcnew System::ComponentModel::Container());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->lbl_puntaje = (gcnew System::Windows::Forms::Label());
+			this->lbl_dinero = (gcnew System::Windows::Forms::Label());
 			this->lbl_hora = (gcnew System::Windows::Forms::Label());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
-			this->lbl_dinero = (gcnew System::Windows::Forms::Label());
-			this->lbl_puntaje = (gcnew System::Windows::Forms::Label());
 			this->panel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -87,6 +87,34 @@ namespace Project8 {
 			this->panel1->Click += gcnew System::EventHandler(this, &Map2::panel1_Click);
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Map2::panel1_Paint);
 			this->panel1->DoubleClick += gcnew System::EventHandler(this, &Map2::panel1_DoubleClick);
+			// 
+			// lbl_puntaje
+			// 
+			this->lbl_puntaje->BackColor = System::Drawing::Color::Black;
+			this->lbl_puntaje->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->lbl_puntaje->Font = (gcnew System::Drawing::Font(L"Impact", 14.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lbl_puntaje->ForeColor = System::Drawing::Color::White;
+			this->lbl_puntaje->Location = System::Drawing::Point(437, 8);
+			this->lbl_puntaje->Name = L"lbl_puntaje";
+			this->lbl_puntaje->Size = System::Drawing::Size(61, 35);
+			this->lbl_puntaje->TabIndex = 4;
+			this->lbl_puntaje->Text = L"0p";
+			this->lbl_puntaje->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
+			// 
+			// lbl_dinero
+			// 
+			this->lbl_dinero->BackColor = System::Drawing::Color::Black;
+			this->lbl_dinero->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->lbl_dinero->Font = (gcnew System::Drawing::Font(L"Impact", 14.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lbl_dinero->ForeColor = System::Drawing::Color::White;
+			this->lbl_dinero->Location = System::Drawing::Point(557, 8);
+			this->lbl_dinero->Name = L"lbl_dinero";
+			this->lbl_dinero->Size = System::Drawing::Size(61, 35);
+			this->lbl_dinero->TabIndex = 3;
+			this->lbl_dinero->Text = L"$100";
+			this->lbl_dinero->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			// 
 			// lbl_hora
 			// 
@@ -106,34 +134,6 @@ namespace Project8 {
 			// 
 			this->timer1->Enabled = true;
 			this->timer1->Tick += gcnew System::EventHandler(this, &Map2::timer1_Tick);
-			// 
-			// lbl_dinero
-			// 
-			this->lbl_dinero->BackColor = System::Drawing::Color::Black;
-			this->lbl_dinero->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
-			this->lbl_dinero->Font = (gcnew System::Drawing::Font(L"Impact", 14.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->lbl_dinero->ForeColor = System::Drawing::Color::White;
-			this->lbl_dinero->Location = System::Drawing::Point(557, 8);
-			this->lbl_dinero->Name = L"lbl_dinero";
-			this->lbl_dinero->Size = System::Drawing::Size(61, 35);
-			this->lbl_dinero->TabIndex = 3;
-			this->lbl_dinero->Text = L"$100";
-			this->lbl_dinero->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			// 
-			// lbl_puntaje
-			// 
-			this->lbl_puntaje->BackColor = System::Drawing::Color::Black;
-			this->lbl_puntaje->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
-			this->lbl_puntaje->Font = (gcnew System::Drawing::Font(L"Impact", 14.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->lbl_puntaje->ForeColor = System::Drawing::Color::White;
-			this->lbl_puntaje->Location = System::Drawing::Point(268, 8);
-			this->lbl_puntaje->Name = L"lbl_puntaje";
-			this->lbl_puntaje->Size = System::Drawing::Size(61, 35);
-			this->lbl_puntaje->TabIndex = 4;
-			this->lbl_puntaje->Text = L"0p";
-			this->lbl_puntaje->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			// 
 			// Map2
 			// 
