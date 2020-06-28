@@ -73,8 +73,13 @@ public:
 			}
 		}
 	}
-	Int16 cobro() {
-		if (alquiler) {
+	Int16 cobro(Int16 i) {
+		if (alquiler&&i==1) {
+			if (aldis == 1) {
+				return 10;
+			}
+		}
+		if (alquiler&& i ==2) {
 			if (aldis == 1) {
 				return 20;
 			}

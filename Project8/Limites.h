@@ -94,7 +94,7 @@ public:
 	//mapa 2
 	bool mapa2arriba(bool movArriba,Int16 posx, Int16 posy){
 		while (true) {
-			if (Formula(240, 540, 130, 135, posx, posy)) { movArriba = false; break; }
+			if (Formula(240, 540, 145, 150, posx, posy)) { movArriba = false; break; }
 			movArriba = true;
 			break;
 		}
@@ -103,7 +103,7 @@ public:
 	}
 	bool mapa2abajo(bool movAbajo, Int16 posx, Int16 posy) {
 		while (true) {
-			if (Formula(240, 540, 245, 250, posx, posy)) { movAbajo = false; break; }
+			if (Formula(240, 540, 225, 230, posx, posy)) { movAbajo = false; break; }
 			movAbajo = true;
 				break;
 			}
@@ -115,7 +115,7 @@ public:
 	bool mapa2derecha( bool movDerecha, Int16 posx, Int16 posy) {
 		while (true) {
 
-			if (Formula(535, 540, 130, 250, posx, posy)) { movDerecha = false; break; }
+			if (Formula(520, 525, 130, 250, posx, posy)) { movDerecha = false; break; }
 		
 			movDerecha = true;
 			break;

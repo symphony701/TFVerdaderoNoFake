@@ -58,7 +58,7 @@ public:
 		g->DrawImage(mapa->getImagen(), 0, 0, mapa->getRectangle(), GraphicsUnit::Pixel);
 		personas->Mostrar(g);
 		jugador->Mostrar(g, activo,0);
-		dinero = dinero - jugador->cobro();
+		dinero = dinero - jugador->cobro(0);
 		lbl_dinero->Text = "$" + dinero;
 		/*if (personas->colisionConRecomendacion(jugador->getRectangle()))
 		{

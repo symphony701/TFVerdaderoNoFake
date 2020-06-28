@@ -108,7 +108,7 @@ public:
 
 		mensajuga->MostrarDisparo(g);
 		jugador->Mostrar(g, activo,2);
-		dinero = dinero - jugador->cobro();
+		dinero = dinero - jugador->cobro(2);
 		lbl_dinero->Text = "$" + dinero;
 		personas->Mostrar(g);
 		personas->Mover();

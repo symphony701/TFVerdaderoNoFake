@@ -2,7 +2,7 @@
 #include "Jugador.h"
 #include "Arremensajes.h"
 #include <iostream>
-
+#include "Persona.h"
 namespace Project8 {
 
 	using namespace System;
@@ -20,6 +20,8 @@ namespace Project8 {
 		Graphics^ g;
 		CArreMensajes^ mensajuga;
 		CJugador^ jugador;
+		CPersona^ persona1;
+		CPersona^ persona2;
 	private: System::Windows::Forms::Label^  label12;
 	private: System::Windows::Forms::Label^  label11;
 			 bool activo;
@@ -31,6 +33,10 @@ namespace Project8 {
 			g = panel1->CreateGraphics();
 			mensajuga = gcnew CArreMensajes(1);
 			jugador = gcnew CJugador(1);
+			persona1 = gcnew CPersona();
+			persona1->Ubicacion(280, 120);
+			persona2 = gcnew CPersona();
+			persona1->Ubicacion(280, 150);
 			activo = false;
 			jugador->setPosX(350);
 			jugador->setPosY(150);
@@ -243,7 +249,7 @@ namespace Project8 {
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(59, 44);
 			this->label2->TabIndex = 1;
-			this->label2->Text = L"/4";
+			this->label2->Text = L"/5";
 			// 
 			// label1
 			// 
@@ -297,27 +303,51 @@ namespace Project8 {
 		BufferedGraphics ^bf = bfc->Allocate(g, this->ClientRectangle);
 		if (num == 2) {
 			/*jugador->*/
+			bf->Graphics->DrawRectangle(gcnew Pen(Color::White, 4), 250, 165, 305, 115);
 			jugador->Mostrar(bf->Graphics, activo,0);
 			mensajuga->MostrarDisparo(bf->Graphics);
 		}
+		if (num == 3) {
+			persona1->Mostrar(bf->Graphics);
+			persona1->desplazamiento();
+			if (160 <= persona1->getPosX()) {
+				persona1->Ubicacion(70, 120);
+				persona1->CambioPersona();
+			}
 
+			persona2->Mostrar(bf->Graphics);
+			persona2->desplazamiento();
+			if (350 <= persona2->getPosX()) {
+				persona2->Ubicacion(280, 150);
+				persona2->CambioPersona();
+			}
+			persona2->Diasparar();
+			persona2->verBala(bf->Graphics);
+		}
+
+		if (num == 4) {
+			/*jugador->*/
+			bf->Graphics->DrawImage(gcnew Bitmap("casaLuri.png"), 250, 165);
+			bf->Graphics->DrawImage(gcnew Bitmap("casaSanMiguel.png"), 150, 225);
+
+		}
 		bf->Render(g);
 		delete bf, bfc;
 	}
 private: System::Void Instrucciones_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
 	activo = true;
 	if (e->KeyCode == Keys::Up) {
-		jugador->Mover3(Direccion::Arriba);
+		jugador->Mover2(Direccion::Arriba);
 	}
 	else if (e->KeyCode == Keys::Down) {
-		jugador->Mover3(Direccion::Abajo);
+		jugador->Mover2(Direccion::Abajo);
 	}
 	else if (e->KeyCode == Keys::Left) {
-		jugador->Mover3(Direccion::Izquierda);
+		jugador->Mover2(Direccion::Izquierda);
 
 	}
 	else if (e->KeyCode == Keys::Right) {
-		jugador->Mover3(Direccion::Derecha);
+		jugador->Mover2(Direccion::Derecha);
 	}
 	else if (e->KeyCode == Keys::W) {
 		/*jugador->MostrarDisparo(jugador->getPosX(), jugador->getPosY(), jugador->getY());*/
@@ -344,6 +374,7 @@ private: System::Void Instrucciones_KeyUp(System::Object^  sender, System::Windo
 }
 private: System::Void label12_Click(System::Object^  sender, System::EventArgs^  e) {
 	num++;
+	if (num >= 5) { num = 5; }
 	label1->Text = num + "";
 	label11->ForeColor = System::Drawing::Color::White;
 	label12->ForeColor = System::Drawing::Color::White;
@@ -394,9 +425,43 @@ private: System::Void label12_Click(System::Object^  sender, System::EventArgs^ 
 		label6->Location = System::Drawing::Point(45, 327);
 
 	}
+	if (num == 3) {
+		label3->Text = "Los enemigos pueden hacerte daño";
+		label3->Location = System::Drawing::Point(62, 62);
+		label4->Text = "Cuerpo a Cuerpo o Disparos";
+		label4->Location = System::Drawing::Point(245, 106);
+		label5->Text = "Las autoridades te ayudaran";
+		label5->Location = System::Drawing::Point(240, 283);
+		label6->Text = "a llevarlos una vez identificados";
+		label6->Location = System::Drawing::Point(45, 327);
+
+	}
+	if (num == 4) {
+		label3->Text = "Existen 2 casas que puedes alquilar en todo el juego";
+		label3->Location = System::Drawing::Point(62, 62);
+		label4->Text = "la primera esta cerca de donde apareces";
+		label4->Location = System::Drawing::Point(245, 106);
+		label5->Text = "La otra se encuentra ubicada";
+		label5->Location = System::Drawing::Point(240, 283);
+		label6->Text = "Al lado de la PNP";
+		label6->Location = System::Drawing::Point(45, 327);
+
+	}
+	if (num == 5) {
+		label3->Text = "El ultimo mapa es un mapa de concientizacion";
+		label3->Location = System::Drawing::Point(62, 62);
+		label4->Text = "Espero que lo pases bien";
+		label4->Location = System::Drawing::Point(245, 106);
+		label5->Text = "Y que lo disfrutes de este";
+		label5->Location = System::Drawing::Point(240, 283);
+		label6->Text = "Agradable Juego";
+		label6->Location = System::Drawing::Point(45, 327);
+
+	}
 }
 private: System::Void label11_Click(System::Object^  sender, System::EventArgs^  e) {
 	num--;
+	if (num <= 0) {	num = 1;}
 	label1->Text = num + "";
 	label12->ForeColor = System::Drawing::Color::White;
 	label11->ForeColor = System::Drawing::Color::White;
@@ -442,9 +507,43 @@ private: System::Void label11_Click(System::Object^  sender, System::EventArgs^ 
 		label4->Text = "Y la W para disparar";
 		label4->Location = System::Drawing::Point(245, 106);
 		label5->Text = "Solo posees 5 disparos";
-		label5->Location = System::Drawing::Point(245, 283);
+		label5->Location = System::Drawing::Point(240, 283);
 		label6->Text = "Y cada mapa tiene restricciones, tener cuidado";
-		label6->Location = System::Drawing::Point(62, 327);
+		label6->Location = System::Drawing::Point(45, 327);
+
+	}
+	if (num == 3) {
+		label3->Text = "Los enemigos pueden hacerte daño";
+		label3->Location = System::Drawing::Point(62, 62);
+		label4->Text = "Cuerpo a Cuerpo o Disparos";
+		label4->Location = System::Drawing::Point(245, 106);
+		label5->Text = "Las autoridades te ayudaran";
+		label5->Location = System::Drawing::Point(240, 283);
+		label6->Text = "a llevarlos una vez identificados";
+		label6->Location = System::Drawing::Point(45, 327);
+
+	}
+	if (num == 4) {
+		label3->Text = "Existen 2 casas que puedes alquilar en todo el juego";
+		label3->Location = System::Drawing::Point(62, 62);
+		label4->Text = "la primera esta cerca de donde apareces";
+		label4->Location = System::Drawing::Point(245, 106);
+		label5->Text = "La otra se encuentra ubicada";
+		label5->Location = System::Drawing::Point(240, 283);
+		label6->Text = "Al lado de la PNP";
+		label6->Location = System::Drawing::Point(45, 327);
+
+	}
+	if (num == 5) {
+		label3->Text = "El ultimo mapa es un mapa de concientizacion";
+		label3->Location = System::Drawing::Point(62, 62);
+		label4->Text = "Espero que lo pases bien";
+		label4->Location = System::Drawing::Point(245, 106);
+		label5->Text = "Y que lo disfrutes de este";
+		label5->Location = System::Drawing::Point(240, 283);
+		label6->Text = "Agradable Juego";
+		label6->Location = System::Drawing::Point(45, 327);
+
 	}
 }
 private: System::Void label12_MouseHover(System::Object^  sender, System::EventArgs^  e) {
