@@ -1,7 +1,7 @@
 #pragma once
 #include "Entidad.h"
 #include <iostream>
-#include "Bala.h"
+
 #include "Arremensajes.h"
 using namespace System;
 using namespace System::Windows::Forms;
