@@ -146,6 +146,13 @@ public:
 		if (vidajuga->Muerte()) { tipomuer = 1; }
 		return vidajuga->Muerte();
 	}
+	int getCantidadEnemigos() {
+		return personas->getPersonas();
+	}
+	Void registrarDatos() {
+		/*fstream puntaje("puntaje.txt", ios::out);
+		puntaje << to_string(punta) << endl;*/
+	}
 	Void keyDown(KeyEventArgs^  e) {
 		activo = true;
 		if (e->KeyCode == Keys::Up) {

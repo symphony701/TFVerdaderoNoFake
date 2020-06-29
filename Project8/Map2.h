@@ -18,6 +18,8 @@ namespace Project8 {
 	{
 		CControl2^ juego;
 		bool Muerte;
+		BufferedGraphicsContext ^bfc;
+		BufferedGraphics ^bf;
 	private: System::Windows::Forms::Label^  lbl_dinero;
 	private: System::Windows::Forms::Label^  lbl_puntaje;
 			 Graphics^g;
@@ -27,6 +29,8 @@ namespace Project8 {
 			InitializeComponent();
 			g = panel1->CreateGraphics();
 			juego = gcnew CControl2(vi, dispa,toqueco,toquefin, dinero,punta,lbl_puntaje,lbl_dinero,hora,min);
+			bfc = BufferedGraphicsManager::Current;
+			bf = bfc->Allocate(g, this->ClientRectangle);
 		}
 	private: System::Windows::Forms::Label^  lbl_hora;
 	public:
@@ -44,6 +48,7 @@ namespace Project8 {
 			{
 				delete components;
 			}
+			delete bf, bfc;
 		}
 	private: System::Windows::Forms::Panel^  panel1;
 	protected:
@@ -154,17 +159,21 @@ namespace Project8 {
 #pragma endregion
 	private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {
 	
-		BufferedGraphicsContext ^bfc = BufferedGraphicsManager::Current;
-		BufferedGraphics ^bf = bfc->Allocate(g, this->ClientRectangle);
 		/////INICIO DE CODIGO
 
 
 		Muerte = juego->cadaTick(lbl_puntaje, bf->Graphics, lbl_dinero, lbl_hora);
 		///////FIN DE CODIGO
 		bf->Render(g);
-		delete bf, bfc;
+		if (juego->getCantidadEnemigos() <= 0)
+		{
+			juego->registrarDatos();
+			delete bf, bfc;
+			Close();
+		}
 		if (Muerte == true) {
 			timer1->Enabled = false;
+			delete bf, bfc;
 			Close();
 		}
 	
