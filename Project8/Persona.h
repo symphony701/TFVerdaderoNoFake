@@ -97,9 +97,7 @@ public:
 	}
 	Int16 direccion() { return cols; }
 	bool Dispactiva(Int16 i) {  return tomate->getactivador(i); }
-	Void Trayectar() {
-		/*bala->Mover();*/
-	}
+
 	Void verBala(Graphics^g) {
 		tomate->MostrarDisparo(g);
 	}
