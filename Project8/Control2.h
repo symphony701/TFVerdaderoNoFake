@@ -8,6 +8,7 @@
 #include "Tiempo.h"
 #include "Personas.h"
 #include <iostream>
+#include <fstream>
 #include "Arremensajes.h"
 #include "Vidas.h"
 using namespace System;
@@ -150,8 +151,8 @@ public:
 		return personas->getPersonas();
 	}
 	Void registrarDatos() {
-		/*fstream puntaje("puntaje.txt", ios::out);
-		puntaje << to_string(punta) << endl;*/
+		fstream puntaje("puntaje.txt", ios::out);
+		puntaje << to_string(punta) << endl;
 	}
 	Void keyDown(KeyEventArgs^  e) {
 		activo = true;
