@@ -252,7 +252,7 @@ private: System::Void btnPuntaje_Click(System::Object^  sender, System::EventArg
 	p = file->getToDePun();
 	d = file->getDinRes();
 	ene = file->getEneEle();
-	MessageBox::Show("Mayor Puntaje: " + p+"\n Cantidad de enemigos eliminados del mayor puntaje: "+ene+"\n Cantidad de dinero restante del mayor puntaje: "+d);
+	MessageBox::Show("Mayor Puntaje Neto: " + p+"\n Mayor Puntaje Total: "+ene+"\n Cantidad de dinero restante del mayor puntaje: "+d);
 
 }
 };

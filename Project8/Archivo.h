@@ -17,15 +17,13 @@ public:
 		this->dinRes = din;
 	};
 	~CArchivo() {}
-	void Escribir(int enemigosEliminados,int totalDePuntaje,int dineroRestante) {
+	void Escribir(int puntajeMasDinero,int totalDePuntaje,int dineroRestante) {
+		puntajeMasDinero = totalDePuntaje + dineroRestante;
 		ofstream file("some.txt");
-		file << enemigosEliminados<<" "<<totalDePuntaje<<" "<<dineroRestante<<endl;
+		file << puntajeMasDinero <<" "<<totalDePuntaje<<" "<<dineroRestante<<endl;
 		file.close();
 	}
-	void Abrir() {
-		ifstream file("some.txt");
-
-	}
+	
 	bool Comparar(int totalDePuntaje) {
 		bool val;
 		if (totalDePuntaje>toDePun)
