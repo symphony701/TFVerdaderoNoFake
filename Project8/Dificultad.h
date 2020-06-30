@@ -6,6 +6,7 @@
 #include "Map2.h"
 #include "map3.h"
 #include "Pantallafinal.h"
+#include "Archivo.h"
 namespace Project8 {
 
 	using namespace System;
@@ -24,6 +25,7 @@ namespace Project8 {
 	CPersona^ persona1;
 	CPersona^ persona2;
 	CPersona^ persona3;
+	CArchivo^file;
 	bool Dead;
 	Int16 tipodead;
 	bool valdis;
@@ -46,6 +48,7 @@ public:
 		persona3 = gcnew CPersona();
 		persona3->Ubicacion(550, 120);
 		valdis = false;
+		file = gcnew CArchivo();
 
 		//
 		//TODO: agregar c�digo de constructor aqu�
@@ -477,8 +480,14 @@ private: System::Void btn_facil_MouseClick(System::Object^  sender, System::Wind
 		delete Map3;
 	}
 	Pantallafinal^ final = gcnew Pantallafinal(Dead, tipodead, puntaje, dinero);
+	
 	WindowState = FormWindowState::Minimized;
 	final->ShowDialog();
+	///
+	if (file->Comparar(puntaje))
+	{
+		file->Escribir(0, puntaje, dinero);
+	}
 	WindowState = FormWindowState::Normal;
 	delete final;
 }
@@ -519,6 +528,11 @@ private: System::Void btn_dificil_MouseClick(System::Object^  sender, System::Wi
 		delete Map3;
 	}
 	Pantallafinal^ final = gcnew Pantallafinal(Dead, tipodead, puntaje, dinero);
+	///
+	if (file->Comparar(puntaje))
+	{
+		file->Escribir(0, puntaje, dinero);
+	}
 	WindowState = FormWindowState::Minimized;
 	final->ShowDialog();
 	WindowState = FormWindowState::Normal;
@@ -561,6 +575,11 @@ private: System::Void btn_creativo_MouseClick(System::Object^  sender, System::W
 		delete Map3;
 	}
 	Pantallafinal^ final = gcnew Pantallafinal(Dead, tipodead, puntaje, dinero);
+	///
+	if (file->Comparar(puntaje))
+	{
+		file->Escribir(0, puntaje, dinero);
+	}
 	WindowState = FormWindowState::Minimized;
 	final->ShowDialog();
 	WindowState = FormWindowState::Normal;

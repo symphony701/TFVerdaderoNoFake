@@ -142,6 +142,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ambulancia.h" />
+    <ClInclude Include="Archivo.h" />
     <ClInclude Include="Arremensajes.h" />
     <ClInclude Include="Autoridad.h" />
     <ClInclude Include="Control1.h" />

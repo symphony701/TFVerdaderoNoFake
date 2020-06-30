@@ -1,6 +1,7 @@
 #pragma once
 #include "Dificultad.h"
 #include "Instrucciones.h"
+#include "Archivo.h"
 
 namespace Project8 {
 
@@ -18,6 +19,7 @@ namespace Project8 {
 	public ref class Menuxd : public System::Windows::Forms::Form
 	{
 		SoundPlayer^ ost;
+
 	public:
 		Menuxd(void)
 		{
@@ -26,6 +28,7 @@ namespace Project8 {
 			gr = panel1->CreateGraphics();
 			ost = gcnew SoundPlayer("ost.wav");
 			ost->PlayLooping();
+			file = gcnew CArchivo();
 		
 			//
 			//TODO: agregar código de constructor aquí
@@ -58,7 +61,9 @@ namespace Project8 {
 	private:
 		Bitmap ^ fondo;
 		Graphics^gr;
+		CArchivo^file;
 	private: System::Windows::Forms::Button^  btn_int;
+	private: System::Windows::Forms::Button^  btnPuntaje;
 
 
 
@@ -78,12 +83,14 @@ namespace Project8 {
 			this->btn_int = (gcnew System::Windows::Forms::Button());
 			this->btnstart = (gcnew System::Windows::Forms::Button());
 			this->btnexit = (gcnew System::Windows::Forms::Button());
+			this->btnPuntaje = (gcnew System::Windows::Forms::Button());
 			this->panel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// panel1
 			// 
 			this->panel1->BackColor = System::Drawing::Color::Transparent;
+			this->panel1->Controls->Add(this->btnPuntaje);
 			this->panel1->Controls->Add(this->btn_int);
 			this->panel1->Controls->Add(this->btnstart);
 			this->panel1->Controls->Add(this->btnexit);
@@ -142,6 +149,21 @@ namespace Project8 {
 			this->btnexit->Click += gcnew System::EventHandler(this, &Menuxd::button1_Click);
 			this->btnexit->MouseHover += gcnew System::EventHandler(this, &Menuxd::btnexit_MouseHover);
 			// 
+			// btnPuntaje
+			// 
+			this->btnPuntaje->BackColor = System::Drawing::Color::Black;
+			this->btnPuntaje->Font = (gcnew System::Drawing::Font(L"Bernard MT Condensed", 20, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->btnPuntaje->ForeColor = System::Drawing::Color::White;
+			this->btnPuntaje->Location = System::Drawing::Point(270, 311);
+			this->btnPuntaje->Name = L"btnPuntaje";
+			this->btnPuntaje->Size = System::Drawing::Size(236, 71);
+			this->btnPuntaje->TabIndex = 3;
+			this->btnPuntaje->Text = L"Mayor Puntaje";
+			this->btnPuntaje->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->btnPuntaje->UseVisualStyleBackColor = false;
+			this->btnPuntaje->Click += gcnew System::EventHandler(this, &Menuxd::btnPuntaje_Click);
+			// 
 			// Menuxd
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -161,17 +183,9 @@ namespace Project8 {
 		WindowState = FormWindowState::Minimized;
 		difi1->ShowDialog();
 		WindowState = FormWindowState::Normal;
+		file = gcnew CArchivo();
 		delete difi1;
-		/*Map2^map2 = gcnew Map2();
-		WindowState = FormWindowState::Minimized;
-		map2->ShowDialog();
-		WindowState = FormWindowState::Normal;
-		delete map2;
-		map3^Map3 = gcnew map3();
-		WindowState = FormWindowState::Minimized;
-		Map3->ShowDialog();
-		WindowState = FormWindowState::Normal;
-		delete Map3;*/
+		
 		
 
 	}
@@ -232,6 +246,14 @@ private: System::Void btn_int_MouseClick(System::Object^  sender, System::Window
 	instruc->ShowDialog();
 	WindowState = FormWindowState::Normal;
 	delete instruc;
+}
+private: System::Void btnPuntaje_Click(System::Object^  sender, System::EventArgs^  e) {
+	int p, d, ene;
+	p = file->getToDePun();
+	d = file->getDinRes();
+	ene = file->getEneEle();
+	MessageBox::Show("Mayor Puntaje: " + p+"\n Cantidad de enemigos eliminados del mayor puntaje: "+ene+"\n Cantidad de dinero restante del mayor puntaje: "+d);
+
 }
 };
 }
